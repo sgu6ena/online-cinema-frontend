@@ -7,18 +7,18 @@ const nextConfig = {
 		APP_ENV: process.env.REACT_APP_ENV,
 		APP_SERVER_URL: process.env.REACT_SERVER_APP_URL,
 	},
-	async rewrites() {
-		return [
-			{
-				source: '/api/path*',
-				destination: 'http://localhost:4400/api/:path',
-			},
-			{
-				source: '/uploads/path*',
-				destination: 'http://localhost:4400/uploads/:path',
-			},
-		]
-	},
+	// async rewrites() {
+	// 	return [
+	// 		{
+	// 			source: '/api/path*',
+	// 			destination: 'http://localhost:4400/api/:path',
+	// 		},
+	// 		{
+	// 			source: '/uploads/path*',
+	// 			destination: 'http://localhost:4400/uploads/:path',
+	// 		},
+	// 	]
+	// },
 }
 
 module.exports = nextConfig
