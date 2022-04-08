@@ -1,10 +1,14 @@
 import { FC } from 'react'
-import styles from './MenuContainer.module.scss'
+
+import Menu from './Menu'
+import { firstMenu } from './menu.data'
 
 const MenuContainer: FC = () => {
-	return <div className={styles.MenuContainer}>
-
-	</div>
+	return (
+		<div>
+			<Menu menu={firstMenu} />
+		</div>
+	)
 }
 
 export default MenuContainer
