@@ -19,7 +19,7 @@ export const firstMenu: IMenu = {
 			title: 'Новинки',
 		},
 		{
-			icon: 'MdLocalFireDepartament',
+			icon: 'MdLocalFireDepartment',
 			link: '/trending',
 			title: 'В тренде',
 		},
