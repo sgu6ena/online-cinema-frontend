@@ -9,7 +9,7 @@ export const usePortalGenres=()=>{
 		() => GenreService.getPortal(),
 		{
 			select: ({ data }) =>
-				data
+				data.filter((genre: { type: number })=>genre.type===3)
 					.map(
 						(genre:any) =>
 							({
