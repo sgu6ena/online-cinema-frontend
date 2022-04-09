@@ -7,6 +7,7 @@ const MenuContainer: FC = () => {
 	return (
 		<div>
 			<Menu menu={firstMenu} />
+			{/*genres menu*/}
 			<Menu menu={userMenu}/>
 		</div>
 	)
