@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import { GiClapperboard } from 'react-icons/gi'
-import logoImage from '../../../assets/images/logo.svg'
+import logoImage from '@/assets/images/logo.svg'
 
 const Logo: FC = () => {
 	return (
