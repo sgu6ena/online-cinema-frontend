@@ -1,5 +1,6 @@
-import  { FC } from 'react'
+import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+
 import Layout from '../components/layout/Layout'
 
 const queryClient = new QueryClient({
