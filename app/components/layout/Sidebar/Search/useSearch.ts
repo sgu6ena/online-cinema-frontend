@@ -22,5 +22,5 @@ export const useSearch = () => {
 		setSeacrhTerm(e.target.value)
 	}
 
-	return { isSuccess, handleSearch, data }
+	return { isSuccess, handleSearch, data, searchTerm }
 }
