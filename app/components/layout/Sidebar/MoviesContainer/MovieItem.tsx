@@ -2,8 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { getMoviesUrl } from '@/config/api.config'
-
+import { getMoviesUrl } from '../../../../config/api.config'
 import { getGenresUrl } from '../../../../config/api.config'
 import { IMovie } from '../../../../shared/types/movie.types'
 import { getGenresListEach } from '../../../../utils/movie/getGenresList'

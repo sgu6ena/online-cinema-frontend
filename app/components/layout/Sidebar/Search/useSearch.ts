@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from 'react'
 import { useQuery } from 'react-query'
+import { useDebounce } from '../../../../hooks/useDubounce'
+import { MovieService } from '../../../../services/movie.service'
 
-import { useDebounce } from '@/hooks/useDubounce'
 
-import { MovieService } from '@/services/movie.service'
 
 export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState('')
