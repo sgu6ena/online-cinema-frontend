@@ -6,11 +6,11 @@ import { useDebounce } from '@/hooks/useDubounce'
 import { MovieService } from '@/services/movie.service'
 
 export const useSearch = () => {
-	const [searchTerm, setSeacrhTerm] = useState('')
+	const [searchTerm, setSearchTerm] = useState('')
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const { isSuccess, data } = useQuery(
-		['searvh movie list', debouncedSearch],
+		['search movie list', debouncedSearch],
 		() => MovieService.getAll(debouncedSearch),
 		{
 			select: ({ data }) => data,
@@ -19,7 +19,7 @@ export const useSearch = () => {
 	)
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-		setSeacrhTerm(e.target.value)
+		setSearchTerm(e.target.value)
 	}
 
 	return { isSuccess, handleSearch, data, searchTerm }
