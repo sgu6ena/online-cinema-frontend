@@ -1,50 +1,67 @@
 .list {
-	@apply mt-11 animate-fade;
+  @apply mt-11 animate-fade;
 
-	.heading {
-		@apply font-bold text-xl mb-5 text-white capitalize;
-	}
+  .heading {
+    @apply font-bold text-xl mb-5 text-white capitalize;
+  }
 
-	.button {
-		@apply p-2.5 btn-primary block text-center;
-	}
+  .button {
+    @apply p-2.5 btn-primary block text-center;
+  }
 
-	.item {
-		@apply mb-4 flex items-stretch;
-		> a {
-			img {
-				@apply rounded-image transition-colors;
-				border: 1px solid transparent !important;
-			}
+  .item {
+    @apply mb-4 flex items-stretch;
+    > a {
+      img {
 
-			&:hover {
-				img {
-					border-color: var(--primary-color) !important;
-				}
-			}
-		}
+        @apply rounded-image transition-colors;
+        border: 1px solid transparent !important;
+        text-indent: -10000px;
 
-		.info {
-			@apply ml-4 flex flex-col justify-between;
-			width: 67%;
 
-			.title {
-				@apply text-white text-lg font-medium truncate;
-			}
+      }
 
-			.genres {
-				@apply text-gray-600 text-sm;
-			}
+      img:before {
+        content: "";
+        display: block;
+        background: no-repeat center url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!--  --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='red' x='0px' y='0px' width='60px' height='120px' viewBox='0 0 497 497' style='enable-background:new 0 0 491 491%3B' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M120.847 0v17.128H75.171V0h-28.07v491h28.07v-17.128h45.675V491h30.45V359.572h188.407V491h29.498v-17.128h45.674V491h29.023V0h-29.023v17.128h-45.674V0h-29.498v131.428H151.296V0H120.847z M120.847 435.812H75.171v-45.676h45.675V435.812z M120.847 352.072H75.171v-45.676h45.675V352.072z M120.847 268.337H75.171v-45.674h45.675V268.337z M120.847 184.602H75.171v-45.674h45.675V184.602z M120.847 100.863H75.171V55.189h45.675V100.863z M369.201 55.189h45.674v45.674h-45.674V55.189z M369.201 138.927h45.674v45.674h-45.674V138.927z M369.201 222.663h45.674v45.674h-45.674V222.663z M369.201 306.396h45.674v45.676h-45.674V306.396z M369.201 390.137h45.674v45.675h-45.674V390.137z M339.703 178.359v134.284H151.296V178.359H339.703z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E");
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+      }
 
-			.rating {
-				@apply flex items-center mb-2;
-				> svg {
-					@apply fill-yellow-700 mr-2 text-lg;
-				}
-				> span {
-					@apply text-white font-medium pt-0.5;
-				}
-			}
-		}
-	}
+      &:hover {
+        img {
+          border-color: var(--primary-color) !important;
+        }
+      }
+    }
+
+    .info {
+      @apply ml-4 flex flex-col justify-between;
+      width: 67%;
+
+      .title {
+        @apply text-white text-lg font-medium truncate;
+      }
+
+      .genres {
+        @apply text-gray-600 text-sm;
+      }
+
+      .rating {
+        @apply flex items-center mb-2;
+        > svg {
+          @apply fill-yellow-700 mr-2 text-lg;
+        }
+
+        > span {
+          @apply text-white font-medium pt-0.5;
+        }
+      }
+    }
+  }
 }
