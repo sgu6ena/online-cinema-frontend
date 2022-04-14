@@ -4,9 +4,11 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { useAuth } from '../../../hooks/useAuth'
 import Meta from '../../../utils/meta/Meta'
 import Button from '../../ui/form-elemets/Button'
+import Field from '../../ui/form-elemets/Field'
 import Heading from '../../ui/heading/Heading'
 
 import styles from './Auth.module.scss'
+import AuthFields from './AuthFields'
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
 
@@ -23,8 +25,12 @@ const Auth: FC = () => {
 		reset,
 	} = useForm<IAuthInput>({ mode: 'onChange' })
 
-	const login = (data: any) => {}
-	const register = (data: any) => {}
+	const login = (data: any) => {
+		console.log(data)
+	}
+	const register = (data: any) => {
+		console.log(data)
+	}
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data)
@@ -38,7 +44,11 @@ const Auth: FC = () => {
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Heading title={'Авторизация'} className="mb-6" />
 
-					{/*	fields*/}
+					<AuthFields
+						register={registerInput}
+						formState={formState}
+						isPasswordRequired
+					/>
 
 					<div className={styles.buttons}>
 						<Button
@@ -46,14 +56,14 @@ const Auth: FC = () => {
 							onClick={() => setType('login')}
 							disabled={isLoading}
 						>
-							Login
+							Войти
 						</Button>
 						<Button
 							type="submit"
 							onClick={() => setType('register')}
 							disabled={isLoading}
 						>
-							Register
+							Регистрация
 						</Button>
 					</div>
 				</form>
