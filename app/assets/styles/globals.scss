@@ -21,15 +21,31 @@ a {
   box-sizing: border-box;
 }
 
-:root{
-  --primary-color:#e30b13;
+:root {
+  --primary-color: #e30b13;
 }
 
 input[type='file'],
-input[type='file']::-webkit-file-upload-button{
+input[type='file']::-webkit-file-upload-button {
   @apply cursor-pointer focus:outline-none
 }
 
-input:focus{
+input:focus {
   box-shadow: none !important;
+}
+
+//скроллбар
+div::-webkit-scrollbar {
+  width: 0px;
+}
+
+div::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.0) inset;
+  background-color: var(--base-color);
+  border-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: black;
 }
