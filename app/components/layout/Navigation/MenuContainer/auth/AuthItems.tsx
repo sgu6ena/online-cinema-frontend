@@ -46,7 +46,7 @@ const AuthItems: FC = () => {
 				<MenuItem
 					item={{
 						icon: 'MdOutlineLock',
-						link: '/manage',
+						link: getAdminHomeUrl(),
 						title: 'Админка',
 					}}
 				/>

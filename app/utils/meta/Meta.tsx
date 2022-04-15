@@ -2,12 +2,11 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
+import logoImage from '../../assets/images/logo.svg'
 import { siteName, titleMerge } from '../../config/seo.config'
 import { onlyText } from '../string/clearText'
 
 import { ISeo } from './meta.interface'
-
-import logoImage from '../../assets/images/logo.svg'
 
 const Meta: FC<ISeo> = ({ title, image, description, children }) => {
 	const { asPath } = useRouter()
@@ -39,6 +38,7 @@ const Meta: FC<ISeo> = ({ title, image, description, children }) => {
 					<meta name="robots" content="noindex, nofollow" />
 				)}
 			</Head>
+			{children}
 		</>
 	)
 }
