@@ -15,7 +15,7 @@ const AuthItems: FC = () => {
 		user?.isAdmin && setAdmin(true)
 
 		user ? setLogin(true) : setLogin(false)
-	}, [])
+	}, [user])
 
 	return (
 		<>
@@ -46,7 +46,7 @@ const AuthItems: FC = () => {
 				<MenuItem
 					item={{
 						icon: 'MdOutlineLock',
-						link: getAdminHomeUrl(),
+						link: '/manage',
 						title: 'Админка',
 					}}
 				/>
