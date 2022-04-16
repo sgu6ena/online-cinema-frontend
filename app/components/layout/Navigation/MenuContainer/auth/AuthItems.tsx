@@ -12,10 +12,10 @@ const AuthItems: FC = () => {
 	const [login, setLogin] = useState(false)
 
 	useEffect(() => {
-		user?.isAdmin && setAdmin(true)
+		login && user?.isAdmin && setAdmin(true)
 
 		user ? setLogin(true) : setLogin(false)
-	}, [user])
+	}, [user, login])
 
 	return (
 		<>

@@ -6,10 +6,10 @@ import { firstMenu, userMenu } from './menu.data'
 
 const MenuContainer: FC = () => {
 	return (
-		<div>
+		<div>	<Menu menu={userMenu} />
 			<Menu menu={firstMenu} />
 			<GenreMenu />
-			<Menu menu={userMenu} />
+
 		</div>
 	)
 }

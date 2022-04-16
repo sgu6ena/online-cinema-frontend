@@ -1,13 +1,17 @@
-import {FC} from "react";
+import { FC } from 'react'
 
-import styles from "Statistic.module.scss"
+import styles from '../Admin.module.scss'
+
+import CountUsers from './CountUsers'
+import PopularMovie from './PopularMovie'
 
 const Statistic: FC = () => {
-  return (
-      <div>
+	return (
+		<div className={styles.statistics}>
+			<CountUsers />
+			<PopularMovie />
+		</div>
+	)
+}
 
-      </div>
-  );
-};
-
-export default Statistic;
+export default Statistic
