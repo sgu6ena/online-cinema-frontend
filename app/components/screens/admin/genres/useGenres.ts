@@ -4,7 +4,6 @@ import { toastr } from 'react-redux-toastr'
 
 import { getAdminUrl } from '../../../../config/url.config'
 import { useDebounce } from '../../../../hooks/useDubounce'
-import { ActorService } from '../../../../services/actor.service'
 import { GenreService } from '../../../../services/genre.service'
 import { toastError } from '../../../../utils/toast-error'
 import { ITableItem } from '../../../ui/AdminTable/admin-table.interface'
@@ -38,7 +37,7 @@ export const useGenres = () => {
 
 	const { mutateAsync: deleteAsync } = useMutation(
 		['delete genre', debouncedSearch],
-		(genreId: string) => ActorService.deleteActor(genreId),
+		(genreId: string) => GenreService.delete(genreId),
 		{
 			onError: (error) => {
 				toastError(error, 'Удаление жанра')
