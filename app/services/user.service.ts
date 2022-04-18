@@ -1,5 +1,4 @@
-import axios from 'axios'
-
+import axios from '../api/interceptors'
 import { getUserUrl } from '../config/api.config'
 import { IUser } from '../shared/types/user.types'
 

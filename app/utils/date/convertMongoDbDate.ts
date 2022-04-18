@@ -1,1 +1,3 @@
-export const convertMongoDbDate = (date: string) => new Date(date).toDateString()
+export const convertMongoDbDate = (date: string) => {
+	return new Date(date).toLocaleString('ru-RU')
+}

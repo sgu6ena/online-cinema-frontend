@@ -6,18 +6,18 @@ import AdminTable from '../../../ui/AdminTable/AdminTable'
 import AdminNavigation from '../../../ui/admin-navigation/AdminNavigation'
 import Heading from '../../../ui/heading/Heading'
 
-import { useUsers } from './useUsers'
+import { useGenres } from './useGenres'
 
-const UserListPage: FC = () => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useUsers()
+const GenresList: FC = () => {
+	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useGenres()
 	return (
-		<Meta title="Пользователи">
+		<Meta title="Жанры">
 			<AdminNavigation />
-			<Heading title={'Пользователи'} />
+			<Heading title={'Жанры'} />
 			<AdminHeader searchTerm={searchTerm} handleSearch={handleSearch} />
 
 			<AdminTable
-				headerItems={['E-mail', 'Дата регистрации', 'Доступ']}
+				headerItems={['Название', 'Количество фильмов']}
 				tableItems={data || []}
 				removeHandler={deleteAsync}
 				isLoading={isLoading}
@@ -26,4 +26,4 @@ const UserListPage: FC = () => {
 	)
 }
 
-export default UserListPage
+export default GenresList

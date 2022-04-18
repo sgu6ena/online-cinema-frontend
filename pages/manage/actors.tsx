@@ -1,16 +1,8 @@
-
-import { FC } from 'react'
-import AdminNavigation from '../../app/components/ui/admin-navigation/AdminNavigation'
-import Heading from '../../app/components/ui/heading/Heading'
+import ActorsList from '../../app/components/screens/admin/actors/ActorsList'
 import { NextPageAuth } from '../../app/shared/types/auth.types'
 
-const ActorsPage: NextPageAuth = () => {
-	return (
-		<div>
-			<AdminNavigation />
-			<Heading title={'Актеры'}/>
-		</div>
-	)
+const Actors: NextPageAuth = () => {
+	return <ActorsList />
 }
 
-export default ActorsPage
+export default Actors

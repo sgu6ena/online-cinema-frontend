@@ -6,18 +6,18 @@ import AdminTable from '../../../ui/AdminTable/AdminTable'
 import AdminNavigation from '../../../ui/admin-navigation/AdminNavigation'
 import Heading from '../../../ui/heading/Heading'
 
-import { useUsers } from './useUsers'
+import { useMovies } from './useMovies'
 
-const UserListPage: FC = () => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useUsers()
+const MoviesList: FC = () => {
+	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useMovies()
 	return (
-		<Meta title="Пользователи">
+		<Meta title="Фильмы">
 			<AdminNavigation />
-			<Heading title={'Пользователи'} />
+			<Heading title={'Фильмы'} />
 			<AdminHeader searchTerm={searchTerm} handleSearch={handleSearch} />
 
 			<AdminTable
-				headerItems={['E-mail', 'Дата регистрации', 'Доступ']}
+				headerItems={['Название', 'Рейтинг', 'Количество запусков']}
 				tableItems={data || []}
 				removeHandler={deleteAsync}
 				isLoading={isLoading}
@@ -26,4 +26,4 @@ const UserListPage: FC = () => {
 	)
 }
 
-export default UserListPage
+export default MoviesList

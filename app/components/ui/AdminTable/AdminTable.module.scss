@@ -1,0 +1,25 @@
+.table {
+  @apply w-full my-5 p-4 border-collapse  ;
+  tr {
+    @apply border-primary border rounded-lg overflow-hidden  w-full rounded-lg overflow-hidden  border border-gray-900 rounded-lg border-8   bg-gray-700 bg-opacity-20 mt-4 px-5 transition-colors hover:bg-opacity-50 text-white text-opacity-80;
+
+    > th,
+    > td {
+      @apply text-left py-3 px-5 ;
+      &:last-child {
+        @apply text-right justify-end;
+      }
+    }
+  }
+
+  thead {
+    @apply mb-5 bg-primary bg-opacity-20 hover:bg-opacity-50;
+    tr {
+      @apply bg-primary bg-opacity-20 shadow-lg mt-8 hover:bg-opacity-50 ;
+      > th {
+        @apply text-opacity-90 font-semibold;
+      }
+    }
+  }
+
+}
