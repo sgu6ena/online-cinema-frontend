@@ -1,5 +1,8 @@
+import dynamic from 'next/dynamic'
 import {FC} from 'react'
-import {useForm, Controller} from 'react-hook-form'
+import {Controller, useForm} from 'react-hook-form'
+
+import UploadField from '../../../ui/form-elemets/upload-field/UploadField'
 
 import Meta from '../../../../utils/meta/Meta'
 import {generateSlug} from '../../../../utils/string/generateSlug'
@@ -13,11 +16,7 @@ import Heading from '../../../ui/heading/Heading'
 
 import {IActorEditInput} from './actor-edit.interface'
 import {useActorEdit} from './useActorEdit'
-import dynamic from "next/dynamic";
 
-const DynamicTextEditor = dynamic(() => import('../../../ui/form-elemets/TextEditor'), {
-    ssr: false
-})
 
 const ActorEdit: FC = () => {
     const {
@@ -49,7 +48,7 @@ const ActorEdit: FC = () => {
                                 placeholder="Имя актера"
                                 error={errors.name}
                                 style={{width: '31%'}}
-                            />{' '}
+                            />
                             <SlugField
                                 generate={() => {
                                     setValue('slug', generateSlug(getValues('name')))
@@ -57,21 +56,27 @@ const ActorEdit: FC = () => {
                                 register={register}
                                 error={errors.slug}
                             />
-
                         </div>
-                        {/*<Controller control={control} name='description' defaultValue='' render={({*/}
-                        {/*                                                                              field: {*/}
-                        {/*                                                                                  value,*/}
-                        {/*                                                                                  onChange*/}
-                        {/*                                                                              },*/}
-                        {/*                                                                              fieldState: {error}*/}
-                        {/*                                                                          }) => (*/}
-                        {/*    <DynamicTextEditor onChange={onChange} value={value} error={error}*/}
-                        {/*                       placeholder='Описание'/>*/}
-                        {/*)}/>*/}
+                        <Controller
+                            control={control}
+                            name="photo"
+                            defaultValue=""
+                            render={({
+                                         field: {value, onChange},
+                                         fieldState: {error},
+                                     }) => (
+                                <UploadField
+                                    onChange={onChange}
+                                    value={value}
+                                    placeholder={'Фотография'}
+                                    error={error}
+                                    folder={'actors'}
+                                />
+                            )}
+                            rules={{required: "Фото обязательно"}}
+                        />
 
                         <Button>Обновить</Button>
-
                     </>
                 )}
             </form>

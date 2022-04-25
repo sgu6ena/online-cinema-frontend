@@ -1,11 +1,11 @@
 import cn from 'classnames'
+import Image from 'next/image'
 import {FC} from 'react'
 
+import SkeletonLoader from '../../../ui/SkeletonLoader'
 import {IUploadField} from '../form.interfaces'
 import styles from '../form.module.scss'
 import {useUpload} from '../upload-field/useUpload'
-import Skeleton from "react-loading-skeleton";
-import SkeletonLoader from "@/ui/SkeletonLoader";
 
 const UploadField: FC<IUploadField> = ({
                                            onChange,
@@ -20,17 +20,22 @@ const UploadField: FC<IUploadField> = ({
 
     return (
         <div className={cn((styles.field, styles.uploadField))} style={style}>
-            <div className={styles.uploadFiles}>
+            <div className={styles.uploadFlex}>
                 <label>
                     <span>{placeholder}</span>
                     <input type="file" onChange={uploadFile}/>
                     {error && <div className={styles.error}>{error.message}</div>}
-
-                    {!isNoImage && <div className={styles.uploadImageContainer}>
-                        {isLoading ? <SkeletonLoader count="1" className="w-full h-full"/> :
-                            <Image alt='' src={value} layout='fill' unoptimized/>}
-                    </div>}
                 </label>
+                {!isNoImage && (
+                    <div className={styles.uploadImageContainer}>
+                        {isLoading ? (
+                            <SkeletonLoader count={1} className="w-full h-full"/>
+                        ) : (
+                            value && <Image alt="" src={value} layout="fill" unoptimized/>
+                        )}
+                    </div>
+                )}
+
             </div>
         </div>
     )
