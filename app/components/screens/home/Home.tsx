@@ -2,10 +2,11 @@ import { FC } from 'react'
 
 import Meta from '../../../utils/meta/Meta'
 import Heading from '../../ui/heading/Heading'
+import Slider from '../../ui/slider/Slider'
 
 import { IHome } from './home.interface'
 
-const Home: FC<IHome> = () => {
+const Home: FC<IHome> = ({ slides }) => {
 	return (
 		<>
 			<Meta
@@ -16,6 +17,7 @@ const Home: FC<IHome> = () => {
 				title="Онлайн-кинотеатр"
 				className="text-gray-300 mb-8 text-xl"
 			/>
+			{slides.length && <Slider slides={slides} />}
 		</>
 	)
 }
