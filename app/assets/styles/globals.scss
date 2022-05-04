@@ -73,3 +73,19 @@ div::-webkit-scrollbar-thumb {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+
+
+.paginate {
+  @apply flex justify-center my-5;
+  li {
+    @apply btn-primary w-10 h-10  mx-2;
+
+    a {
+      @apply w-full h-full flex justify-center items-center;
+    }
+  }
+
+  .active {
+    @apply border-2 border-white
+  }
+}

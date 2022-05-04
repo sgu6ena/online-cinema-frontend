@@ -11,7 +11,7 @@ import {getСategoryUrl} from "../../../config/api-portal.config";
 import {PortalService} from "../../../services/portal.service";
 
 const Home: FC<IHome> = ({slides, trendingMovies, actors}) => {
-    console.log(PortalService.getAll())
+
     return (
         <>
             <Meta

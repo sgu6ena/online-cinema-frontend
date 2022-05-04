@@ -1,20 +1,19 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useQuery } from 'react-query'
 
 import { MovieService } from '../../../../services/movie.service'
+import { PortalService } from '../../../../services/portal.service'
 import SkeletonLoader from '../../../ui/SkeletonLoader'
 
 import MovieList from './MovieList'
-import styles from './MovieList.module.scss'
 
 const PopularMovies: FC = () => {
 	const {
 		isLoading,
 		data: popularMovies,
 		isSuccess,
-	} = useQuery('Popular movies in sidebar', () =>
-		MovieService.getMostPopularMovies()
-	)
+	} = useQuery('Popular movies in sidebar', () => PortalService.getAll())
+
 	return isLoading ? (
 		<div className="mt-11">
 			<SkeletonLoader count={1} className="h-8 mb-4" />
@@ -25,7 +24,7 @@ const PopularMovies: FC = () => {
 		<MovieList
 			link="/trending"
 			movies={popularMovies || []}
-			title="Популярные фильмы"
+			title="Смотрят сейчас"
 		/>
 	)
 }
