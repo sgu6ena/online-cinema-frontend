@@ -1,12 +1,25 @@
 import { FC } from 'react'
 
+import { IMoviePortal } from '../../../shared/types/movie.types'
 import Meta from '../../../utils/meta/Meta'
+import Gallery from '../../ui/gallery/Gallery'
+import { IGalleryItem } from '../../ui/gallery/gallery.interface'
 import Heading from '../../ui/heading/Heading'
+import Subheading from '../../ui/heading/Subheading'
 import Slider from '../../ui/slider/Slider'
 
 import { IHome } from './home.interface'
 
-const Home: FC<IHome> = ({ slides }) => {
+const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
+	return [
+		...items.map((i) => ({
+			link: i.url,
+			name: i.title,
+			posterPath: i.logo,
+		})),
+	]
+}
+const Home: FC<IHome> = ({ slides, collections }) => {
 	return (
 		<>
 			<Meta
@@ -18,16 +31,13 @@ const Home: FC<IHome> = ({ slides }) => {
 				className="text-gray-300 text-xl mb-8"
 			/>
 			<div> {slides.length && <Slider slides={slides} />}</div>
-
-			{/*<div className='my-10'>*/}
-			{/*    <Subheading title="Популярно сейчас"/>*/}
-			{/*    {trendingMovies.length && <Gallery items={trendingMovies}/>}*/}
-			{/*</div>*/}
-
-			{/*<div className='my-10'>*/}
-			{/*    <Subheading title="Лучшие актеры"/>*/}
-			{/*    {actors.length && <Gallery items={actors}/>}*/}
-			{/*</div>*/}
+			{collections &&
+				collections.map((c) => (
+					<div className="my-10" key={c.сid}>
+						<Subheading title={c.title} />
+						<Gallery items={collectionsToItems(c.items)} />
+					</div>
+				))}
 		</>
 	)
 }

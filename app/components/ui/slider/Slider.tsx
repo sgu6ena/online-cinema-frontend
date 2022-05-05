@@ -15,7 +15,9 @@ interface ISlider {
 const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 	const { handleClick, index, slideIn } = useSlider(slides.length)
 	useEffect(() => {
-		setTimeout(() => handleClick('next'), 5000)
+		const myTimeout = setTimeout(() => {
+			handleClick('next')
+		}, 5000)
 	}, [index])
 
 	return (

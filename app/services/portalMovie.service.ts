@@ -8,6 +8,6 @@ export const PortalMovieService = {
 			getMovieUrl(`${id}`)
 		)
 
-		return data.data.data
+		return data.data
 	},
 }
