@@ -13,13 +13,15 @@ export const usePortalMovie = () => {
 		['movie portal', movieId],
 		() => PortalMovieService.getById(movieId),
 		{
-			onSuccess: (data) => data,
+			onSuccess: (data) => {
+				return data
+			},
 			onError: (e) => {
-				toastError(e, 'get movie')
+				toastError(e, 'get movie portal')
 			},
 			enabled: !!query.id,
 		}
 	)
-
-	return { isLoading, data }
+	const movie = data?.data
+	return { isLoading, movie }
 }

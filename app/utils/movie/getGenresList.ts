@@ -10,3 +10,5 @@ interface IArrayItem {
 
 export const getGenresList = (array: IArrayItem[]) =>
 	array.map((i) => i.name).join(', ')
+export const getGenresListAlt = (array: IArrayItem[]) =>
+	array.map((i) => i.name).join(' | ')

@@ -1,0 +1,33 @@
+@import '../../../assets/styles/variables';
+
+.movie {
+  @apply text-gray-500;
+  .main {
+    @apply flex items-stretch justify-between gap-2;
+    .description {
+      width: 100%;
+
+      .rating {
+        @apply flex items-center mb-2;
+        > svg {
+          @apply fill-yellow-700 mr-2 text-lg;
+        }
+
+        > span {
+          @apply text-white font-medium pt-0.5;
+        }
+      }
+    }
+
+    .image {
+      //height: px;
+      //@include fade-bg-gradient(20deg);
+      //@include fade-bg-gradient(00deg);
+      @include fade-bg-gradient-double(0deg);
+      @apply relative;
+      img {
+        @apply rounded text-white;
+      }
+    }
+  }
+}

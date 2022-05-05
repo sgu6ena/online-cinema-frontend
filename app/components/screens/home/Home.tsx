@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import { getMoviesUrl } from '../../../config/api.config'
 import { IMoviePortal } from '../../../shared/types/movie.types'
 import Meta from '../../../utils/meta/Meta'
 import Gallery from '../../ui/gallery/Gallery'
@@ -13,7 +14,7 @@ import { IHome } from './home.interface'
 const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	return [
 		...items.map((i) => ({
-			link: i.url,
+			link: getMoviesUrl(i.id),
 			name: i.title,
 			posterPath: i.logo,
 		})),
