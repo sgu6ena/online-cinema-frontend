@@ -1,10 +1,6 @@
 import { axiosClassicPortal } from '../api/interceptors'
 import { getMovieUrl } from '../config/api-portal.config'
-import {
-	IMoviePortal,
-	IMoviePortalFull,
-	IMoviePortalPage,
-} from '../shared/types/movie.types'
+import { IMoviePortalPage } from '../shared/types/movie.types'
 
 export const PortalMovieService = {
 	async getById(id: string) {

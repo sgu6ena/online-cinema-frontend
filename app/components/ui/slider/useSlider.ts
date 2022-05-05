@@ -4,11 +4,15 @@ export const useSlider = (length: number) => {
 	const [currentIdx, setCurrentIdx] = useState(0)
 	const [slideIn, setSlideIn] = useState(true)
 
-	const isExistNext = currentIdx + 1 < length
-	const isExistPrev = currentIdx ? currentIdx - 1 < length : false
-
 	const handleArrowClick = (direction: 'next' | 'prev') => {
-		const newIndex = direction === 'next' ? currentIdx + 1 : currentIdx - 1
+		const newIndex =
+			direction === 'next'
+				? currentIdx + 1 < length
+					? currentIdx + 1
+					: 0
+				: currentIdx - 1 > 0
+				? currentIdx - 1
+				: length
 
 		setSlideIn(false)
 
@@ -21,8 +25,6 @@ export const useSlider = (length: number) => {
 	return {
 		slideIn,
 		index: currentIdx,
-		isNext: isExistNext,
-		isPrev: isExistPrev,
 		handleClick: handleArrowClick,
 	}
 }

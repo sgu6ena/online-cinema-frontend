@@ -27,8 +27,8 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) 
 			)}
 
 			<div className={styles.content}>
-				<div className={styles.heading}>{slide.title}</div>
-				<div className={styles.subHeading}>{slide.subTitle}</div>
+				{/*<div className={styles.heading}>{slide.title}</div>*/}
+				{/*<div className={styles.subHeading}>{slide.subTitle}</div>*/}
 				<button className={styles.button} onClick={() => push(slide.link)}>
 					{buttonTitle}
 				</button>

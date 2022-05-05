@@ -11,7 +11,7 @@ const MovieList: FC<IMovieListPortal> = ({ link, title, movies }) => {
 			<div className={styles.heading}>{title}</div>
 			{movies
 				.sort(() => Math.random() - 0.5)
-				.slice(0, 3)
+				.slice(0, 4)
 				.map((movie) => (
 					<MovieItem movie={movie} key={movie.id} />
 				))}

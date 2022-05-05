@@ -54,10 +54,11 @@ const CatalogPortal: FC<ICatalogPortal> = ({ title, description, data }) => {
 				breakLabel="..."
 				nextLabel=" >"
 				onPageChange={handlePagination}
-				pageRangeDisplayed={3}
+				pageRangeDisplayed={2}
 				pageCount={data.pagination.totalPages}
 				previousLabel="< "
 				activeClassName="active"
+				initialPage={data.pagination.currentPage - 1}
 			/>
 		</Meta>
 	)

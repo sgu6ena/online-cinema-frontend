@@ -5,13 +5,13 @@ import { IMoviePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
 export const PortalService = {
 	async getAll() {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getСategoryUrl('101')
+			getСategoryUrl('102/60')
 		)
 		return data.data.data.items
 	},
 
 	async getCategory(
-		slug: string | undefined = '',
+		slug: string | undefined = '0',
 		page: string | string[] | undefined = '1'
 	) {
 		const data = await axiosClassicPortal.get<IMoviePortal>(
@@ -25,10 +25,8 @@ export const PortalService = {
 		return data
 	},
 
-	// async getAll() {
-	//     const {data: {data: {items: movies}}} = await axiosClassic.get<IMoviePortalPerPage>(
-	//         'https://api.portal.idc.md/api/file/category/100'
-	//     )
-	//     return movies
-	// },
+	async getSlides() {
+		const data = await axiosClassicPortal.get('/main')
+		return data.data.data[0].items
+	},
 }
