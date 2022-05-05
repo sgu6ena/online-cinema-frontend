@@ -1,0 +1,1 @@
+export const getCountryList = (countrys: string[]) => countrys.join(', ')

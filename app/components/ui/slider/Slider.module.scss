@@ -2,15 +2,16 @@
 
 .slider {
   @apply relative mx-auto;
-  max-width: 1200px;
+  //max-width: 1200px;
 
   .slide {
-    @apply relative h-80 rounded-3xl overflow-hidden shadow-xl flex items-end;
+    @apply relative h-72  overflow-hidden shadow-xl flex items-end;
 
     //@include fade-bg-gradient();
 
     .image {
       @apply image-like-bg;
+      object-fit: contain;
     }
 
     .content {

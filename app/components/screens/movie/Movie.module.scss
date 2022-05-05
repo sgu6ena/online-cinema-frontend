@@ -5,6 +5,7 @@
   .main {
     @apply flex items-stretch justify-between gap-2;
     .description {
+      @apply p-layout;
       width: 100%;
 
       .rating {
