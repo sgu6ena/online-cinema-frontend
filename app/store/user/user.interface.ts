@@ -1,28 +1,39 @@
-import { IUser } from '../../shared/types/user.types'
+import {IUser} from '../../shared/types/user.types'
 
 export interface IUserState {
-	email: string
-	isAdmin: boolean
+    email: string
+    isAdmin: boolean
 }
 
+// export interface ITokens {
+// 	accessToken: string
+// 	refreshToken: string
+// }
 export interface ITokens {
-	accessToken: string
-	refreshToken: string
+    token: string
+    user: IAuthResponse
 }
 
 export interface IInitialState {
-	user: IUserState | null
+    user: IAuthResponse | null
 
-	isLoading: boolean
+    isLoading: boolean
 }
 
 export interface IEmailPassword {
-	email: string
-	password: string
+    email: string
+    password: string
 }
 
-export interface IAuthResponse extends ITokens {
-	user: IUser & {
-		isAdmin: boolean
-	}
+export interface IAuthResponse {
+    id: string
+    login: string
+    name: string
+    email: string
+    subscription: 0 | 1 | 2
+    paid: 0 | 1 | 2
+    point: string
+    avatar: string
+    level: string
+    dtEnd: string
 }

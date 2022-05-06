@@ -12,13 +12,14 @@ const AuthItems: FC = () => {
     const [login, setLogin] = useState(false)
 
     useEffect(() => {
-        login && user?.isAdmin && setAdmin(true)
+        // login && user?.isAdmin && setAdmin(true)
 
         user ? setLogin(true) : setLogin(false)
     }, [user, login, admin])
 
     return (
         <>
+
             {admin && login && (
                 <MenuItem
                     item={{
@@ -34,7 +35,7 @@ const AuthItems: FC = () => {
                         item={{
                             icon: 'MdSettings',
                             link: '/profile',
-                            title: 'Профиль',
+                            title: `${user?.login}`,
                         }}
                     />
 
