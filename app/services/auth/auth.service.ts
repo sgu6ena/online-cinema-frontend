@@ -26,8 +26,8 @@ export const AuthService = {
 	},
 	async login(email: string, password: string) {
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('/login'),
-			{ email, password }
+			getAuthUrl('get_token'),
+			{ login: email, password }
 		)
 
 		if (response.data.accessToken) {
