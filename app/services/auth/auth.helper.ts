@@ -7,7 +7,7 @@ export const saveTokensStorage = (data: ITokens) => {
     // Cookies.set('refreshToken', data.refreshToken)
 }
 
-export const saveToStorage = (data: IAuthResponse) => {
+export const saveToStorage = (data: { user: IAuthResponse, token: ITokens }) => {
     saveTokensStorage(data)
     localStorage.setItem('user', JSON.stringify(data.user))
 }
