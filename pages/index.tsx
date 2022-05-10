@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	try {
 		// const {data: movies} = await MovieService.getAll()
 
-		const data = await PortalService.getSlides()
+		const data = await PortalService.getMain()
 
 		const slides: ISlide[] = data.slider.map((m: any) => ({
 			_id: m.id,

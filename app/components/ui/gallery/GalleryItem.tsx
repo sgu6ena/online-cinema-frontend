@@ -27,7 +27,6 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 					priority
 					unoptimized
 				/>
-
 				{item.content && (
 					<div className={styles.content}>
 						<div className={styles.title}>{item.content.title}</div>

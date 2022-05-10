@@ -5,7 +5,7 @@
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
-    //display: none;
+    display: none;
   }
 }
 
@@ -43,11 +43,15 @@
     @apply relative z-2 text-center m-3 w-full;
 
     .title {
-      @apply font-semibold mb-1 text-white text-shadow;
+      @apply font-semibold mb-1 pr-3 text-white text-shadow;
+      text-overflow: ellipsis;
+      line-clamp: 2;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
     .subTitle {
-      @apply text-gray-500 text-shadow;
+      @apply text-gray-500 text-shadow pr-3;
     }
   }
 }

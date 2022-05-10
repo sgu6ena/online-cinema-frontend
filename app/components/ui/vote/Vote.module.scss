@@ -1,0 +1,22 @@
+.vote {
+  button {
+    @apply px-4 py-2 border-transparent opacity-50 rounded border;
+  }
+
+  .like {
+    @apply text-green;
+  }
+
+  .dislike {
+    @apply text-primary ;
+  }
+
+  .ats {
+
+  }
+
+  .myVote {
+    @apply border-white border-opacity-20 border opacity-100;
+  }
+
+}

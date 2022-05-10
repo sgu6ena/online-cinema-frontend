@@ -34,18 +34,23 @@ const CatalogPortal: FC<ICatalogPortal> = ({ title, description, data }) => {
 
 			<section className={styles.movies}>
 				{data.data.items.map((movie) => (
-					<GalleryItem
-						item={{
-							name: movie.title,
-							link: getMoviesUrl(movie.id),
-							posterPath: movie.logo,
-							content: {
-								title: movie.title,
-							},
-						}}
-						variant="vertical"
-						key={movie.id}
-					/>
+					<>
+						<GalleryItem
+							item={{
+								name: movie.title,
+								link: getMoviesUrl(movie.id),
+								posterPath: movie.logo,
+								content: {
+									title: movie.title,
+									subTitle:
+										(movie.rate_age && movie.rate_age + ' | ') +
+										(movie.access === 1 ? ' подписка ' : ' бесплатно '),
+								},
+							}}
+							variant="vertical"
+							key={movie.id}
+						/>
+					</>
 				))}
 			</section>
 

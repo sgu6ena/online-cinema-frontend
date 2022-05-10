@@ -20,5 +20,6 @@ export interface IGalleryHome {
 	сid: number
 	autoplay: boolean
 	infinite: boolean
+	viewport: number
 	items: IMoviePortal[]
 }

@@ -12,9 +12,10 @@
   .item {
     @apply mb-4 flex items-stretch;
     > a {
+      @apply shrink-0;
       img {
 
-        @apply rounded-image transition-colors;
+        @apply rounded-image transition-colors ;
         border: 1px solid transparent !important;
         text-indent: -10000px;
 
@@ -50,6 +51,11 @@
 
       .genres {
         @apply text-gray-600 text-sm;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
 
       .rating {

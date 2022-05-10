@@ -25,6 +25,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-draft-wysiwyg": "^1.14.7",
+    "react-hls-player": "^3.0.7",
     "react-hook-form": "^7.29.0",
     "react-icons": "^4.3.1",
     "react-loading-skeleton": "^3.0.3",

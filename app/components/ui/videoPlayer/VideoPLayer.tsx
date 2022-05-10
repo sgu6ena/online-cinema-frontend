@@ -14,6 +14,7 @@ const VideoPLayer: FC<IVideoPlayer> = ({slug, videoSource}) => {
     const {video, videoRef, actions} = useVideo()
 
     const {user} = useAuth()
+
     return (
         <div
             className={cn(styles.wrapper, {
@@ -22,7 +23,7 @@ const VideoPLayer: FC<IVideoPlayer> = ({slug, videoSource}) => {
         >
             {user ? (
                 <>
-                    <video
+                    <video  // @ts-ignore
                         ref={videoRef}
                         className={styles.video}
                         src={videoSource}

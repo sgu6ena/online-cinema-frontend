@@ -32,11 +32,11 @@ export const PortalService = {
 		return data
 	},
 
-	async getSlides() {
+	async getMain() {
 		const data = await axiosClassicPortal.get<IMain>('/main')
 		return {
 			slider: data.data.data[0].items,
-			collections: data.data.data.slice(1),
+			collections: data.data.data.filter((item) => item.viewport === 0.3),
 		}
 	},
 }

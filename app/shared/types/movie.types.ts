@@ -63,7 +63,7 @@ export interface IMedia {
 
 export interface IMoviePortal {
 	id: string
-	access: 0 | 1
+	access: 0 | 1 | 2
 	year: number
 	title: string
 	url: string
