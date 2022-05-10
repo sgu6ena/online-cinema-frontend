@@ -26,7 +26,7 @@
     }
 
     .rating {
-      @apply flex items-center justify-end mb-2;
+      @apply flex items-center justify-end mb-2 px-2;
       > svg {
         @apply fill-yellow-700 mr-2 text-lg;
       }
