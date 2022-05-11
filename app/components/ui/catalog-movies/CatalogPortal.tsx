@@ -36,6 +36,7 @@ const CatalogPortal: FC<ICatalogPortal> = ({ title, description, data }) => {
 				{data.data.items.map((movie) => (
 					<>
 						<GalleryItem
+							key={movie.id.toString()}
 							item={{
 								name: movie.title,
 								link: getMoviesUrl(movie.id),
@@ -48,7 +49,6 @@ const CatalogPortal: FC<ICatalogPortal> = ({ title, description, data }) => {
 								},
 							}}
 							variant="vertical"
-							key={movie.id}
 						/>
 					</>
 				))}

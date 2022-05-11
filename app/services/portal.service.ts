@@ -1,6 +1,6 @@
 import { axiosClassicPortal } from '../api/interceptors'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
-import { getСategoryUrl } from '../config/api-portal.config'
+import { getCategoryUrl } from '../config/api-portal.config'
 import { IMoviePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
 
 interface IMain {
@@ -12,7 +12,7 @@ interface IMain {
 export const PortalService = {
 	async getAll() {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getСategoryUrl('102/60')
+			getCategoryUrl('102/60')
 		)
 		return data.data.data.items
 	},
@@ -22,7 +22,7 @@ export const PortalService = {
 		page: string | string[] | undefined = '1'
 	) {
 		const data = await axiosClassicPortal.get<IMoviePortal>(
-			getСategoryUrl(slug),
+			getCategoryUrl(slug),
 			{
 				params: {
 					page: page.toString(),

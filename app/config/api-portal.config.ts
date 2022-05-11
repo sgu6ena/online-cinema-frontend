@@ -1,6 +1,6 @@
 export const APP_URL_PORTAL = `https://api.portal.idc.md/api`
 
-export const getСategoryUrl = (string: string) => `/file/category/${string}`
+export const getCategoryUrl = (string: string) => `/file/category/${string}`
 export const getMovieUrl = (string: string) => `/file/${string}`
 //
 // export const getUserUrl = (string: string) => `/users/${string}`

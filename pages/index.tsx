@@ -21,8 +21,6 @@ export default HomePage
 
 export const getStaticProps: GetStaticProps = async () => {
 	try {
-		// const {data: movies} = await MovieService.getAll()
-
 		const data = await PortalService.getMain()
 
 		const slides: ISlide[] = data.slider.map((m: any) => ({
@@ -32,32 +30,11 @@ export const getStaticProps: GetStaticProps = async () => {
 			title: 'title',
 			// subTitle: getGenresList(m.genres),
 		}))
-		// const { data: dataActors } = await ActorService.getAll()
-		// const actors: IGalleryItem[] = dataActors.slice(0, 7).map((a) => ({
-		// 	name: a.name,
-		// 	posterPath: a.photo,
-		// 	link: getActorUrl(a.slug),
-		// 	content: {
-		// 		title: a.name,
-		// 		subTitle: `+${a.countMovies} фильмов`,
-		// 	},
-		// }))
-		//
-		// const dataTrendingMovies = await MovieService.getMostPopularMovies()
-		//
-		// const trendingMovies: IGalleryItem[] = dataTrendingMovies
-		// 	.slice(0, 7)
-		// 	.map((m) => ({
-		// 		name: m.title,
-		// 		posterPath: m.poster,
-		// 		link: getMoviesUrl(m.slug),
-		// 	}))
 
 		return {
 			props: {
 				slides,
 				collections: data.collections,
-				// trendingMovies,
 			} as IHome,
 		}
 	} catch (err) {
@@ -65,7 +42,6 @@ export const getStaticProps: GetStaticProps = async () => {
 			props: {
 				slides: [],
 				collections: [],
-				// trendingMovies: [],
 			} as IHome,
 		}
 	}
