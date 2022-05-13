@@ -1,4 +1,5 @@
-import { axiosClassicPortal } from '../api/interceptors'
+import axios, { axiosClassicPortal } from '../api/interceptors'
+import { IUser, IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { getCategoryUrl } from '../config/api-portal.config'
 import { IMoviePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
@@ -38,5 +39,10 @@ export const PortalService = {
 			slider: data.data.data[0].items,
 			collections: data.data.data.filter((item) => item.viewport === 0.3),
 		}
+	},
+
+	async getProfile() {
+		const data = await axios.get<IUserData>('/getUserProfile')
+		return data?.data.data
 	},
 }

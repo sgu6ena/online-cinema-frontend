@@ -6,6 +6,7 @@ $bar-width: 20%;
     @apply fixed top-0 bottom-0 overflow-y-auto;
     width: $bar-width;
     max-width: 350px;
+    background: #19181f;
   }
 
   > div:first-child {
@@ -17,7 +18,7 @@ $bar-width: 20%;
   }
 
   .center {
-    @apply min-h-screen;
+    @apply text-white ;
     margin: 0 $bar-width;
   }
 }

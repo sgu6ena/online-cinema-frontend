@@ -32,7 +32,7 @@ const CatalogPortal: FC<ICatalogPortal> = ({ title, description, data }) => {
 				<Description text={description} className={styles.description} />
 			)}
 
-			<section className={styles.movies}>
+			<section className={styles.movies} key={data.pagination.currentPage}>
 				{data.data.items.map((movie) => (
 					<>
 						<GalleryItem
