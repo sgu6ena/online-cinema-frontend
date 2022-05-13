@@ -10,12 +10,12 @@ export const firstMenu: IMenu = {
 		},
 		{
 			icon: 'MdRefresh',
-			link: '/fresh',
+			link: '/genres/101',
 			title: 'Новинки',
 		},
 		{
 			icon: 'MdLocalFireDepartment',
-			link: '/trending',
+			link: '/genres/102',
 			title: 'Смотрят сейчас',
 		},
 
