@@ -1,12 +1,14 @@
 $bar-width: 20%;
+$header-height: 65px;
 .layout {
   @apply relative;
 
   > div:first-child, > div:last-child {
-    @apply fixed top-0 bottom-0 overflow-y-auto;
+    @apply fixed  bottom-0 overflow-y-auto;
     width: $bar-width;
-    max-width: 350px;
+    max-width: 250px;
     background: #19181f;
+    top: $header-height;
   }
 
   > div:first-child {
@@ -19,6 +21,18 @@ $bar-width: 20%;
 
   .center {
     @apply text-white ;
-    margin: 0 $bar-width;
+    margin: $header-height 250px;
+
+    .slider {
+      padding: 100px;
+    }
   }
+}
+
+.header {
+
+
+  @apply air-block fixed flex items-center top-0 left-0 z-20 opacity-90;
+  width: 100vw;
+  height: $header-height;
 }

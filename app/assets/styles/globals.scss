@@ -9,7 +9,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Outfit', sans-serif;
-  @apply bg-gray-900;
+  @apply bg-gray-900 relative;
 }
 
 a {

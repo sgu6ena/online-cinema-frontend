@@ -1,16 +1,19 @@
 @import '../../../assets/styles/variables';
 
 .slider {
-  @apply relative mx-auto;
-  //max-width: 1200px;
+  @apply relative ;
+
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 
   .slide {
-    @apply relative h-72  overflow-hidden shadow-xl flex items-end;
-
+    @apply h-full w-full overflow-hidden shadow-xl flex items-end;
+    aspect-ratio: 147/46;
     //@include fade-bg-gradient();
 
     .image {
-      @apply image-like-bg;
+      @apply h-full w-full image-like-bg;
       object-fit: contain;
     }
 

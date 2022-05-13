@@ -14,9 +14,14 @@ const Profile: FC = () => {
 			{isLoading && <SkeletonLoader />}
 			{user && (
 				<div className="text-white text-lg  ">
+					<img
+						src={user.avatar}
+						alt={user.login}
+						className="rounded rounded-full"
+					/>
 					<p>Логин: {user.login}</p>
 					<p>E-mail: {user.email}</p>
-					<p>Статус подписки: {user.paid ? 'оплачена' : 'не оплачена'}</p>
+					<p>Подписка: {user.paid ? 'оплачена' : 'не оплачена'}</p>
 					{user.promo && <p>Портал за рубль: можно купить</p>}
 					{user.name && <p>Имя: {user.name}</p>}
 				</div>

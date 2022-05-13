@@ -14,11 +14,11 @@ interface ISlider {
 
 const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 	const { handleClick, index, slideIn } = useSlider(slides.length)
-	useEffect(() => {
-		const myTimeout = setTimeout(() => {
-			handleClick('next')
-		}, 5000)
-	}, [index])
+	// useEffect(() => {
+	// 	const myTimeout = setTimeout(() => {
+	// 		handleClick('next')
+	// 	}, 5000)
+	// }, [index])
 
 	return (
 		<div className={styles.slider}>

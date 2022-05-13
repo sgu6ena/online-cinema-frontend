@@ -30,10 +30,10 @@ const Home: FC<IHome> = ({ slides, collections }) => {
 			{/*	title="Онлайн-кинотеатр"*/}
 			{/*	className="text-gray-300 text-xl mb-8"*/}
 			{/*/>*/}
-			<div> {slides.length && <Slider slides={slides} />}</div>
+			{slides.length && <Slider slides={slides} />}
 			{collections &&
 				collections.map((c) => (
-					<div className="my-10" key={c.cid}>
+					<div className="my-10 px-layout " key={c.cid}>
 						<Subheading title={c.title} />
 						<Gallery items={collectionsToItems(c.items)} />
 					</div>
