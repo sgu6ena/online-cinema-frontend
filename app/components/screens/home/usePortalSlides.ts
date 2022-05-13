@@ -6,7 +6,7 @@ import { toastError } from '../../../utils/toast-error'
 export const usePortalSlides = () => {
 	const { isLoading, data } = useQuery(
 		['slides portal'],
-		() => PortalService.getSlides(),
+		() => PortalService.getMain(),
 		{
 			onSuccess: (data) => data,
 			onError: (e) => {

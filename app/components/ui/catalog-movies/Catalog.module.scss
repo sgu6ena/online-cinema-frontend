@@ -1,9 +1,9 @@
 .heading {
-  @apply mb-3 pt-layout;
+  @apply px-layout  mb-3 pt-layout;
 }
 
 .movies {
-  @apply flex flex-wrap mt-8;
+  @apply p-layout grid lg:grid-cols-3 sm:grid-cols-1 gap-1 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-6;
 
   > a {
     @apply mr-8 mb-4 animate-fade;
