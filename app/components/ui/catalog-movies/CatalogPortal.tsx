@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
 
 import { getMoviesUrl } from '../../../config/api.config'

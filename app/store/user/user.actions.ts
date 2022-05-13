@@ -5,18 +5,22 @@ import { errorCatch } from '../../api/api.helperts'
 import { AuthService } from '../../services/auth/auth.service'
 import { toastError } from '../../utils/toast-error'
 
-import { IAuthResponse, IEmailPassword, ITokens } from './user.interface'
+import { IEmailPassword, ITokens } from './user.interface'
 
-export const register = createAsyncThunk<ITokens, IEmailPassword>(
+export const register = createAsyncThunk(
 	'register',
-	async ({ email, password }, thunkApi) => {
+	async (
+		{ email, password }: { email: string; password: string },
+		thunkApi
+	) => {
 		try {
 			const response = await AuthService.register(email, password)
 			toastr.success('', 'Регистрация прошла успешно')
-			return response.data
+			return response
 		} catch (error) {
-			toastError(error)
-			return thunkApi.rejectWithValue(error)
+			console.log(error)
+			toastError(error.message)
+			// return thunkApi.rejectWithValue(error.message)
 		}
 	}
 )
@@ -26,7 +30,7 @@ export const login = createAsyncThunk<ITokens, IEmailPassword>(
 		try {
 			const response = await AuthService.login(email, password)
 			toastr.success('', 'Вы успешно вошли')
-			return response.data
+			return response
 		} catch (error) {
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
