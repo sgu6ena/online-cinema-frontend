@@ -6,7 +6,7 @@ $header-height: 65px;
   > div:first-child, > div:last-child {
     @apply fixed  bottom-0 overflow-y-auto;
     width: $bar-width;
-    max-width:  $bar-width;
+    max-width: $bar-width;
     background: #19181f;
     top: $header-height;
   }
@@ -32,7 +32,7 @@ $header-height: 65px;
 .header {
 
 
-  @apply air-block fixed flex items-center top-0 left-0 z-20 opacity-90;
+  @apply air-block fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
   width: 100vw;
   height: $header-height;
 }

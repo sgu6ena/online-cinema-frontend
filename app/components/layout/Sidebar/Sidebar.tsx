@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import {FC} from 'react'
 
 import SearchField from '../../ui/searchField/Search Field'
 
@@ -7,12 +7,12 @@ import Search from './Search/Search'
 import styles from './Sidebar.module.scss'
 
 const Sidebar: FC = () => {
-	return (
-		<div className={styles.sidebar}>
-			<Search />
-			<MovieContainer />
-		</div>
-	)
+    return (
+        <div className={styles.sidebar}>
+
+            <MovieContainer/>
+        </div>
+    )
 }
 
 export default Sidebar

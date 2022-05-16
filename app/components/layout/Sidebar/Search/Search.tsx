@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { useRouter } from 'next/router'
+import { FC, useEffect } from 'react'
 
 import SearchField from '../../../ui/searchField/Search Field'
 
@@ -8,6 +9,7 @@ import { useSearch } from './useSearch'
 
 const Search: FC = () => {
 	const { isSuccess, data, handleSearch, searchTerm } = useSearch()
+
 	return (
 		<div className={styles.wrapper}>
 			<SearchField searchTerm={searchTerm} handleSearch={handleSearch} />

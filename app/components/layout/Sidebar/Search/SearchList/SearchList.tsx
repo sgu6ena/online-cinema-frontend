@@ -1,28 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { FC } from 'react'
+import { FC } from 'react'
 
-import { IMovie } from '../../../../../shared/types/movie.types'
-
-import { getMovieUrl } from '../../../../../config/url.config'
+import { getMoviesUrl } from '../../../../../config/api.config'
+import { IMoviePortal } from '../../../../../shared/types/movie.types'
 
 import styles from './SearchList.module.scss'
 
-const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
+const SearchList: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 	return (
 		<div className={styles.list}>
 			{movies.length ? (
 				movies.map((movie) => (
-					<Link href={getMovieUrl(movie.slug)} key={movie._id}>
+					<Link href={getMoviesUrl(movie.id)} key={movie.id}>
 						<a>
 							<Image
-								src={movie.poster}
+								src={movie.logo}
 								width={50}
 								height={50}
 								objectFit="cover"
 								objectPosition="top"
 								draggable={false}
 							/>
+							<span>{movie.title}</span>
 						</a>
 					</Link>
 				))

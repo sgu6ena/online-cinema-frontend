@@ -14,4 +14,11 @@ export const PortalMovieService = {
 		const data = await axios.get(getMovieUrl(`url/${id}`))
 		return data.data
 	},
+
+	async getSearch(str: string) {
+		const data = await axiosClassicPortal.get(
+			getMovieUrl(`find/12?id_sort=8&pid=all&query=${str}`)
+		)
+		return data.data
+	},
 }
