@@ -32,7 +32,15 @@ $header-height: 65px;
 .header {
 
 
-  @apply air-block fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
+  @apply px-layout air-block fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
   width: 100vw;
   height: $header-height;
+
+  .end {
+    @apply flex mr-5 items-center gap-2;
+
+    a {
+     
+    }
+  }
 }

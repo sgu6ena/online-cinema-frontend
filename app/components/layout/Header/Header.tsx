@@ -4,12 +4,15 @@ import styles from '../Layout.module.scss'
 import Logo from '../Navigation/Logo'
 import Search from '../Sidebar/Search/Search'
 
+import Avatar from './Avatar'
+
 const Header: FC = () => {
 	return (
 		<div className={styles.header}>
 			<Logo />
-			<div className={'mr-5'}>
+			<div className={styles.end}>
 				<Search />
+				<Avatar />
 			</div>
 		</div>
 	)

@@ -7,7 +7,7 @@ import logoImage from '../../../assets/images/logo.svg'
 const Logo: FC = () => {
 	return (
 		<Link href="/">
-			<a className="px-layout  text-3xl text-white gap-3 flex items-center">
+			<a className=" text-3xl text-white gap-3 flex items-center">
 				<Image
 					className={'flex-shrink-0'}
 					src={logoImage}
