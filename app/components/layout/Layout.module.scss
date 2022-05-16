@@ -1,14 +1,21 @@
 $bar-width: 300px;
-$header-height: 65px;
+
+$header-height: 70px;
 .layout {
-  @apply relative;
+  @apply relative  ;
 
   > div:first-child, > div:last-child {
-    @apply fixed  bottom-0 overflow-y-auto;
-    width: $bar-width;
+    @apply fixed  bottom-0 overflow-y-auto flex-grow hidden lg:block flex-shrink md:hidden sm:hidden;
+
     max-width: $bar-width;
     background: #19181f;
     top: $header-height;
+
+
+    @screen lg {
+      max-width: $bar-width
+    }
+
   }
 
   > div:first-child {
@@ -20,8 +27,13 @@ $header-height: 65px;
   }
 
   .center {
-    @apply text-white ;
-    margin: $header-height $bar-width;
+    @apply text-white   ;
+    margin-top: $header-height;
+
+    @screen lg {
+      margin: $header-height $bar-width;
+    }
+
 
     .slider {
       padding: 100px;
@@ -32,15 +44,15 @@ $header-height: 65px;
 .header {
 
 
-  @apply px-layout air-block fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
+  @apply md:px-layout px-1.5 air-block fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
   width: 100vw;
   height: $header-height;
 
   .end {
-    @apply flex mr-5 items-center gap-2;
+    @apply flex  items-center gap-2;
 
     a {
-     
+      @apply flex-shrink-0;
     }
   }
 }
