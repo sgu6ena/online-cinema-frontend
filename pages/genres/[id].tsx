@@ -1,11 +1,9 @@
 import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
-import { useRouter } from 'next/router'
+
 
 import CatalogPortal from '../../app/components/ui/catalog-movies/CatalogPortal'
 import { PortalService } from '../../app/services/portal.service'
 import {
-	IMovie,
-	IMoviePortal,
 	IMoviePortalPerPage,
 } from '../../app/shared/types/movie.types'
 
@@ -23,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 	query: { page },
 	params,
 }) => {
-	try {
+	try {    // @ts-ignore
 		const data = await PortalService.getCategory(params?.id, page)
 
 		return {
