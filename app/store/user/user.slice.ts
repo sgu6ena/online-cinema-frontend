@@ -20,7 +20,7 @@ export const userSlice = createSlice({
 				state.isLoading = true
 			})
 			.addCase(register.fulfilled, (state, { payload }) => {
-				state.isLoading = false
+				state.isLoading = false    // @ts-ignore
 				state.user = payload.user
 			})
 			.addCase(register.rejected, (state) => {

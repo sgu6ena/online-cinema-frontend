@@ -17,8 +17,8 @@ export const AuthService = {
 			getAuthUrl('register'),
 			{ login: email, password }
 		)
-
-		if (response.data.token) {
+		// @ts-ignore
+		if (response.data.token) {    // @ts-ignore
 			saveToStorage(response.data)
 		}
 
@@ -28,10 +28,10 @@ export const AuthService = {
 		const response = await axiosClassic.post<ITokens>(getAuthUrl('get_token'), {
 			login: email,
 			password,
-		})
+		})    // @ts-ignore
 		const token = response.data.data.token
 		Cookies.set('token', token)
-		const user = token ? await axios.get<IAuthResponse>(getUserProfile()) : null
+		const user = token ? await axios.get<IAuthResponse>(getUserProfile()) : null    // @ts-ignore
 		const res = { user: user?.data?.data, token }
 		saveToStorage(res)
 		return res

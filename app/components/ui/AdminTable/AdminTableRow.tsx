@@ -11,7 +11,7 @@ const AdminTableRow: FC<IAdminTable> = ({tableItem, removeHandler}) => {
                 <td key={idx}>{value}</td>
             ))}
             <td>
-                <AdminActions editUrl={tableItem.editUrl} removeHandler={removeHandler}/>
+                <AdminActions editUrl={tableItem.editUrl} removeHandler={()=>removeHandler(tableItem._id)}/>
             </td>
         </tr>
     )

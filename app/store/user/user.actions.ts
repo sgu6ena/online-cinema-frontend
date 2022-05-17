@@ -18,8 +18,8 @@ export const register = createAsyncThunk(
 			toastr.success('', 'Регистрация прошла успешно')
 			return response
 		} catch (error) {
-			console.log(error)
-			toastError(error.message)
+
+			toastError(error)
 			// return thunkApi.rejectWithValue(error.message)
 		}
 	}
