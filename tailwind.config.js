@@ -13,21 +13,21 @@ module.exports = {
 			primary,
 			black: colors.black,
 			white: colors.white,
-			green: '#4d7902',
-			transparent: colors.transparent,
-			yellow: {
-				700: '#f5c521',
-			},
 			gray: {
-				300: '#d9daE8',
-				500: '#999aa5',
-				600: '#66676e',
+				300: '#d9dae8',
+				500: '#999AA5',
+				600: '#66676E',
 				700: '#39393f',
 				800: '#242529',
-				900: '#19181f',
+				900: '#191B1F',
 				950: '#101215',
 			},
+			transparent: colors.transparent,
+			yellow: {
+				700: '#F5C521',
+			},
 		},
+
 		extend: {
 			spacing: {
 				0.5: '0.12rem',
@@ -41,15 +41,10 @@ module.exports = {
 				layout: '0.8rem',
 			},
 			transitionTimingFunction: {
-				DEFAULT: 'easy-in-out',
+				DEFAULT: 'ease-in-out',
 			},
 			transitionDuration: {
 				DEFAULT: '200ms',
-			},
-			zIndex: {
-				1: '1',
-				2: '2',
-				3: '3',
 			},
 			keyframes: {
 				fade: {
@@ -71,19 +66,24 @@ module.exports = {
 				},
 			},
 			animation: {
-				fade: 'fade 0.5s easy-in-out',
-				scaleIn: 'scaleIn 0.35s easy-in-out',
+				fade: 'fade .5s ease-in-out',
+				scaleIn: 'scaleIn .35s ease-in-out',
+			},
+			zIndex: {
+				1: '1',
+				2: '2',
+				3: '3',
 			},
 		},
 	},
 	plugins: [
-		require('@tailwindcss/aspect-ratio'),
 		require('@tailwindcss/forms'),
+		require('@tailwindcss/aspect-ratio'),
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {
 					backgroundColor: primary,
-					color: '#ffffff',
+					color: '#fff',
 					borderRadius: '0.65rem',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
@@ -91,17 +91,12 @@ module.exports = {
 					},
 				},
 
-				'.btn-primary.disabled': {
-					backgroundColor: primary,
-					opacity: 0.5,
-				},
-
 				'.text-link': {
 					textUnderlineOffset: 4,
-					color: 'rgba(255, 255, 255, 0.9)',
-					transition: 'text-decoration-color .3s easy-in-out',
+					color: 'rgba(255, 255, 255, .9)',
+					transition: 'text-decoration-color .3s ease-in-out',
 					textDecorationLine: 'underline',
-					textDecorationColor: 'rgba(255,255,255,0.2)',
+					textDecorationColor: 'rgba(255, 255, 255, 0.2)',
 					'&:hover': {
 						textDecorationColor: 'rgba(255, 255, 255, 0.9)',
 					},
@@ -116,7 +111,7 @@ module.exports = {
 			}),
 				addUtilities({
 					'.text-shadow': {
-						textShadow: '1px 1px rgba(0,0,0,0.4)',
+						textShadow: '1px 1px rgba(0, 0, 0, 0.4)',
 					},
 
 					'.outline-border-none': {
