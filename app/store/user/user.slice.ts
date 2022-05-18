@@ -42,10 +42,6 @@ export const userSlice = createSlice({
 				state.isLoading = false
 				state.user = null
 			})
-		// .addCase(checkAuth.fulfilled, (state, {payload}) => {
-		//     state.isLoading = false
-		//     state.user = payload.user
-		// })
 	},
 })
 export const { reducer } = userSlice

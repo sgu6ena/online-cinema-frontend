@@ -1,18 +1,17 @@
-import { FC, useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
-
-import { useActions } from '../../../hooks/useActions'
-import { useAuth } from '../../../hooks/useAuth'
+import React, { useState } from 'react'
 import Meta from '../../../utils/meta/Meta'
-import Button from '../../ui/form-elemets/Button'
-import Heading from '../../ui/heading/Heading'
-
 import styles from './Auth.module.scss'
+import Heading from '../../ui/heading/Heading'
 import AuthFields from './AuthFields'
-import { IAuthInput } from './auth.interface'
+import Button from '../../ui/form-elemets/Button'
 import { useAuthRedirect } from './useAuthRedirect'
+import { useAuth } from '../../../hooks/useAuth'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { IAuthInput, IRegisterInput } from './auth.interface'
+import { useActions } from '../../../hooks/useActions'
+import RegisterFields from './RegisterFields'
 
-const Auth: FC = () => {
+const Register = () => {
 	useAuthRedirect()
 
 	const { isLoading } = useAuth()
@@ -23,35 +22,29 @@ const Auth: FC = () => {
 		handleSubmit,
 		formState,
 		reset,
-	} = useForm<IAuthInput>({ mode: 'onChange' })
+	} = useForm<IRegisterInput>({ mode: 'onChange' })
 
-	const { login } = useActions()
+	const { register } = useActions()
 
-	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
-		if (type === 'login') login(data)
+	const onSubmit: SubmitHandler<IRegisterInput> = (data) => {
+		if (type === 'register') register(data)
 	}
 
 	return (
 		<>
-			<Meta title="Авторизация" />
+			<Meta title="Регистрация" />
 			<section className={styles.wrapper}>
-				<form onSubmit={()=>handleSubmit(onSubmit)}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<Heading title={'Авторизация'} className="mb-6" />
 
-					<AuthFields
+					<RegisterFields
 						register={registerInput}
 						formState={formState}
 						isPasswordRequired
 					/>
 
 					<div className={styles.buttons}>
-						<Button
-							type="submit"
-							onClick={() => setType('login')}
-							disabled={isLoading}
-						>
-							Войти
-						</Button>
+
 						<Button
 							type="submit"
 							onClick={() => setType('register')}
@@ -66,4 +59,4 @@ const Auth: FC = () => {
 	)
 }
 
-export default Auth
+export default Register
