@@ -20,12 +20,17 @@ const AuthFields: FC<IAuthFields> = ({
 			<Field
 				{...register('email', {
 					required: 'E-mail обязательное поле',
-					pattern: {
-						value: validEmail,
-						message: 'Пожалуйста, введите правильный e-mail',
+					minLength: {
+						value: 4,
+						message: 'Логин должен содержать не менее 4-х символов ',
 					},
+					maxLength: {
+						value: 50,
+						message: 'Логин должен содержать более 50 символов ',
+					},
+
 				})}
-				placeholder="e-mail"
+				placeholder="e-mail или  логин"
 				error={errors.email}
 			/>
 			<Field

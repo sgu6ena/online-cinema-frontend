@@ -5,7 +5,6 @@ import { useActions } from '../../../hooks/useActions'
 import { useAuth } from '../../../hooks/useAuth'
 import Meta from '../../../utils/meta/Meta'
 import Button from '../../ui/form-elemets/Button'
-import Field from '../../ui/form-elemets/Field'
 import Heading from '../../ui/heading/Heading'
 
 import styles from './Auth.module.scss'
