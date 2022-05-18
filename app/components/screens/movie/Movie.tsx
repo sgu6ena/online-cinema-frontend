@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import {FC, useEffect, useRef, useState} from 'react'
@@ -15,7 +14,7 @@ import styles from './Movie.module.scss'
 import Rating from './Rating'
 import Tabs from './Tabs'
 import {usePortalMovie} from './usePortalMovie'
-
+import ReactPlayer from 'react-player'
 // const DynamicPlayer = dynamic(() => import('react-hls-player'), {
 // 	ssr: false,
 // })
@@ -96,15 +95,7 @@ const Movie: FC = () => {
 
                         <div className="pt-1 mb-5 pl-layout">
                             <Tabs media={movie.media} fn={handleMovie}/>
-                            {/*<DynamicPlayer*/}
-                            {/*	width="100%"*/}
-                            {/*	height="auto"*/}
-                            {/*	controls*/}
-                            {/*	playerRef={inputEl}*/}
-                            {/*	src={url}*/}
-                            {/*	autoPlay={false}*/}
-                            {/*	className={'rounded-3xl mt-3'}*/}
-                            {/*/>*/}
+                            <ReactPlayer url={url} controls={true}/>
                         </div>
                     </>
                 )}
