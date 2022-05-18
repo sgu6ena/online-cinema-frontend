@@ -2,11 +2,11 @@ import {FC} from 'react';
 import {getMoviesUrl} from "../../../../config/api.config";
 import Link from "next/link";
 
-import styles from "./AuthPlaseholder.module.scss"
+import styles from "./AuthPlaсeholder.module.scss"
 
 const AuthButton: FC<{ slug: string }> = ({slug}) => {
     return (
-        <Link href={`auth?redirect=${getMoviesUrl(slug)}`}>
+        <Link href={`/auth?redirect=${getMoviesUrl(slug)}`}>
             <a className={styles.btn}>Войти</a>
         </Link>
     );
