@@ -1,11 +1,11 @@
 {
-  "name": "movie-app-front-end",
+  "name": "PORTAL IDC",
   "author": {
-    "email": "info@htmllessons.ru",
-    "name": "Max Shushval (htmllessons.ru)",
-    "url": "https://htmllessons.ru"
+    "email": "sgu6ena@gmail.com",
+    "name": "Natalja Issar",
+    "url": "https://portal.idc.md"
   },
-  "description": "Cinema application for premium intensive in htmllessons.ru",
+  "description": "Cinema application",
   "private": true,
   "scripts": {
     "dev": "next dev",
