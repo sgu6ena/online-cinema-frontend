@@ -1,11 +1,12 @@
-import { FC, useEffect } from 'react'
+import { FC} from 'react'
 import { useQuery } from 'react-query'
 
-import { MovieService } from '../../../../services/movie.service'
+
 import { PortalService } from '../../../../services/portal.service'
 import SkeletonLoader from '../../../ui/SkeletonLoader'
 
 import MovieList from './MovieList'
+import {getGenreUrl} from "../../../../config/url.config";
 
 const PopularMovies: FC = () => {
 	const {
@@ -22,7 +23,7 @@ const PopularMovies: FC = () => {
 		</div>
 	) : (
 		<MovieList
-			link="/trending"
+			link={getGenreUrl('102')}
 			movies={popularMovies || []}
 			title="Смотрят сейчас"
 		/>
