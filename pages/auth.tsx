@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import { FC } from 'react'
 
 import Auth from '../app/components/screens/auth/Auth'
 

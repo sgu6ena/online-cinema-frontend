@@ -22,9 +22,9 @@ const VideoPLayer: FC<{ url: string; play: boolean; typeContent: number; slug: s
             <div
                 className={styles.wrapper}
             >
-                {user && user.subscription === typeContent &&
+                {user && user.subscription >= typeContent &&
                     <ReactPlayer url={url} controls ref={videoRef} playing={play} width={600}/>}
-                {user && user.subscription !== typeContent && <ProfilePlaceholder/>}
+                {user && user.subscription < typeContent && <ProfilePlaceholder/>}
                 {!user && <AuthPlaceholder slug={slug}/>}
 
             </div>
