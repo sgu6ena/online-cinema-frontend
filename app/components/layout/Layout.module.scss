@@ -2,12 +2,13 @@ $bar-width: 300px;
 
 $header-height: 70px;
 .layout {
-  @apply relative grid-cols-6 grid gap-0 mx-auto box-decoration-clone ;
+  @apply relative  grid-cols-6 grid gap-0 mx-auto;
   max-width: 2100px;
 margin-top: $header-height;
   > div:first-child,
   > div:last-child {
-    max-width: $bar-width;
+    //max-width: $bar-width;
+    //@apply border-2 border-primary ;
   }
 
   //
@@ -24,16 +25,16 @@ margin-top: $header-height;
   //  }
   //}
   //
-  //> div:first-child {
-  //  @apply left-0 border-r border-r-gray-800;
-  //}
-  //
-  //> div:last-child {
-  //  @apply right-0 border-l border-l-gray-800;
-  //}
+  > div:first-child {
+    @apply  border-r border-r-gray-800;
+  }
+
+  > div:last-child {
+    @apply border-l border-l-gray-800;
+  }
 
   .center {
-    @apply text-white col-span-4;
+    @apply text-white  col-span-4;
     //margin-top: $header-height;
 
     //@screen lg {
