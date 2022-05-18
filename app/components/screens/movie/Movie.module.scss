@@ -44,14 +44,14 @@
     > button {
       @apply text-lg py-3 px-5  border-b hover:text-white hover:opacity-100 opacity-60  transition-all;
       &.active {
-        @apply text-primary opacity-100;
+        @apply  text-primary opacity-100;
       }
     }
   }
 
   .season {
     .active {
-      @apply flex  flex-wrap;
+      @apply flex  animate-fade flex-wrap;
       .episode {
         @apply btn-primary text-center hover:opacity-100 transition px-5 py-2 m-2 ;
         min-width: 120px;
