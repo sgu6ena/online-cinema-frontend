@@ -1,8 +1,8 @@
 import Profile from '../app/components/screens/profile/Profile'
-import {NextPage} from "next";
+import { NextPage } from 'next'
 
 const ProfilePage: NextPage = () => {
-    return <Profile/>
+	return <Profile />
 }
 
 

@@ -3,14 +3,13 @@ import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Home from '../app/components/screens/home/Home'
 import { IHome } from '../app/components/screens/home/home.interface'
 import { ISlide } from '../app/components/ui/slider/slider.interface'
-import {  getMoviesUrl } from '../app/config/api.config'
+import { getMoviesUrl } from '../app/config/api.config'
 
 import { PortalService } from '../app/services/portal.service'
 
 
 const HomePage: NextPage<IHome> = ({ slides, collections }) => {
 	return (
-
 		<Home slides={slides} collections={collections} />
 	)
 }
