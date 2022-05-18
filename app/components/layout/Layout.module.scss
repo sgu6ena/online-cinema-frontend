@@ -2,36 +2,43 @@ $bar-width: 300px;
 
 $header-height: 70px;
 .layout {
-  @apply relative;
-
+  @apply relative grid-cols-6 grid gap-0 mx-auto box-decoration-clone ;
+  max-width: 2100px;
+margin-top: $header-height;
   > div:first-child,
   > div:last-child {
-    @apply fixed  bottom-0 overflow-y-auto flex-grow hidden lg:block flex-shrink md:hidden sm:hidden;
-
     max-width: $bar-width;
-    background: #19181f;
-    top: $header-height;
-
-    @screen lg {
-      max-width: $bar-width;
-    }
   }
 
-  > div:first-child {
-    @apply left-0 border-r border-r-gray-800;
-  }
-
-  > div:last-child {
-    @apply right-0 border-l border-l-gray-800;
-  }
+  //
+  //> div:first-child,
+  //> div:last-child {
+  //  @apply fixed  bottom-0 overflow-y-auto flex-grow hidden lg:block flex-shrink md:hidden sm:hidden;
+  //  width:$bar-width ;
+  //  max-width: $bar-width;
+  //  background: #19181f;
+  //  top: $header-height;
+  //
+  //  @screen lg {
+  //    max-width: $bar-width;
+  //  }
+  //}
+  //
+  //> div:first-child {
+  //  @apply left-0 border-r border-r-gray-800;
+  //}
+  //
+  //> div:last-child {
+  //  @apply right-0 border-l border-l-gray-800;
+  //}
 
   .center {
-    @apply text-white;
-    margin-top: $header-height;
+    @apply text-white col-span-4;
+    //margin-top: $header-height;
 
-    @screen lg {
-      margin: $header-height $bar-width;
-    }
+    //@screen lg {
+    //  margin: $header-height $bar-width;
+    //}
 
     .slider {
       padding: 100px;
