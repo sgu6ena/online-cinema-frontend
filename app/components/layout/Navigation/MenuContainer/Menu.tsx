@@ -2,7 +2,6 @@ import {FC} from 'react'
 
 import styles from './Menu.module.scss'
 import MenuItem from './MenuItem'
-// import AuthItems from './auth/AuthItems'
 import {IMenu} from './menu.interface'
 import dynamic from "next/dynamic";
 
