@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../hooks/useActions'
@@ -16,7 +16,7 @@ const Auth: FC = () => {
 	useAuthRedirect()
 
 	const { isLoading } = useAuth()
-	const [type, setType] = useState<'login' | 'register'>('login')
+
 
 	const {
 		register: registerInput,
@@ -28,15 +28,15 @@ const Auth: FC = () => {
 	const { login } = useActions()
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
-		if (type === 'login') login(data)
+		login(data)
 	}
 
 	return (
 		<>
-			<Meta title="Авторизация" />
+			<Meta title='Авторизация' />
 			<section className={styles.wrapper}>
-				<form onSubmit={()=>handleSubmit(onSubmit)}>
-					<Heading title={'Авторизация'} className="mb-6" />
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<Heading title={'Авторизация'} className='mb-6' />
 
 					<AuthFields
 						register={registerInput}
@@ -46,18 +46,10 @@ const Auth: FC = () => {
 
 					<div className={styles.buttons}>
 						<Button
-							type="submit"
-							onClick={() => setType('login')}
+							type='submit'
 							disabled={isLoading}
 						>
 							Войти
-						</Button>
-						<Button
-							type="submit"
-							onClick={() => setType('register')}
-							disabled={isLoading}
-						>
-							Регистрация
 						</Button>
 					</div>
 				</form>

@@ -4,14 +4,14 @@ import { toastr } from 'react-redux-toastr'
 import { AuthService } from '../../services/auth/auth.service'
 import { toastError } from '../../utils/toast-error'
 
-import { IEmailPassword, IRegister, ITokens } from './user.interface'
+import { ILoginPassword, IRegister, ITokens } from './user.interface'
 
 export const register = createAsyncThunk<ITokens, IRegister>(
 	'register',
 	async ({ email, password, login }, thunkApi
 	) => {
 		try {
-			const response = await AuthService.register(email, password, login='test')
+			const response = await AuthService.register(email, password, login)
 			toastr.success('', 'Регистрация прошла успешно')
 			return response
 		} catch (error) {
@@ -20,11 +20,11 @@ export const register = createAsyncThunk<ITokens, IRegister>(
 		}
 	},
 )
-export const login = createAsyncThunk<ITokens, IEmailPassword>(
+export const login = createAsyncThunk<ITokens, ILoginPassword>(
 	'login',
-	async ({ email, password }, thunkApi) => {
+	async ({ login, password }, thunkApi) => {
 		try {
-			const response = await AuthService.login(email, password)
+			const response = await AuthService.login(login, password)
 			toastr.success('', 'Вы успешно вошли')
 			return response
 		} catch (error) {

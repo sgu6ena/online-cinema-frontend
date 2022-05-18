@@ -8,8 +8,8 @@ export interface IInitialState {
 	isLoading: boolean
 }
 
-export interface IEmailPassword {
-	email: string
+export interface ILoginPassword {
+	login: string
 	password: string
 }
 

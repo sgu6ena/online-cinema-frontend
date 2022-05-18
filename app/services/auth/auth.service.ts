@@ -12,7 +12,7 @@ export const AuthService = {
 		const response = await axiosClassic.post<ITokens>(getAuthUrl('get_token'), {
 			login,
 			email,
-			password
+			password,
 		})    // @ts-ignore
 		const token = response.data.data.token
 		Cookies.set('token', token)
@@ -21,9 +21,9 @@ export const AuthService = {
 		saveToStorage(res)
 		return res
 	},
-	async login(email: string, password: string) {
+	async login(login: string, password: string) {
 		const response = await axiosClassic.post<ITokens>(getAuthUrl('get_token'), {
-			login: email,
+			login,
 			password,
 		})    // @ts-ignore
 		const token = response.data.data.token
@@ -37,20 +37,5 @@ export const AuthService = {
 	logout() {
 		removeTokensStorage()
 		localStorage.removeItem('user')
-	},
-
-	async getNewTokens() {
-		const token = Cookies.get('token')
-		// const response = await axiosClassic.post<IAuthResponse>(
-		//     getAuthUrl('access-token'),
-		//     {token},
-		//     {headers: getContentType()}
-		// )
-		//
-		// if (response.data.token) {
-		//     saveToStorage(response.data)
-		// }
-
-		return { data: { token } }
 	},
 }
