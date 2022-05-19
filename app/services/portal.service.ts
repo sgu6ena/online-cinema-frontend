@@ -3,6 +3,8 @@ import { IUser, IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { getCategoryUrl } from '../config/api-portal.config'
 import { IMoviePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
+import { ISlide } from '../components/ui/slider/slider.interface'
+import { getMoviesUrl } from '../config/api.config'
 
 interface IMain {
 	status: number
@@ -35,8 +37,16 @@ export const PortalService = {
 
 	async getMain() {
 		const data = await axiosClassicPortal.get<IMain>('/main')
+		const slides: ISlide[] = data.data.data[0].items.map((m: any) => ({
+			_id: m.id,
+			bigPoster: m.logo,
+			link: getMoviesUrl(m.id),
+			title: 'title',
+
+		}))
 		return {
-			slider: data.data.data[0].items,
+
+			slider:slides,
 			collections: data.data.data.filter((item) => item.viewport === 0.3),
 		}
 	},
