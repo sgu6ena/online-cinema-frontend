@@ -11,6 +11,8 @@ import Subheading from '../../ui/heading/Subheading'
 import Slider from '../../ui/slider/Slider'
 
 import { IHome } from './home.interface'
+import { usePortalSlides } from './usePortalSlides'
+import HomeLoading from './HomeLoading'
 
 const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	return [
@@ -21,22 +23,27 @@ const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 		})),
 	]
 }
-const Home: FC<IHome> = ({ slides, collections }) => {
+const Home: FC<IHome> = () => {
+
+	const { isLoading, slides, collections } = usePortalSlides()
+
 	return (
 		<>
 			<Meta
-				title="PORTAL"
-				description="Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий"
+				title='PORTAL'
+				description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
 			></Meta>
-			{slides.length && <Slider slides={slides} />}
+			{isLoading && <HomeLoading />}
+			{!isLoading && slides && <Slider slides={slides} />}
+
 			{collections &&
 				collections.map((c) => (
-					<div className="my-10 px-layout " key={c.cid}>
+					<div className='my-10 px-layout ' key={c.cid}>
 						<div className={'flex-center-between'}>
 							<Subheading title={c.title} />
 							<Link href={getGenreUrl(c.cid.toString())}>
 								<a>
-									<button className="btn-primary px-5 py-2 mb-5">
+									<button className='btn-primary px-5 py-2 mb-5'>
 										Смотреть все
 									</button>
 								</a>
