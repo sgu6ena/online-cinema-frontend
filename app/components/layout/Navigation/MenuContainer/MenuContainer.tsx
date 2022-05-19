@@ -9,7 +9,7 @@ const MenuContainer: FC = () => {
         <div>
             <Menu menu={userMenu}/>
             <Menu menu={firstMenu}/>
-            <GenreMenu/>
+            {/*<GenreMenu/>*/}
         </div>
     )
 }

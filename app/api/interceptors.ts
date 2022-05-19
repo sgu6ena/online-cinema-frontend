@@ -2,9 +2,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 
 import { APP_URL_PORTAL } from '../config/api-portal.config'
-import { API_URL } from '../config/api.config'
-import { removeTokensStorage } from '../services/auth/auth.helper'
-import { AuthService } from '../services/auth/auth.service'
+
 
 import { errorCatch, getContentType } from './api.helperts'
 
@@ -33,7 +31,6 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
 	(config) => config,
 	async (error) => {
-		// const originalRequest = error.config
 		throw error
 	}
 )

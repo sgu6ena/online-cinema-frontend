@@ -16,20 +16,6 @@ const AuthItems: FC = () => {
 
 	return (
 		<>
-			{/*{login && (*/}
-			{/*    <MenuItem*/}
-			{/*        item={{*/}
-			{/*            icon: 'MdOutlineLock',*/}
-			{/*            link: getAdminHomeUrl(),*/}
-			{/*            title: 'Админка',*/}
-			{/*        }}*/}
-			{/*    />*/}
-			{/*)}*/}
-			{/*<div className="text-white">*/}
-			{/*	{' '}*/}
-			{/*	{login && 'true'}*/}
-			{/*	{!login && 'false'}*/}
-			{/*</div>*/}
 			{login ? (
 				<>
 					<MenuItem
@@ -39,7 +25,13 @@ const AuthItems: FC = () => {
 							title: `${user?.login}`,
 						}}
 					/>
-
+					<MenuItem
+						item={{
+							icon: 'MdFavorite',
+							link: '/favorites',
+							title: `Избранное`,
+						}}
+					/>
 					<LogoutButton />
 				</>
 			) : (
@@ -48,7 +40,14 @@ const AuthItems: FC = () => {
 						item={{
 							icon: 'MdLogin',
 							link: '/auth',
-							title: 'Войти',
+							title: 'Вход',
+						}}
+					/>
+					<MenuItem
+						item={{
+							icon: 'MdAppRegistration',
+							link: '/register',
+							title: 'Регистрация',
 						}}
 					/>
 				</>

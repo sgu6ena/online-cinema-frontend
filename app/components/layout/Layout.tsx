@@ -7,14 +7,14 @@ import Sidebar from './Sidebar/Sidebar'
 
 const Layout: FC = ({ children }) => {
 	return (
-		<>
+		<div >
 			<Header />
 			<div className={styles.layout}>
 				<Navigation />
 				<div className={styles.center}>{children}</div>
 				<Sidebar />
 			</div>
-		</>
+		</div>
 	)
 }
 

@@ -1,4 +1,4 @@
-import cn from 'classnames'
+
 import {FC, useRef} from 'react'
 import {useAuth} from '../../../hooks/useAuth'
 
@@ -19,12 +19,13 @@ const VideoPLayer: FC<{ url: string; play: boolean; typeContent: number; slug: s
     const {user} = useAuth()
 
     return (<div className={styles.container}>
+
             <div
                 className={styles.wrapper}
             >
-                {user && user.subscription >= typeContent &&
+                {user && user.paid >= typeContent &&
                     <ReactPlayer url={url} controls ref={videoRef} playing={play} width={600}/>}
-                {user && user.subscription < typeContent && <ProfilePlaceholder/>}
+                {user && user.paid < typeContent && <ProfilePlaceholder/>}
                 {!user && <AuthPlaceholder slug={slug}/>}
 
             </div>
