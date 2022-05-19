@@ -10,36 +10,36 @@ import { PortalService } from '../app/services/portal.service'
 
 const HomePage: NextPage<IHome> = ({ slides, collections }) => {
 	return (
-		<Home slides={slides} collections={collections} />
+		<Home  />
 	)
 }
 
 export default HomePage
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	try {
-		const data = await PortalService.getMain()
-
-		const slides: ISlide[] = data.slider.map((m: any) => ({
-			_id: m.id,
-			bigPoster: m.logo,
-			link: getMoviesUrl(m.id),
-			title: 'title',
-			// subTitle: getGenresList(m.genres),
-		}))
-
-		return {
-			props: {
-				slides,
-				collections: data.collections,
-			} as IHome,
-		}
-	} catch (err) {
-		return {
-			props: {
-				slides: [],
-				collections: [],
-			} as IHome,
-		}
-	}
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+// 	try {
+// 		const data = await PortalService.getMain()
+//
+// 		const slides: ISlide[] = data.slider.map((m: any) => ({
+// 			_id: m.id,
+// 			bigPoster: m.logo,
+// 			link: getMoviesUrl(m.id),
+// 			title: 'title',
+// 			// subTitle: getGenresList(m.genres),
+// 		}))
+//
+// 		return {
+// 			props: {
+// 				slides,
+// 				collections: data.collections,
+// 			} as IHome,
+// 		}
+// 	} catch (err) {
+// 		return {
+// 			props: {
+// 				slides: [],
+// 				collections: [],
+// 			} as IHome,
+// 		}
+// 	}
+// }

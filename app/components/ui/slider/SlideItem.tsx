@@ -14,7 +14,7 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) 
 	const { push } = useRouter()
 	return (
 		<div className={styles.slide}>
-			{slide.bigPoster && (
+			{slide?.bigPoster && (
 				<Image
 					layout="fill"
 					className={styles.image}
