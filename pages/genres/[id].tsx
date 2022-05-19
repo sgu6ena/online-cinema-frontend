@@ -1,18 +1,14 @@
 import {  NextPage } from 'next'
 
 
-import CatalogPortal from '../../app/components/ui/catalog-movies/CatalogPortal'
+import CatalogPortal from '../../app/components/screens/genre/CatalogPortal'
 import {
 	IMoviePortalPerPage,
 } from '../../app/shared/types/movie.types'
 
-const FreshPage: NextPage<{ data: IMoviePortalPerPage }> = ({ data }) => {
+const FreshPage: NextPage = () => {
 	return (
-		<CatalogPortal
-			title={data.data.title}
-			data={data || []}
-			currentPage={data.pagination.currentPage}
-		/>
+		<CatalogPortal/>
 	)
 }
 

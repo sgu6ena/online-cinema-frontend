@@ -24,7 +24,7 @@ export const PortalService = {
 		slug: string | undefined = '0',
 		page: string | string[] | undefined = '1'
 	) {
-		const data = await axiosClassicPortal.get<IMoviePortal>(
+		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug),
 			{
 				params: {
