@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
 import { getMoviesUrl } from '../../../config/api.config'
 import Meta from '../../../utils/meta/Meta'
@@ -9,16 +8,29 @@ import Heading from '../../ui/heading/Heading'
 import styles from '../../ui/catalog-movies/Catalog.module.scss'
 import { useGenre } from './useGenre'
 import ReactPaginate from 'react-paginate'
+import { router } from 'next/client'
 
 const CatalogPortal: FC = () => {
 
-	const { movies, title, data, isLoading, handlePagination, page } = useGenre()
+	const { movies, title, data, isLoading, pagination } = useGenre()
+
+
+	const handlePagination = (page: any) => {
+		const path = router.pathname
+		const query = router.query
+		query.page = page.selected + 1
+		router.push({
+			pathname: path,
+			query: query,
+		})
+	}
 
 	return (
 		<Meta title={title || ''}>
+			{title && <Heading title={title} className={styles.heading} />}
 			{!isLoading &&
 				<>
-					<Heading title={title || 'Побдорка'} className={styles.heading} />
+
 					<section className={styles.movies} key={data && data.data.pagination.currentPage}>
 						{data && data.data.data.items.map((movie) => (
 							<>
@@ -40,20 +52,18 @@ const CatalogPortal: FC = () => {
 							</>
 						))}
 					</section>
-					<ReactPaginate
-					className="paginate"
-					breakLabel="..."
-					nextLabel=" >"
-					onPageChange={handlePagination}
-					pageRangeDisplayed={2}
-					pageCount={data.data.pagination.totalPages}
-					previousLabel="< "
-					activeClassName="active"
-					initialPage={data.data.pagination.currentPage - 1}
-				/>
+					{pagination && pagination.totalPages > 1 && <ReactPaginate
+						className='paginate'
+						breakLabel='...'
+						nextLabel=' >'
+						onPageChange={handlePagination}
+						pageRangeDisplayed={2}
+						pageCount={pagination.totalPages}
+						previousLabel='< '
+						activeClassName='active'
+						initialPage={pagination.currentPage - 1}
+					/>}
 				</>}
-
-
 		</Meta>
 	)
 }
