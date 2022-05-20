@@ -2,9 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { getMoviesUrl } from '../../../../config/api.config'
-import { getGenresUrl } from '../../../../config/api.config'
-import { IMovie, IMoviePortal } from '../../../../shared/types/movie.types'
+import { getGenresUrl, getMoviesUrl } from '../../../../config/api.config'
+import { IMoviePortal } from '../../../../shared/types/movie.types'
 import { getGenresListEach } from '../../../../utils/movie/getGenresList'
 import MaterialIcon from '../../../ui/MaterialIcon'
 
@@ -30,8 +29,8 @@ const MovieItem: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 					<div className={styles.title}>{movie.title}</div>
 					<div className={styles.genres}>
 						{movie.genre.map((genre, idx) => (
-							<Link href={getGenresUrl(genre.cid)} key={genre.cid}>
-								<a>{getGenresListEach(idx, movie.genre.length, genre.title)}</a>
+							<Link href={getGenresUrl(genre.id)} key={genre.id}>
+								<a>{getGenresListEach(idx, movie.genre.length, genre.name)}</a>
 							</Link>
 						))}
 					</div>
