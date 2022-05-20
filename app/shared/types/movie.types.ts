@@ -37,9 +37,12 @@ export interface IMovie {
 }
 
 export interface IGenrePortal {
-	name: string
-	id: number
+	cid: string
+	title: string
+	type: 0|1|2|3
 }
+
+
 
 export interface IVotePortal {
 	like: number

@@ -10,7 +10,7 @@ export const usePortalGenres = () => {
         () => GenreService.getPortal(),
         {
             select: ({data}) =>
-                data.filter((genre: { type: number }) => genre.type === 3)
+                data.filter((genre: { type: number }) => genre.type === 3).sort((i, j) => (parseInt(i.cid) - parseInt(j.cid)))
                     .map(
                         (genre: any) =>
                             ({
@@ -19,10 +19,6 @@ export const usePortalGenres = () => {
                                 icon: 'MdApi',
                             } as IMenuItem)
                     ),
-
-            onError(error) {
-                //TODO: errors
-            },
         }
     )
 

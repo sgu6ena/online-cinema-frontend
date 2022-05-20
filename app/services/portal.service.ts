@@ -1,8 +1,8 @@
 import axios, { axiosClassicPortal } from '../api/interceptors'
-import { IUser, IUserData } from '../components/screens/profile/user.interface'
+import { IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { getCategoryUrl } from '../config/api-portal.config'
-import { IMoviePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
+import { IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
 
@@ -15,22 +15,22 @@ interface IMain {
 export const PortalService = {
 	async getAll() {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getCategoryUrl('102/60')
+			getCategoryUrl('102/60'),
 		)
 		return data.data.data.items
 	},
 
 	async getCategory(
 		slug: string | undefined = '0',
-		page: string | string[] | undefined = '1'
+		page = '1',
 	) {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug),
 			{
 				params: {
-					page: page.toString(),
+					page: page ? page.toString() : '1',
 				},
-			}
+			},
 		)
 		return data
 	},
@@ -46,7 +46,7 @@ export const PortalService = {
 		}))
 		return {
 
-			slider:slides,
+			slider: slides,
 			collections: data.data.data.filter((item) => item.viewport === 0.3),
 		}
 	},
