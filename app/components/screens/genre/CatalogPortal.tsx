@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { getMoviesUrl } from '../../../config/api.config'
 import Meta from '../../../utils/meta/Meta'
@@ -9,15 +9,26 @@ import styles from '../../ui/catalog-movies/Catalog.module.scss'
 import { useGenre } from './useGenre'
 import ReactPaginate from 'react-paginate'
 import { router } from 'next/client'
+import SkeletonLoader from '../../ui/SkeletonLoader'
+import CatalogLoader from './CatalogLoader'
 
 
 const CatalogPortal: FC = () => {
 
 	const query = router.query
-	const { movies, title, data, isLoading, pagination } = useGenre()
-	useEffect(() => {
+	const { movies, title, isLoading, pagination } = useGenre()
 
-	}, [query])
+	const [titleGenre, setTitleGenre] = useState('')
+
+	useEffect(() => {
+		setTitleGenre('')
+	}, [query.id])
+
+	useEffect(() => {
+		if (title)
+			setTitleGenre(title)
+	}, [title, query])
+
 
 	const handlePagination = (page: any) => {
 		const path = router.pathname
@@ -30,13 +41,14 @@ const CatalogPortal: FC = () => {
 	}
 
 	return (
-		<Meta title={title || ''}>
-			{title && <Heading title={title} className={styles.heading} />}
-			{!isLoading &&
-				<>
+		<Meta title={titleGenre}>
 
-					<section className={styles.movies} key={data && data.data.pagination.currentPage}>
-						{movies && movies.map((movie) => (
+			{titleGenre ? <Heading title={titleGenre} className={styles.heading} /> :
+				<div className='p-layout pb-0'><SkeletonLoader className='h-12' /></div>}
+			{!isLoading && movies && pagination ?
+				<>
+					<section className={styles.movies} key={pagination.currentPage}>
+						{movies.map((movie) => (
 							<>
 								<GalleryItem
 									key={movie.id.toString()}
@@ -56,7 +68,7 @@ const CatalogPortal: FC = () => {
 							</>
 						))}
 					</section>
-					{pagination && pagination.totalPages > 1 && <ReactPaginate
+					{pagination ? pagination.totalPages > 1 && <ReactPaginate
 						className='paginate'
 						breakLabel='...'
 						nextLabel=' >'
@@ -66,8 +78,8 @@ const CatalogPortal: FC = () => {
 						previousLabel='< '
 						activeClassName='active'
 						initialPage={pagination.currentPage - 1}
-					/>}
-				</>}
+					/> : <SkeletonLoader />}
+				</> : <CatalogLoader />}
 		</Meta>
 	)
 }
