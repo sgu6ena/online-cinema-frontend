@@ -18,8 +18,8 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({ movie }) => {
 					<span>{movie.year}</span> |{' '}
 					{movie.genre.map((genre) => (
 						<>
-							<Link href={getGenreUrl(genre.cid.toString())}>
-								<a>{genre.title} </a>
+							<Link href={getGenreUrl(genre.id)}>
+								<a>{genre.name}  </a>
 							</Link>{' '}
 							|{' '}
 						</>

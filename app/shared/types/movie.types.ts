@@ -1,12 +1,12 @@
 import { TypeMaterialIconsName } from './icon.types'
 
-export interface IGenre {
-	_id: string
-	name: string
-	slug: string
-	description: string
-	icon: TypeMaterialIconsName
-}
+// export interface IGenre {
+// 	_id: string
+// 	name: string
+// 	slug: string
+// 	description: string
+// 	icon: TypeMaterialIconsName
+// }
 
 export interface IParameters {
 	year: number
@@ -42,7 +42,10 @@ export interface IGenrePortal {
 	type: 0|1|2|3
 }
 
-
+export interface IGenre{
+	name:string
+	id:string
+}
 
 export interface IVotePortal {
 	like: number
@@ -73,7 +76,7 @@ export interface IMoviePortal {
 	country: string[]
 	description: string
 	logo: string
-	genre: IGenrePortal[]
+	genre: IGenre[]
 	rate_age: string
 	rate_kp: number
 	rate_imdb: number
