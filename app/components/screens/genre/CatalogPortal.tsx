@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
 import { getMoviesUrl } from '../../../config/api.config'
 import Meta from '../../../utils/meta/Meta'
@@ -10,10 +10,14 @@ import { useGenre } from './useGenre'
 import ReactPaginate from 'react-paginate'
 import { router } from 'next/client'
 
+
 const CatalogPortal: FC = () => {
 
+	const query = router.query
 	const { movies, title, data, isLoading, pagination } = useGenre()
+	useEffect(() => {
 
+	}, [query])
 
 	const handlePagination = (page: any) => {
 		const path = router.pathname
@@ -32,7 +36,7 @@ const CatalogPortal: FC = () => {
 				<>
 
 					<section className={styles.movies} key={data && data.data.pagination.currentPage}>
-						{data && data.data.data.items.map((movie) => (
+						{movies && movies.map((movie) => (
 							<>
 								<GalleryItem
 									key={movie.id.toString()}
