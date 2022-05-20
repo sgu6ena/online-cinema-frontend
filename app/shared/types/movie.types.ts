@@ -112,15 +112,19 @@ export interface IMoviePortalPerPage {
 		sortAvailable: boolean
 		items: IMoviePortal[]
 	}
-	pagination: {
-		count: number
-		total: number
-		perPage: number
-		currentPage: number
-		totalPages: number
-		links: {
-			next?: string
-			prev?: string
-		}
+	pagination: IPagination
+
+}
+
+export interface IPagination
+{
+	count: number
+	total: number
+	perPage: number
+	currentPage: number
+	totalPages: number
+	links: {
+		next?: string
+		prev?: string
 	}
 }

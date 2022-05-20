@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import Header from './Header/Header'
-import styles from './Layout.module.scss'
+import styles from './Layoutols.module.scss'
 import Navigation from './Navigation/Navigation'
 import Sidebar from './Sidebar/Sidebar'
 

@@ -1,39 +1,21 @@
-import { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import {  NextPage } from 'next'
+import dynamic from 'next/dynamic'
 
 
-import CatalogPortal from '../../app/components/ui/catalog-movies/CatalogPortal'
-import { PortalService } from '../../app/services/portal.service'
-import {
-	IMoviePortalPerPage,
-} from '../../app/shared/types/movie.types'
+const DynamicCatalogPortal = dynamic(() => import('../../app/components/screens/genre/CatalogPortal'), {
+	ssr: false
+})
 
-const FreshPage: NextPage<{ data: IMoviePortalPerPage }> = ({ data }) => {
+
+
+import CatalogPortal from '../../app/components/screens/genre/CatalogPortal'
+
+const FreshPage: NextPage = () => {
 	return (
-		<CatalogPortal
-			title={data.data.title}
-			data={data || []}
-			currentPage={data.pagination.currentPage}
-		/>
+		<DynamicCatalogPortal/>
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
-	query: { page },
-	params,
-}) => {
-	try {    // @ts-ignore
-		const data = await PortalService.getCategory(params?.id, page)
 
-		return {
-			props: {
-				data: data.data,
-			},
-		}
-	} catch (error) {
-		return {
-			notFound: true,
-		}
-	}
-}
 
 export default FreshPage

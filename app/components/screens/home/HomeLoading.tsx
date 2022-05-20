@@ -3,14 +3,14 @@ import SkeletonLoader from '../../ui/SkeletonLoader'
 
 const HomeLoading = () => {
 	return (
-		<div>
-			<SkeletonLoader className={'h-96'} />
-			<div className='p-layout'>
-				<div className='flex justify-between'>
-					<SkeletonLoader className={'h-10 w-60  px-60 mt-5 flex   '} />
-					<SkeletonLoader className={'h-10 w-60  px-28 mt-5 flex   '} />
+		<div  className={'overflow-hidden'}>
+			<SkeletonLoader style={{aspectRatio:'147/46'}} />
+			<div className='px-layout '>
+				<div className='flex justify-between my-5'>
+					<SkeletonLoader className={'h-10 w-60  px-40 mt-5 flex   '} />
+					<SkeletonLoader className={'h-10 w-60  px-16 mt-5 flex   '} />
 				</div>
-				<div className='flex flex-center-between'>
+				<div className='flex flex-center-between gap-5 flex-grow-0'>
 					<SkeletonLoader className={'h-60 w-40  p-20 mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
@@ -18,13 +18,19 @@ const HomeLoading = () => {
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
+					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
+					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
+					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 				</div>
-				<div className='flex justify-between'>
-					<SkeletonLoader className={'h-10 w-60  px-60 mt-5 flex   '} />
-					<SkeletonLoader className={'h-10 w-60  px-28 mt-5 flex   '} />
+				<div className='flex justify-between my-5'>
+					<SkeletonLoader className={'h-10 w-60  px-40 mt-5 flex   '} />
+					<SkeletonLoader className={'h-10 w-60  px-16 mt-5 flex   '} />
 				</div>
-				<div className='flex flex-center-between'>
+				<div className='flex flex-center-between gap-5 flex-grow-0'>
 					<SkeletonLoader className={'h-60 w-40  p-20 mt-5  '} />
+					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
+					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
+					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />
 					<SkeletonLoader className={'h-60 w-40  p-20   mt-5  '} />

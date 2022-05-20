@@ -10,6 +10,7 @@
   .slide {
     @apply h-full w-full overflow-hidden shadow-xl flex items-end;
     aspect-ratio: 147/46;
+    max-height: 500px;
     //@include fade-bg-gradient();
 
     .image {
