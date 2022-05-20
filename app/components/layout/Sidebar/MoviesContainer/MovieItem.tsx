@@ -30,8 +30,8 @@ const MovieItem: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 					<div className={styles.title}>{movie.title}</div>
 					<div className={styles.genres}>
 						{movie.genre.map((genre, idx) => (
-							<Link href={getGenresUrl(genre.id)} key={genre.id}>
-								<a>{getGenresListEach(idx, movie.genre.length, genre.name)}</a>
+							<Link href={getGenresUrl(genre.cid)} key={genre.cid}>
+								<a>{getGenresListEach(idx, movie.genre.length, genre.title)}</a>
 							</Link>
 						))}
 					</div>
