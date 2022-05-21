@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-  @apply  flex items-center overflow-x-auto flex-nowrap py-3;
+  @apply flex items-center overflow-x-auto flex-nowrap py-3;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -18,8 +18,8 @@
   }
 
   &.vertical {
-    @apply mr-4 last:mr-0 w-40 h-64;
-    max-width: 200px;
+    @apply w-40 h-64;
+    max-width: 190px;
   }
 
   &.horizontal {
@@ -37,7 +37,7 @@
 
   img {
     @apply image-like-bg;
-    background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg") ;
+    background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg");
   }
 
   .content {

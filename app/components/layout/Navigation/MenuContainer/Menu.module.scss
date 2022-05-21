@@ -2,15 +2,15 @@
   @apply mb-14 animate-fade;
 
   .heading {
-    @apply text-gray-500 uppercase text-sm font-semibold pl-layout;
+    @apply text-gray-500 uppercase text-sm font-semibold pl-5;
   }
 
   .ul {
     > li {
-      @apply px-8 border-r-4 border-r-transparent transition-colors;
+      @apply pl-5 pr-2  transition-colors;
 
       > a {
-        @apply flex items-center text-gray-600 pl-3 mt-6 cursor-pointer;
+        @apply flex items-center text-gray-600 pl-1 mt-6 cursor-pointer;
 
 
         > svg {
@@ -19,16 +19,15 @@
 
         > span {
           @apply ml-3 text-lg hover:text-white;
-          -webkit-line-clamp: 1;        -webkit-line-clamp: 1;
-			line-clamp: 1;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			white-space: nowrap;
+          -webkit-line-clamp: 1;
+          line-clamp: 1;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
         }
       }
 
       &.active {
-        @apply border-r-primary;
 
         > a > span {
           @apply text-white;
