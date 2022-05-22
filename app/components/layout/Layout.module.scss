@@ -51,7 +51,7 @@ $header-height: 70px;
 }
 
 .header {
-  @apply md:px-layout px-1.5 air-block fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
+  @apply md:px-layout px-1.5 air-block rounded-none fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
   width: 100vw;
   height: $header-height;
 
@@ -68,7 +68,7 @@ $header-height: 70px;
     }
 
     ul {
-      @apply absolute top-20 left-10  p-5 rounded transition-all animate-fade border border-gray-700 rounded-layout bg-gray-800 w-60 animate-fade z-10;
+      @apply absolute top-20 right-10  p-5 rounded transition-all animate-fade border border-gray-700 rounded-layout bg-gray-800 w-60 animate-fade z-50;
       li {
         @apply ml-3 text-white truncate my-3;
       }
@@ -84,7 +84,7 @@ $header-height: 70px;
   }
 
   .end {
-    @apply flex  items-center gap-2;
+    @apply hidden lg:flex  items-center gap-2;
 
     a {
       @apply flex-shrink-0;

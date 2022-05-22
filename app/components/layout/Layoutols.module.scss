@@ -9,7 +9,7 @@ $header-height: 70px;
     @apply fixed  bottom-0 overflow-y-auto flex-grow hidden lg:block flex-shrink md:hidden sm:hidden;
 
     width: $bar-width;
-    //background: #19181f;
+    background: #19181f;
     top: $header-height;
 
     @screen lg {

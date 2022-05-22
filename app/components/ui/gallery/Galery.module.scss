@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-  @apply flex items-center overflow-x-auto flex-nowrap py-3;
+  @apply flex items-center overflow-x-auto gap-3 flex-nowrap py-3;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -10,7 +10,7 @@
 }
 
 .item {
-  @apply relative transition-transform flex items-end shadow-lg rounded-layout overflow-hidden;
+  @apply relative transition-transform flex items-end shadow-lg rounded-md overflow-hidden;
   flex: 0 0 auto;
 
   &:hover {
