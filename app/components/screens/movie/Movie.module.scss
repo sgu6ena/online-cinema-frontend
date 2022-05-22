@@ -1,67 +1,75 @@
 @import '../../../assets/styles/variables';
 
 .movie {
-  @apply text-gray-500;
-  .main {
-    @apply flex items-stretch justify-between gap-2;
-    .description {
-      @apply p-layout;
-      width: 100%;
+	@apply text-gray-500;
+	.main {
+		@apply flex-col-reverse flex items-stretch justify-between gap-2 lg:flex-row;
+		.description {
+			@apply p-2 lg:p-layout;
+			width: 100%;
 
-      p {
-        @apply my-2;
-      }
+			p {
+				@apply my-2;
+			}
+		}
 
+		.right {
+			.image {
+				@include fade-bg-gradient-double(0deg);
+				@apply relative;
+				img {
+					@apply rounded text-white;
+				}
+			}
+		}
 
-    }
+		.rating {
+			@apply flex items-center justify-end mb-2 px-2;
+			> svg {
+				@apply fill-yellow-700 mr-2 text-lg;
+			}
 
-    .right {
-      .image {
-        @include fade-bg-gradient-double(0deg);
-        @apply relative;
-        img {
-          @apply rounded text-white;
-        }
-      }
-    }
+			> span {
+				@apply fill-yellow-700  text-white font-medium pt-0.5;
+			}
+		}
+	}
+}
 
-    .rating {
-      @apply flex items-center justify-end mb-2 px-2;
-      > svg {
-        @apply fill-yellow-700 mr-2 text-lg;
-      }
+.movieContainer {
+	@apply p-2 lg:p-layout lg:mx-layout;
+}
 
-      > span {
-        @apply fill-yellow-700  text-white font-medium pt-0.5;
-      }
-    }
-  }
+.votes {
+	@apply flex items-center justify-end mt-3 gap-3;
 }
 
 .tabPanel {
-  .tabs {
-    @apply mb-3;
-    > button {
-      @apply text-lg py-3 px-5  border-b hover:text-white hover:opacity-100 opacity-60  transition-all;
-      &.active {
-        @apply  text-primary opacity-100;
-      }
-    }
-  }
+	.tabs {
+		@apply mb-3;
+		> button {
+			@apply text-lg py-3 px-3 lg:px-5 border-b hover:text-white hover:opacity-100 opacity-60  transition-all;
+			&.active {
+				@apply text-primary opacity-100;
+			}
+		}
+	}
 
-  .season {
-    .active {
-      @apply flex  animate-fade flex-wrap;
-      .episode {
-        @apply btn-primary text-center hover:opacity-100 transition px-5 py-2 m-2 ;
-        min-width: 120px;
+	.season {
+		.active {
+			@apply flex  animate-fade flex-wrap;
+			.episode {
+				@apply btn-primary text-center hover:opacity-100 transition px-3 py-2 m-2;
+				min-width: 100px;
+				@screen lg {
+					min-width: 120px;
+				}
 
-        &:hover {
-          //@apply shadow-yellow-700 shadow-sm;
-          filter: drop-shadow(0 2px 4px #555);
-
-        }
-      }
-    }
-  }
+				&:hover {
+					//@apply shadow-yellow-700 shadow-sm;
+					filter: drop-shadow(0 2px 4px #555);
+				}
+			}
+		}
+	}
 }
