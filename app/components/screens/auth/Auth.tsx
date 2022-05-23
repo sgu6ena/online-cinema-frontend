@@ -1,6 +1,8 @@
-import { FC } from 'react'
+import Link from 'next/link'
+import React, { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { LINKS } from '../../../config/links'
 import { useActions } from '../../../hooks/useActions'
 import { useAuth } from '../../../hooks/useAuth'
 import Meta from '../../../utils/meta/Meta'
@@ -11,12 +13,12 @@ import styles from './Auth.module.scss'
 import AuthFields from './AuthFields'
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
+import cn from 'classnames'
 
 const Auth: FC = () => {
 	useAuthRedirect()
 
 	const { isLoading } = useAuth()
-
 
 	const {
 		register: registerInput,
@@ -36,8 +38,11 @@ const Auth: FC = () => {
 			<Meta title='Авторизация' />
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					<Heading title={'Авторизация'} className='mb-6' />
-
+					<Heading title={'Вход в аккаунт'} className='mb-3' />
+					<Heading
+						title='Войдите для доступа к подписке и списку избранного'
+						className='text-gray-600 text-xl mb-3'
+					/>
 					<AuthFields
 						register={registerInput}
 						formState={formState}
@@ -45,13 +50,21 @@ const Auth: FC = () => {
 					/>
 
 					<div className={styles.buttons}>
-						<Button
-							type='submit'
-							disabled={isLoading}
-						>
+						<p >
+							<Link href=''>
+								<a>Забыли пароль?</a>
+							</Link>
+						</p>
+						<Button type='submit' disabled={!formState.isValid}>
 							Войти
 						</Button>
 					</div>
+					<p >
+						Еще нет аккаунта?{' '}
+						<Link href={LINKS.REGISTER}>
+							<a className='link text-primary'> Зарегистрируйтесь</a>
+						</Link>
+					</p>
 				</form>
 			</section>
 		</>

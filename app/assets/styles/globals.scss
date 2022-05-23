@@ -98,3 +98,11 @@ div::-webkit-scrollbar-thumb {
     @apply border-2 border-white
   }
 }
+
+.link {
+  @apply underline
+}
+
+input[type=checkbox] {
+  @apply bg-transparent rounded h-5 w-5 text-primary;
+}
