@@ -9,7 +9,7 @@ const Heading: FC<IHeading> = ({title, className}) => {
     return (
         <h1
             className={`text-white text-opacity-80 font-semibold ${
-                className?.includes('xl') ? '' : 'text-3xl'
+                className?.includes('xl') ? '' : 'lg:text-3xl md:text-2xl text-xl'
             } ${className}`}
         >
             {title}

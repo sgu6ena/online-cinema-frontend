@@ -18,7 +18,7 @@
   }
 
   &.vertical {
-    @apply w-40 h-64;
+    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-36;
     max-width: 190px;
   }
 
@@ -41,18 +41,22 @@
   }
 
   .content {
-    @apply relative z-2 text-center m-3 w-full;
+    @apply relative z-2 text-center lg:m-3 my-3 mx-1 w-full;
 
     .title {
-      @apply font-semibold mb-1 pr-3 text-white text-shadow;
+      @apply font-semibold lg:text-md md:text-sm text-xs mb-1 lg:pr-3 pr-1  text-white text-shadow;
       text-overflow: ellipsis;
-      line-clamp: 2;
+      -webkit-line-clamp: 2;
       overflow: hidden;
       white-space: nowrap;
     }
 
     .subTitle {
-      @apply text-gray-500 text-shadow pr-3;
+      @apply text-gray-500 lg:text-md md:text-sm text-xs  text-shadow pr-3;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 }
