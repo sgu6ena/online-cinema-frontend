@@ -26,7 +26,7 @@ const Register = () => {
 		formState,
 		watch,
 		reset,
-	} = useForm<IRegisterInput>({ mode: 'onSubmit' })
+	} = useForm<IRegisterInput>({ mode: 'onChange' })
 
 	const { register } = useActions()
 
