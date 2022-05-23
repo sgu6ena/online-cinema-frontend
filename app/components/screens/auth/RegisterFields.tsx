@@ -18,7 +18,7 @@ const RegisterFields: FC<IAuthFields> = ({
 	return (
 		<>
 			<Field
-				{...register('email', {
+				{...register('login', {
 					required: 'Логин обязательное поле',
 					minLength: {
 						value: 4,
@@ -30,7 +30,7 @@ const RegisterFields: FC<IAuthFields> = ({
 					},
 
 				})}
-				placeholder="e-mail или  логин"
+				placeholder="Логин"
 				error={errors.email}
 			/>
 			<Field
@@ -38,15 +38,15 @@ const RegisterFields: FC<IAuthFields> = ({
 					required: 'E-mail обязательное поле',
 					minLength: {
 						value: 4,
-						message: 'Логин должен содержать не менее 4-х символов ',
+						message: 'E-mail должен содержать не менее 4-х символов ',
 					},
 					maxLength: {
 						value: 50,
-						message: 'Логин должен содержать более 50 символов ',
+						message: 'E-mail должен содержать более 50 символов ',
 					},
 
 				})}
-				placeholder="e-mail или  логин"
+				placeholder="e-mail "
 				error={errors.email}
 			/>
 			<Field
@@ -62,7 +62,7 @@ const RegisterFields: FC<IAuthFields> = ({
 						}
 						: {}
 				)}
-				placeholder="password"
+				placeholder="Пароль"
 				type="password"
 				error={errors.password}
 			/>
@@ -79,7 +79,7 @@ const RegisterFields: FC<IAuthFields> = ({
 						}
 						: {}
 				)}
-				placeholder="password2"
+				placeholder="Повторите пароль"
 				type="password2"
 				error={errors.password2}
 			/>

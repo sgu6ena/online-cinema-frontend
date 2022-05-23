@@ -3,7 +3,6 @@ import Cookies from 'js-cookie'
 
 import { APP_URL_PORTAL } from '../config/api-portal.config'
 
-
 import { errorCatch, getContentType } from './api.helperts'
 
 export const axiosClassic = axios.create({
@@ -31,8 +30,8 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
 	(config) => config,
 	async (error) => {
-		throw error
-	}
+		throw errorCatch(error)
+	},
 )
 
 export default instance

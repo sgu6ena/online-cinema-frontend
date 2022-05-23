@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { toastr } from 'react-redux-toastr'
 
 import SkeletonLoader from '../SkeletonLoader'
 
@@ -7,6 +6,7 @@ import styles from './AdminTable.module.scss'
 import AdminTableHeader from './AdminTableHeader'
 import AdminTableRow from './AdminTableRow'
 import { ITableItem } from './admin-table.interface'
+import { toast } from 'react-hot-toast'
 
 interface IAdminTable {
 	tableItems: ITableItem[]
@@ -24,7 +24,7 @@ const AdminTable: FC<IAdminTable> = ({
 	const remove = (id: string) => {
 		confirm('Вы уверены?')
 			? removeHandler(id)
-			: toastr.error('Удаление элемента', 'отменено')
+			: toast.error('Удаление элемента отменено')
 	}
 
 	return (

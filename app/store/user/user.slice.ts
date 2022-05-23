@@ -19,11 +19,11 @@ export const userSlice = createSlice({
 			.addCase(register.pending, (state) => {
 				state.isLoading = true
 			})
-			.addCase(register.fulfilled, (state, { payload }) => {
-				state.isLoading = false    // @ts-ignore
-				state.user = payload.user
+			.addCase(register.fulfilled, (state, ) => {
+				state.isLoading = false
+				state.user = null
 			})
-			.addCase(register.rejected, (state) => {
+			.addCase(register.rejected, (state,) => {
 				state.isLoading = false
 				state.user = null
 			})

@@ -2,7 +2,7 @@ $bar-width: 300px;
 
 $header-height: 70px;
 .layout {
-  @apply relative  grid-cols-6 grid gap-0 mx-auto ;
+  @apply relative  grid-cols-6 grid gap-0 mx-auto;
   max-width: 2100px;
   margin-top: $header-height;
 
@@ -64,7 +64,6 @@ $header-height: 70px;
 
     svg {
       @apply h-10 w-10 mr-4 animate-fade;
-
     }
 
     ul {
@@ -79,7 +78,6 @@ $header-height: 70px;
         top: 28%;
         transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
       }
-
     }
   }
 

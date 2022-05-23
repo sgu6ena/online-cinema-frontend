@@ -20,7 +20,7 @@ const Register = () => {
 		handleSubmit,
 		formState,
 		reset,
-	} = useForm<IRegisterInput>({ mode: 'onChange' })
+	} = useForm<IRegisterInput>({ mode: 'onSubmit' })
 
 	const { register } = useActions()
 
