@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-  @apply  flex items-center overflow-x-auto flex-nowrap py-3;
+  @apply flex items-center overflow-x-auto gap-3 flex-nowrap py-3;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -10,7 +10,7 @@
 }
 
 .item {
-  @apply relative transition-transform flex items-end shadow-lg rounded-layout overflow-hidden;
+  @apply relative transition-transform flex items-end shadow-lg rounded-md overflow-hidden;
   flex: 0 0 auto;
 
   &:hover {
@@ -18,8 +18,8 @@
   }
 
   &.vertical {
-    @apply mr-4 last:mr-0 w-40 h-64;
-    max-width: 200px;
+    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-36;
+    max-width: 190px;
   }
 
   &.horizontal {
@@ -37,22 +37,26 @@
 
   img {
     @apply image-like-bg;
-    background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg") ;
+    background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg");
   }
 
   .content {
-    @apply relative z-2 text-center m-3 w-full;
+    @apply relative z-2 text-center lg:m-3 my-3 mx-1 w-full;
 
     .title {
-      @apply font-semibold mb-1 pr-3 text-white text-shadow;
+      @apply font-semibold lg:text-md md:text-sm text-xs mb-1 lg:pr-3 pr-1  text-white text-shadow;
       text-overflow: ellipsis;
-      line-clamp: 2;
+      -webkit-line-clamp: 2;
       overflow: hidden;
       white-space: nowrap;
     }
 
     .subTitle {
-      @apply text-gray-500 text-shadow pr-3;
+      @apply text-gray-500 lg:text-md md:text-sm text-xs  text-shadow pr-3;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 }
