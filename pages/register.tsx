@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import Register from '../app/components/screens/auth/Register'
+import Register from '../app/components/screens/auth/register/Register'
 
 
 

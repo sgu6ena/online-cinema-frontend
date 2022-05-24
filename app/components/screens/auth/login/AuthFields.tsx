@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { FormState, UseFormRegister } from 'react-hook-form'
 
-import Field from '../../ui/form-elemets/Field'
+import Field from '../../../ui/form-elemets/Field'
 
 interface IAuthFields {
 	register: UseFormRegister<any>
@@ -27,7 +27,6 @@ const AuthFields: FC<IAuthFields> = ({
 						value: 50,
 						message: 'Логин должен содержать более 50 символов ',
 					},
-
 				})}
 				placeholder="e-mail или  логин"
 				error={errors.email}

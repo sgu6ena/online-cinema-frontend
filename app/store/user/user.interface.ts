@@ -6,6 +6,7 @@ export interface ITokens {
 export interface IInitialState {
 	user: IAuthResponse | null
 	isLoading: boolean
+	isRegistered:boolean
 }
 
 export interface ILoginPassword {

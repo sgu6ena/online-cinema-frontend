@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { FormState, UseFormRegister, UseFormWatch } from 'react-hook-form'
 
-import { LINKS } from '../../../config/links'
-import { validEmail } from '../../../shared/regex'
-import Field from '../../ui/form-elemets/Field'
+import { LINKS } from '../../../../config/links'
+import { validEmail } from '../../../../shared/regex'
+import Field from '../../../ui/form-elemets/Field'
 
 interface IAuthFields {
 	register: UseFormRegister<any>
@@ -84,8 +84,8 @@ const RegisterFields: FC<IAuthFields> = ({
 				<span className="mx-3 -mt-1 text-gray-600 text-left">
 					Я согласен с условиями{' '}
 					<a href={LINKS.AGREEMENT} target="_blank" className="link">
-
-						{' '}пользовательского соглашения
+						{' '}
+						пользовательского соглашения
 					</a>{' '}
 					и даю{' '}
 					<a href={LINKS.PROCESSING} className="link">
