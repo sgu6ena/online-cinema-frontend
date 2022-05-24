@@ -20,7 +20,7 @@ export const AuthService = {
 		const response = await axiosClassic.post<ITokens>(getAuthUrl('get_token'), {
 			login,
 			password,
-		})
+		})// @ts-ignore
 		const token = response.data.data.token
 		Cookies.set('token', token)
 		const user = token ? await axios.get<IAuthResponse>(getUserProfile()) : null    // @ts-ignore
