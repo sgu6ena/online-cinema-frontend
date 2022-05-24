@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-@import 'react-redux-toastr/src/styles/index';
+
 @import './react-select.scss';
 html,
 body {
@@ -97,4 +97,12 @@ div::-webkit-scrollbar-thumb {
   .active {
     @apply border-2 border-white
   }
+}
+
+.link {
+  @apply underline
+}
+
+input[type=checkbox] {
+  @apply bg-transparent rounded h-5 w-5 text-primary;
 }

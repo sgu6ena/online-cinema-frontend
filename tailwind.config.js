@@ -91,6 +91,9 @@ module.exports = {
 					'&:hover': {
 						backgroundColor: '#ff0009',
 					},
+					'&:disabled':{
+						backgroundColor:'#39393f'
+					}
 				},
 
 				'.text-link': {

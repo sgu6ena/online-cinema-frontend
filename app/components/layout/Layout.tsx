@@ -7,7 +7,7 @@ import Sidebar from './Sidebar/Sidebar'
 
 const Layout: FC = ({ children }) => {
 	return (
-		<div >
+		<div>
 			<Header />
 			<div className={styles.layout}>
 				<Navigation />

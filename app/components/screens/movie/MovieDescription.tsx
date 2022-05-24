@@ -7,6 +7,7 @@ import { getCountryListAlt } from '../../../utils/movie/getCountryList'
 import { getGenresList } from '../../../utils/movie/getGenresList'
 
 import { IMoviePortalFull } from '../../../shared/types/movie.types'
+import { minuteToHours } from '../../../utils/date/minuteToHours'
 
 const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({ movie }) => {
 	return (
@@ -27,7 +28,7 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({ movie }) => {
 					<span>{getCountryListAlt(movie.country)}</span>
 				</p>
 				<p></p>
-				<p>Длительность: {movie.length} мин.</p>
+				<p>Длительность:{minuteToHours(movie.length)}</p>
 				<p>Режиссер: {getGenresList(movie.creator)}</p>
 				<p>Продюссер: {getGenresList(movie.producer)}</p>
 				<p>В ролях: {getGenresList(movie.in_the_roles)}</p>
