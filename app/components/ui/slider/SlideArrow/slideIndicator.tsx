@@ -1,10 +1,12 @@
 import { FC } from 'react'
-import { forEach, forIn } from 'lodash'
+import styles from './SlideArrow.module.scss'
+import cn from 'classnames'
 
-const SlideIndicator:FC<number> = (count:number, activeNumber) => {
+const SlideIndicator: FC<{ count: number, activeNumber: number }> = ({ activeNumber, count }) => {
 	return (
-		<div>
-
+		<div className={styles.indicators}>
+			{Array.from(Array(count).keys()).map(i => <span key={i}
+																											className={cn(styles.circle, i === activeNumber && styles.active)} />)}
 		</div>
 	)
 }

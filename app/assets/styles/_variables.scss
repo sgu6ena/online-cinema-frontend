@@ -41,3 +41,20 @@
     );
   }
 }
+
+@mixin fade-bg-gradient-gor($direction: 90deg) {
+  &::before {
+    @apply w-full h-full absolute top-0 left-0 z-1;
+    content: '';
+
+    background: linear-gradient(
+                    $direction,
+                    rgba(#19181f, 1) 3.31%,
+                    rgba(#101215, 0) 20.32%
+    ), linear-gradient(
+                    $direction+180deg,
+                    rgba(#19181f, 1) 3.31%,
+                    rgba(#19181f, 0) 20.32%
+    );
+  }
+}

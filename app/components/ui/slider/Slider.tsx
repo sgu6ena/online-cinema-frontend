@@ -6,6 +6,7 @@ import SlideItem from './SlideItem'
 import styles from './Slider.module.scss'
 import { ISlide } from './slider.interface'
 import { useSlider } from './useSlider'
+import SlideIndicator from './SlideArrow/slideIndicator'
 
 interface ISlider {
 	slides: ISlide[]
@@ -22,7 +23,7 @@ const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 			</CSSTransition>
 			<SlideArrow variant="left" clickHandler={() => handleClick('prev')} />
 			<SlideArrow variant="right" clickHandler={() => handleClick('next')} />
-
+			<SlideIndicator count={slides.length} activeNumber={index}/>
 		</div>
 	)
 }
