@@ -16,11 +16,11 @@ const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 	const { handleClick, index, slideIn } = useSlider(slides.length)
 
 	useEffect(() => {
-		const myTimeout = setTimeout(() => {
-			handleClick('next')
-		}, 3000)
-		clearTimeout(myTimeout)
-	}, [index])
+		// const myTimeout = setTimeout(() => {
+		// 	handleClick('next')
+		// }, 1000)
+		// clearTimeout(myTimeout)
+	}, [])
 
 	return (
 		<div className={styles.slider}>
