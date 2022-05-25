@@ -12,13 +12,13 @@ interface ISlideItem {
 }
 
 const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) => {
-	const { push } = useRouter()
 	return (
 		<div className={styles.slide}>
 			{slide?.bigPoster && (
 				<Link href={slide.link}>
 					<a>
 						<Image
+							lazyBoundary={'900px'}
 							layout='fill'
 							className={styles.image}
 							src={slide.bigPoster}

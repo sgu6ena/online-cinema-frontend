@@ -1,18 +1,23 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import MaterialIcon from '../../ui/MaterialIcon'
+
 import styles from '../Layout.module.scss'
 
 import { headerMenu } from './menu.data'
 import cn from 'classnames'
+import { useRouter } from 'next/router'
 
 const Burger = () => {
+	const { asPath } = useRouter()
 	const [isShow, setIsShow] = useState(false)
 
 	const toggleMenu = () => {
 		setIsShow(!isShow)
 	}
+	useEffect(() => {
+		setIsShow(false)
+	}, [asPath])
 
 	return (
 		<div className={styles.menu}>
@@ -21,9 +26,7 @@ const Burger = () => {
 				<div className={styles.bar2}></div>
 				<div className={styles.bar3}></div>
 			</div>
-			{/*<button onClick={toggleMenu} className={isShow ? 'change' : 'border'}>*/}
-			{/*	/!*<MaterialIcon name={isShow ? 'MdClose' : 'MdMenu'}/>*!/*/}
-			{/*</button>*/}
+
 			<ul className={isShow ? 'active' : 'hidden'}>
 				{headerMenu.map((i) => (
 					<li key={i.link}>

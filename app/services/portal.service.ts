@@ -41,7 +41,7 @@ export const PortalService = {
 			_id: m.id,
 			bigPoster: m.logo,
 			link: getMoviesUrl(m.id),
-			title: 'title',
+			title: m.title,
 
 		}))
 		return {
