@@ -15,13 +15,6 @@ interface ISlider {
 const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 	const { handleClick, index, slideIn } = useSlider(slides.length)
 
-	useEffect(() => {
-		// const myTimeout = setTimeout(() => {
-		// 	handleClick('next')
-		// }, 1000)
-		// clearTimeout(myTimeout)
-	}, [])
-
 	return (
 		<div className={styles.slider}>
 			<CSSTransition in={slideIn} timeout={300} classNames="slide-animation">
@@ -29,6 +22,7 @@ const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 			</CSSTransition>
 			<SlideArrow variant="left" clickHandler={() => handleClick('prev')} />
 			<SlideArrow variant="right" clickHandler={() => handleClick('next')} />
+
 		</div>
 	)
 }

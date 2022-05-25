@@ -61,9 +61,31 @@ $header-height: 70px;
 
   .menu {
     @apply flex lg:hidden   items-center  animate-fade;
+    .container {
+      display: inline-block;
+      cursor: pointer;
+      @apply h-10 w-10 mr-4;
+    }
 
-    svg {
-      @apply h-10 w-10 mr-4 animate-fade;
+    .bar1, .bar2, .bar3 {
+      @apply w-10 h-0.5 opacity-70 bg-gray-500 my-2 mx-0 rounded;
+      transition: 0.4s;
+    }
+
+    .change .bar1 {
+      opacity: 100;
+      -webkit-transform: rotate(-45deg) translate(-6px, 5px);
+      transform: rotate(-45deg) translate(-6px, 5px);
+    }
+
+    .change .bar2 {
+      @apply opacity-0;
+    }
+
+    .change .bar3 {
+      opacity: 100;
+      -webkit-transform: rotate(45deg) translate(-8px, -8px);
+      transform: rotate(45deg) translate(-8px, -8px);
     }
 
     ul {

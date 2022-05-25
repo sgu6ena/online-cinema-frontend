@@ -12,7 +12,7 @@ export const useSlider = (length: number) => {
 					: 0
 				: currentIdx - 1 > 0
 					? currentIdx - 1
-					: length
+					: length - 1
 
 		setSlideIn(false)
 
