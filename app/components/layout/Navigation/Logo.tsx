@@ -16,7 +16,7 @@ const Logo: FC = () => {
 					draggable={false}
 				/>
 
-				<div>PORTAL</div>
+				<div className="lg:block hidden">PORTAL</div>
 			</a>
 		</Link>
 	)

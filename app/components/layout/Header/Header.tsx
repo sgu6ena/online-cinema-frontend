@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 import styles from '../Layout.module.scss'
 import Logo from '../Navigation/Logo'
-import Search from '../Sidebar/Search/Search'
+import Search from '../Search/Search'
 
 import Burger from './Burger'
 
@@ -21,10 +21,12 @@ const Header: FC = () => {
 			</div>
 
 			<div className={styles.end}>
+				<Avatar />
 				<Search />
+				<Burger />
 			</div>
-			<Avatar />
-			<Burger />
+
+
 		</div>
 	)
 }
