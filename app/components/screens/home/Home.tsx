@@ -35,6 +35,7 @@ const Home: FC<IHome> = () => {
 				title='PORTAL'
 				description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
 			></Meta>
+			{/*<HomeLoading />*/}
 			{isLoading && <HomeLoading />}
 			{!isLoading && slides && <SliderSwiper slides={slides} />}
 			{/*{!isLoading && slides && <Slider slides={slides} />}*/}

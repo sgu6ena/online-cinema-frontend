@@ -120,14 +120,12 @@ input[type=checkbox] {
 }
 
 .swiper-slide{
-  @apply flex justify-center;
-//  max-width: 1300px;
-//  max-height: 700px;
+  @apply flex justify-center bg-gray-700 rounded-2xl ;
 }
 .slider-pagination{
-  @apply flex justify-center gap-1 mb-0 pb-0 bottom-0;
+  @apply flex justify-center gap-2 mb-0 pb-0 bottom-0;
   .slider-pagination-bullet{
-    @apply flex text-primary bg-white w-8 rounded-lg h-1 opacity-30;
+    @apply flex text-primary bg-white  w-6 rounded h-1 opacity-30;
     color: white;
     &.slider-pagination-bullet-active{
       @apply text-primary bg-primary;
@@ -135,7 +133,8 @@ input[type=checkbox] {
   }
 }
 
-.react-loading-skeleton {
-  --base-color: #1F2125 !important;
-  --highlight-color: #292A2E !important;
+.swiper-lazy-preloader{
+   color: white;
+  background: white;
+  fill: white;
 }
