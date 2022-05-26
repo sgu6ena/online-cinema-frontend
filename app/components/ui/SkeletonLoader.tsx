@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import  { FC } from 'react'
 import Skeleton, { SkeletonProps } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import cn from 'classnames'
@@ -9,7 +9,7 @@ const SkeletonLoader: FC<SkeletonProps> = ({ className, ...rest }) => {
 			{...rest}
 			baseColor='#1F2125'
 			highlightColor='#292A2E'
-			className={cn('rounded-lg', className)}
+			className={cn(className,className?.includes('rounded') ? '' : 'rounded-lg', )}
 		></Skeleton>
 	)
 }

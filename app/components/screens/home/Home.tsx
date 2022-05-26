@@ -15,6 +15,7 @@ import Slider from '../../ui/slider/Slider'
 import HomeLoading from './HomeLoading'
 import { IHome } from './home.interface'
 import { usePortalSlides } from './usePortalSlides'
+import SliderSwiper from '../../ui/sliderSwiper/slider'
 
 const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	return [
@@ -34,8 +35,10 @@ const Home: FC<IHome> = () => {
 				title='PORTAL'
 				description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
 			></Meta>
+			{/*<HomeLoading />*/}
 			{isLoading && <HomeLoading />}
-			{!isLoading && slides && <Slider slides={slides} />}
+			{!isLoading && slides && <SliderSwiper slides={slides} />}
+			{/*{!isLoading && slides && <Slider slides={slides} />}*/}
 
 			{collections &&
 				collections.map((c) => (

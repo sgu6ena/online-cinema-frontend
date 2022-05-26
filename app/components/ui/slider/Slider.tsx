@@ -6,6 +6,7 @@ import SlideItem from './SlideItem'
 import styles from './Slider.module.scss'
 import { ISlide } from './slider.interface'
 import { useSlider } from './useSlider'
+import SlideIndicator from './SlideArrow/slideIndicator'
 
 interface ISlider {
 	slides: ISlide[]
@@ -15,13 +16,6 @@ interface ISlider {
 const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 	const { handleClick, index, slideIn } = useSlider(slides.length)
 
-	useEffect(() => {
-		const myTimeout = setTimeout(() => {
-			handleClick('next')
-		}, 3000)
-		clearTimeout(myTimeout)
-	}, [index])
-
 	return (
 		<div className={styles.slider}>
 			<CSSTransition in={slideIn} timeout={300} classNames="slide-animation">
@@ -29,6 +23,7 @@ const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 			</CSSTransition>
 			<SlideArrow variant="left" clickHandler={() => handleClick('prev')} />
 			<SlideArrow variant="right" clickHandler={() => handleClick('next')} />
+			<SlideIndicator count={slides.length} activeNumber={index}/>
 		</div>
 	)
 }

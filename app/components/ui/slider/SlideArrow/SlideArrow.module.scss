@@ -1,11 +1,20 @@
 .arrow {
-  @apply flex items-center justify-center rounded-full bg-white bg-opacity-30 text-white text-2xl p-2 animate-fade absolute z-10 bottom-8;
-
+  @apply flex items-center justify-center rounded-full bg-white bg-opacity-30 text-white text-2xl p-2 animate-fade absolute z-10 ;
+  top: calc(50% - 1rem);
   &.left {
     @apply right-8;
   }
 
   &.right {
-    @apply right-24;
+    @apply left-8;
+  }
+}
+.indicators{
+  @apply flex items-center justify-center absolute z-10 bottom-0 w-full transition-all;
+  .circle{
+    @apply h-1 w-4 m-2 mb-1 rounded block rounded-full opacity-50 bg-white;
+    &.active{
+      @apply bg-primary opacity-80 ;
+    }
   }
 }
