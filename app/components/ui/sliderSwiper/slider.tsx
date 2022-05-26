@@ -10,14 +10,14 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import MaterialIcon from '../MaterialIcon'
 import { ISlide } from '../slider/slider.interface'
-import Image from 'next/image'
+
 
 const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 	return (
-		<Swiper
+		<Swiper style={{maxHeight:'700px'}}
 			loop
 			preloadImages={true}
-			// lazy={{ enabled: true, checkInView: true,  }}
+			lazy={{ enabled: true }}
 			centeredSlides={true}
 			modules={[Navigation, Pagination, A11y, Lazy, Autoplay]}
 			spaceBetween={10}
@@ -37,7 +37,7 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 			}}
 
 			navigation={{ prevEl: '.arrow.right', nextEl: '.arrow.left' }}
-			autoplay={{delay:7000}}
+			autoplay={{delay:10000,waitForTransition:true}}
 			pagination={{
 				clickable: true,
 				bulletClass: 'slider-pagination-bullet',
@@ -46,10 +46,12 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 			}}
 		>
 			{slides.map((i: any) => (
-				<SwiperSlide key={i.link}>
+				<SwiperSlide key={i.link} style={{aspectRatio: '147/46'}} className={'  '}>
 					<Link href={i.link}>
 						<a>
-							<img src={i.bigPoster} alt={i.title} className={'rounded-2xl '} />
+
+							<img data-src={i.bigPoster} alt={i.title} className={'rounded-2xl swiper-lazy '} />
+							<div className='swiper-lazy-preloader'></div>
 						</a>
 					</Link>
 				</SwiperSlide>
