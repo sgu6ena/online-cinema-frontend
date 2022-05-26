@@ -125,8 +125,7 @@ input[type=checkbox] {
 .slider-pagination{
   @apply flex justify-center gap-2 mb-0 pb-0 bottom-0;
   .slider-pagination-bullet{
-    @apply flex text-primary bg-white  w-6 rounded h-1 opacity-30;
-    color: white;
+    @apply flex text-white bg-white  w-6 rounded h-1 opacity-30;
     &.slider-pagination-bullet-active{
       @apply text-primary bg-primary;
     }
@@ -134,7 +133,5 @@ input[type=checkbox] {
 }
 
 .swiper-lazy-preloader{
-   color: white;
-  background: white;
-  fill: white;
+  border: white !important;
 }
