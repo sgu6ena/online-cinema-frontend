@@ -24,7 +24,7 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) 
 							src={slide.bigPoster}
 							alt={slide.title}
 							draggable={false}
-							unoptimized
+							// unoptimized
 							priority
 						/>
 					</a>

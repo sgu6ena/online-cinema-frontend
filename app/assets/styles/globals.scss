@@ -106,3 +106,31 @@ div::-webkit-scrollbar-thumb {
 input[type=checkbox] {
   @apply bg-transparent rounded h-5 w-5 text-primary;
 }
+
+.arrow {
+  @apply flex items-center justify-center rounded-full bg-white bg-opacity-30 text-white text-2xl p-2 animate-fade absolute z-30 ;
+  top: calc(50% - 1rem);
+  &.left {
+    @apply right-2;
+  }
+
+  &.right {
+    @apply left-2;
+  }
+}
+
+.swiper-slide{
+  @apply flex justify-center;
+//  max-width: 1300px;
+//  max-height: 700px;
+}
+.slider-pagination{
+  @apply flex justify-center gap-1 mb-0 pb-0 bottom-0;
+  .slider-pagination-bullet{
+    @apply flex text-primary bg-white w-8 rounded-lg h-1 opacity-30;
+    color: white;
+    &.slider-pagination-bullet-active{
+      @apply text-primary bg-primary;
+    }
+  }
+}
