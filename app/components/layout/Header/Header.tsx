@@ -25,7 +25,7 @@ const Header: FC = () => {
 			</div>
 
 			<div className={styles.end}>
-				<Link href={LINKS.RUBLE}><a className={'hidden lg:block'}><Button>Попробовать за рубль</Button></a></Link>
+				<Link href={LINKS.RUBLE}><a className={'hidden xl:block'}><Button>Попробовать за рубль</Button></a></Link>
 				<Search />
 				<Avatar />
 				<Burger />
