@@ -4,4 +4,6 @@ export const LINKS = {
 
 	LOGIN: '/auth',//страница логина
 	REGISTER: '/register',
+	PROFILE:'/profile',
+	RUBLE:'/ruble'
 }

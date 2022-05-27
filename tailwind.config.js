@@ -86,7 +86,7 @@ module.exports = {
 				'.btn-primary': {
 					backgroundColor: primary,
 					color: '#fff',
-					borderRadius: '0.65rem',
+					borderRadius: '0.2rem',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
 						backgroundColor: '#ff0009',

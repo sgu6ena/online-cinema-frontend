@@ -6,7 +6,9 @@ import Logo from '../Navigation/Logo'
 import Search from '../Search/Search'
 
 import Burger from './Burger'
-
+import Button from '../../ui/form-elemets/Button'
+import Link from 'next/link'
+import { LINKS } from '../../../config/links'
 
 const Avatar = dynamic(() => import('./Avatar'), {
 	ssr: false,
@@ -21,8 +23,9 @@ const Header: FC = () => {
 			</div>
 
 			<div className={styles.end}>
-				<Avatar />
+				<Link href={LINKS.RUBLE}><a><Button >Попробовать за рубль</Button></a></Link>
 				<Search />
+				<Avatar />
 				<Burger />
 			</div>
 
