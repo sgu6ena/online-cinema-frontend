@@ -7,5 +7,5 @@ export const LINKS = {
 	REGISTER: '/register', //регистрация
 	PROFILE:'/profile',//профиль
 	RUBLE:'/ruble',//купить з арубль
-
+	FAVORITES:'/favorites'
 }

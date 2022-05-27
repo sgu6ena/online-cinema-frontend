@@ -1,7 +1,7 @@
 .navMenu {
   @apply text-2xl ml-10 truncate;
   ul {
-    @apply flex gap-5;
+    @apply hidden lg:flex gap-5;
     li {
       @apply relative rounded ;
     }

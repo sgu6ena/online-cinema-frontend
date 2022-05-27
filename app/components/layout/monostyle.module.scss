@@ -3,6 +3,7 @@ $header-height: 70px;
 .mainStyle {
   @apply flex flex-col justify-between;
   min-height: 100vh;
+
   .layout {
     @apply relative;
     //background: #1d1f23;
@@ -22,11 +23,16 @@ $header-height: 70px;
     }
 
     .menu {
-      @apply flex lg:hidden   items-center  animate-fade;
+      @apply items-center flex animate-fade;
+      .avatar {
+        //@apply flex lg:hidden;
+      }
+
+
       .container {
         display: inline-block;
         cursor: pointer;
-        @apply h-10 w-10  border-white border-2 rounded px-0.5;
+        @apply h-10 w-10 lg:hidden border-white border-2 rounded px-0.5;
       }
 
       .bar1,
@@ -68,7 +74,7 @@ $header-height: 70px;
     }
 
     .end {
-      @apply flex flex items-center gap-5 pr-3;
+      @apply flex flex items-center gap-5 pr-3 mr-3;
 
       a {
         @apply flex-shrink-0;
@@ -76,7 +82,7 @@ $header-height: 70px;
     }
   }
 
-  .footer{
+  .footer {
     @apply text-gray-700 align-bottom;
   }
 }
