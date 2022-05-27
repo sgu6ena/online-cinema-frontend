@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 
-import styles from '../Layout.module.scss'
+import styles from '../../Layout.module.scss'
 
 import { headerMenu } from './menu.data'
 import cn from 'classnames'

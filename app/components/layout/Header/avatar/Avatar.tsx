@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { LINKS } from '../../../config/links'
-import { useAuth } from '../../../hooks/useAuth'
+import { LINKS } from '../../../../config/links'
+import { useAuth } from '../../../../hooks/useAuth'
 import { BsPersonSquare } from 'react-icons/bs'
 
 

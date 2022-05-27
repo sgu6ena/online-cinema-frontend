@@ -1,4 +1,4 @@
-import {IMenuItem} from "../Navigation/MenuContainer/menu.interface";
+import {IMenuItem} from "../../Navigation/MenuContainer/menu.interface";
 
 export const headerMenu: IMenuItem[] =
     [

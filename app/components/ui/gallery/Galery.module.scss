@@ -18,8 +18,9 @@
   }
 
   &.vertical {
-    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-36;
-    max-width: 190px;
+    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-36 xl:w-64  xl:h-96;
+
+    //max-width: 190px;
   }
 
   &.horizontal {
@@ -36,8 +37,9 @@
   }
 
   img {
-    @apply image-like-bg;
-    background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg");
+    @apply image-like-bg bg-gray-300;
+    //background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg");
+
   }
 
   .content {
