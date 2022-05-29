@@ -1,7 +1,7 @@
 .container {
   @apply mt-12 flex justify-center;
   .wrapper {
-    @apply rounded-2xl overflow-hidden h-96 air-block  shadow-xl bg-black bg-opacity-70 relative animate-fade;
+    @apply rounded overflow-hidden h-96 air-block  shadow-xl bg-black bg-opacity-70 relative animate-fade;
     width: 600px;
   }
 }

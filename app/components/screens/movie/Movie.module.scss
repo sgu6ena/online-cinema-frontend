@@ -1,76 +1,99 @@
 @import '../../../assets/styles/variables';
 
 .movie {
-	@apply text-gray-500;
-	.main {
-		@apply flex-col-reverse flex items-stretch justify-between gap-2 lg:flex-row;
-		.description {
-			@apply p-2 lg:p-layout;
-			width: 100%;
+  @apply text-gray-500;
+  .main {
+    @apply flex-col-reverse flex items-stretch justify-between gap-2 lg:flex-row;
 
-			p {
-				@apply my-2;
-			}
-		}
+    .videoBox {
+      .actions {
+        @apply mt-3 flex-center-between;
+        .buttons {
+          @apply flex gap-2;
+          button {
+            @apply text-white flex-center-between  gap-2 bg-transparent px-4 py-2 rounded mr-5 border border-gray-600 ;
+            svg {
+              @apply text-2xl
+            }
+          }
+        }
+      }
+    }
 
-		.right {
-			min-width: 300px;
-			.image {
-				@include fade-bg-gradient-double(0deg);
-				@apply relative;
-				img {
-					@apply rounded text-white;
-				}
-			}
-		}
+    .description {
+      @apply p-2 lg:p-layout;
+      width: 100%;
 
-		.rating {
-			@apply flex items-center justify-end mb-2 px-2;
-			> svg {
-				@apply fill-yellow-700 mr-2 text-lg;
-			}
+      h1 {
+        font-family: 'Oswald', sans-serif;
+      }
 
-			> span {
-				@apply fill-yellow-700  text-white font-medium pt-0.5;
-			}
-		}
-	}
+      p {
+        @apply my-2;
+      }
+    }
+
+    .right {
+      min-width: 300px;
+
+      .image {
+        @include fade-bg-gradient-double(0deg);
+        @apply relative;
+        img {
+          @apply rounded text-white;
+        }
+      }
+    }
+
+
+  }
+}
+
+.rating {
+  @apply flex gap-2 items-center  mb-2 px-2;
+  > svg {
+    @apply fill-gray-600  h-10 w-10 text-2xl;
+  }
+
+  > span {
+    @apply fill-gray-600  text-white font-medium pt-0.5;
+  }
 }
 
 .movieContainer {
-	@apply p-2 lg:p-layout lg:mx-layout;
+  @apply p-2 lg:p-layout lg:mx-layout;
 }
 
 .votes {
-	@apply flex items-center justify-end mt-3 gap-3;
+  @apply flex items-center justify-end mt-3 gap-3;
 }
 
 .tabPanel {
-	.tabs {
-		@apply mb-3;
-		> button {
-			@apply text-lg py-3 px-3 lg:px-5 border-b hover:text-white hover:opacity-100 opacity-60  transition-all;
-			&.active {
-				@apply text-primary opacity-100;
-			}
-		}
-	}
+  .tabs {
+    @apply mb-3;
+    > button {
+      @apply text-lg py-3 px-3 lg:px-5 border-b hover:text-white hover:opacity-100 opacity-60  transition-all;
+      &.active {
+        @apply text-primary opacity-100;
+      }
+    }
+  }
 
-	.season {
-		.active {
-			@apply flex  animate-fade flex-wrap;
-			.episode {
-				@apply btn-primary text-center hover:opacity-100 transition px-3 py-2 m-2;
-				min-width: 100px;
-				@screen lg {
-					min-width: 120px;
-				}
+  .season {
+    .active {
+      @apply flex  animate-fade flex-wrap;
+      .episode {
+        @apply btn-primary text-center hover:opacity-100 transition px-3 py-2 m-2;
+        min-width: 100px;
+        @screen lg {
+          min-width: 120px;
+        }
 
-				&:hover {
-					//@apply shadow-yellow-700 shadow-sm;
-					filter: drop-shadow(0 2px 4px #555);
-				}
-			}
-		}
-	}
+        &:hover {
+          //@apply shadow-yellow-700 shadow-sm;
+          filter: drop-shadow(0 2px 4px #555);
+        }
+      }
+    }
+  }
 }

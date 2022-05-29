@@ -20,6 +20,8 @@ import {useRouter} from 'next/router'
 import VideoPLayer from '../../ui/videoPlayer/VideoPLayer'
 import MovieDescription from './MovieDescription'
 import MovieSkeleton from './MovieSkeleton'
+import Button from "../../ui/form-elemets/Button";
+import MaterialIcon from "../../ui/MaterialIcon";
 
 
 const Movie: FC = () => {
@@ -55,6 +57,22 @@ const Movie: FC = () => {
             {movie && (
                 <>
                     <div className={styles.main}>
+                        <div className={styles.videoBox}>
+
+                            <VideoPLayer url={url} play={play} typeContent={movie.type_content} slug={movie.id}/>
+                            <div className={styles.actions}>
+                                <div className={styles.buttons}>
+                                    <button>
+                                        <MaterialIcon name={'MdOutlineHomeMax'}/> Трейлер
+                                    
+
+                                    </button>
+                                    <button><MaterialIcon name={'MdBookmarkBorder'}/>Избранное</button>
+                                </div>
+
+                                <Vote vote={movie.vote} my_vote={3} onClick={() => 5}/></div>
+
+                        </div>
                         <MovieDescription movie={movie}/>
                         <div className={styles.right}>
                             <div className={styles.image}>
@@ -77,14 +95,13 @@ const Movie: FC = () => {
 
                             <div className={styles.votes}>
                                 <FilmTag type={movie.access}/>
-                                <Vote vote={movie.vote} my_vote={3} onClick={() => 5}/>
+
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.movieContainer}>
                         <Tabs media={movie.media} fn={handleMovie}/>
-                        <VideoPLayer url={url} play={play} typeContent={movie.type_content} slug={movie.id}/>
                     </div>
                 </>
             )}
