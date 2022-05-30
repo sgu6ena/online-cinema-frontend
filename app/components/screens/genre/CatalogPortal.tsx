@@ -10,7 +10,7 @@ import {useGenre} from './useGenre'
 import ReactPaginate from 'react-paginate'
 import {router} from 'next/client'
 import SkeletonLoader from '../../ui/SkeletonLoader'
-import CatalogLoader from './CatalogLoader'
+import CatalogLoader from '../../loaders/CatalogLoader'
 
 
 const CatalogPortal: FC = () => {

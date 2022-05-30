@@ -12,7 +12,7 @@ import { IGalleryItem } from '../../ui/gallery/gallery.interface'
 import Heading from '../../ui/heading/Heading'
 
 import styles from './Home.module.scss'
-import HomeLoading from './HomeLoading'
+import HomeLoading from '../../loaders/HomeLoading'
 import { IHome } from './home.interface'
 import { usePortalSlides } from './usePortalSlides'
 

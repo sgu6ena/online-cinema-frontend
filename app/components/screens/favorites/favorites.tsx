@@ -7,7 +7,7 @@ import SkeletonLoader from '../../ui/SkeletonLoader'
 import styles from '../../ui/catalog-movies/Catalog.module.scss'
 import GalleryItem from '../../ui/gallery/GalleryItem'
 import Heading from '../../ui/heading/Heading'
-import CatalogLoader from '../genre/CatalogLoader'
+import CatalogLoader from '../../loaders/CatalogLoader'
 
 import { useBookmarks } from './useBookmarks'
 
@@ -46,7 +46,7 @@ const Favorites: FC = () => {
 												(movie.access === 1 ? ' подписка ' : ' бесплатно '),
 										},
 									}}
-									variant="vertical"
+									variant='vertical'
 								/>
 							</>
 						))}
@@ -54,14 +54,14 @@ const Favorites: FC = () => {
 					{pagination ? (
 						pagination.totalPages > 1 && (
 							<ReactPaginate
-								className="paginate"
-								breakLabel="..."
-								nextLabel=" >"
+								className='paginate'
+								breakLabel='...'
+								nextLabel=' >'
 								onPageChange={handlePagination}
 								pageRangeDisplayed={2}
 								pageCount={pagination.totalPages}
-								previousLabel="< "
-								activeClassName="active"
+								previousLabel='< '
+								activeClassName='active'
 								initialPage={pagination.currentPage - 1}
 							/>
 						)

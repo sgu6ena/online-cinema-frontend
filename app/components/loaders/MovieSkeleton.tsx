@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
-import SkeletonLoader from "../../ui/SkeletonLoader";
-import styles from './Movie.module.scss'
+import SkeletonLoader from "../ui/SkeletonLoader";
 
 const MovieSkeleton: FC = () => {
     return (

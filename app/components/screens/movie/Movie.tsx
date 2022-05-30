@@ -19,7 +19,7 @@ import {useRouter} from 'next/router'
 
 import VideoPLayer from '../../ui/videoPlayer/VideoPLayer'
 import MovieDescription from './MovieDescription'
-import MovieSkeleton from './MovieSkeleton'
+import MovieSkeleton from '../../loaders/MovieSkeleton'
 import Button from "../../ui/form-elemets/Button";
 import MaterialIcon from "../../ui/MaterialIcon";
 
