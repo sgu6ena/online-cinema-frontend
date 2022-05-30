@@ -1,7 +1,7 @@
-import { FC, useRef } from 'react'
+import {FC, useRef} from 'react'
 import ReactPlayer from 'react-player'
 
-import { useAuth } from '../../../hooks/useAuth'
+import {useAuth} from '../../../hooks/useAuth'
 
 import AuthPlaceholder from './Placeholder/AuthPlaceholder'
 import ProfilePlaceholder from './Placeholder/ProfilePlaceholder'
@@ -12,9 +12,9 @@ const VideoPLayer: FC<{
 	play: boolean
 	typeContent: number
 	slug: string
-}> = ({ url, play, typeContent, slug }) => {
+}> = ({url, play, typeContent, slug}) => {
 	const videoRef = useRef(null)
-	const { user } = useAuth()
+	const {user} = useAuth()
 
 	return (
 		<div className={styles.container}>
@@ -26,10 +26,12 @@ const VideoPLayer: FC<{
 						ref={videoRef}
 						playing={play}
 						width={600}
+						pip
+
 					/>
 				)}
-				{user && user.paid < typeContent && <ProfilePlaceholder />}
-				{!user && <AuthPlaceholder slug={slug} />}
+				{user && user.paid < typeContent && <ProfilePlaceholder/>}
+				{!user && <AuthPlaceholder slug={slug}/>}
 			</div>
 		</div>
 	)
