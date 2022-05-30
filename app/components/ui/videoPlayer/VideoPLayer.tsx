@@ -1,36 +1,38 @@
+import { FC, useRef } from 'react'
+import ReactPlayer from 'react-player'
 
-import {FC, useRef} from 'react'
-import {useAuth} from '../../../hooks/useAuth'
+import { useAuth } from '../../../hooks/useAuth'
 
 import AuthPlaceholder from './Placeholder/AuthPlaceholder'
-
+import ProfilePlaceholder from './Placeholder/ProfilePlaceholder'
 import styles from './videoplayer.module.scss'
-import ReactPlayer from "react-player";
-import ProfilePlaceholder from "./Placeholder/ProfilePlaceholder";
 
-const VideoPLayer: FC<{ url: string; play: boolean; typeContent: number; slug: string }> = ({
-                                                                                                url,
-                                                                                                play,
-                                                                                                typeContent,
-                                                                                                slug
-                                                                                            }) => {
+const VideoPLayer: FC<{
+	url: string
+	play: boolean
+	typeContent: number
+	slug: string
+}> = ({ url, play, typeContent, slug }) => {
+	const videoRef = useRef(null)
+	const { user } = useAuth()
 
-    const videoRef = useRef(null)
-    const {user} = useAuth()
-
-    return (<div className={styles.container}>
-
-            <div
-                className={styles.wrapper}
-            >
-                {user && user.paid >= typeContent &&
-                    <ReactPlayer url={url} controls ref={videoRef} playing={play} width={600}/>}
-                {user && user.paid < typeContent && <ProfilePlaceholder/>}
-                {!user && <AuthPlaceholder slug={slug}/>}
-
-            </div>
-        </div>
-    )
+	return (
+		<div className={styles.container}>
+			<div className={styles.wrapper}>
+				{user && user.paid >= typeContent && (
+					<ReactPlayer
+						url={url}
+						controls
+						ref={videoRef}
+						playing={play}
+						width={600}
+					/>
+				)}
+				{user && user.paid < typeContent && <ProfilePlaceholder />}
+				{!user && <AuthPlaceholder slug={slug} />}
+			</div>
+		</div>
+	)
 }
 
 export default VideoPLayer

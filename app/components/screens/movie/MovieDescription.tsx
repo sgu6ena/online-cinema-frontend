@@ -8,7 +8,7 @@ import {getGenresList} from '../../../utils/movie/getGenresList'
 
 import {IMoviePortalFull} from '../../../shared/types/movie.types'
 import {minuteToHours} from '../../../utils/date/minuteToHours'
-import Rating from "./Rating";
+import Rating from "../../ui/Rating";
 
 const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
     return (

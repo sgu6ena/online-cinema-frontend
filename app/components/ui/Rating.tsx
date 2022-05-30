@@ -1,8 +1,8 @@
 import {FC} from 'react'
 
-import MaterialIcon from '../../ui/MaterialIcon'
+import MaterialIcon from './MaterialIcon'
 
-import styles from './Movie.module.scss'
+import styles from '../screens/movie/Movie.module.scss'
 import {FaImdb} from "react-icons/fa";
 import {SiKinopoisk} from "react-icons/si";
 
