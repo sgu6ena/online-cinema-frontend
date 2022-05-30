@@ -5,7 +5,7 @@ import MenuItem from './MenuItem'
 import {IMenu} from './menu.interface'
 import dynamic from "next/dynamic";
 
-const DynamicAuthItems = dynamic(() => import('./auth/AuthItems'), {
+const DynamicAuthItems = dynamic(() => import('../../Header/burgers/AuthItems'), {
     ssr: false
 })
 

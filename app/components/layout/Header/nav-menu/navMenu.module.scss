@@ -3,9 +3,8 @@
   ul {
     @apply hidden lg:flex gap-5;
     li {
-      @apply relative rounded ;
+      @apply relative rounded;
     }
-
 
     li > a {
       line-height: 45px;
@@ -28,7 +27,7 @@
 
     li > a:hover:before,
     li > a:focus:before,
-    li.active > a:before{
+    li.active > a:before {
       margin-top: 10px;
       animation: 0.5s forwards hover-v linear;
       animation-fill-mode: forwards;

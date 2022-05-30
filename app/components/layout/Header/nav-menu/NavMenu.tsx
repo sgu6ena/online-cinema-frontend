@@ -2,7 +2,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { headerNavMenu } from './menu.data'
+import { headerNavMenu } from '../menu.data'
 import styles from './navMenu.module.scss'
 
 const NavMenu = () => {
