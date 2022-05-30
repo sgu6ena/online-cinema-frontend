@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 
-import { PortalService } from '../../../services/portal.service'
+import { PortalService } from '../../../api/portal.service'
 import { toastError } from '../../../utils/toast-error'
 
 import { IUser, IUserData } from './user.interface'

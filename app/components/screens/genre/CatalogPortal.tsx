@@ -17,7 +17,6 @@ const CatalogPortal: FC = () => {
 
     const query = router.query
     const {movies, title, isLoading, pagination} = useGenre()
-
     const [titleGenre, setTitleGenre] = useState('')
 
     useEffect(() => {

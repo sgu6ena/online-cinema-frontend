@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {FC, useEffect, useState} from 'react'
 
 
-import {PortalMovieService} from '../../../services/portalMovie.service'
+import {PortalMovieService} from '../../../api/portalMovie.service'
 
 import FilmTag from '../../ui/FilmTag'
 

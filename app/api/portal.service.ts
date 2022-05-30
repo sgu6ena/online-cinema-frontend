@@ -1,8 +1,8 @@
-import axios, {axiosClassicPortal} from '../api/interceptors'
+import axios, {axiosClassicPortal} from './interceptors'
 import {IUserData} from '../components/screens/profile/user.interface'
 import {IGalleryHome} from '../components/ui/gallery/gallery.interface'
-import {getCategoryUrl} from '../config/api-portal.config'
-import {IMoviePortalPerPage} from '../shared/types/movie.types'
+import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
+import { IGenrePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
 import {ISlide} from '../components/ui/slider/slider.interface'
 import {getMoviesUrl} from '../config/api.config'
 
@@ -35,6 +35,15 @@ export const PortalService = {
         return data
     },
 
+    async getBookmark (page:string='1'){
+        const data = await axios.get(`bookmark/20`, {
+            params: {
+                page: page ? page : '1',
+            },
+        })
+        return data.data
+    },
+
     async getMain() {
         const data = await axiosClassicPortal.get<IMain>('/main')
         const slides: ISlide[] = data.data.data[0].items.map((m: any) => ({
@@ -42,10 +51,8 @@ export const PortalService = {
             bigPoster: m.logo,
             link: getMoviesUrl(m.id),
             title: m.title,
-
         }))
         return {
-
             slider: slides,
             collections: data.data.data.filter((item) => item.viewport === 0.3),
         }
@@ -55,4 +62,11 @@ export const PortalService = {
         const data = await axios.get<IUserData>('/getUserProfile')
         return data?.data.data
     },
+
+
+    async getGenres() {
+        return axios.get<IGenrePortal[]>(APP_URL_PORTAL+'/listGenre')
+    },
+
+
 }
