@@ -15,15 +15,9 @@ export interface IRating {
 const Rating: FC<IRating> = ({imdb, kp, age}) => {
     return (
         <div className={styles.rating}>
-            {/*<span className="mr-1">IMDB </span>*/}
             <FaImdb/>
-
-            {/*<MaterialIcon name={'MdStarRate'}/>*/}
             <span className="mx-1">{imdb.toFixed(1)}</span>
-            {/*<span className="mx-1">|</span>*/}
-            {/*<span className="mx-1"> Кинопоиск </span>*/}
             <SiKinopoisk/>
-            {/*<MaterialIcon name={'MdStarRate'}/>*/}
             <span>{kp.toFixed(1)}</span>
             {age && <span className="btn-primary rounded p-1 ml-5">{age}</span>}
         </div>

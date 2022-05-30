@@ -12,8 +12,8 @@ import Rating from "../../ui/Rating";
 
 const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
     return (
-        <div>
-            <div className={styles.description}>
+
+            <div className={styles.description} >
                 <Heading title={movie.title} className='mb-5 '/>
                 <p><Rating imdb={movie.rate_imdb} kp={movie.rate_kp}/></p>
                 <p className='my-5 pb-5'>
@@ -35,7 +35,7 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
                 <p>В ролях: {getGenresList(movie.in_the_roles)}</p>
                 <p className='my-5 mt-5 pt-5'>{movie.review}</p>
             </div>
-        </div>
+
     )
 }
 

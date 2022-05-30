@@ -1,11 +1,12 @@
 @import '../../../assets/styles/variables';
 
 .movie {
-  @apply text-gray-500;
+  @apply text-gray-500 pl-5 lg:pl-layout ;
   .main {
-    @apply flex-col-reverse flex items-stretch justify-between gap-2 lg:flex-row;
+    @apply flex-col-reverse flex flex-grow flex-shrink justify-between  gap-2 lg:flex-row;
 
     .videoBox {
+      @apply flex-grow-0 flex-shrink-0;
       .actions {
         @apply mt-3 flex-center-between;
         .buttons {
@@ -21,8 +22,8 @@
     }
 
     .description {
-      @apply p-2 lg:p-layout;
-      width: 100%;
+      @apply p-2 flex-grow pr-32  flex-shrink lg:p-layout;
+      //width: 100%;
 
       h1 {
         font-family: 'Oswald', sans-serif;
@@ -38,9 +39,10 @@
 
       .image {
         @include fade-bg-gradient-double(0deg);
-        @apply relative;
+        @apply  relative;
+        @apply flex-grow-0 flex-shrink-0;
         img {
-          @apply rounded text-white;
+          @apply rounded-none w-96 image-like-bg text-white;
         }
       }
     }

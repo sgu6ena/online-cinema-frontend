@@ -1,13 +1,3 @@
-import { TypeMaterialIconsName } from './icon.types'
-
-// export interface IGenre {
-// 	_id: string
-// 	name: string
-// 	slug: string
-// 	description: string
-// 	icon: TypeMaterialIconsName
-// }
-
 export interface IParameters {
 	year: number
 	duration: number
@@ -39,12 +29,12 @@ export interface IMovie {
 export interface IGenrePortal {
 	cid: string
 	title: string
-	type: 0|1|2|3
+	type: 0 | 1 | 2 | 3
 }
 
-export interface IGenre{
-	name:string
-	id:string
+export interface IGenre {
+	name: string
+	id: string
 }
 
 export interface IVotePortal {
@@ -119,11 +109,9 @@ export interface IMoviePortalPerPage {
 		items: IMoviePortal[]
 	}
 	pagination: IPagination
-
 }
 
-export interface IPagination
-{
+export interface IPagination {
 	count: number
 	total: number
 	perPage: number

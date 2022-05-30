@@ -11,7 +11,6 @@ import Vote from '../../ui/vote/Vote'
 
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
-import Rating from '../../ui/Rating'
 import Tabs from './Tabs'
 import { usePortalMovie } from './usePortalMovie'
 
@@ -69,29 +68,29 @@ const Movie: FC = () => {
 							</div>
 						</div>
 						<MovieDescription movie={movie} />
-						<div className={styles.right}>
-							<div className={styles.image}>
-								{movie.logo && (
-									<Image
-										src={movie.logo}
-										alt={movie.title}
-										width={450}
-										height={650}
-										priority
-										unoptimized
-									/>
-								)}
-							</div>
-							<Rating
-								kp={movie.rate_kp}
-								imdb={movie.rate_imdb}
-								age={movie.rate_age}
-							/>
+						{/*<div className={styles.right}>*/}
+						{/*	<div className={styles.image}>*/}
+						{/*		{movie.logo && (*/}
+						{/*			<Image*/}
+						{/*				src={movie.logo}*/}
+						{/*				alt={movie.title}*/}
+						{/*				width={450}*/}
+						{/*				height={650}*/}
+						{/*				priority*/}
+						{/*				unoptimized*/}
+						{/*			/>*/}
+						{/*		)}*/}
+						{/*	</div>*/}
 
-							<div className={styles.votes}>
-								<FilmTag type={movie.access} />
-							</div>
-						</div>
+						{/*	<div className={styles.votes}>*/}
+						{/*		{movie.rate_age && (*/}
+						{/*			<span className="btn-primary rounded p-1 ml-5">*/}
+						{/*				{movie.rate_age}*/}
+						{/*			</span>*/}
+						{/*		)}*/}
+						{/*		<FilmTag type={movie.access} />*/}
+						{/*	</div>*/}
+						{/*</div>*/}
 					</div>
 
 					<div className={styles.movieContainer}>
