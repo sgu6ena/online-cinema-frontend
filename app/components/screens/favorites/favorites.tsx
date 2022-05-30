@@ -1,5 +1,4 @@
-import { router } from 'next/client'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import ReactPaginate from 'react-paginate'
 
 import { getMoviesUrl } from '../../../config/api.config'
@@ -11,20 +10,12 @@ import CatalogLoader from '../../loaders/CatalogLoader'
 
 import { useBookmarks } from './useBookmarks'
 
+import Pagination from '../../ui/Pagination'
+
 const Favorites: FC = () => {
-	const handlePagination = (page: any) => {
-		const path = router.pathname
-		const query = router.query
-		query.page = page.selected + 1
-		router.push({
-			pathname: path,
-			query: query,
-		})
-	}
+
 	const { movies, isLoading, pagination } = useBookmarks()
-	useEffect(() => {
-		console.log(movies)
-	}, [movies, pagination, isLoading])
+
 	return (
 		<div>
 			<Heading title={'Избранное'} />
@@ -53,17 +44,7 @@ const Favorites: FC = () => {
 					</section>
 					{pagination ? (
 						pagination.totalPages > 1 && (
-							<ReactPaginate
-								className='paginate'
-								breakLabel='...'
-								nextLabel=' >'
-								onPageChange={handlePagination}
-								pageRangeDisplayed={2}
-								pageCount={pagination.totalPages}
-								previousLabel='< '
-								activeClassName='active'
-								initialPage={pagination.currentPage - 1}
-							/>
+							<Pagination pagination={pagination}/>
 						)
 					) : (
 						<SkeletonLoader />

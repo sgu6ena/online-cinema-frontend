@@ -4,6 +4,7 @@ import { toastError } from '../../../utils/toast-error'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 import { PortalService } from '../../../api/portal.service'
+import { IPagination } from '../../../shared/types/movie.types'
 
 export const useBookmarks = () => {
 	const { query } = useRouter()
@@ -23,7 +24,7 @@ export const useBookmarks = () => {
 	)
 	const movies = data?.data
 
-	const pagination = data?.pagination
+	const pagination = data?.pagination as IPagination
 
 	return { isLoading,  movies, pagination }
 }
