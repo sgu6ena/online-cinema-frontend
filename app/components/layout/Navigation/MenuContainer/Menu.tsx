@@ -5,9 +5,6 @@ import MenuItem from './MenuItem'
 import {IMenu} from './menu.interface'
 import dynamic from "next/dynamic";
 
-const DynamicAuthItems = dynamic(() => import('../../Header/burgers/AuthItems'), {
-    ssr: false
-})
 
 
 const Menu: FC<{ menu: IMenu }> = ({menu: {items, title}}) => {
@@ -19,7 +16,7 @@ const Menu: FC<{ menu: IMenu }> = ({menu: {items, title}}) => {
                 {items.map((item) => (
                     <MenuItem item={item} key={item.link}/>
                 ))}
-                {title === 'Главное меню' ? <DynamicAuthItems/> : null}
+
             </ul>
         </div>
     )
