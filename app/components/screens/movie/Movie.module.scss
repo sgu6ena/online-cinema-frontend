@@ -1,25 +1,31 @@
 @import '../../../assets/styles/variables';
 
 .movie {
-  @apply text-gray-500 pl-5 lg:pl-layout ;
+  @apply text-gray-500 pl-5 lg:pl-layout;
   .main {
     @apply flex-col-reverse flex flex-grow flex-shrink justify-between  gap-0.5 lg:flex-row;
 
     .videoBox {
       .imageBox {
-
-        @apply relative bg-gray-950  mt-10;
-        @include fade-bg-gradient-gor();
+        @apply relative bg-gray-950 p-0  mt-12;
+        //@include fade-bg-gradient-gor();
         aspect-ratio: 16/9;
         width: 600px;
 
         img {
+          object-fit: cover;
+          object-position: center;
+          @apply rounded p-0 m-0;
+          filter: blur(8px);
+        }
 
-          @apply rounded object-contain;
+        .poster {
+          object-fit: contain;
+          @apply rounded p-0 m-0;
+          filter: blur(0px);
 
         }
       }
-
 
       @apply flex-grow-0 flex-shrink-0;
       .actions {
@@ -27,25 +33,46 @@
         .buttons {
           @apply flex gap-2;
           button {
-            @apply text-white flex-center-between  gap-2 bg-transparent px-4 py-2 rounded mr-5 border border-gray-600 ;
+            @apply text-white flex-center-between  gap-2 bg-transparent px-4 py-2 rounded mr-5 border border-gray-600;
             svg {
-              @apply text-2xl
+              @apply text-2xl;
             }
+          }
+
+          .play {
+            @apply bg-primary border-none;
           }
         }
       }
     }
 
     .description {
-      @apply p-2  lg:p-layout;
+      @apply p-2  lg:p-layout text-gray-500;
       //width: 40%;
 
       h1 {
+        @apply text-white text-4xl;
         font-family: 'Oswald', sans-serif;
       }
 
+      h2 {
+        @apply text-white text-2xl;
+        font-family: 'Oswald', sans-serif;
+      }
+
+      span {
+        @apply mx-2;
+      }
+
       p {
-        @apply my-2;
+        @apply my-4;
+        .subtitle {
+          @apply text-gray-600 inline mr-3;
+        }
+
+        a {
+          @apply underline-offset-4 underline;
+        }
       }
     }
 
@@ -61,13 +88,11 @@
         }
       }
     }
-
-
   }
 }
 
 .rating {
-  @apply flex gap-2 items-center  mb-2 ;
+  @apply flex gap-2 items-center  mb-2;
   > svg {
     @apply fill-gray-600  h-10 w-10 text-2xl;
   }
@@ -78,7 +103,7 @@
 }
 
 .movieContainer {
-  @apply p-2 lg:p-layout lg:mx-layout;
+  @apply p-0 lg:p-0  ;
 }
 
 .votes {
@@ -89,7 +114,7 @@
   .tabs {
     @apply mb-3;
     > button {
-      @apply text-lg py-3 px-3 lg:px-5 border-b hover:text-white hover:opacity-100 opacity-60  transition-all;
+      @apply text-lg py-3 px-3 lg:px-5 border  hover:text-white hover:opacity-100 opacity-60 mx-3 rounded transition-all;
       &.active {
         @apply text-primary opacity-100;
       }
@@ -98,12 +123,19 @@
 
   .season {
     .active {
-      @apply flex  animate-fade flex-wrap;
+      @apply flex  animate-fade flex-nowrap overflow-x-auto;
       .episode {
-        @apply btn-primary text-center hover:opacity-100 transition px-3 py-2 m-2;
+        @apply text-center hover:opacity-100 block  grow-0 shrink-0 transition m-2;
         min-width: 100px;
+
+        width: 350px;
         @screen lg {
           min-width: 120px;
+        }
+        img {
+          @apply h-40 w-96;
+          //width: 350px;
+          aspect-ratio: 16/9;
         }
 
         &:hover {

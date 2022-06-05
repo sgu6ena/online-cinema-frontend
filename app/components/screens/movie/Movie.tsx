@@ -4,7 +4,6 @@ import {FC, useEffect, useState} from 'react'
 
 import {PortalMovieService} from '../../../api/portalMovie.service'
 import MovieSkeleton from '../../loaders/MovieSkeleton'
-import FilmTag from '../../ui/FilmTag'
 import MaterialIcon from '../../ui/MaterialIcon'
 import VideoPLayer from '../../ui/videoPlayer/VideoPLayer'
 import Vote from '../../ui/vote/Vote'
@@ -13,10 +12,12 @@ import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 import {usePortalMovie} from './usePortalMovie'
+import Gallery from "../../ui/gallery/Gallery";
+import {collectionsToItems} from "../../screens/home/Home";
 
 const Movie: FC = () => {
     const {asPath} = useRouter()
-    const {isLoading, movie} = usePortalMovie()
+    const {isLoading, movie, collection} = usePortalMovie()
     const [idFile, setIdFile] = useState('')
     const [url, setUrl] = useState('')
     const [play, setPlay] = useState(false)
@@ -58,11 +59,17 @@ const Movie: FC = () => {
                                     <Image
                                         src={movie.logo}
                                         alt={movie.title}
-                                        width={600}
-                                        height={340}
+                                        layout='fill'
                                         priority
                                         unoptimized
-                                        className={'mt-10 '}
+                                    />
+                                    <Image
+                                        src={movie.logo}
+                                        alt={movie.title}
+                                        layout='fill'
+                                        priority
+                                        unoptimized
+                                        className={styles.poster}
                                     /></div>
                             }
                             <div className={styles.actions}>
@@ -74,40 +81,26 @@ const Movie: FC = () => {
                                         <MaterialIcon name={'MdBookmarkBorder'}/>
                                         Избранное
                                     </button>
+                                    {movie.media.length === 1 && movie.media[0]?.items.length === 1 &&
+                                        <button className={styles.play}
+                                                onClick={() => handleMovie(movie.media[0].items[0].file)}>
+                                            <MaterialIcon name={'MdPlayArrow'}/>
+                                            Смотреть
+                                        </button>}
                                 </div>
 
                                 <Vote vote={movie.vote} my_vote={3} onClick={() => 5}/>
                             </div>
                         </div>
                         <MovieDescription movie={movie}/>
-                        {/*<div className={styles.right}>*/}
-                        {/*	<div className={styles.image}>*/}
-                        {/*		{movie.logo && (*/}
-                        {/*			<Image*/}
-                        {/*				src={movie.logo}*/}
-                        {/*				alt={movie.title}*/}
-                        {/*				width={450}*/}
-                        {/*				height={650}*/}
-                        {/*				priority*/}
-                        {/*				unoptimized*/}
-                        {/*			/>*/}
-                        {/*		)}*/}
-                        {/*	</div>*/}
-
-                        {/*	<div className={styles.votes}>*/}
-                        {/*		{movie.rate_age && (*/}
-                        {/*			<span className="btn-primary rounded p-1 ml-5">*/}
-                        {/*				{movie.rate_age}*/}
-                        {/*			</span>*/}
-                        {/*		)}*/}
-                        {/*		<FilmTag type={movie.access} />*/}
-                        {/*	</div>*/}
-                        {/*</div>*/}
                     </div>
 
-                    <div className={styles.movieContainer}>
-                        <Tabs media={movie.media} fn={handleMovie}/>
-                    </div>
+                    {movie.media.length > 0 && movie.media[0]?.items.length > 1 &&
+                        <div className={styles.movieContainer}>
+                            <Tabs media={movie.media} fn={handleMovie} logo={movie.logo}/>
+                        </div>}
+                    <h3 className={'text-white text-2xl mb-3 mt-6'}>Рекомендуем</h3>
+                    <Gallery items={collectionsToItems(collection)}/>
                 </>
             )}
         </div>

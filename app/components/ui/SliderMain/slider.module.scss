@@ -1,59 +1,58 @@
 @import '../../../assets/styles/variables';
 
-.mainSlideActive {
-  .slide {
-    @apply text-white;
-    //@include fade-bg-gradient(0deg);
-    @include fade-bg-gradient(90deg);
 
-    .img {
-      @apply rounded-2xl;
-      object-fit: cover;
-      height: -webkit-fill-available;
+.slide {
+  @apply text-white;
+  //@include fade-bg-gradient(0deg);
+  @include fade-bg-gradient(90deg);
 
+  .img {
+    @apply rounded-2xl;
+    object-fit: cover;
+    height: -webkit-fill-available;
+
+  }
+
+
+  .content {
+    @apply text-white absolute  max-w-xl bottom-0 p-10 flex flex-col gap-4 left-0 z-10;
+
+    .title {
+      @apply text-5xl capitalize leading-normal;
+      font-family: Oswald, sans-serif;
     }
 
+    .subtitle {
+      @apply flex gap-1;
 
-    .content {
-      @apply text-white absolute  max-w-xl bottom-0 p-10 flex flex-col gap-4 left-0 z-10;
-
-      .title {
-        @apply text-5xl capitalize leading-normal;
-        font-family: Oswald, sans-serif;
-      }
-
-      .subtitle {
-        @apply flex gap-1;
-
-        .year {
-          @apply text-white;
-        }
-
-        .genre {
-          @apply text-white;
-        }
-
-        .age {
-          @apply text-white;
-        }
-      }
-
-      .descriptions {
+      .year {
         @apply text-white;
       }
 
-      .buttons {
-        @apply flex;
+      .genre {
+        @apply text-white;
+      }
 
-        .show {
-          @apply btn-primary gap-5 flex-center-between px-4 w-min py-2;
-        }
-
-        .favorites {
-          @apply text-white;
-        }
+      .age {
+        @apply text-white;
       }
     }
 
+    .descriptions {
+      @apply text-white;
+    }
+
+    .buttons {
+      @apply flex;
+
+      .show {
+        @apply btn-primary gap-5 flex-center-between px-4 w-min py-2;
+      }
+
+      .favorites {
+        @apply text-white;
+      }
+    }
   }
+
 }

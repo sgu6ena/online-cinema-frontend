@@ -138,3 +138,8 @@ input[type=checkbox] {
 .swiper-lazy-preloader {
   border: white !important;
 }
+
+.swiper-slide-next div[class^="slider_content_"] {
+  display: none;
+  overflow: hidden;
+}
