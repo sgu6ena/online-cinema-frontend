@@ -1,5 +1,3 @@
-import {IGalleryHome} from "../../components/ui/gallery/gallery.interface";
-
 export interface IParameters {
     year: number
     duration: number
@@ -94,7 +92,7 @@ export interface IMoviePortalFull extends IMoviePortal {
     mbase_id: number
     type_content: number
     type_file: number
-    list: IGalleryHome
+    list: any
 }
 
 export interface IMoviePortalPage {
