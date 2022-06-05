@@ -1,4 +1,4 @@
-import {IGalleryHome} from "@/ui/gallery/gallery.interface";
+import {IGalleryHome} from "../../components/ui/gallery/gallery.interface";
 
 export interface IParameters {
     year: number
