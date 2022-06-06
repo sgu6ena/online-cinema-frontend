@@ -1,8 +1,30 @@
 .container {
   @apply mt-12 flex justify-center;
   .wrapper {
-    @apply rounded overflow-hidden air-block  shadow-xl bg-black bg-opacity-70 relative animate-fade;
+    @apply rounded overflow-hidden  shadow-xl bg-black bg-opacity-70 relative animate-fade;
     width: 600px;
-    
+    aspect-ratio: 17/10;
+
+  }
+}
+
+.imageBox {
+  @apply relative bg-gray-950 p-0 ;
+  //@include fade-bg-gradient-gor();
+  aspect-ratio: 16/10;
+  width: 600px;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    @apply rounded p-0 m-0;
+    filter: blur(8px);
+  }
+
+  .poster {
+    object-fit: contain;
+    @apply rounded p-0 m-0;
+    filter: blur(0px);
+
   }
 }

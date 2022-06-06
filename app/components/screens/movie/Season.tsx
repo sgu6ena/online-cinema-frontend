@@ -4,6 +4,7 @@ import {FC} from 'react'
 import {IMedia} from '../../../shared/types/movie.types'
 
 import styles from './Movie.module.scss'
+import Image from "next/image";
 
 export interface ISeason extends IMedia {
     index: number
@@ -22,15 +23,31 @@ const Season: FC<ISeason> = ({isActive = false, items, fn, logo}) => {
                 {items.map((item) => (
                     <>
                         <button
-                            // style={{background: `url(${logo})`, objectFit: 'cover'}}
+
                             key={item.file}
                             className={styles.episode}
                             onClick={() => {
                                 return fn(item.file)
                             }}
                         >
-                            <img src={logo} alt="item.title"/>
-                            {item.title}
+                            <div className={styles.imageBox}>
+                                <Image
+                                    src={logo}
+                                    alt={''}
+                                    layout='fill'
+                                    priority
+                                    unoptimized
+                                />
+                                <Image
+                                    src={logo}
+                                    alt={''}
+                                    layout='fill'
+                                    priority
+                                    unoptimized
+                                    className={styles.poster}
+                                /></div>
+                            <div className={styles.progress}></div>
+                            <span>{item.title}</span>
                         </button>
                     </>
                 ))}

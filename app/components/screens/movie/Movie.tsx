@@ -48,30 +48,14 @@ const Movie: FC = () => {
                 <>
                     <div className={styles.main}>
                         <div className={styles.videoBox}>
-                            {url ?
-                                <VideoPLayer
-                                    url={url}
-                                    play={play}
-                                    typeContent={movie.type_content}
-                                    slug={movie.id}
-                                /> : movie.logo &&
-                                <div className={styles.imageBox}>
-                                    <Image
-                                        src={movie.logo}
-                                        alt={movie.title}
-                                        layout='fill'
-                                        priority
-                                        unoptimized
-                                    />
-                                    <Image
-                                        src={movie.logo}
-                                        alt={movie.title}
-                                        layout='fill'
-                                        priority
-                                        unoptimized
-                                        className={styles.poster}
-                                    /></div>
-                            }
+
+                            <VideoPLayer
+                                url={url}
+                                play={play}
+                                typeContent={movie.type_content}
+                                slug={movie.id}
+                                poster={movie.logo}
+                            />
                             <div className={styles.actions}>
                                 <div className={styles.buttons}>
                                     <button>

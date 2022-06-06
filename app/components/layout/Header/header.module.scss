@@ -5,11 +5,14 @@ $header-height: 70px;
   width: 100vw;
   height: $header-height;
 
-  .logo{
+  .logo {
     @apply flex-shrink-0 ml-5 text-3xl text-white gap-3 flex items-center;
-    .text{
-      @apply lg:block text-primary hidden;
-      font-family: 'Oswald', sans-serif;
+    .text {
+      @apply lg:block text-primary mt-3 hidden;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      letter-spacing: 0.12em;
     }
   }
 

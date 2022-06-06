@@ -6,28 +6,9 @@
     @apply flex-col-reverse flex flex-grow flex-shrink justify-between  gap-0.5 lg:flex-row;
 
     .videoBox {
-      .imageBox {
-        @apply relative bg-gray-950 p-0  mt-12;
-        //@include fade-bg-gradient-gor();
-        aspect-ratio: 16/9;
-        width: 600px;
-
-        img {
-          object-fit: cover;
-          object-position: center;
-          @apply rounded p-0 m-0;
-          filter: blur(8px);
-        }
-
-        .poster {
-          object-fit: contain;
-          @apply rounded p-0 m-0;
-          filter: blur(0px);
-
-        }
-      }
 
       @apply flex-grow-0 flex-shrink-0;
+
       .actions {
         @apply mt-3 flex-center-between;
         .buttons {
@@ -125,21 +106,38 @@
     .active {
       @apply flex  animate-fade flex-nowrap overflow-x-auto;
       .episode {
-        @apply text-center hover:opacity-100 block  grow-0 shrink-0 transition m-2;
+        @apply text-center rounded-layout hover:opacity-100 relative block rounded grow-0 z-10 shrink-0 transition m-2;
         min-width: 100px;
 
-        width: 350px;
+        .imageBox {
+          @apply relative rounded-layout bg-gray-950 p-0 ;
+          aspect-ratio: 16/9;
+          width: 305px;
+
+          img {
+            object-fit: cover;
+            object-position: center;
+            @apply rounded-layout p-0 m-0;
+            filter: blur(2px);
+          }
+
+          .poster {
+            object-fit: contain;
+            @apply rounded-layout p-0 m-0;
+            filter: blur(0px);
+          }
+        }
+
+        .progress {
+          @apply h-1  absolute top-40 left-2 right-2 bg-gray-300  rounded-full z-30;
+          width: calc(100% - 16px);
+        }
+
         @screen lg {
           min-width: 120px;
         }
-        img {
-          @apply h-40 w-96;
-          //width: 350px;
-          aspect-ratio: 16/9;
-        }
 
         &:hover {
-          //@apply shadow-yellow-700 shadow-sm;
           filter: drop-shadow(0 2px 4px #555);
         }
       }
