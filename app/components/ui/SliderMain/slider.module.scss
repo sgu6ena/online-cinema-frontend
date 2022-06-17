@@ -2,20 +2,18 @@
 
 
 .slide {
-  @apply text-white;
-  //@include fade-bg-gradient(0deg);
+  @apply text-white  rounded-2xl overflow-hidden;
   @include fade-bg-gradient(90deg);
 
   .img {
     @apply rounded-2xl;
     object-fit: cover;
     height: -webkit-fill-available;
-
   }
 
 
   .content {
-    @apply text-white absolute h-full  max-w-xl bottom-0 p-10 flex flex-col justify-end gap-4 bottom-0 left-0 z-10;
+    @apply text-white absolute h-full  max-w-xl bottom-0 p-10 flex flex-col pr-0 flex-wrap justify-end gap-4 bottom-0 left-0 z-10;
 
     &:hover {
       .subtitle {
@@ -49,7 +47,7 @@
     }
 
     .genres{
-      @apply flex   gap-1  overflow-hidden;
+      @apply flex   gap-2  overflow-hidden;
       .year {
         @apply text-white;
       }

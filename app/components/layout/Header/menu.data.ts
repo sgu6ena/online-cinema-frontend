@@ -58,7 +58,7 @@ export const headerMobileMenu: IMenuItem[] =
 
     {
       icon: 'MdMovieCreation',
-      link: '/genres/0',
+      link: '/genres/100',
       title: 'Фильмы',
     },
     {
@@ -85,7 +85,7 @@ export const headerNavMenu: IMenuItem[] = [
   },
   {
     icon: 'MdMovieCreation',
-    link: '/genres/0',
+    link: '/genres/100',
     title: 'Фильмы',
   },
   {

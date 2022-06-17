@@ -1,11 +1,12 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import MaterialIcon from '../MaterialIcon'
 import { ISlide } from '../slider/slider.interface'
 
 import styles from './slider.module.scss'
+import { getGenreUrl } from '../../../config/url.config'
 
 const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 	return (
@@ -25,7 +26,15 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 				{/*</div>*/}
 				<div className={styles.genres}>
 					<div>{i.year}</div>
-					{i.genres?.map(i=><><div>·</div><div>{i.name}</div></>)}
+					{i.genres &&i.genres.map((genre) => (
+						<>
+							<span>·</span>
+							<Link href={getGenreUrl(genre.id)}>
+								<a>{genre.name}</a>
+							</Link>
+						</>
+					))}
+
 					{i.rate_age&&<><div>·</div>
 						<div>{i.rate_age}</div></>}
 				</div>

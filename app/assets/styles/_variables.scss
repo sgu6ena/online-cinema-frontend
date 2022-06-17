@@ -1,11 +1,11 @@
 @mixin fade-bg-gradient($direction: 90deg) {
   &::before {
-    @apply w-full h-full absolute top-0 left-0 z-1;
+    @apply w-full h-full rounded absolute  top-0 left-0 z-1;
     content: '';
 
     background: linear-gradient(
                     $direction,
-                    #101215 3.31%,
+                    #101215 0%,
                     rgba(#101215, 0.99) 7.71%,
                     rgba(#101215, 0.96) 12.11%,
                     rgba(#101215, 0.91) 16.51%,
@@ -27,7 +27,7 @@
 
 @mixin fade-bg-gradient-double($direction: 90deg) {
   &::before {
-    @apply w-full h-full absolute top-0 left-0 z-1;
+    @apply w-full h-full absolute  top-0 left-0 z-1;
     content: '';
 
     background: linear-gradient(
@@ -44,7 +44,7 @@
 
 @mixin fade-bg-gradient-gor($direction: 90deg) {
   &::before {
-    @apply w-full h-full absolute top-0 left-0 z-2;
+    @apply w-full h-full  absolute top-0 left-0 z-2;
     content: '';
 
     background: linear-gradient(

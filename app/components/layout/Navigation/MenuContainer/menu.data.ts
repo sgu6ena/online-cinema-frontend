@@ -21,7 +21,7 @@ export const firstMenu: IMenu = {
 
 		{
 			icon: 'MdMovieCreation',
-			link: '/genres/0',
+			link: '/genres/100',
 			title: 'Фильмы',
 		},
 		{
