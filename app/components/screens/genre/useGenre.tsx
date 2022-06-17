@@ -3,13 +3,13 @@ import { useQuery } from 'react-query'
 
 
 import { toastError } from '../../../utils/toast-error'
-import { PortalService } from '../../../services/portal.service'
+import { PortalService } from '../../../api/portal.service'
 
 export const useGenre = () => {
 	const { query } = useRouter()
-
-	const genreId = String(query.id)
 	const page = String(query?.page)
+	const genreId = String(query.id)
+
 
 
 	const { isLoading, data } = useQuery(

@@ -1,0 +1,40 @@
+$header-height: 70px;
+
+.header {
+  @apply lg:px-5 px-1.5 bg-gray-900 text-white rounded-none fixed flex justify-between items-center top-0 left-0 z-20 opacity-100;
+  width: 100vw;
+  height: $header-height;
+
+  .logo {
+    @apply flex-shrink-0 ml-5 text-3xl text-white gap-3 flex items-center;
+    .text {
+      @apply lg:block text-primary mt-3 hidden;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      letter-spacing: 0.12em;
+    }
+  }
+
+  .start {
+    @apply flex  items-center gap-2;
+  }
+
+
+  .end {
+    @apply flex flex items-center gap-5 pr-3 mr-3;
+
+    a {
+      @apply flex-shrink-0;
+    }
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

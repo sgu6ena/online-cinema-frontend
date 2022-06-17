@@ -2,12 +2,12 @@ import { useQuery } from 'react-query'
 import { getGenreUrl } from '../../../../../config/url.config'
 
 import { IMenuItem } from '../menu.interface'
-import { GenreService } from '../../../../../services/genre.service'
+import { PortalService } from '../../../../../api/portal.service'
 
 export const usePortalGenres = () => {
 	const queryData = useQuery(
 		'popular genre menu',
-		() => GenreService.getPortal(),
+		() => PortalService.getGenres(),
 		{
 			select: ({ data }) =>
 				data.filter((genre: { type: number }) => genre.type === 3).sort((i, j) => (parseInt(i.cid) - parseInt(j.cid)))

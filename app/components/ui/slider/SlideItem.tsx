@@ -12,6 +12,7 @@ interface ISlideItem {
 }
 
 const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) => {
+	const {push} = useRouter()
 	return (
 		<div className={styles.slide}>
 			{slide?.bigPoster && (
@@ -31,13 +32,13 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) 
 				</Link>
 			)}
 
-			{/*<div className={styles.content}>*/}
-			{/*	/!*<div className={styles.heading}>{slide.title}</div>*!/*/}
-			{/*	/!*<div className={styles.subHeading}>{slide.subTitle}</div>*!/*/}
-			{/*	<button className={styles.button} onClick={() => push(slide.link)}>*/}
-			{/*		{buttonTitle}*/}
-			{/*	</button>*/}
-			{/*</div>*/}
+			<div className={styles.content}>
+				{/*<div className={styles.heading}>{slide.title}</div>*/}
+				{/*<div className={styles.subHeading}>{slide.subTitle}</div>*/}
+				<button className={styles.button} onClick={() => push(slide.link)}>
+					{buttonTitle}
+				</button>
+			</div>
 		</div>
 	)
 }

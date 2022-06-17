@@ -1,0 +1,66 @@
+.menu {
+  @apply items-center border-none flex animate-fade;
+  .avatar {
+    @apply animate-fade;
+
+    svg {
+      @apply animate-fade h-10 w-10;
+    }
+  }
+
+  .container {
+    display: inline-block;
+    cursor: pointer;
+    @apply h-10 w-10 lg:hidden border-white border-2 rounded px-0.5;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    @apply w-8 h-0.5 opacity-100 bg-white my-2 mx-0 rounded;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    opacity: 100;
+    -webkit-transform: rotate(-45deg) translate(-6px, 5px);
+    transform: rotate(-45deg) translate(-6px, 5px);
+  }
+
+  .change .bar2 {
+    @apply opacity-0;
+  }
+
+  .change .bar3 {
+    opacity: 100;
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  ul {
+    @apply absolute top-16 pt-4 right-1 animate-fade  p-0  transition-all border-none bg-gray-900 w-60  z-50;
+    li {
+      @apply text-white border-b border-b-gray-700 transition-all;
+      a {
+        @apply flex px-5 py-2  items-center gap-1 cursor-pointer transition-all ;
+        &:hover {
+          @apply bg-gray-500 transition-all;
+          svg {
+            @apply text-gray-950 transition-all;
+          }
+        }
+
+        svg {
+          @apply text-2xl mr-2 transition-all;
+        }
+      }
+    }
+
+    &::after {
+      @apply absolute -right-0.5 h-0 w-0.5 bg-transparent;
+      content: '';
+      //top: 28%;
+      //transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+  }
+}

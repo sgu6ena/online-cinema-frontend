@@ -86,7 +86,7 @@ module.exports = {
 				'.btn-primary': {
 					backgroundColor: primary,
 					color: '#fff',
-					borderRadius: '0.65rem',
+					borderRadius: '0.2rem',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
 						backgroundColor: '#ff0009',
@@ -101,7 +101,7 @@ module.exports = {
 					color: 'rgba(255, 255, 255, .9)',
 					transition: 'text-decoration-color .3s ease-in-out',
 					textDecorationLine: 'underline',
-					textDecorationColor: 'rgba(255, 255, 255, 0.2)',
+					textDecorationColor: 'rgba(255, 0, 0, 0.2)',
 					'&:hover': {
 						textDecorationColor: 'rgba(255, 255, 255, 0.9)',
 					},

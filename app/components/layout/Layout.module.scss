@@ -1,113 +1,52 @@
-$bar-width: 300px;
-
-$header-height: 70px;
-.layout {
-  @apply relative  grid-cols-6 grid gap-0 mx-auto;
-  max-width: 2100px;
-  margin-top: $header-height;
-
-  > div:first-child,
-  > div:last-child {
-    @apply hidden lg:block  md:hidden sm:hidden;
-    min-width: 250px;
-    max-width: $bar-width;
-    //@apply border-2 border-primary ;
-  }
-
-  //
-  //> div:first-child,
-  //> div:last-child {
-  //  @apply fixed  bottom-0 overflow-y-auto flex-grow hidden lg:block flex-shrink md:hidden sm:hidden;
-  //  width:$bar-width ;
-  //  max-width: $bar-width;
-  //  background: #19181f;
-  //  top: $header-height;
-  //
-  //  @screen lg {
-  //    max-width: $bar-width;
-  //  }
-  //}
-  //
-  > div:first-child {
-    @apply border-r border-r-gray-800;
-  }
-
-  > div:last-child {
-    @apply border-l border-l-gray-800;
-  }
-
-  .center {
-    @apply text-white  col-span-4;
-    //margin-top: $header-height;
-
-    //@screen lg {
-    //  margin: $header-height $bar-width;
-    //}
-
-    .slider {
-      padding: 100px;
-    }
-  }
-}
-
-.header {
-  @apply md:px-layout px-1.5 air-block rounded-none fixed flex justify-between items-center top-0 left-0 z-20 opacity-90;
-  width: 100vw;
-  height: $header-height;
-
-  .start {
-    @apply flex  items-center gap-2;
-  }
-
-  .menu {
-    @apply flex lg:hidden   items-center  animate-fade;
-    .container {
-      display: inline-block;
-      cursor: pointer;
-      @apply h-10 w-10 mr-4;
-    }
-
-    .bar1, .bar2, .bar3 {
-      @apply w-10 h-0.5 opacity-70 bg-gray-500 my-2 mx-0 rounded;
-      transition: 0.4s;
-    }
-
-    .change .bar1 {
-      opacity: 100;
-      -webkit-transform: rotate(-45deg) translate(-6px, 5px);
-      transform: rotate(-45deg) translate(-6px, 5px);
-    }
-
-    .change .bar2 {
-      @apply opacity-0;
-    }
-
-    .change .bar3 {
-      opacity: 100;
-      -webkit-transform: rotate(45deg) translate(-8px, -8px);
-      transform: rotate(45deg) translate(-8px, -8px);
-    }
-
-    ul {
-      @apply absolute top-20 right-10  p-5 rounded transition-all animate-fade border border-gray-700 rounded-layout bg-gray-800 w-60 animate-fade z-50;
-      li {
-        @apply ml-3 text-white truncate my-3;
-      }
-
-      &::after {
-        @apply absolute -right-0.5 h-0 w-0.5 bg-transparent;
-        content: '';
-        top: 28%;
-        transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
-      }
-    }
-  }
-
-  .end {
-    @apply hidden lg:flex  items-center gap-2;
-
-    a {
-      @apply flex-shrink-0;
-    }
-  }
-}
+//$bar-width: 300px;
+//
+//$header-height: 70px;
+//.layout {
+//  @apply relative  grid-cols-6 grid gap-0 mx-auto;
+//  max-width: 2100px;
+//  margin-top: $header-height;
+//
+//  > div:first-child,
+//  > div:last-child {
+//    @apply hidden lg:block  md:hidden sm:hidden;
+//    min-width: 250px;
+//    max-width: $bar-width;
+//    //@apply border-2 border-primary ;
+//  }
+//
+//  //
+//  //> div:first-child,
+//  //> div:last-child {
+//  //  @apply fixed  bottom-0 overflow-y-auto flex-grow hidden lg:block flex-shrink md:hidden sm:hidden;
+//  //  width:$bar-width ;
+//  //  max-width: $bar-width;
+//  //  background: #19181f;
+//  //  top: $header-height;
+//  //
+//  //  @screen lg {
+//  //    max-width: $bar-width;
+//  //  }
+//  //}
+//  //
+//  > div:first-child {
+//    @apply border-r border-r-gray-800;
+//  }
+//
+//  > div:last-child {
+//    @apply border-l border-l-gray-800;
+//  }
+//
+//  .center {
+//    @apply text-white  col-span-4;
+//    //margin-top: $header-height;
+//
+//    //@screen lg {
+//    //  margin: $header-height $bar-width;
+//    //}
+//
+//    .slider {
+//      padding: 100px;
+//    }
+//  }
+//}
+//

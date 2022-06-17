@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { getMoviesUrl } from '../../../../../config/api.config'
-import { IMoviePortal } from '../../../../../shared/types/movie.types'
+import { getMoviesUrl } from '../../../../config/api.config'
+import { IMoviePortal } from '../../../../shared/types/movie.types'
 
 import styles from './SearchList.module.scss'
 
@@ -21,6 +21,7 @@ const SearchList: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 								objectFit="cover"
 								objectPosition="top"
 								draggable={false}
+								unoptimized
 							/>
 							<span>{movie.title}</span>
 						</a>

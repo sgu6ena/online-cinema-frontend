@@ -3,7 +3,7 @@
 }
 
 .movies {
-  @apply lg:py-layout py-2 px-2 lg:px-5 grid lg:grid-cols-3 sm:grid-cols-3  gap-1 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 grid-cols-3 ;
+  @apply xl:py-layout py-2 px-2 lg:px-0 xl:px-5 grid lg:grid-cols-4 xl:grid-cols-5 sm:grid-cols-4  gap-1 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-2 ;
 
   > a {
     @apply mx-auto mb-4 animate-fade;

@@ -2,7 +2,7 @@ import { FC} from 'react'
 import { useQuery } from 'react-query'
 
 
-import { PortalService } from '../../../../services/portal.service'
+import { PortalService } from '../../../../api/portal.service'
 import SkeletonLoader from '../../../ui/SkeletonLoader'
 
 import MovieList from './MovieList'

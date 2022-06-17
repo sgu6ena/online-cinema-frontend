@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 
-import { PortalMovieService } from '../../../services/portalMovie.service'
+import { PortalMovieService } from '../../../api/portalMovie.service'
 import { toastError } from '../../../utils/toast-error'
 
 export const useUrl = (id: string) => {

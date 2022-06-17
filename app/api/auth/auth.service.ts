@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-import axios, { axiosClassic } from '../../api/interceptors'
+import axios, { axiosClassic } from '../interceptors'
 import { getAuthUrl, getUserProfile } from '../../config/api.config'
 import { IAuthResponse, IRegister, ITokens } from '../../store/user/user.interface'
 

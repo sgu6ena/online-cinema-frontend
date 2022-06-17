@@ -2,8 +2,8 @@ import { useRouter } from 'next/router'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-import { useDebounce } from '../../../../hooks/useDubounce'
-import { PortalMovieService } from '../../../../services/portalMovie.service'
+import { useDebounce } from '../../../hooks/useDubounce'
+import { PortalMovieService } from '../../../api/portalMovie.service'
 
 export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState('')

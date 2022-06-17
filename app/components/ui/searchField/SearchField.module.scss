@@ -1,19 +1,52 @@
-.search {
-  @apply rounded-3xl m-3 border border-gray-700  px-2 py-1 flex items-center transition-colors;
+//.search {
+//  @apply rounded-3xl m-3 border border-gray-700  px-2 py-1 flex items-center transition-colors;
+//
+//  > svg {
+//    @apply fill-gray-600 mr-2 text-3xl transition-colors;
+//  }
+//
+//  > input {
+//    @apply text-white placeholder:text-gray-600 block w-full bg-transparent outline-none;
+//  }
+//
+//  &:focus-within {
+//    @apply border-gray-600;
+//
+//    > svg {
+//      @apply fill-gray-500;
+//    }
+//  }
+//}
 
-  > svg {
-    @apply fill-gray-600 mr-2 text-3xl transition-colors;
+.searchBox {
+
+  input {
+    @apply rounded-full air-block m-3 text-white border-gray-600 pl-12 h-10 w-24 px-0 py-4 flex border-none items-center transition-colors placeholder-white;
+    transition: all 0.5s ease-in-out;
+    //border-width: 2px;
   }
 
-  > input {
-    @apply text-white placeholder:text-gray-600 block w-full bg-transparent outline-none;
-  }
+  .btnSearch {
+    @apply rounded-3xl m-3 border-none pointer-events-auto outline-none absolute cursor-pointer h-14 w-14 py-4 flex text-gray-600 items-center bg-transparent;
+    top: -8px;
+    left: 4px;
 
-  &:focus-within {
-    @apply border-gray-600;
-
-    > svg {
-      @apply fill-gray-500;
+    svg {
+      @apply  text-white h-8 w-8;
     }
+  }
+
+  .btnSearch:focus {
+    @apply outline-none;
+  }
+
+  .btnSearch:focus ~ input {
+    @apply bg-gray-300 outline-none  text-white rounded-3xl  w-80;
+    transition: all 500ms ease-in-out;
+  }
+
+  input:focus {
+    @apply bg-gray-600 outline-none text-white w-80  rounded-3xl;
+    transition: all 500ms ease-in-out;
   }
 }

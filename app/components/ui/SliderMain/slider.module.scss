@@ -1,0 +1,109 @@
+@import '../../../assets/styles/variables';
+
+
+.slide {
+  @apply text-white  rounded-2xl overflow-hidden;
+  @include fade-bg-gradient(90deg);
+
+  .img {
+    @apply rounded-2xl;
+    object-fit: cover;
+    height: -webkit-fill-available;
+  }
+
+
+  .content {
+    @apply text-white absolute h-full  max-w-xl bottom-0 p-10 flex flex-col pr-0 flex-wrap justify-end gap-4 bottom-0 left-0 z-10;
+
+    &:hover {
+      .subtitle {
+        -webkit-line-clamp: 5;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 5;
+        overflow: hidden;
+        //transition: 2s;
+        animation: 1s ease 0.5s both  ani;
+      }
+
+    }
+
+    .title {
+      @apply opacity-100  relative text-5xl capitalize leading-normal ;
+      font-family: Oswald, sans-serif;
+
+    }
+    .subtitle {
+      @apply flex relative gap-1  overflow-hidden ;
+      z-index: -1;
+      //height: 0;
+      -webkit-line-clamp: 5;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 5;
+      overflow: hidden;
+      //transition: 2s;
+      animation: 2s ease 5s both  ani2;
+    }
+
+    .genres{
+      @apply flex   gap-2  overflow-hidden;
+      .year {
+        @apply text-white;
+      }
+
+      .genre {
+        @apply text-white;
+      }
+
+      .age {
+        @apply text-white;
+      }
+    }
+    .descriptions {
+      @apply text-white;
+    }
+
+    .buttons {
+      @apply flex;
+
+      .show {
+        @apply btn-primary gap-5 flex-center-between px-4 w-min py-2;
+      }
+
+      .favorites {
+        @apply text-white;
+      }
+    }
+  }
+
+}
+
+@keyframes ani{
+  0%{
+    transform: translateY(120px);
+    opacity: 0;
+  }
+
+  100%{
+    //height: 120px;
+    transform: translateY(0px);
+    opacity: 100%;
+  }
+}
+
+@keyframes ani2{
+  0%{
+    //height: 120px;
+    opacity: 100%;
+  }
+  60%{
+    //height: 120px;
+    opacity: 40%;
+  }
+  100%{
+    transform: translateY(120px);
+    opacity: 0;
+  }
+
+}

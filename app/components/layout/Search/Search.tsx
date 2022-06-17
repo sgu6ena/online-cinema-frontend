@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
-import SearchField from '../../../ui/searchField/Search Field'
+import SearchField from '../../ui/searchField/Search Field'
 
 import styles from './Search.module.scss'
 import SearchList from './SearchList/SearchList'

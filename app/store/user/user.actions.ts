@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 
-import { AuthService } from '../../services/auth/auth.service'
+import { AuthService } from '../../api/auth/auth.service'
 import { toastError } from '../../utils/toast-error'
 
 import { IAuthResponse, ILoginPassword, IRegister, ITokens } from './user.interface'

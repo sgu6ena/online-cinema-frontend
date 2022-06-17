@@ -1,0 +1,28 @@
+.container {
+  @apply xl:py-layout justify-center py-2 px-2 lg:px-0 xl:px-5 grid lg:grid-cols-4 xl:grid-cols-5 sm:grid-cols-4
+  gap-1 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-2;
+}
+
+.mainContainer {
+  @apply flex flex-center-between gap-3 flex-grow-0 flex-nowrap overflow-hidden;
+}
+
+.item {
+  @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-36 xl:w-64  xl:h-96;
+}
+
+.titleContainer {
+  @apply flex justify-between my-5;
+  .title {
+    @apply h-10 w-60  px-40 mt-5;
+  }
+
+  .button {
+    @apply h-10 w-60  px-16 mt-5;
+  }
+}
+
+.mainBanner {
+  @apply rounded m-auto h-full w-full;
+  aspect-ratio: 147/40;
+}

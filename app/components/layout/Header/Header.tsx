@@ -1,14 +1,16 @@
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { FC } from 'react'
 
-import styles from '../Layout.module.scss'
-import Logo from '../Navigation/Logo'
-import Search from '../Sidebar/Search/Search'
+import { LINKS } from '../../../config/links'
+import Button from '../../ui/form-elemets/Button'
+import Search from '../Search/Search'
 
-import Burger from './Burger'
+import Logo from './Logo'
+import styles from './header.module.scss'
+import NavMenu from './nav-menu/NavMenu'
 
-
-const Avatar = dynamic(() => import('./Avatar'), {
+const Burgers = dynamic(() => import('./burgers/Burgers'), {
 	ssr: false,
 })
 
@@ -16,15 +18,19 @@ const Header: FC = () => {
 	return (
 		<div className={styles.header}>
 			<div className={styles.start}>
-
 				<Logo />
+				<NavMenu />
 			</div>
 
 			<div className={styles.end}>
+				<Link href={LINKS.RUBLE}>
+					<a className={'hidden xl:block'}>
+						<Button>Попробовать за рубль</Button>
+					</a>
+				</Link>
 				<Search />
+				<Burgers />
 			</div>
-			<Avatar />
-			<Burger />
 		</div>
 	)
 }

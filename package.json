@@ -34,7 +34,6 @@
     "react-query": "^3.34.14",
     "react-redux": "^7.2.6",
     "react-select": "^5.2.2",
-    "react-transition-group": "^4.4.2",
     "sass": "^1.49.0",
     "sharp": "^0.30.4",
     "swiper": "^8.1.6"
