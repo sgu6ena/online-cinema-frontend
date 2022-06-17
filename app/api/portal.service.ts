@@ -50,7 +50,11 @@ export const PortalService = {
             _id: m.id,
             bigPoster: m.logo,
             link: getMoviesUrl(m.id),
-            title: m.title,
+            title: m.titles,
+            subTitle: m.description,
+            year:m.year,
+            genres:m.genre,
+            rate_age:m.rate_age
         }))
         return {
             slider: slides,

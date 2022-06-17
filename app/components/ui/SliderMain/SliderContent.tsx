@@ -17,17 +17,17 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 			/>
 			<div className="swiper-lazy-preloader"></div>
 			<div className={styles.content}>
-				<h3 className={styles.title}>
-					{'Очень Интересное кино c длинным названием'.toUpperCase()}
+				<h3 className={cn(styles.title)}>
+					{i.title.toUpperCase()}
 				</h3>
-				<div className={styles.subtitle}>
-					<div>2021</div>
-					<div>·</div>
-					<div>Боевик</div>
-					<div>·</div>
-					<div>Мелодрама</div>
-					<div>·</div>
-					<div>16+</div>
+				{/*<div  className={styles.subtitle}>*/}
+				{/*	{i.subTitle}*/}
+				{/*</div>*/}
+				<div className={styles.genres}>
+					<div>{i.year}</div>
+					{i.genres?.map(i=><><div>·</div><div>{i.name}</div></>)}
+					{i.rate_age&&<><div>·</div>
+						<div>{i.rate_age}</div></>}
 				</div>
 				<div className={styles.buttons}>
 					<Link href={i.link}>
