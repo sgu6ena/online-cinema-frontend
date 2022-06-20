@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { favorites, getMovie } from './movie.actions'
+import { favorites, getMovie, voting } from './movie.actions'
 import { IMovieState } from './movie.interface'
 
 const initialState: IMovieState = {
@@ -9,6 +9,10 @@ const initialState: IMovieState = {
 	collection: [],
 	isFavorite: false,
 	isFavoriteLoading: false,
+	vote: {
+		dislike: 0, ats: 0, like: 0,
+	},
+	isVoteLoading: false,
 }
 
 export const movieSlice = createSlice({
@@ -16,17 +20,19 @@ export const movieSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
+
 		builder
 			.addCase(getMovie.pending, (state) => {
 				state.isLoading = true
 				state.movie = null
 				state.collection = []
 			})
-			.addCase(getMovie.fulfilled, (state, { payload: { movie, collection, isFavorite } }) => {
+			.addCase(getMovie.fulfilled, (state, { payload: { movie, collection, isFavorite, vote } }) => {
 				state.isLoading = false
 				state.movie = movie
 				state.collection = collection
 				state.isFavorite = isFavorite
+				state.vote = vote
 			})
 			.addCase(getMovie.rejected, (state) => {
 				state.isLoading = false
@@ -38,11 +44,19 @@ export const movieSlice = createSlice({
 			})
 			.addCase(favorites.rejected, (state) => {
 				state.isFavoriteLoading = false
-
 			})
-			.addCase(favorites.fulfilled, (state,{payload}) => {
+			.addCase(favorites.fulfilled, (state, { payload }) => {
 				state.isFavoriteLoading = false
 				state.isFavorite = payload
+			})
+			.addCase(voting.pending, (state) => {
+				state.isVoteLoading = true
+			})
+			.addCase(voting.rejected, (state) => {
+				state.isVoteLoading = false
+			})
+			.addCase(voting.fulfilled, (state) => {
+				state.isVoteLoading = false
 			})
 	},
 })

@@ -26,7 +26,7 @@ const Movie: FC = () => {
 		movieId && getMovie(movieId)
 	}, [movieId])
 
-	const { movie, collection, isLoading, isFavorite, isFavoriteLoading } =
+	const { movie, collection, isLoading, isFavorite, isFavoriteLoading, vote, isVoteLoading } =
 		useMovie()
 	const [idFile, setIdFile] = useState('')
 	const [url, setUrl] = useState('')
@@ -68,9 +68,9 @@ const Movie: FC = () => {
 							/>
 							<div className={styles.actions}>
 								<div className={styles.buttons}>
-									<button>
+									{movie.trailer&&<button>
 										<MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер
-									</button>
+									</button>}
 									<button onClick={() => movieId && favorites(movieId)} className={cn(isFavorite && styles.active)}>
 										<MaterialIcon
 											name={
@@ -93,7 +93,7 @@ const Movie: FC = () => {
 										)}
 								</div>
 
-								<Vote vote={movie.vote} my_vote={3} onClick={() => 5} />
+								<Vote vote={vote} my_vote={movie.my_vote} onClick={() => 1} />
 							</div>
 						</div>
 						<MovieDescription movie={movie} />

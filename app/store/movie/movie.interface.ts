@@ -1,4 +1,4 @@
-import { IMoviePortal, IMoviePortalFull } from '../../shared/types/movie.types'
+import { IMoviePortal, IMoviePortalFull, IVotePortal } from '../../shared/types/movie.types'
 
 export interface IMovieState {
 	movie: IMoviePortalFull | null
@@ -6,4 +6,6 @@ export interface IMovieState {
 	collection: IMoviePortal[]
 	isFavorite: boolean
 	isFavoriteLoading: boolean
+	vote: IVotePortal
+	isVoteLoading: boolean
 }
