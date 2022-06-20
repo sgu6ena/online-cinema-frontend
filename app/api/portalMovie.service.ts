@@ -1,15 +1,16 @@
 import axios, { axiosClassicPortal } from './interceptors'
-import { getMovieUrl } from '../config/api-portal.config'
-import { IMoviePortalPage } from '../shared/types/movie.types'
+import { getBookmarkUrl, getMovieUrl } from '../config/api-portal.config'
+import { IMoviePortalFull, IMoviePortalPage } from '../shared/types/movie.types'
 
 export const PortalMovieService = {
 	async getById(id: string) {
-		const data = await axiosClassicPortal.get<IMoviePortalPage>(
+		const data = await axios.get<IMoviePortalPage>(
 			getMovieUrl(`${id}`)
 		)
-
 		return data.data
 	},
+
+
 	async getUrl(id: string) {
 		const data = await axios.get(getMovieUrl(`url/${id}`))
 		return data.data
@@ -21,6 +22,14 @@ export const PortalMovieService = {
 		)
 		return data.data
 	},
+
+	async getBookmark(id: string){
+		const data = await axios.get<any>(
+			getBookmarkUrl(`${id}`)
+		)
+
+		return data.data
+	}
 
 
 }

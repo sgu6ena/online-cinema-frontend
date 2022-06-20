@@ -1,35 +1,37 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
 import { PortalMovieService } from '../../../api/portalMovie.service'
+import { useActions } from '../../../hooks/useActions'
+import { getMovie } from '../../../store/movie/movie.actions'
+import { useMovie } from '../../../store/movie/useMovie'
 import MovieSkeleton from '../../loaders/MovieSkeleton'
+import { collectionsToItems } from '../../screens/home/Home'
 import MaterialIcon from '../../ui/MaterialIcon'
+import Gallery from '../../ui/gallery/Gallery'
 import VideoPLayer from '../../ui/videoPlayer/VideoPLayer'
 import Vote from '../../ui/vote/Vote'
 
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
-
-import Gallery from '../../ui/gallery/Gallery'
-import { collectionsToItems } from '../../screens/home/Home'
-import { useMovie } from '../../../store/movie/useMovie'
-import { getMovie } from '../../../store/movie/movie.actions'
-
-import { useActions } from '../../../hooks/useActions'
+import cn from 'classnames'
 
 const Movie: FC = () => {
 	const { asPath } = useRouter()
 
 	const { query } = useRouter()
+	const movieId = query.id && String(query.id)
+	useEffect(() => {
+		movieId && getMovie(movieId)
+	}, [movieId])
 
-	const movieId = String(query.id)
-	const { movie, collection, isLoading } = useMovie()
+	const { movie, collection, isLoading, isFavorite, isFavoriteLoading } =
+		useMovie()
 	const [idFile, setIdFile] = useState('')
 	const [url, setUrl] = useState('')
 	const [play, setPlay] = useState(false)
-	const { getMovie } = useActions()
+	const { getMovie, favorites } = useActions()
 
 	const handleMovie = (id: number) => {
 		setIdFile(id.toString())
@@ -37,7 +39,6 @@ const Movie: FC = () => {
 	}
 
 	useEffect(() => {
-
 		setUrl('')
 		setPlay(false)
 		setIdFile('')
@@ -51,19 +52,13 @@ const Movie: FC = () => {
 		}
 	}, [idFile, url])
 
-	useEffect(() => {
-		getMovie(movieId)
-	}, [movieId])
-
-
 	return (
 		<div className={styles.movie}>
 			{isLoading && <MovieSkeleton />}
-			{ movie && (
+			{movie && (
 				<>
 					<div className={styles.main}>
 						<div className={styles.videoBox}>
-
 							<VideoPLayer
 								url={url}
 								play={play}
@@ -76,16 +71,26 @@ const Movie: FC = () => {
 									<button>
 										<MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер
 									</button>
-									<button>
-										<MaterialIcon name={'MdBookmarkBorder'} />
+									<button onClick={() => movieId && favorites(movieId)} className={cn(isFavorite && styles.active)}>
+										<MaterialIcon
+											name={
+												isFavoriteLoading ? 'MdBookmarkBorder' :
+													isFavorite ? 'MdBookmark' : 'MdBookmarkBorder'}
+										/>
 										Избранное
 									</button>
-									{movie.media.length === 1 && movie.media[0]?.items.length === 1 &&
-										<button className={styles.play}
-														onClick={() => handleMovie(movie.media[0].items[0].file)}>
-											<MaterialIcon name={'MdPlayArrow'} />
-											Смотреть
-										</button>}
+									{movie.media.length === 1 &&
+										movie.media[0]?.items.length === 1 && (
+											<button
+												className={styles.play}
+												onClick={() =>
+													handleMovie(movie.media[0].items[0].file)
+												}
+											>
+												<MaterialIcon name={'MdPlayArrow'} />
+												Смотреть
+											</button>
+										)}
 								</div>
 
 								<Vote vote={movie.vote} my_vote={3} onClick={() => 5} />
@@ -94,10 +99,11 @@ const Movie: FC = () => {
 						<MovieDescription movie={movie} />
 					</div>
 
-					{movie.media.length > 0 && movie.media[0]?.items.length > 1 &&
+					{movie.media.length > 0 && movie.media[0]?.items.length > 1 && (
 						<div className={styles.movieContainer}>
 							<Tabs media={movie.media} fn={handleMovie} logo={movie.logo} />
-						</div>}
+						</div>
+					)}
 					<h3 className={'text-white text-2xl mb-3 mt-6'}>Рекомендуем</h3>
 					<Gallery items={collectionsToItems(collection)} />
 				</>
