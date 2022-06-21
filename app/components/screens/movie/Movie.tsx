@@ -1,11 +1,13 @@
 import cn from 'classnames'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
-
+import toast from 'react-hot-toast'
 import { PortalMovieService } from '../../../api/portalMovie.service'
 import { useActions } from '../../../hooks/useActions'
+import { useMovie } from '../../../hooks/useMovie'
+import { useVideo } from '../../../hooks/useVideo'
 import { getMovie } from '../../../store/movie/movie.actions'
-import { useMovie } from '../../../store/movie/useMovie'
+// import { setIdFile } from '../../../store/video/video.slice'
 import MovieSkeleton from '../../loaders/MovieSkeleton'
 import { collectionsToItems } from '../../screens/home/Home'
 import MaterialIcon from '../../ui/MaterialIcon'
@@ -16,17 +18,10 @@ import Vote from '../../ui/vote/Vote'
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
+import { useDispatch } from 'react-redux'
+import { dispatch } from 'react-hot-toast/dist/core/store'
 
 const Movie: FC = () => {
-	const { asPath } = useRouter()
-
-	const { query } = useRouter()
-	const movieId = query.id && String(query.id)
-
-	useEffect(() => {
-		movieId && getMovie(movieId)
-	}, [movieId])
-
 	const {
 		movie,
 		collection,
@@ -35,17 +30,25 @@ const Movie: FC = () => {
 		isFavoriteLoading,
 		vote,
 		myVote,
-		isVoteLoading,
 	} = useMovie()
-	const [idFile, setIdFile] = useState('')
+
+	const { url: newurl, idFile, serial, title, isPlayed } = useVideo()
+
+	const { getMovie, favorites, voting, setIdFile } = useActions()
+	const { asPath } = useRouter()
+	const { query } = useRouter()
+	const movieId = query.id && String(query.id)
 	const [url, setUrl] = useState('')
 	const [play, setPlay] = useState(false)
-	const { getMovie, favorites, voting } = useActions()
 
 	const handleMovie = (id: number) => {
-		setIdFile(id.toString())
+		setIdFile(`${id}`)
 		setPlay(true)
 	}
+
+	useEffect(() => {
+		movieId && getMovie(movieId)
+	}, [movieId])
 
 	useEffect(() => {
 		setUrl('')
@@ -54,14 +57,13 @@ const Movie: FC = () => {
 	}, [movie, asPath])
 
 	useEffect(() => {
+		// toast.success(idFile)
 		if (idFile !== '') {
 			PortalMovieService.getUrl(idFile).then((data) => {
 				setUrl(data.data.url)
 			})
 		}
 	}, [idFile, url])
-
-	useEffect(()=>{},[voting])
 
 	return (
 		<div className={styles.movie}>
@@ -117,7 +119,7 @@ const Movie: FC = () => {
 									<Vote
 										vote={vote}
 										my_vote={myVote}
-										onClick={( i) => voting(i)}
+										onClick={(i) => voting(i)}
 										movieId={movieId}
 									/>
 								)}
@@ -140,4 +142,3 @@ const Movie: FC = () => {
 }
 
 export default Movie
-

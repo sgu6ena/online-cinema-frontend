@@ -29,7 +29,6 @@ const Vote: FC<IVote> = ({
 	const {user} = useAuth()
 	return (
 		<div className={styles.vote}>
-			{console.log(my_vote)}
 			<button
 				className={cn(styles.like, my_vote === 3 && styles.myVote)}
 				onClick={() => user ? onClick({ movieId, vote: my_vote === 3 ? 0 : 3 }) : toast.error('Вы должны войти для голосования')}
