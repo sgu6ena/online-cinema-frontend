@@ -7,5 +7,6 @@ export interface IMovieState {
 	isFavorite: boolean
 	isFavoriteLoading: boolean
 	vote: IVotePortal
+	myVote: 0 | 1 | 2 | 3
 	isVoteLoading: boolean
 }

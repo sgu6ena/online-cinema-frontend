@@ -19,12 +19,10 @@
               @apply text-2xl;
             }
           }
-
           .active {
             svg {
               @apply text-primary;
             }
-
           }
 
           .play {

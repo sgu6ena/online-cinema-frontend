@@ -12,6 +12,7 @@ const initialState: IMovieState = {
 	vote: {
 		dislike: 0, ats: 0, like: 0,
 	},
+	myVote: 0,
 	isVoteLoading: false,
 }
 
@@ -33,6 +34,7 @@ export const movieSlice = createSlice({
 				state.collection = collection
 				state.isFavorite = isFavorite
 				state.vote = vote
+				state.myVote = movie.my_vote
 			})
 			.addCase(getMovie.rejected, (state) => {
 				state.isLoading = false
@@ -54,9 +56,12 @@ export const movieSlice = createSlice({
 			})
 			.addCase(voting.rejected, (state) => {
 				state.isVoteLoading = false
+
 			})
-			.addCase(voting.fulfilled, (state) => {
+			.addCase(voting.fulfilled, (state, { payload }) => {
 				state.isVoteLoading = false
+				state.vote = payload.vote
+				state.myVote = payload.myVote
 			})
 	},
 })

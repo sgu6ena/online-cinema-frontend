@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
@@ -15,23 +16,31 @@ import Vote from '../../ui/vote/Vote'
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
-import cn from 'classnames'
 
 const Movie: FC = () => {
 	const { asPath } = useRouter()
 
 	const { query } = useRouter()
 	const movieId = query.id && String(query.id)
+
 	useEffect(() => {
 		movieId && getMovie(movieId)
 	}, [movieId])
 
-	const { movie, collection, isLoading, isFavorite, isFavoriteLoading, vote, isVoteLoading } =
-		useMovie()
+	const {
+		movie,
+		collection,
+		isLoading,
+		isFavorite,
+		isFavoriteLoading,
+		vote,
+		myVote,
+		isVoteLoading,
+	} = useMovie()
 	const [idFile, setIdFile] = useState('')
 	const [url, setUrl] = useState('')
 	const [play, setPlay] = useState(false)
-	const { getMovie, favorites } = useActions()
+	const { getMovie, favorites, voting } = useActions()
 
 	const handleMovie = (id: number) => {
 		setIdFile(id.toString())
@@ -52,6 +61,8 @@ const Movie: FC = () => {
 		}
 	}, [idFile, url])
 
+	useEffect(()=>{},[voting])
+
 	return (
 		<div className={styles.movie}>
 			{isLoading && <MovieSkeleton />}
@@ -68,14 +79,23 @@ const Movie: FC = () => {
 							/>
 							<div className={styles.actions}>
 								<div className={styles.buttons}>
-									{movie.trailer&&<button>
-										<MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер
-									</button>}
-									<button onClick={() => movieId && favorites(movieId)} className={cn(isFavorite && styles.active)}>
+									{movie.trailer && (
+										<button>
+											<MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер
+										</button>
+									)}
+									<button
+										onClick={() => movieId && favorites(movieId)}
+										className={cn(isFavorite && styles.active)}
+									>
 										<MaterialIcon
 											name={
-												isFavoriteLoading ? 'MdBookmarkBorder' :
-													isFavorite ? 'MdBookmark' : 'MdBookmarkBorder'}
+												isFavoriteLoading
+													? 'MdBookmarkBorder'
+													: isFavorite
+													? 'MdBookmark'
+													: 'MdBookmarkBorder'
+											}
 										/>
 										Избранное
 									</button>
@@ -93,7 +113,14 @@ const Movie: FC = () => {
 										)}
 								</div>
 
-								<Vote vote={vote} my_vote={movie.my_vote} onClick={() => 1} />
+								{movieId && (
+									<Vote
+										vote={vote}
+										my_vote={myVote}
+										onClick={( i) => voting(i)}
+										movieId={movieId}
+									/>
+								)}
 							</div>
 						</div>
 						<MovieDescription movie={movie} />
@@ -113,3 +140,4 @@ const Movie: FC = () => {
 }
 
 export default Movie
+
