@@ -1,10 +1,13 @@
 .container {
   @apply mt-12 flex justify-center;
   .wrapper {
-    @apply rounded overflow-hidden  shadow-xl bg-black bg-opacity-70 relative animate-fade;
+    @apply rounded overflow-hidden  shadow-xl bg-black bg-opacity-100 relative animate-fade;
     width: 600px;
-    aspect-ratio: 17/10;
+    aspect-ratio: 16/10;
 
+    h5 {
+      @apply text-center pt-0.5;
+    }
   }
 }
 

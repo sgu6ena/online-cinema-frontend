@@ -6,11 +6,11 @@ import {IMedia} from '../../../shared/types/movie.types'
 import styles from './Movie.module.scss'
 import Season from './Season'
 
-const Tabs: FC<{ media: IMedia[]; fn: (id: number) => void, logo: string }> = ({
-                                                                                   media,
-                                                                                   fn,
-                                                                                   logo
-                                                                               }) => {
+const Tabs: FC<{ media: IMedia[]; fn: (id: number, title: string) => void, logo: string }> = ({
+                                                                                                  media,
+                                                                                                  fn,
+                                                                                                  logo
+                                                                                              }) => {
     const [active, setActive] = useState(0)
 
     return (

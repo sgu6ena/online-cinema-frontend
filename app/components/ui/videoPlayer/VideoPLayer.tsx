@@ -14,13 +14,15 @@ const VideoPLayer: FC<{
     typeContent: number
     slug: string,
     poster?: string
-}> = ({url, play, typeContent, slug, poster = ''}) => {
+    title?: string
+}> = ({url, play, typeContent, slug, poster = '', title = ''}) => {
     const videoRef = useRef(null)
     const {user} = useAuth()
 
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
+                <h5>{title}</h5>
                 {user && user.paid >= typeContent && play && (
                     <ReactPlayer
                         url={url}

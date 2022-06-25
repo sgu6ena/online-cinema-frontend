@@ -10,7 +10,7 @@
 }
 
 .item {
-  @apply relative transition-transform flex items-end shadow-lg rounded-md overflow-hidden;
+  @apply relative transition-transform mr-1 flex items-end shadow-lg rounded-md overflow-hidden;
   flex: 0 0 auto;
 
   &:hover {

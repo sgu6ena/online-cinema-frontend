@@ -5,17 +5,16 @@ import {IMedia} from '../../../shared/types/movie.types'
 
 import styles from './Movie.module.scss'
 import Image from "next/image";
+import {getListDot} from "../../../utils/movie/getGenresList";
 
 export interface ISeason extends IMedia {
     index: number
-    fn: (id: number) => void
+    fn: (id: number, title: string) => void
     logo: string
 }
 
 
-const Season: FC<ISeason> = ({isActive = false, items, fn, logo}) => {
-
-
+const Season: FC<ISeason> = ({isActive = false, items, fn, logo, title}) => {
     return (
         <div className={styles.season}>
             <div className={cn(!isActive ? 'hidden' : styles.active)}>
@@ -27,13 +26,13 @@ const Season: FC<ISeason> = ({isActive = false, items, fn, logo}) => {
                             key={item.file}
                             className={styles.episode}
                             onClick={() => {
-                                return fn(item.file)
+                                return fn(item.file, getListDot([title, item.title]))
                             }}
                         >
                             <div className={styles.imageBox}>
                                 <Image
                                     src={logo}
-                                    alt={''}
+                                    alt={item.title}
                                     layout='fill'
                                     priority
                                     unoptimized
@@ -46,7 +45,7 @@ const Season: FC<ISeason> = ({isActive = false, items, fn, logo}) => {
                                     unoptimized
                                     className={styles.poster}
                                 /></div>
-                            <div className={styles.progress}></div>
+                            {item.isActive && <div className={styles.progress}></div>}
                             <span>{item.title}</span>
                         </button>
                     </>
