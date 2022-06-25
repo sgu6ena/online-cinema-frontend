@@ -1,8 +1,7 @@
 import cn from 'classnames'
 import {useRouter} from 'next/router'
-import {FC, useEffect, useState} from 'react'
+import {FC, useEffect} from 'react'
 
-import {PortalMovieService} from '../../../api/portalMovie.service'
 import {useActions} from '../../../hooks/useActions'
 import {useMovie} from '../../../hooks/useMovie'
 import {useVideo} from '../../../hooks/useVideo'
@@ -32,14 +31,11 @@ const Movie: FC = () => {
         myVote,
     } = useMovie()
 
-    const {url: newurl, idFile, serial, title, isPlayed} = useVideo()
+    const {url, idFile, serial, title, isPlayed, urlLoading} = useVideo()
 
-    const {getMovie, favorites, voting, setIdFile, setPlay, setTitle} = useActions()
-    const {asPath} = useRouter()
-    const {query} = useRouter()
+    const {getMovie, favorites, voting, setIdFile, setPlay, setTitle, getUrl, resetVideo} = useActions()
+    const {asPath, query} = useRouter()
     const movieId = query.id && String(query.id)
-    const [url, setUrl] = useState('')
-
 
     const handleMovie = (id: number, title: string) => {
         setIdFile(`${id}`)
@@ -52,19 +48,14 @@ const Movie: FC = () => {
     }, [movieId])
 
     useEffect(() => {
-        setTitle('')
-        setUrl('')
-        setPlay(false)
-        setIdFile('')
+        resetVideo()
     }, [movie, asPath])
 
     useEffect(() => {
         if (idFile !== '') {
-            PortalMovieService.getUrl(idFile).then((data) => {
-                setUrl(data.data.url)
-            })
+            getUrl(idFile)
         }
-    }, [idFile, url])
+    }, [idFile])
 
     return (
         <div className={styles.movie}>
@@ -74,7 +65,7 @@ const Movie: FC = () => {
                     <div className={styles.main}>
                         <div className={styles.videoBox}>
                             <VideoPLayer
-                                url={url}
+                                url={url || ''}
                                 play={isPlayed}
                                 typeContent={movie.type_content}
                                 slug={movie.id}
