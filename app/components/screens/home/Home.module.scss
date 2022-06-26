@@ -1,20 +1,22 @@
-
 @import '../../../assets/styles/variables';
 
-.mainSlider{
-  @apply  relative overflow-hidden;
+.mainSlider {
+  @apply relative overflow-hidden;
   //@include fade-bg-gradient-gor();
 }
 
-.collectionsWrapper{
+.collectionsWrapper {
   @apply my-10 px-2 lg:px-5 ;
 
-  .collection{
+  .collection {
     @apply flex-center-between;
-    a > button {
-      @apply btn-primary flex-center-between  lg:px-5 px-2 py-2 mb-5;
-      span{
-        @apply hidden lg:inline;
+    a {
+      @apply flex-center-between;
+      button {
+        @apply btn-primary flex-center-between  lg:px-5 px-2 my-2 py-2;
+        span {
+          @apply hidden lg:inline;
+        }
       }
     }
   }
