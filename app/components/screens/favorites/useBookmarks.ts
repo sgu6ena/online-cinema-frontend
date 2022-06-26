@@ -1,4 +1,3 @@
-import { PortalMovieService } from '../../../api/portalMovie.service'
 import { toastError } from '../../../utils/toast-error'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
@@ -22,7 +21,7 @@ export const useBookmarks = () => {
 			onError: (e) => {
 				toastError(e, 'get bookmark')
 			},
-			enabled:isUser
+			enabled: isUser,
 		},
 	)
 	const movies = data?.data

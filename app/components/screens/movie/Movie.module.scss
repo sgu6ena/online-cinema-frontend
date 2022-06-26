@@ -19,6 +19,11 @@
               @apply text-2xl;
             }
           }
+          .active {
+            svg {
+              @apply text-primary;
+            }
+          }
 
           .play {
             @apply bg-primary border-none;
@@ -70,6 +75,7 @@
       }
     }
   }
+
 }
 
 .rating {

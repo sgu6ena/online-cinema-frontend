@@ -8,11 +8,35 @@ $header-height: 70px;
   .logo {
     @apply flex-shrink-0 ml-5 text-3xl text-white gap-3 flex items-center;
     .text {
-      @apply lg:block text-primary mt-3 hidden;
+      @apply lg:block text-primary mt-2 hidden;
       font-family: 'Inter', sans-serif;
       font-weight: 900;
       font-size: 48px;
       letter-spacing: 0.12em;
+    }
+
+    span {
+      letter-spacing: 0;
+      padding: .25em 0 .325em;
+      display: block;
+      margin: 0 auto;
+      text-shadow: 0 0 80px rgba(255, 255, 255, .5);
+      background: url(https://scx2.b-cdn.net/gfx/news/2021/heat.jpg) repeat-y;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-animation: aitf 80s alternate-reverse infinite;
+      -webkit-transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+    }
+
+    @-webkit-keyframes aitf {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
     }
   }
 
@@ -38,3 +62,4 @@ $header-height: 70px;
     transform: translateX(100%);
   }
 }
+

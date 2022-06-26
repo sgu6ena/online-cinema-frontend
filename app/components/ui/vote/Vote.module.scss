@@ -1,6 +1,7 @@
 .vote {
+	@apply flex  gap-3;
 	button {
-		@apply px-4 py-2 border-transparent opacity-50 rounded border;
+		@apply border-white border-opacity-20 border px-4 py-2  opacity-50 rounded border;
 	}
 
 	.like {
@@ -15,6 +16,6 @@
 	}
 
 	.myVote {
-		@apply border-white border-opacity-20 border opacity-100;
+		@apply  opacity-100;
 	}
 }
