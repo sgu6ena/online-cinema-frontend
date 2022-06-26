@@ -39,7 +39,7 @@ const Season: FC<ISeason> = ({isActive = false, items, fn, logo, title}) => {
                                 />
                                 <Image
                                     src={logo}
-                                    alt={''}
+                                    alt={item.title}
                                     layout='fill'
                                     priority
                                     unoptimized
