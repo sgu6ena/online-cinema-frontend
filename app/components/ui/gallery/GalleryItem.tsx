@@ -30,11 +30,15 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 				{item.content && (
 					<div className={styles.content}>
 						<div className={styles.title}>{item.content.title}</div>
-						{item.content.subTitle && (
-							<div className={styles.subTitle}>{item.content.subTitle}</div>
-						)}
+							<div className={styles.subTitle}>
+								{item.age&&<span className={'px-1 hidden lg:block mx-1 text-xs rounded border'}>{item.age}</span>}
+								{item.year&&<span className={'px-1 mx-1 hidden lg:block text-xs rounded border'}>{item.year}</span>}
+								{item.access === 1 ? <span className={'text-primary text-center'}> подписка </span> : ' бесплатно '}
+							</div>
 					</div>
 				)}
+
+
 			</a>
 		</Link>
 	)

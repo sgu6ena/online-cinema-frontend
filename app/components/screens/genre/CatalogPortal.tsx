@@ -10,6 +10,7 @@ import GaleryPortal from '../../ui/gallery/GaleryPortal'
 import Heading from '../../ui/heading/Heading'
 
 import { useGenre } from './useGenre'
+import cn from 'classnames'
 
 const CatalogPortal: FC = () => {
 	const query = router.query
@@ -26,23 +27,26 @@ const CatalogPortal: FC = () => {
 
 	return (
 		<Meta title={titleGenre}>
-			{titleGenre ? (
-				<Heading title={titleGenre} className={styles.heading} />
-			) : (
-				<div className='p-5 pb-0'>
-					<SkeletonLoader className='h-12' />
-				</div>
-			)}
-			{!isLoading ? (
-				<>
-					{movies && <GaleryPortal movies={movies} />}
-					{pagination && pagination.totalPages > 1 && (
-						<Pagination pagination={pagination} />
-					)}
-				</>
-			) : (
-				<CatalogLoader />
-			)}
+			<div className={'px-5'}>
+				{titleGenre ? (
+					<Heading title={titleGenre} className={cn(styles.heading,'pl-40')} />
+				) : (
+					<div className='p-5 pb-0'>
+						<SkeletonLoader className='h-12' />
+					</div>
+				)}
+				{!isLoading ? (
+					<>
+						{movies && <GaleryPortal movies={movies} />}
+						{pagination && pagination.totalPages > 1 && (
+							<Pagination pagination={pagination} />
+						)}
+					</>
+				) : (
+					<CatalogLoader />
+				)}
+			</div>
+
 		</Meta>
 	)
 }

@@ -16,11 +16,15 @@ const GaleryPortal: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 						name: movie.title,
 						link: getMoviesUrl(movie.id),
 						posterPath: movie.logo,
+						year:movie.year,
+						title:movie.title,
+						access:movie.access,
+						age:movie.rate_age,
 						content: {
 							title: movie.title,
-							subTitle:
-								(movie.rate_age && movie.rate_age + ' | ') +
-								(movie.access === 1 ? ' подписка ' : ' бесплатно '),
+							// subTitle:
+							// 	(movie.rate_age && movie.rate_age + ' | ') +
+							// 	(movie.access === 1 ? ' подписка ' : ' бесплатно '),
 						},
 					}}
 					variant="vertical"

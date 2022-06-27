@@ -24,9 +24,13 @@ const Catalog: FC<ICatalog> = ({title, description, movies}) => {
                             name: movie.title,
                             link: getMoviesUrl(movie.slug),
                             posterPath: movie.bigPoster,
-                            content: {
-                                title: movie.title,
-                            },
+                          genres:[],
+
+                          title:movie.title,
+
+                            // content: {
+                            //     title: movie.title,
+                            // },
                         }}
                         variant="horizontal"
                         key={movie._id}
