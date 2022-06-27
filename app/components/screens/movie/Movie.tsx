@@ -83,7 +83,7 @@ const Movie: FC = () => {
   }
   return (
     <div className={styles.movie}>
-      {!isLoading && <MovieSkeleton/>}
+      {isLoading && <MovieSkeleton/>}
       {movie && (
         <>
           <div className={styles.main}>
