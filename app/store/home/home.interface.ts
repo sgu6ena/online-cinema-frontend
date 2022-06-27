@@ -6,10 +6,12 @@ export interface IMainState{
 	slides:ISlide[]
 	collections:IGalleryHome[]
 	genres:IGalleryHome[]
+	genresCollections:IGalleryHome[]
 }
 export const initialState:IMainState = {
 	isLoading: false,
 	slides:[],
 	collections:[],
+	genresCollections:[],
 	genres:[]
 }

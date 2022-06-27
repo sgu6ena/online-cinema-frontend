@@ -27,7 +27,7 @@ export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	]
 }
 const Home: FC<IHome> = () => {
-	const { isLoading, slides, collections, genres } = useHome()
+	const { isLoading, slides, collections, genres, genresCollections } = useHome()
 	const { getMainHome } = useActions()
 
 	useEffect(() => {
@@ -48,6 +48,9 @@ const Home: FC<IHome> = () => {
 
 			{!isLoading && collections &&
 				collections.map((c) => <Collection collection={c} key={c.title} />)}
+
+			{!isLoading && collections &&
+				genresCollections.map((c) => <Collection collection={c} key={c.title} />)}
 		</>
 	)
 }
