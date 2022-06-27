@@ -4,7 +4,7 @@ import { SliderMovieBlock } from './SliderMovieBlock'
 
 const MovieSkeleton: FC = () => {
 	return (
-		<>
+		<div className={'px-layout'}>
 			<div className='pr-5 pt-layout flex justify-between'>
 				<div className='w-1/3 mr-5'>
 
@@ -32,7 +32,7 @@ const MovieSkeleton: FC = () => {
 				<SliderMovieBlock />
 			</div>
 
-		</>
+		</div>
 	)
 }
 

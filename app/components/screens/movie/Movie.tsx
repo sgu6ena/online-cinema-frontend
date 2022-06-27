@@ -42,6 +42,7 @@ const Movie: FC = () => {
 		setPlaylist,
 		setSerial,
 	} = useActions()
+
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
 
@@ -80,6 +81,7 @@ const Movie: FC = () => {
 		])
 		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
 	}
+
 	return (
 		<>
 			{isLoading && <MovieSkeleton />}
@@ -153,8 +155,10 @@ const Movie: FC = () => {
 							</div>
 						)}{' '}
 					</div>
-
-					<Collection collection={collection} />
+					{
+						// @ts-ignore
+						<Collection collection={collection} />
+					}
 				</>
 			)}
 		</>
