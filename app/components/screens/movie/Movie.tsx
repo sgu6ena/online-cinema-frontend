@@ -18,6 +18,7 @@ import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 import {getListDot} from "../../../utils/movie/getGenresList";
+import GallerySlider from '../../ui/gallery/GalerySlider'
 
 
 const Movie: FC = () => {
@@ -151,7 +152,7 @@ const Movie: FC = () => {
             </div>
           )}
           <h3 className={'text-white text-2xl mb-3 mt-6'}>Рекомендуем</h3>
-          <Gallery items={collectionsToItems(collection)}/>
+          <GallerySlider items={collectionsToItems(collection)}/>
         </>
       )}
     </div>

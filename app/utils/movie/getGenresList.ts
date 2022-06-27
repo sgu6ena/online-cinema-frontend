@@ -7,7 +7,8 @@ export const getGenresListEach = (
 interface IArrayItem {
     name: string
 }
-
-export const getGenresList = (array: IArrayItem[]) => array.map((i) => i.name).join(', ')
-export const getGenresListAlt = (array: IArrayItem[]) => array.map((i) => i.name).join(' | ')
+interface IGetGenreList{
+    (array: IArrayItem[], separator?:string):string
+}
+export const getGenresList:IGetGenreList = (array, separator=',') => array.map((i) => i.name).join(` ${separator} `)
 export const getListDot = (array: string[]) => array.filter((i) => i.length).join(' · ')

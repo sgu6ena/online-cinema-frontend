@@ -13,7 +13,7 @@
     a {
       @apply flex-center-between;
       button {
-        @apply btn-primary flex-center-between  lg:px-5 px-2 my-2 py-2;
+        @apply btn-primary flex-center-between  lg:px-5 px-2 my-0 py-2;
         span {
           @apply hidden lg:inline;
         }

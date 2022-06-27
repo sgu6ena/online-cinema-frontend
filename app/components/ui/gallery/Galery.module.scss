@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-  @apply flex items-center overflow-x-auto gap-3 flex-nowrap py-6;
+  @apply flex items-center  gap-3 flex-nowrap ;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -9,13 +9,23 @@
   }
 
   .slide {
-    @apply bg-none lg:w-40  flex flex-col sm:w-32  w-24 xl:w-64  ;
+    @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64  ;
     background-color: transparent;
 
     h4 {
-      @apply text-gray-600 text-sm p-1;
+      @apply text-white text-sm pl-1 pt-2;
       text-overflow: ellipsis;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      span{
+        @apply  mr-2 rounded text-white
+      }
+    }
+    h5{
+      @apply text-gray-600 text-sm pl-1;
+      text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
     }
@@ -23,16 +33,19 @@
 }
 
 .item {
-  @apply relative transition-transform mr-1 flex items-end shadow-lg rounded-md overflow-hidden will-change-transform;
+  @apply relative transition-all mr-1  border-transparent border flex  items-end shadow-lg rounded-md  will-change-contents;
   flex: 0 0 auto;
 
   &:hover {
-    transform: translateY(-5px);
+    @apply border-primary border;
+    filter: drop-shadow(0px 20px 20px rgba(255, 0, 0, 0.2));
+    transform:scale(1.05) translateY(-5px);
     box-shadow: #e30b13;
+
   }
 
   &.vertical {
-    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-36 xl:w-64  xl:h-96;
+    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-36 h-52 xl:w-64  xl:h-96;
   }
 
   &.horizontal {
@@ -49,13 +62,13 @@
   }
 
   img {
-    @apply image-like-bg bg-gray-700;
+    @apply image-like-bg bg-gray-700 rounded;
     //background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg");
 
   }
 
   .content {
-    @apply relative z-2 text-center lg:m-3 my-3 mx-1 w-full;
+    @apply relative z-2 text-center lg:m-3 lg:mb-1 my-3 mx-1 w-full;
 
     .title {
       @apply font-semibold lg:text-md md:text-sm text-xs mb-1 lg:pr-3 pr-1  text-white text-shadow;
@@ -66,11 +79,12 @@
     }
 
     .subTitle {
-      @apply text-gray-500 lg:text-md md:text-sm text-xs  text-shadow pr-3;
+      @apply text-gray-500 lg:text-md md:text-sm text-xs  flex justify-center items-center text-shadow pr-3;
       text-overflow: ellipsis;
       -webkit-line-clamp: 1;
       overflow: hidden;
       white-space: nowrap;
     }
   }
+
 }
