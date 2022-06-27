@@ -4,11 +4,12 @@ import { toast } from 'react-hot-toast'
 import { PortalMovieService } from '../../api/portalMovie.service'
 import { IMoviePortalFull, IVotePortal } from '../../shared/types/movie.types'
 import { toastError } from '../../utils/toast-error'
+import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
 
 export const getMovie = createAsyncThunk<
 	{
 		movie: IMoviePortalFull
-		collection: any
+		collection: IGalleryHome
 		isFavorite: boolean
 		vote: IVotePortal
 	},
@@ -17,7 +18,7 @@ export const getMovie = createAsyncThunk<
 	try {
 		const response = await PortalMovieService.getById(movieId)
 		const movie = response.data
-		const collection = response.data.list[0].items
+		const collection = response.data.list[0]
 		const isFavorite = response.data.is_favorite
 		return { movie, collection, isFavorite, vote: response.data.vote }
 	} catch (error) {
