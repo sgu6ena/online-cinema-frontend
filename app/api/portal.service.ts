@@ -2,14 +2,14 @@ import axios, { axiosClassicPortal } from './interceptors'
 import { IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
-import { IGenrePortal, IMoviePortalPerPage } from '../shared/types/movie.types'
+import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
 
 interface IMain {
 	status: number
 	success: boolean
-	data: IGalleryHome[]
+	data: IGalleryHome[]|IMainGenres
 }
 
 export const PortalService = {

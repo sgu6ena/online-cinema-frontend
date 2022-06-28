@@ -9,9 +9,11 @@ import HomeLoading from '../../loaders/HomeLoading'
 import SliderMain from '../../ui/SliderMain/slider'
 import Collection from '../../ui/collections/Collection'
 import { IGalleryItem } from '../../ui/gallery/gallery.interface'
+import GenresMain from '../../ui/genres/GenresMain'
 
 import styles from './Home.module.scss'
 import { IHome } from './home.interface'
+import GenresSlider from '../../ui/genres/GenresSlider'
 
 export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	return [
@@ -27,7 +29,8 @@ export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	]
 }
 const Home: FC<IHome> = () => {
-	const { isLoading, slides, collections, genres, genresCollections } = useHome()
+	const { isLoading, slides, collections, genres, genresCollections } =
+		useHome()
 	const { getMainHome } = useActions()
 
 	useEffect(() => {
@@ -37,8 +40,8 @@ const Home: FC<IHome> = () => {
 	return (
 		<>
 			<Meta
-				title='PORTAL'
-				description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
+				title="PORTAL"
+				description="Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий"
 			></Meta>
 
 			{isLoading && <HomeLoading />}
@@ -46,11 +49,18 @@ const Home: FC<IHome> = () => {
 				{!isLoading && slides.length && <SliderMain slides={slides} />}
 			</div>
 
-			{!isLoading && collections &&
-				collections.map((c) => <Collection collection={c} key={c.title} />)}
 
-			{!isLoading && collections &&
-				genresCollections.map((c) => <Collection collection={c} key={c.title} />)}
+			{!isLoading &&
+				collections &&
+				collections.map((c) => <Collection collection={c} key={c.title} />)}
+			{!isLoading &&  genres[0] &&  genres[0].items &&  genres[0].items.length && (
+				<GenresSlider genres={genres[0]} />
+			)}
+			{!isLoading &&
+				collections &&
+				genresCollections.map((c) => (
+					<Collection collection={c} key={c.title} />
+				))}
 		</>
 	)
 }

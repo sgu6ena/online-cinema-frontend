@@ -27,7 +27,19 @@ export interface IMovie {
 	rating: number
 	slug: string
 }
-
+export  interface IMainGenreItem{
+	id: number
+	title: string
+	url: string
+	color: string
+}
+export interface IMainGenres{
+	autoplay: boolean
+	infinite: boolean
+	items: IMainGenreItem[]
+	title: string
+	viewport: number
+}
 export interface IGenrePortal {
 	cid: string
 	title: string

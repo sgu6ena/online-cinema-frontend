@@ -153,11 +153,9 @@ const Movie: FC = () => {
 							<div className={styles.movieContainer}>
 								<Tabs media={seasons} fn={handleMovie} logo={movie.logo} />
 							</div>
-						)}{' '}
+						)}
 					</div>
-					{
 						<Collection collection={collection} />
-					}
 				</>
 			)}
 		</>
