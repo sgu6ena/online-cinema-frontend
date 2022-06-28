@@ -1,3 +1,5 @@
+import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
+
 export interface IParameters {
 	year: number
 	duration: number
@@ -25,7 +27,19 @@ export interface IMovie {
 	rating: number
 	slug: string
 }
-
+export  interface IMainGenreItem{
+	id: number
+	title: string
+	url: string
+	color: string
+}
+export interface IMainGenres{
+	autoplay: boolean
+	infinite: boolean
+	items: IMainGenreItem[]
+	title: string
+	viewport: number
+}
 export interface IGenrePortal {
 	cid: string
 	title: string
@@ -93,7 +107,7 @@ export interface IMoviePortalFull extends IMoviePortal {
 	mbase_id: number
 	type_content: number
 	type_file: number
-	list?: any
+	list: IGalleryHome[]
 	my_vote: 0 | 1 | 2 | 3
 }
 

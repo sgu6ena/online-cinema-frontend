@@ -19,7 +19,7 @@ const GallerySlider: FC<{ items: IGalleryItem[] }> = ({ items }) => {
 				<SwiperSlide key={item.link + Math.random() * index} className={styles.slide}>
 					<GalleryItem item={item} variant='vertical' />
 					<h4><span>{`${item.year}`}</span>{item.title}</h4>
-					<h5>{item.genres && getGenresList(item.genres, '·')}</h5>
+					<h5>{item.genres && getGenresList(item.genres, ' ·')}</h5>
 				</SwiperSlide>
 			))}
 		</Swiper>

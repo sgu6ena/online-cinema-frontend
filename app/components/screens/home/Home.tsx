@@ -1,21 +1,19 @@
-import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
 import { getMoviesUrl } from '../../../config/api.config'
-import { getGenreUrl } from '../../../config/url.config'
+import { useActions } from '../../../hooks/useActions'
+import { useHome } from '../../../hooks/useHome'
 import { IMoviePortal } from '../../../shared/types/movie.types'
 import Meta from '../../../utils/meta/Meta'
-import MaterialIcon from '../../ui/MaterialIcon'
+import HomeLoading from '../../loaders/HomeLoading'
 import SliderMain from '../../ui/SliderMain/slider'
-import Gallery from '../../ui/gallery/Gallery'
+import Collection from '../../ui/collections/Collection'
 import { IGalleryItem } from '../../ui/gallery/gallery.interface'
-import Heading from '../../ui/heading/Heading'
+import GenresMain from '../../ui/genres/GenresMain'
 
 import styles from './Home.module.scss'
-import HomeLoading from '../../loaders/HomeLoading'
 import { IHome } from './home.interface'
-import { usePortalSlides } from './usePortalSlides'
-import GallerySlider from '../../ui/gallery/GalerySlider'
+import GenresSlider from '../../ui/genres/GenresSlider'
 
 export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	return [
@@ -26,42 +24,42 @@ export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 			title: i.title,
 			year: i.year,
 			genres: i.genre,
-			age:i.rate_age
-
+			age: i.rate_age,
 		})),
 	]
 }
 const Home: FC<IHome> = () => {
-	const { isLoading, slides, collections } = usePortalSlides()
+	const { isLoading, slides, collections, genres, genresCollections } =
+		useHome()
+	const { getMainHome } = useActions()
+
+	useEffect(() => {
+		getMainHome()
+	}, [])
 
 	return (
 		<>
 			<Meta
-				title='PORTAL'
-				description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
+				title="PORTAL"
+				description="Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий"
 			></Meta>
+
 			{isLoading && <HomeLoading />}
 			<div className={styles.mainSlider}>
-				{!isLoading && slides && <SliderMain slides={slides} />}
+				{!isLoading && slides.length && <SliderMain slides={slides} />}
 			</div>
 
-			{collections &&
-				collections.map((c) => (
-					<div className={styles.collectionsWrapper} key={c.cid}>
-						<div className={styles.collection}>
-							<Heading title={c.title} />
-							<Link href={getGenreUrl(c.cid.toString())}>
-								<a>
-									<button>
-										<span> Смотреть все</span>
-										<MaterialIcon name='MdChevronRight' />
-									</button>
-								</a>
-							</Link>
-						</div>
-						<GallerySlider
-							items={collectionsToItems(c.items.filter((i) => i.id))} />
-					</div>
+
+			{!isLoading &&
+				collections &&
+				collections.map((c) => <Collection collection={c} key={c.title} />)}
+			{!isLoading &&  genres[0] &&  genres[0].items &&  genres[0].items.length && (
+				<GenresSlider genres={genres[0]} />
+			)}
+			{!isLoading &&
+				collections &&
+				genresCollections.map((c) => (
+					<Collection collection={c} key={c.title} />
 				))}
 		</>
 	)

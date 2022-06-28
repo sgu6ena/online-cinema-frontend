@@ -13,7 +13,6 @@ export const PortalMovieService = {
 
     async getUrl(id: string) {
         const response = await axios.get(getMovieUrl(`url/${id}`))
-        console.log({response})
         return response.data
     },
 

@@ -10,5 +10,5 @@ interface IArrayItem {
 interface IGetGenreList{
     (array: IArrayItem[], separator?:string):string
 }
-export const getGenresList:IGetGenreList = (array, separator=',') => array.map((i) => i.name).join(` ${separator} `)
+export const getGenresList:IGetGenreList = (array, separator=',') => array.map((i) => i.name).join(`${separator} `)
 export const getListDot = (array: string[]) => array.filter((i) => i.length).join(' · ')
