@@ -5,11 +5,12 @@ import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
+import { IHome } from '../components/screens/home/home.interface'
 
 interface IMain {
 	status: number
 	success: boolean
-	data: IGalleryHome[]|IMainGenres
+	data: [...IGalleryHome[],IMainGenres]
 }
 
 export const PortalService = {
