@@ -95,7 +95,7 @@ export interface IMoviePortalFull extends IMoviePortal {
 	mbase_id: number
 	type_content: number
 	type_file: number
-	list: IGalleryHome
+	list: IGalleryHome[]
 	my_vote: 0 | 1 | 2 | 3
 }
 

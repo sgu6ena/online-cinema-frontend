@@ -3,11 +3,12 @@ import {
 	IMoviePortalFull,
 	IVotePortal,
 } from '../../shared/types/movie.types'
+import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
 
 export interface IMovieState {
 	movie: IMoviePortalFull | null
 	isLoading: boolean
-	collection: IMoviePortal[]
+	collection: IGalleryHome
 	isFavorite: boolean
 	isFavoriteLoading: boolean
 	vote: IVotePortal
@@ -19,7 +20,14 @@ export interface IMovieState {
 export const initialState: IMovieState = {
 	isLoading: false,
 	movie: null,
-	collection: [],
+	collection: {
+		title:'',
+		items:[],
+		cid:0,
+		autoplay:false,
+		infinite:false,
+		viewport:0
+	},
 	isFavorite: false,
 	isFavoriteLoading: false,
 	vote: {

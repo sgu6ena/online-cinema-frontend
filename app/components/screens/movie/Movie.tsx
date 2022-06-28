@@ -156,7 +156,6 @@ const Movie: FC = () => {
 						)}{' '}
 					</div>
 					{
-						// @ts-ignore
 						<Collection collection={collection} />
 					}
 				</>
