@@ -9,16 +9,20 @@ export const getMainHome = createAsyncThunk<
 	{
 		slides:ISlide[]
 		collections:IGalleryHome[]
-		genresCollections:IMainGenres[]
-		genres:IGenre[]
+		genresCollections:IGalleryHome[]
+		genres:IMainGenres[]
 	}, void
+	// @ts-ignore
 	>('home/getMainHome', async (_, thunkApi) => {
 	try {
 		const  response = await PortalService.getMain()
+		// @ts-ignore
 		return {
 			slides:response.slider,
-			collections:response.collections.filter((item:IGalleryHome)=>item.cid>100),
-			genresCollections:response.collections.filter((item:IGalleryHome)=>item.cid<100),
+			// @ts-ignore
+			collections:response.collections.filter((item)=>item.cid>100),
+			// @ts-ignore
+			genresCollections:response.collections.filter((item)=>item.cid<100),
 			genres:response.genres
 		}
 	} catch (error) {
