@@ -7,10 +7,13 @@
     @apply bg-opacity-100 transition-all border-primary border ;
     filter: drop-shadow(0px 8px 20px rgba(255, 0, 0, 0.2));
     transform: scale(1.1);
+    .img{
+      @apply transition-all h-64 w-64 p-0 -mt-6;
+    }
   }
 }
 .slider{
-  @apply m-5 flex items-center pt-3 pb-10 gap-3 flex-nowrap;
+  @apply mx-5 flex items-center pt-1 pb-10 gap-3 flex-nowrap;
   .slide {
     @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64  ;
     background-color: transparent;
