@@ -33,7 +33,8 @@
 }
 
 .item {
-  @apply relative transition-all mr-1  border-transparent border flex  items-end shadow-lg rounded-md  will-change-contents;
+  @apply relative transition-all mr-1  border-transparent border flex  items-end shadow-lg rounded-md  ;
+  //will-change-contents
   flex: 0 0 auto;
 
   &:hover {

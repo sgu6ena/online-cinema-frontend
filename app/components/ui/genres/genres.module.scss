@@ -1,11 +1,16 @@
 .item{
-  @apply w-64 h-64 rounded flex flex-col items-center bg-primary;
+  @apply w-64 h-64 text-gray-300 text-xl font-medium rounded flex flex-col items-center bg-gray-600 bg-opacity-70 border-transparent border;
   .img{
     @apply h-56 w-56 p-1;
   }
+  &:hover{
+    @apply bg-opacity-100 transition-all border-primary border ;
+    filter: drop-shadow(0px 8px 20px rgba(255, 0, 0, 0.2));
+    transform: scale(1.1);
+  }
 }
 .slider{
-  @apply m-5 flex items-center  gap-3 flex-nowrap;
+  @apply m-5 flex items-center pt-3 pb-10 gap-3 flex-nowrap;
   .slide {
     @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64  ;
     background-color: transparent;
