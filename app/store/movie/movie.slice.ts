@@ -12,7 +12,7 @@ export const movieSlice = createSlice({
 			.addCase(getMovie.pending, (state) => {
 				state.isLoading = true
 				state.movie = null
-				state.collection = []
+				state.collection =initialState.collection
 			})
 			.addCase(
 				getMovie.fulfilled,
@@ -28,7 +28,7 @@ export const movieSlice = createSlice({
 			.addCase(getMovie.rejected, (state) => {
 				state.isLoading = false
 				state.movie = null
-				state.collection = []
+				state.collection = initialState.collection
 			})
 			.addCase(favorites.pending, (state) => {
 				state.isFavoriteLoading = true

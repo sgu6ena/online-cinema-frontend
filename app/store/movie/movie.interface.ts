@@ -1,5 +1,4 @@
 import {
-	IMoviePortal,
 	IMoviePortalFull,
 	IVotePortal,
 } from '../../shared/types/movie.types'
