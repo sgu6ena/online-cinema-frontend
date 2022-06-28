@@ -1,27 +1,7 @@
-//.search {
-//  @apply rounded-3xl m-3 border border-gray-700  px-2 py-1 flex items-center transition-colors;
-//
-//  > svg {
-//    @apply fill-gray-600 mr-2 text-3xl transition-colors;
-//  }
-//
-//  > input {
-//    @apply text-white placeholder:text-gray-600 block w-full bg-transparent outline-none;
-//  }
-//
-//  &:focus-within {
-//    @apply border-gray-600;
-//
-//    > svg {
-//      @apply fill-gray-500;
-//    }
-//  }
-//}
-
 .searchBox {
 
   input {
-    @apply rounded-full air-block m-3 text-white border-gray-600 pl-12 h-10 w-24 px-0 py-4 flex border-none items-center transition-colors placeholder-white;
+    @apply rounded-full air-block m-3 bg-gray-900 text-white border-gray-600 pl-12 h-10 w-28 px-0 py-4 flex border-none items-center transition-colors placeholder-white;
     transition: all 0.5s ease-in-out;
     //border-width: 2px;
   }
