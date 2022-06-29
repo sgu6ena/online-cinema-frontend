@@ -16,7 +16,7 @@ const Favorites: FC = () => {
 	const { movies, isLoading, pagination, isUser } = useBookmarks()
 	const {asPath}=useRouter()
 	return (
-		<div>
+		<div className='m-10'>
 			<Heading title={'Избранное'} />
 			{!isUser ? (
 				<div className='mt-32 text-center'>

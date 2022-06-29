@@ -18,31 +18,12 @@ import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 
 const Movie: FC = () => {
-	const {
-		movie,
-		collection,
-		isLoading,
-		isFavorite,
-		isFavoriteLoading,
-		vote,
-		myVote,
-	} = useMovie()
-
+	const { movie, collection, isLoading, isFavorite, isFavoriteLoading, vote, myVote } = useMovie()
 	const { url, idFile, serial, title, isPlayed, playlist, seasons } = useVideo()
-
 	const {
-		getMovie,
-		favorites,
-		voting,
-		setIdFile,
-		setPlay,
-		setTitle,
-		getUrl,
-		resetVideo,
-		setPlaylist,
-		setSerial,
+		getMovie, favorites, voting, setIdFile, setPlay, setTitle, getUrl,
+		resetVideo, setPlaylist, setSerial,
 	} = useActions()
-
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
 
@@ -116,8 +97,8 @@ const Movie: FC = () => {
 													isFavoriteLoading
 														? 'MdBookmarkBorder'
 														: isFavorite
-														? 'MdBookmark'
-														: 'MdBookmarkBorder'
+															? 'MdBookmark'
+															: 'MdBookmarkBorder'
 												}
 											/>
 											Избранное
@@ -155,7 +136,7 @@ const Movie: FC = () => {
 							</div>
 						)}
 					</div>
-						<Collection collection={collection} />
+					<Collection collection={collection} />
 				</>
 			)}
 		</>
