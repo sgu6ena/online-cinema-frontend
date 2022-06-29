@@ -1,25 +1,19 @@
-import cn from 'classnames';
-import Link from 'next/link';
-import React, { FC } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import Link from 'next/link'
+import React, { FC } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { LINKS } from '../../../../config/links'
+import { useActions } from '../../../../hooks/useActions'
+import { useAuth } from '../../../../hooks/useAuth'
+import Meta from '../../../../utils/meta/Meta'
+import SkeletonLoader from '../../../ui/SkeletonLoader'
+import Button from '../../../ui/form-elemets/Button'
+import Heading from '../../../ui/heading/Heading'
+import styles from '../Auth.module.scss'
+import { IAuthInput } from '../auth.interface'
 
-
-import { LINKS } from '../../../../config/links';
-import { useActions } from '../../../../hooks/useActions';
-import { useAuth } from '../../../../hooks/useAuth';
-import Meta from '../../../../utils/meta/Meta';
-import SkeletonLoader from '../../../ui/SkeletonLoader';
-import Button from '../../../ui/form-elemets/Button';
-import Heading from '../../../ui/heading/Heading';
-import styles from '../Auth.module.scss';
-import { IAuthInput } from '../auth.interface';
-
-
-
-import AuthFields from './AuthFields';
-import { useAuthRedirect } from './useAuthRedirect';
-
+import AuthFields from './AuthFields'
+import { useAuthRedirect } from './useAuthRedirect'
 
 const Auth: FC = () => {
 	useAuthRedirect()

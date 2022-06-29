@@ -1,11 +1,10 @@
-import axios, { axiosClassicPortal } from './interceptors'
+import axios, { axiosClassic, axiosClassicPortal } from './interceptors'
 import { IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
-import { IHome } from '../components/screens/home/home.interface'
 
 interface IMain {
 	status: number
@@ -76,5 +75,8 @@ export const PortalService = {
 		return axios.get<IGenrePortal[]>(APP_URL_PORTAL + '/listGenre')
 	},
 
+	async getListFilter() {
+		return axios.get(APP_URL_PORTAL + '/listGenre')
+	},
 
 }
