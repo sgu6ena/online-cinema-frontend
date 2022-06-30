@@ -22,7 +22,7 @@ const Select: FC<ISelect> = ({
     const onChange = (newValue: any | OnChangeValue<IOptions, boolean>) => {
         field.onChange(
             isMulti
-                ? (newValue as IOptions[]).map((item) => item.value)
+                ? (newValue as IOptions[]).map((item: IOptions) => item.value)
                 : (newValue as IOptions).value
         )
     }
@@ -30,15 +30,16 @@ const Select: FC<ISelect> = ({
     const getValue = () => {
         if (field.value) {
             return isMulti
-                ? options.filter((option) => field.value.indexOf(option.value) > 0)
+                ? options.filter((option) => field.value.indexOf(option.value) >= 0)
                 : options.find((option) => option.value === field.value)
-        } else return isMulti ? [] : ''
+        } else return isMulti ? [] : ('' as any)
     }
     return (
         <div className={styles.selectContainer}>
             <label>
                 <span>{placeholder}</span>
                 <ReactSelect
+                  placeholder={''}
                     classNamePrefix='custom-select'
                     options={options}
                     value={getValue()}

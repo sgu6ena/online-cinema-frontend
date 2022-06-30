@@ -5,6 +5,7 @@ import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
+import { IListFilter } from '../shared/types/seaarch.types'
 
 interface IMain {
 	status: number
@@ -76,7 +77,8 @@ export const PortalService = {
 	},
 
 	async getListFilter() {
-		return axios.get(APP_URL_PORTAL + '/listGenre')
+		const data = await axios.get<IListFilter>(APP_URL_PORTAL + '/listFilter')
+		return data?.data
 	},
 
 }

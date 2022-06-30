@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 import { getSearchParameters } from './search.actions'
 import { initialState } from './search.interface'
 
@@ -8,20 +9,26 @@ export const searchSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getSearchParameters.pending,
-				(state) => {
-				console.log('pend')
+			.addCase(getSearchParameters.pending, (state) => {
 				state.isLoading = true
 			})
-			.addCase(getSearchParameters.fulfilled,
-				(state) => {
-					console.log('fulfilled')
-				state.isLoading = true
-			})
-			.addCase(getSearchParameters.rejected,
-				(state) => {
-					console.log('rejected')
-				state.isLoading = true
+			.addCase(
+				getSearchParameters.fulfilled,
+				(
+					state,
+					{ payload: { country, year, type_content, sort, genre, category } }
+				) => {
+					state.isLoading = false
+					state.country = country
+					state.year = year
+					state.type_content = type_content
+					state.sort = sort
+					state.genre = genre
+					state.category = category
+				}
+			)
+			.addCase(getSearchParameters.rejected, (state) => {
+				state.isLoading = false
 			})
 	},
 })
