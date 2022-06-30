@@ -3,7 +3,9 @@
 
 	> label {
 		@apply block;
-
+		> .custom-select__single-value {
+			@apply text-white;
+		}
 		> span {
 			@apply text-xs uppercase text-gray-600 block mb-1;
 		}

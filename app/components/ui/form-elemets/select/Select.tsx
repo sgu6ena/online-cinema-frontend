@@ -40,6 +40,7 @@ const Select: FC<ISelect> = ({
                 <span>{placeholder}</span>
                 <ReactSelect
                   placeholder={''}
+									 defaultValue={options[0]}
                     classNamePrefix='custom-select'
                     options={options}
                     value={getValue()}

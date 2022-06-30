@@ -1,7 +1,7 @@
 import axios, { axiosClassic, axiosClassicPortal } from './interceptors'
 import { IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
-import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
+import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
@@ -10,7 +10,7 @@ import { IListFilter } from '../shared/types/seaarch.types'
 interface IMain {
 	status: number
 	success: boolean
-	data: [...IGalleryHome[],IMainGenres]
+	data: [...IGalleryHome[], IMainGenres]
 }
 
 export const PortalService = {
@@ -79,6 +79,13 @@ export const PortalService = {
 	async getListFilter() {
 		const data = await axios.get<IListFilter>(APP_URL_PORTAL + '/listFilter')
 		return data?.data
+	},
+
+	async getSearchWithFilter(query: string, type_content = '', id_sort = '', year = '', cid = '', country = '') {
+		const data = await axiosClassicPortal.get(
+			getMovieUrl(`find/20?id_sort=8&pid=all&query=${query}&type_content=${type_content}&id_sort=${id_sort}&year=${year}&cid=''&country=${country}`),
+		)
+		return data.data
 	},
 
 }

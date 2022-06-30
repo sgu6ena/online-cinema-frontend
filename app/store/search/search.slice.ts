@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { getSearchParameters } from './search.actions'
+import { getSearch, getSearchParameters } from './search.actions'
 import { initialState } from './search.interface'
 
 export const searchSlice = createSlice({
@@ -30,6 +30,24 @@ export const searchSlice = createSlice({
 			.addCase(getSearchParameters.rejected, (state) => {
 				state.isLoading = false
 			})
+
+			.addCase(getSearch.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(
+				getSearch.fulfilled,
+				(
+					state,
+					{ payload }
+				) => {
+					state.isLoading = false
+					console.log('pay', payload)
+				}
+			)
+			.addCase(getSearch.rejected, (state) => {
+				state.isLoading = false
+			})
+
 	},
 })
 

@@ -22,3 +22,17 @@ export const getSearchParameters = createAsyncThunk<IFilter, void>(
 			return thunkApi.rejectWithValue(error)
 		}
 	})
+
+
+export const getSearch= createAsyncThunk<any, any>(
+	'search/getSearch', async (params, thunkApi) => {
+		try {
+
+			const response = await PortalService.getSearchWithFilter('',params.type_content,params.sort,params.year,params.category,params.country )
+
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	})
