@@ -1,12 +1,15 @@
-import { value } from 'dom7'
 import dynamic from 'next/dynamic'
-import { FC, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { FC, useEffect, useState } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../hooks/useActions'
 import { useSearch } from '../../../hooks/useSearchFilters'
 import { IList, IListFilter } from '../../../shared/types/seaarch.types'
+import Pagination from '../../ui/Pagination'
 import Button from '../../ui/form-elemets/Button'
+import Field from '../../ui/form-elemets/Field'
+import GaleryPortal from '../../ui/gallery/GaleryPortal'
 import Heading from '../../ui/heading/Heading'
 
 const DynamicSelect = dynamic(
@@ -24,25 +27,38 @@ const toSelect = (items: IList[] = []) => {
 
 const Search: FC = () => {
 	const { getSearchParameters, getSearch } = useActions()
-	const { isLoading, genre, country, category, year, sort, type_content } =
-		useSearch()
-	const { handleSubmit, control } = useForm({
+	const {
+		isLoading,
+		genre,
+		country,
+		category,
+		year,
+		sort,
+		type_content,
+		movies,
+		pagination,
+	} = useSearch()
+
+	const { handleSubmit, control, register, getValues} = useForm({
 		mode: 'onChange',
 	})
+	const { query } = useRouter()
+
+	let page = query.page
+		? query.page.toString() || query.page[0].toString() : '1'
 
 	const onSubmit: SubmitHandler<any> = (data) => {
-		console.log(data.category)
+
 		const params = {
-			genre: data.genres[0] || '',
-			country: data.country[0]|| '',
+			title: data.query || '',
+			genre: data.genres || '',
+			country: data.country || '',
 			category: data.category || '',
-			sort: data.sort.value || '',
-			year: data.year.value || '',
-			type_content: data.type_content.value || '',
-
+			sort: data.sort?.value || '',
+			year: data.year?.value || '',
+			type_content: data.type_content?.value || '',
+			page,
 		}
-
-		console.log(params)
 		getSearch(params)
 	}
 
@@ -50,12 +66,21 @@ const Search: FC = () => {
 		getSearchParameters()
 	}, [])
 
+	useEffect(() => {
+		onSubmit(getValues())
+	}, [page, query])
+	useEffect(() => {
+
+	}, [pagination])
 	return (
 		<div className="m-10">
 			<Heading title={'Поиск'} className={'my-10'} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className={'flex flex-wrap  '}>
-					<div className={'w-1/2 p-2'}>
+				<div className={'flex  items-center  '}>
+					<div className={'w-full px-2'}>
+						<Field {...register('query')} placeholder={'Поиск '} />
+					</div>
+					<div className={'w-full px-2'}>
 						<Controller
 							name="genres"
 							control={control}
@@ -66,12 +91,12 @@ const Search: FC = () => {
 									placeholder="Жанры"
 									options={toSelect(genre)}
 									isLoading={isLoading}
-									isMulti
+									// isMulti
 								/>
 							)}
 						/>
 					</div>
-					<div className={'w-1/2 p-2'}>
+					<div className={'w-full px-2'}>
 						<Controller
 							name="country"
 							control={control}
@@ -82,12 +107,13 @@ const Search: FC = () => {
 									placeholder="Страны"
 									options={toSelect(country)}
 									isLoading={isLoading}
-									isMulti
+									// isMulti
 								/>
 							)}
 						/>
 					</div>
-					<div className={'w-1/4 p-2'}>
+
+					<div className={'w-full px-2'}>
 						<Controller
 							name="category"
 							control={control}
@@ -103,7 +129,7 @@ const Search: FC = () => {
 						/>
 					</div>
 
-					<div className={'w-1/4 p-2'}>
+					<div className={'w-full px-2'}>
 						<Controller
 							name="year"
 							control={control}
@@ -119,7 +145,7 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-1/4 p-2'}>
+					<div className={'w-full px-2'}>
 						<Controller
 							name="sort"
 							control={control}
@@ -135,7 +161,7 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-1/4 p-2'}>
+					<div className={'w-full px-2'}>
 						<Controller
 							name="type_content"
 							control={control}
@@ -151,9 +177,16 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
+
 				</div>
-				<Button>Тест</Button>
+				<Button className={''}>Поиск</Button>
 			</form>
+			<>
+				<GaleryPortal movies={movies || []} />
+				{pagination && pagination.totalPages > 1 && (
+					<Pagination pagination={pagination}  />
+				)}
+			</>
 		</div>
 	)
 }

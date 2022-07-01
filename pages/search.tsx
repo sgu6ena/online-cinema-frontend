@@ -1,8 +1,17 @@
 import { NextPage } from 'next'
-import Search from '../app/components/screens/search/Search'
+
+
+import dynamic from 'next/dynamic'
+
+
+const DynamicSearch = dynamic(() => import('../app/components/screens/search/Search'),{
+	ssr: false,
+})
+
+
 
 const SearchPage: NextPage = () => {
-	return <Search />
+	return <DynamicSearch />
 }
 
 export default SearchPage

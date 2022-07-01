@@ -41,7 +41,8 @@ export const searchSlice = createSlice({
 					{ payload }
 				) => {
 					state.isLoading = false
-					console.log('pay', payload)
+					state.movies= payload.data
+					state.pagination= payload.pagination
 				}
 			)
 			.addCase(getSearch.rejected, (state) => {

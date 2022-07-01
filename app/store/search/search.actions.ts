@@ -1,38 +1,59 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-
-import { toastError } from '../../utils/toast-error'
 import { PortalService } from '../../api/portal.service'
+import { IMoviePortalPerPage } from '../../shared/types/movie.types'
 import { IFilter, IList, IListFilter } from '../../shared/types/seaarch.types'
+import { toastError } from '../../utils/toast-error'
 
 export const getSearchParameters = createAsyncThunk<IFilter, void>(
-	'search/getSearchParameters', async (arg, thunkApi) => {
+	'search/getSearchParameters',
+	async (arg, thunkApi) => {
 		try {
 			const response = await PortalService.getListFilter()
-			return {
-				category:response.data.category,
-				country: response.data.country,
-				genre: response.data.genre,
-				sort: response.data.sort,
-				type_content: response.data.type_content,
-				year: response.data.year,
-			}||[]
+			return (
+				{
+					category: response.data.category,
+					country: response.data.country,
+					genre: response.data.genre,
+					sort: response.data.sort,
+					type_content: response.data.type_content,
+					year: response.data.year,
+				} || []
+			)
 		} catch (error) {
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
-	})
+	}
+)
 
-
-export const getSearch= createAsyncThunk<any, any>(
-	'search/getSearch', async (params, thunkApi) => {
-		try {
-
-			const response = await PortalService.getSearchWithFilter('',params.type_content,params.sort,params.year,params.category,params.country )
-
-			return response
-		} catch (error) {
-			toastError(error)
-			return thunkApi.rejectWithValue(error)
-		}
-	})
+export const getSearch = createAsyncThunk<
+	IMoviePortalPerPage,
+	{
+		title: string
+		category: string
+		country: string
+		genre: string
+		sort: string
+		type_content: string
+		year: string
+		page:string
+	}
+>('search/getSearch', async (params, thunkApi) => {
+	try {
+		console.log(params)
+		const response = await PortalService.getSearchWithFilter(
+			params.title,
+			params.type_content,
+			params.sort,
+			params.year,
+			params.category,
+			params.country,
+			params.page.toString()
+		)
+		return response
+	} catch (error) {
+		toastError(error)
+		return thunkApi.rejectWithValue(error)
+	}
+})

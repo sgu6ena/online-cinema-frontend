@@ -23,7 +23,7 @@ const Select: FC<ISelect> = ({
         field.onChange(
             isMulti
                 ? (newValue as IOptions[]).map((item: IOptions) => item.value)
-                : (newValue as IOptions).value
+                : (newValue as IOptions)?.value ||('' as any)
         )
     }
 
@@ -47,7 +47,9 @@ const Select: FC<ISelect> = ({
                     isMulti={isMulti}
                     onChange={onChange}
                     components={animatedComponents}
-                    isLoading={isLoading}/>
+                    isLoading={isLoading}
+                  isClearable
+                />
                 {error && <div className={formStyles.error}>{error.message}</div>}
             </label>
         </div>

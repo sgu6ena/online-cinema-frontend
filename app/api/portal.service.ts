@@ -81,9 +81,10 @@ export const PortalService = {
 		return data?.data
 	},
 
-	async getSearchWithFilter(query: string, type_content = '', id_sort = '', year = '', cid = '', country = '') {
+	async getSearchWithFilter(query:string, type_content:string, id_sort:string , year:string, genre:string, country:string, page:string|number="1") {
+		console.log(query, type_content, id_sort , year, genre, country, page)
 		const data = await axiosClassicPortal.get(
-			getMovieUrl(`find/20?id_sort=8&pid=all&query=${query}&type_content=${type_content}&id_sort=${id_sort}&year=${year}&cid=''&country=${country}`),
+			`searchExt/20?pid=all&id_sort=${id_sort||''}&cid=${genre||''}&year=${year||''}&query=${query||''}&country=${country||''}&type_content=${type_content||''}&page=${page}`
 		)
 		return data.data
 	},
