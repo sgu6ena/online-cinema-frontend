@@ -30,6 +30,7 @@ const AuthFields: FC<IAuthFields> = ({
         })}
         placeholder="e-mail или  логин"
         error={errors.login}
+        type={'text'}
       />
       <Field
         {...register(
