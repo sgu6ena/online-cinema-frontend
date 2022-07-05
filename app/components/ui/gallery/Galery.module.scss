@@ -19,11 +19,13 @@
       line-clamp: 1;
       overflow: hidden;
       white-space: nowrap;
-      span{
-        @apply  mr-2 rounded text-white
+
+      span {
+        @apply mr-2 rounded text-white
       }
     }
-    h5{
+
+    h5 {
       @apply text-gray-600 text-sm pl-1;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -40,7 +42,7 @@
   &:hover {
     @apply border-primary border;
     filter: drop-shadow(0px 20px 20px rgba(255, 0, 0, 0.2));
-    transform:scale(1.05) translateY(-5px);
+    transform: scale(1.05) translateY(-5px);
     box-shadow: #e30b13;
 
   }
@@ -88,4 +90,17 @@
     }
   }
 
+  .rateKP {
+    @apply absolute top-1 font-semibold flex items-center -left-1 text-xs rounded bg-white text-gray-600 px-1;
+  }
+
+  .rateIMDB {
+    @apply absolute top-7 font-semibold flex items-center  -left-1 text-xs rounded bg-white text-gray-600 px-1;
+  }
+
+
+  .rateAge {
+    //@apply absolute top-2 -left-1 text-xs rounded bg-white text-gray-600 px-1;
+  }
 }
+
