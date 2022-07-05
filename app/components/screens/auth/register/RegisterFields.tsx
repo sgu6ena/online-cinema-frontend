@@ -29,6 +29,7 @@ const RegisterFields: FC<IAuthFields> = ({
           },
         })}
         placeholder="Логин"
+        //@ts-ignore
         error={errors?.login}
       />
       <Field
@@ -48,6 +49,7 @@ const RegisterFields: FC<IAuthFields> = ({
           },
         })}
         placeholder="e-mail "
+        //@ts-ignore
         error={errors?.email}
       />
       <Field
@@ -60,6 +62,7 @@ const RegisterFields: FC<IAuthFields> = ({
         })}
         placeholder="Пароль"
         type="password"
+        //@ts-ignore
         error={errors?.password}
       />
       <Field
@@ -72,6 +75,7 @@ const RegisterFields: FC<IAuthFields> = ({
         })}
         placeholder="Повторите пароль"
         type="password"
+        //@ts-ignore
         error={errors?.passwordRpt}
       />
       <label className="flex justify-start items-start">
