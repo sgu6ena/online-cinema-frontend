@@ -1,11 +1,11 @@
 import {FC} from 'react'
-import {FieldErrors, FormState, UseFormRegister} from 'react-hook-form'
+import {FormState, UseFormRegister} from 'react-hook-form'
 
 import Field from '../../../ui/form-elemets/Field'
 
 interface IAuthFields {
   register: UseFormRegister<any>
-  formState: FormState<FieldErrors>
+  formState: FormState<any>
   isPasswordRequired?: boolean
 }
 
@@ -30,7 +30,6 @@ const AuthFields: FC<IAuthFields> = ({
         })}
         placeholder="e-mail или  логин"
         error={errors.login}
-        type={'text'}
       />
       <Field
         {...register(
