@@ -29,6 +29,7 @@ const AuthFields: FC<IAuthFields> = ({
           },
         })}
         placeholder="e-mail или  логин"
+        //@ts-ignore
         error={errors && errors.login}
       />
       <Field
