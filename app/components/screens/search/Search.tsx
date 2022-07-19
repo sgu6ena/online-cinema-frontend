@@ -1,16 +1,17 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../hooks/useActions'
 import { useSearch } from '../../../hooks/useSearchFilters'
-import { IList, IListFilter } from '../../../shared/types/seaarch.types'
+import { IList } from '../../../shared/types/seaarch.types'
 import Pagination from '../../ui/Pagination'
 import Button from '../../ui/form-elemets/Button'
 import Field from '../../ui/form-elemets/Field'
 import GaleryPortal from '../../ui/gallery/GaleryPortal'
 import Heading from '../../ui/heading/Heading'
+import logo from '../../layout/Header/Logo'
 
 const DynamicSelect = dynamic(
 	() => import('../../ui/form-elemets/select/Select'),
@@ -54,10 +55,10 @@ const Search: FC = () => {
 			genre: data.genres || '',
 			country: data.country || '',
 			category: data.category || '',
-			sort: data.sort?.value || '',
-			year: data.year?.value || '',
-			type_content: data.type_content?.value || '',
-			page,
+			sort: data.sort || '',
+			year: data.year || '',
+			type_content: data.type_content || '',
+			page
 		}
 		getSearch(params)
 	}
@@ -113,23 +114,23 @@ const Search: FC = () => {
 						/>
 					</div>
 
-					<div className={'w-full px-2'}>
-						<Controller
-							name="category"
-							control={control}
-							render={({ field, fieldState: { error } }) => (
-								<DynamicSelect
-									error={error}
-									field={field}
-									placeholder="Категории"
-									options={toSelect(category)}
-									isLoading={isLoading}
-								/>
-							)}
-						/>
-					</div>
+					{/*<div className={'w-full px-2'}>*/}
+					{/*	<Controller*/}
+					{/*		name="category"*/}
+					{/*		control={control}*/}
+					{/*		render={({ field, fieldState: { error } }) => (*/}
+					{/*			<DynamicSelect*/}
+					{/*				error={error}*/}
+					{/*				field={field}*/}
+					{/*				placeholder="Категории"*/}
+					{/*				options={toSelect(category)}*/}
+					{/*				isLoading={isLoading}*/}
+					{/*			/>*/}
+					{/*		)}*/}
+					{/*	/>*/}
+					{/*</div>*/}
 
-					<div className={'w-full px-2'}>
+					<div className={'w-full max-w-[160px] px-2'}>
 						<Controller
 							name="year"
 							control={control}
@@ -145,28 +146,29 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-full px-2'}>
+					<div className={'w-full max-w-[200px] px-2'}>
 						<Controller
 							name="sort"
 							control={control}
-							defaultValue={{ value: '1' }}
+							// defaultValue={{ value: '1' }}
 							render={({ field, fieldState: { error } }) => (
 								<DynamicSelect
 									error={error}
 									field={field}
-									placeholder="Сортировка"
+									placeholder="Сортировка по"
 									options={toSelect(sort)}
 									isLoading={isLoading}
 								/>
 							)}
 						/>
 					</div>
-					<div className={'w-full px-2'}>
+					<div className={'w-full max-w-[160px] px-2'}>
 						<Controller
 							name="type_content"
 							control={control}
-							defaultValue={{ value: '1' }}
-							render={({ field, fieldState: { error } }) => (
+							// defaultValue={{ value: '0' }}
+							render={({ field
+												 , fieldState: { error } }) => (
 								<DynamicSelect
 									error={error}
 									field={field}

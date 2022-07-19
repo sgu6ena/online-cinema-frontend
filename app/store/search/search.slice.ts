@@ -22,7 +22,7 @@ export const searchSlice = createSlice({
           state.country = country
           state.year = year
           state.type_content = type_content
-          state.sort = sort
+          state.sort =  sort
           state.genre = genre
           state.category = category
         }

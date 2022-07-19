@@ -81,11 +81,22 @@ export const PortalService = {
 		return data?.data
 	},
 
-	async getSearchWithFilter(query:string, type_content:string, id_sort:string , year:string, genre:string, country:string, page:string|number="1") {
-		console.log(query, type_content, id_sort , year, genre, country, page)
-		const data = await axiosClassicPortal.get(
-			`searchExt/20?pid=all&id_sort=${id_sort||''}&cid=${genre||''}&year=${year||''}&query=${query||''}&country=${country||''}&type_content=${type_content||''}&page=${page}`
-		)
+	async getSearchWithFilter(query:string, genre:string, country:string, type_content:string,  year:string, sort:string ,category:string, page:string|number="1") {
+		console.log(year)
+				const data = await axiosClassicPortal.get(
+			`searchExt/20`
+	,{
+				params:{
+					query:query,
+					genre:genre,
+					country:country,
+					year:year,
+					type_content,
+					page,
+					cid:category,
+					id_sort:sort
+				}
+			}	)
 		return data.data
 	},
 

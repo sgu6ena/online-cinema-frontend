@@ -18,7 +18,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({item, variant}) => {
           [styles.horizontal]: variant === 'horizontal',
           [styles.vertical]: variant === 'vertical',
         })}
-      >   {console.log(item)}
+      >
         <Image
           src={
             item.posterPath ||
@@ -40,9 +40,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({item, variant}) => {
             </div>
           </div>
         )}
-        {<div className={styles.rateAge}>
-          {item.age}
-        </div>}
+
         {item.rate_kp && <div className={styles.rateKP}>Кинопоиск:{' '}
           {item.rate_kp && Math.trunc(item.rate_kp * 10) / 10}
         </div>}
