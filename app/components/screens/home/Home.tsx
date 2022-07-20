@@ -50,7 +50,6 @@ const Home: FC<IHome> = () => {
         {!isLoading && slides.length && <SliderMain slides={slides}/>}
       </div>
 
-
       {!isLoading &&
         collections &&
         collections.map((c) => <Collection collection={c} key={c.title}/>)}
@@ -58,7 +57,7 @@ const Home: FC<IHome> = () => {
         <GenresSlider genres={genres[0]}/>
       )}
       {!isLoading &&
-        collections &&
+        genresCollections &&
         genresCollections.map((c) => (
           <Collection collection={c} key={c.title}/>
         ))}

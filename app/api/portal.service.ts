@@ -82,7 +82,6 @@ export const PortalService = {
 	},
 
 	async getSearchWithFilter(query:string, genre:string, country:string, type_content:string,  year:string, sort:string ,category:string, page:string|number="1") {
-		console.log(year)
 				const data = await axiosClassicPortal.get(
 			`searchExt/20`
 	,{

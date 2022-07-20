@@ -1,5 +1,5 @@
 .item{
-  @apply  text-gray-300 text-xl
+  @apply  text-gray-300 text-xl transition-all
   font-medium rounded flex flex-col items-center
   bg-gray-600 bg-opacity-70 border-transparent border
   lg:h-64 sm:w-40 lg:w-64 sm:h-40 w-40 h-32 xl:w-64
@@ -9,7 +9,7 @@
   }
   &:hover{
     @apply bg-opacity-100 transition-all border-primary border ;
-    filter: drop-shadow(0px 8px 20px rgba(255, 0, 0, 0.2));
+    //filter: drop-shadow(0px 8px 20px rgba(255, 0, 0, 0.2));
     transform: scale(1.1);
     .img{
       @apply transition-all h-96 w-96 p-0 -mt-6;

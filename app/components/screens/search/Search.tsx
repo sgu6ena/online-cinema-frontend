@@ -11,7 +11,6 @@ import Button from '../../ui/form-elemets/Button'
 import Field from '../../ui/form-elemets/Field'
 import GaleryPortal from '../../ui/gallery/GaleryPortal'
 import Heading from '../../ui/heading/Heading'
-import logo from '../../layout/Header/Logo'
 
 const DynamicSelect = dynamic(
 	() => import('../../ui/form-elemets/select/Select'),
@@ -40,10 +39,10 @@ const Search: FC = () => {
 		pagination,
 	} = useSearch()
 
-	const { handleSubmit, control, register, getValues} = useForm({
+	const { handleSubmit, control, register, getValues } = useForm({
 		mode: 'onChange',
 	})
-	const { query } = useRouter()
+	const { query, replace, pathname } = useRouter()
 
 	let page = query.page
 		? query.page.toString() || query.page[0].toString() : '1'
@@ -52,14 +51,15 @@ const Search: FC = () => {
 
 		const params = {
 			title: data.query || '',
-			genre: data.genres || '',
-			country: data.country || '',
+			genre: data.genres?.join('|') || '',
+			country: data.country?.join('|') || '',
 			category: data.category || '',
 			sort: data.sort || '',
 			year: data.year || '',
 			type_content: data.type_content || '',
 			page
 		}
+		//@ts-ignore
 		getSearch(params)
 	}
 
@@ -70,15 +70,13 @@ const Search: FC = () => {
 	useEffect(() => {
 		onSubmit(getValues())
 	}, [page, query])
-	useEffect(() => {
 
-	}, [pagination])
 	return (
 		<div className="m-10">
 			<Heading title={'Поиск'} className={'my-10'} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className={'flex  items-center  '}>
-					<div className={'w-full px-2'}>
+				<div className={'flex  items-end  '}>
+					<div className={'w-full max-w-[300px] px-2'}>
 						<Field {...register('query')} placeholder={'Поиск '} />
 					</div>
 					<div className={'w-full px-2'}>
@@ -92,7 +90,7 @@ const Search: FC = () => {
 									placeholder="Жанры"
 									options={toSelect(genre)}
 									isLoading={isLoading}
-									// isMulti
+									isMulti
 								/>
 							)}
 						/>
@@ -108,7 +106,7 @@ const Search: FC = () => {
 									placeholder="Страны"
 									options={toSelect(country)}
 									isLoading={isLoading}
-									// isMulti
+									isMulti
 								/>
 							)}
 						/>
@@ -130,11 +128,10 @@ const Search: FC = () => {
 					{/*	/>*/}
 					{/*</div>*/}
 
-					<div className={'w-full max-w-[160px] px-2'}>
+					<div className={'w-full max-w-[260px] px-2'}>
 						<Controller
 							name="year"
 							control={control}
-							defaultValue={{ value: '1' }}
 							render={({ field, fieldState: { error } }) => (
 								<DynamicSelect
 									error={error}
@@ -146,7 +143,7 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-full max-w-[200px] px-2'}>
+					<div className={'w-full max-w-[280px] px-2'}>
 						<Controller
 							name="sort"
 							control={control}
@@ -162,7 +159,7 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-full max-w-[160px] px-2'}>
+					<div className={'w-full max-w-[260px] px-2'}>
 						<Controller
 							name="type_content"
 							control={control}

@@ -35,14 +35,14 @@
 }
 
 .item {
-  @apply relative transition-all mr-1  border-transparent border flex  items-end shadow-lg rounded-md  ;
+  @apply relative transition-all mr-1  border-transparent border flex  items-end shadow-lg rounded-md  will-change-contents;
   //will-change-contents
   flex: 0 0 auto;
 
   &:hover {
     @apply border-primary border;
     filter: drop-shadow(0px 20px 20px rgba(255, 0, 0, 0.2));
-    transform: scale(1.05) translateY(-5px);
+    transform: scale(1.05) translateY(-10px);
     box-shadow: #e30b13;
 
   }
