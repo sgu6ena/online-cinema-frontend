@@ -28,7 +28,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 						unoptimized
 					/>
 					<div className={styles.tags}>
-						<div className={styles.tag}> {item.access ? 'Платно' : 'Бесплатно'}</div>
+						<div className={cn(styles.tag, item.access&&styles.pay)}> {item.access ? 'Платно' : 'Бесплатно'}</div>
 						{!!item.rate_kp && (
 							<div className={styles.tag}>
 								Кинопоиск: {item.rate_kp && Math.trunc(item.rate_kp * 10) / 10}

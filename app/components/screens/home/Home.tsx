@@ -25,7 +25,8 @@ export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
       genres: i.genre,
       age: i.rate_age,
       rate_kp: i.rate_kp,
-      rate_imdb: i.rate_imdb
+      rate_imdb: i.rate_imdb,
+      access:i.access
     })),
   ]
 }
