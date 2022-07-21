@@ -79,7 +79,7 @@
 }
 
 .rating {
-  @apply flex gap-2 items-center  mb-2;
+  @apply flex gap-2 text-gray-600 items-center  mb-2;
   > svg {
     @apply fill-gray-600  h-10 w-10 text-2xl;
   }

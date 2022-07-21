@@ -1,31 +1,30 @@
+import { useRouter } from 'next/router'
 import { FC } from 'react'
-
 
 import CatalogLoader from '../../loaders/CatalogLoader'
 import Pagination from '../../ui/Pagination'
-
-import GaleryPortal from '../../ui/gallery/GaleryPortal'
+import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
 
-
-import { useBookmarks } from './useBookmarks'
-import { useRouter } from 'next/router'
 import AuthButton from './AuthButton'
+import { useBookmarks } from './useBookmarks'
 
 const Favorites: FC = () => {
 	const { movies, isLoading, pagination, isUser } = useBookmarks()
-	const {asPath}=useRouter()
+	const { asPath } = useRouter()
 	return (
-		<div>
+		<div className="m-10">
 			<Heading title={'Избранное'} />
 			{!isUser ? (
-				<div className='mt-32 text-center'>
-					<div className='mb-5 text-2xl'>Для просмотра вашего избранного вы должны войти</div>
+				<div className="mt-32 text-center">
+					<div className="mb-5 text-2xl">
+						Для просмотра вашего избранного вы должны войти
+					</div>
 					<AuthButton slug={asPath} />
 				</div>
 			) : !isLoading && movies && pagination ? (
 				<>
-					<GaleryPortal movies={movies} />
+					<Gallery movies={movies} />
 					{pagination.totalPages > 1 && <Pagination pagination={pagination} />}
 				</>
 			) : (

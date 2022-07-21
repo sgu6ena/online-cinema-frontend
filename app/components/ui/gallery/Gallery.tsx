@@ -1,17 +1,34 @@
-import {FC} from 'react'
+import { FC } from 'react'
+
+import { getMoviesUrl } from '../../../config/api.config'
+import { IMoviePortal } from '../../../shared/types/movie.types'
 
 import styles from './Galery.module.scss'
 import GalleryItem from './GalleryItem'
-import {IGalleryItem} from './gallery.interface'
 
-const Gallery: FC<{ items: IGalleryItem[] }> = ({items}) => {
-    return (
-        <div className={styles.gallery}>
-            {items.map((item) => (
-                <GalleryItem key={item.link} item={item} variant="vertical"/>
-            ))}
-        </div>
-    )
+const Gallery: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
+	return (
+		<section className={styles.movies}>
+			{movies.map((movie: IMoviePortal) => (
+				<GalleryItem
+					key={movie.id.toString()}
+					item={{
+						name: movie.title,
+						link: getMoviesUrl(movie.id),
+						posterPath: movie.logo,
+						year: movie.year,
+						title: movie.title,
+						access: movie.access,
+						age: movie.rate_age,
+						rate_kp: movie.rate_kp,
+						rate_imdb: movie.rate_imdb,
+						genres:movie.genre
+					}}
+					variant="vertical"
+				/>
+			))}
+		</section>
+	)
 }
 
 export default Gallery

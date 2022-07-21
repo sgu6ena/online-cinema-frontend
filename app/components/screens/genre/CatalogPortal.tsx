@@ -5,12 +5,10 @@ import Meta from '../../../utils/meta/Meta'
 import CatalogLoader from '../../loaders/CatalogLoader'
 import Pagination from '../../ui/Pagination'
 import SkeletonLoader from '../../ui/SkeletonLoader'
-import styles from '../../ui/catalog-movies/Catalog.module.scss'
-import GaleryPortal from '../../ui/gallery/GaleryPortal'
+import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
 
 import { useGenre } from './useGenre'
-import cn from 'classnames'
 
 const CatalogPortal: FC = () => {
 	const query = router.query
@@ -29,15 +27,18 @@ const CatalogPortal: FC = () => {
 		<Meta title={titleGenre}>
 			<div className={'px-5'}>
 				{titleGenre ? (
-					<Heading title={titleGenre} className={cn(styles.heading,'pl-40')} />
+					<Heading
+						title={titleGenre}
+						className="pl-40 lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1"
+					/>
 				) : (
-					<div className='p-5 pb-0'>
-						<SkeletonLoader className='h-12' />
+					<div className="p-5 pb-0">
+						<SkeletonLoader className="h-12" />
 					</div>
 				)}
 				{!isLoading ? (
 					<>
-						{movies && <GaleryPortal movies={movies} />}
+						{movies && <Gallery movies={movies} />}
 						{pagination && pagination.totalPages > 1 && (
 							<Pagination pagination={pagination} />
 						)}
@@ -46,7 +47,6 @@ const CatalogPortal: FC = () => {
 					<CatalogLoader />
 				)}
 			</div>
-
 		</Meta>
 	)
 }

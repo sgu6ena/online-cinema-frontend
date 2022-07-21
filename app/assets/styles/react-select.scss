@@ -93,4 +93,8 @@
 	&__menu {
 		@apply animate-scaleIn;
 	}
+
+	&__single-value{
+		color: #999aa5 !important;
+	}
 }

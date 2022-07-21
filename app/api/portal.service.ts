@@ -1,16 +1,16 @@
-import axios, { axiosClassicPortal } from './interceptors'
+import axios, { axiosClassic, axiosClassicPortal } from './interceptors'
 import { IUserData } from '../components/screens/profile/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
-import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
+import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { getMoviesUrl } from '../config/api.config'
-import { IHome } from '../components/screens/home/home.interface'
+import { IListFilter } from '../shared/types/seaarch.types'
 
 interface IMain {
 	status: number
 	success: boolean
-	data: [...IGalleryHome[],IMainGenres]
+	data: [...IGalleryHome[], IMainGenres]
 }
 
 export const PortalService = {
@@ -76,5 +76,27 @@ export const PortalService = {
 		return axios.get<IGenrePortal[]>(APP_URL_PORTAL + '/listGenre')
 	},
 
+	async getListFilter() {
+		const data = await axios.get<IListFilter>(APP_URL_PORTAL + '/listFilter')
+		return data?.data
+	},
+
+	async getSearchWithFilter(query:string, genre:string, country:string, type_content:string,  year:string, sort:string ,category:string, page:string|number="1") {
+				const data = await axiosClassicPortal.get(
+			`searchExt/20`
+	,{
+				params:{
+					query:query,
+					genre:genre,
+					country:country,
+					year:year,
+					type_content,
+					page,
+					cid:category,
+					id_sort:sort
+				}
+			}	)
+		return data.data
+	},
 
 }

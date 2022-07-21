@@ -22,30 +22,34 @@ const Select: FC<ISelect> = ({
     const onChange = (newValue: any | OnChangeValue<IOptions, boolean>) => {
         field.onChange(
             isMulti
-                ? (newValue as IOptions[]).map((item) => item.value)
-                : (newValue as IOptions).value
+                ? (newValue as IOptions[]).map((item: IOptions) => item.value)
+                : (newValue as IOptions)?.value ||('' as any)
         )
     }
 
     const getValue = () => {
         if (field.value) {
             return isMulti
-                ? options.filter((option) => field.value.indexOf(option.value) > 0)
+                ? options.filter((option) => field.value.indexOf(option.value) >= 0)
                 : options.find((option) => option.value === field.value)
-        } else return isMulti ? [] : ''
+        } else return isMulti ? [] : ('' as any)
     }
     return (
         <div className={styles.selectContainer}>
             <label>
                 <span>{placeholder}</span>
                 <ReactSelect
+                  placeholder={''}
+									 defaultValue={options[0]}
                     classNamePrefix='custom-select'
                     options={options}
                     value={getValue()}
                     isMulti={isMulti}
                     onChange={onChange}
                     components={animatedComponents}
-                    isLoading={isLoading}/>
+                    isLoading={isLoading}
+                  isClearable
+                />
                 {error && <div className={formStyles.error}>{error.message}</div>}
             </label>
         </div>
