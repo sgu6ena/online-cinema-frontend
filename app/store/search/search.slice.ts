@@ -10,7 +10,7 @@ export const searchSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getSearchParameters.pending, (state) => {
-        state.isLoading = true
+        state.isLoadingFilters = true
       })
       .addCase(
         getSearchParameters.fulfilled,
@@ -18,7 +18,7 @@ export const searchSlice = createSlice({
           state,
           {payload: {country, year, type_content, sort, genre, category}}
         ) => {
-          state.isLoading = false
+          state.isLoadingFilters = false
           state.country = country
           state.year = year
           state.type_content = type_content
@@ -28,7 +28,7 @@ export const searchSlice = createSlice({
         }
       )
       .addCase(getSearchParameters.rejected, (state) => {
-        state.isLoading = false
+        state.isLoadingFilters = false
       })
 
       .addCase(getSearch.pending, (state) => {

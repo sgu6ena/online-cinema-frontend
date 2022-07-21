@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-  @apply flex items-center  gap-3 flex-nowrap ;
+  @apply flex items-center  gap-3 flex-nowrap;
   -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
@@ -9,34 +9,33 @@
   }
 
   .slide {
-    @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64  ;
+    @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64;
     background-color: transparent;
-
-    h4 {
-      @apply text-white text-sm pl-1 pt-2;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 1;
-      line-clamp: 1;
-      overflow: hidden;
-      white-space: nowrap;
-
-      span {
-        @apply mr-2 rounded text-white
-      }
-    }
-
-    h5 {
-      @apply text-gray-600 text-sm pl-1;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
   }
+}
+
+.h4 {
+  @apply text-white text-sm pl-1 pt-2;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+  white-space: nowrap;
+
+  span {
+    @apply mr-2 rounded text-white;
+  }
+}
+
+.h5 {
+  @apply text-gray-600 text-sm pl-1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .item {
   @apply relative transition-all mr-1  border-transparent border flex  items-end shadow-lg rounded-md  will-change-contents;
-  //will-change-contents
   flex: 0 0 auto;
 
   &:hover {
@@ -44,7 +43,6 @@
     filter: drop-shadow(0px 20px 20px rgba(255, 0, 0, 0.2));
     transform: scale(1.05) translateY(-10px);
     box-shadow: #e30b13;
-
   }
 
   &.vertical {
@@ -58,49 +56,28 @@
 
   &.withText {
     @include fade-bg-gradient(0deg);
-
-    &::before {
-      //@apply rounded-layout;
-    }
   }
 
   img {
     @apply image-like-bg bg-gray-700 rounded;
-    //background: center / cover no-repeat url("http://istprof.ru/static/istprof/1450/no_poster.jpg");
-
   }
 
-  .content {
-    @apply relative z-2 text-center lg:m-3 lg:mb-1 my-3 mx-1 w-full;
-
-    .title {
-      @apply font-semibold lg:text-md md:text-sm text-xs mb-1 lg:pr-3 pr-1  text-white text-shadow;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      white-space: nowrap;
+  .tags {
+    @apply absolute top-1 flex flex-col gap-1  -left-1;
+    .tag {
+      @apply font-semibold w-fit shadow-gray-600 shadow   text-xs rounded bg-white text-gray-600 px-1;
     }
-
-    .subTitle {
-      @apply text-gray-500 lg:text-md md:text-sm text-xs  flex justify-center items-center text-shadow pr-3;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-  }
-
-  .rateKP {
-    @apply absolute top-1 font-semibold flex items-center -left-1 text-xs rounded bg-white text-gray-600 px-1;
-  }
-
-  .rateIMDB {
-    @apply absolute top-7 font-semibold flex items-center  -left-1 text-xs rounded bg-white text-gray-600 px-1;
-  }
-
-
-  .rateAge {
-    //@apply absolute top-2 -left-1 text-xs rounded bg-white text-gray-600 px-1;
   }
 }
 
+.movies {
+  @apply xl:py-layout py-2 px-2 lg:px-0  grid lg:grid-cols-4 gap-y-10 xl:grid-cols-6 sm:grid-cols-4 xl:gap-x-20 lg:gap-x-10 sm:gap-x-5 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 sm:grid-cols-3 grid-cols-2;
+
+  > a {
+    @apply mx-auto mb-4 lg:w-40 sm:w-32 w-36 xl:w-64  animate-fade;
+  }
+}
+
+.button {
+  @apply btn-primary py-2 px-10;
+}

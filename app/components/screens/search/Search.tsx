@@ -1,15 +1,15 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { FC, useEffect, } from 'react'
+import { FC, useEffect } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../hooks/useActions'
 import { useSearch } from '../../../hooks/useSearchFilters'
 import { IList } from '../../../shared/types/seaarch.types'
+import MaterialIcon from '../../ui/MaterialIcon'
 import Pagination from '../../ui/Pagination'
-import Button from '../../ui/form-elemets/Button'
 import Field from '../../ui/form-elemets/Field'
-import GaleryPortal from '../../ui/gallery/GaleryPortal'
+import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
 
 const DynamicSelect = dynamic(
@@ -28,6 +28,7 @@ const toSelect = (items: IList[] = []) => {
 const Search: FC = () => {
 	const { getSearchParameters, getSearch } = useActions()
 	const {
+		isLoadingFilters,
 		isLoading,
 		genre,
 		country,
@@ -39,16 +40,15 @@ const Search: FC = () => {
 		pagination,
 	} = useSearch()
 
-	const { handleSubmit, control, register, getValues } = useForm({
+	const { handleSubmit, control, register, getValues, watch } = useForm({
 		mode: 'onChange',
 	})
-	const { query, replace, pathname } = useRouter()
-
+	const { query } = useRouter()
 	let page = query.page
-		? query.page.toString() || query.page[0].toString() : '1'
+		? query.page.toString() || query.page[0].toString()
+		: '1'
 
 	const onSubmit: SubmitHandler<any> = (data) => {
-
 		const params = {
 			title: data.query || '',
 			genre: data.genres?.join('|') || '',
@@ -57,7 +57,7 @@ const Search: FC = () => {
 			sort: data.sort || '',
 			year: data.year || '',
 			type_content: data.type_content || '',
-			page
+			page,
 		}
 		//@ts-ignore
 		getSearch(params)
@@ -69,7 +69,7 @@ const Search: FC = () => {
 
 	useEffect(() => {
 		onSubmit(getValues())
-	}, [page, query])
+	}, [page])
 
 	return (
 		<div className="m-10">
@@ -89,7 +89,7 @@ const Search: FC = () => {
 									field={field}
 									placeholder="Жанры"
 									options={toSelect(genre)}
-									isLoading={isLoading}
+									isLoading={isLoadingFilters}
 									isMulti
 								/>
 							)}
@@ -105,7 +105,7 @@ const Search: FC = () => {
 									field={field}
 									placeholder="Страны"
 									options={toSelect(country)}
-									isLoading={isLoading}
+									isLoading={isLoadingFilters}
 									isMulti
 								/>
 							)}
@@ -132,13 +132,14 @@ const Search: FC = () => {
 						<Controller
 							name="year"
 							control={control}
+							defaultValue={'1'}
 							render={({ field, fieldState: { error } }) => (
 								<DynamicSelect
 									error={error}
 									field={field}
 									placeholder="Год"
 									options={toSelect(year)}
-									isLoading={isLoading}
+									isLoading={isLoadingFilters}
 								/>
 							)}
 						/>
@@ -147,14 +148,14 @@ const Search: FC = () => {
 						<Controller
 							name="sort"
 							control={control}
-							// defaultValue={{ value: '1' }}
+							defaultValue={'1'}
 							render={({ field, fieldState: { error } }) => (
 								<DynamicSelect
 									error={error}
 									field={field}
 									placeholder="Сортировка по"
 									options={toSelect(sort)}
-									isLoading={isLoading}
+									isLoading={isLoadingFilters}
 								/>
 							)}
 						/>
@@ -162,28 +163,29 @@ const Search: FC = () => {
 					<div className={'w-full max-w-[260px] px-2'}>
 						<Controller
 							name="type_content"
+							defaultValue={'-1'}
 							control={control}
-							// defaultValue={{ value: '0' }}
-							render={({ field
-												 , fieldState: { error } }) => (
+							render={({ field, fieldState: { error } }) => (
 								<DynamicSelect
 									error={error}
 									field={field}
 									placeholder="Тип контента"
 									options={toSelect(type_content)}
-									isLoading={isLoading}
+									isLoading={isLoadingFilters}
 								/>
 							)}
 						/>
 					</div>
-
+					<button className={'self-center btn-primary p-3 mb-2'}>
+						{' '}
+						<MaterialIcon name={'MdSearch'} />
+					</button>
 				</div>
-				<Button className={''}>Поиск</Button>
 			</form>
 			<>
-				<GaleryPortal movies={movies || []} />
+				<Gallery movies={movies || []} />
 				{pagination && pagination.totalPages > 1 && (
-					<Pagination pagination={pagination}  />
+					<Pagination pagination={pagination} />
 				)}
 			</>
 		</div>
