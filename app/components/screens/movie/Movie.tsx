@@ -20,13 +20,9 @@ import Tabs from './Tabs'
 const Movie: FC = () => {
 	const { movie, collection, isLoading, isFavorite, isFavoriteLoading, vote, myVote } = useMovie()
 	const { url, idFile, serial, title, isPlayed, playlist, seasons } = useVideo()
-	const {
-		getMovie, favorites, voting, setIdFile, setPlay, setTitle, getUrl,
-		resetVideo, setPlaylist, setSerial,
-	} = useActions()
+	const {	getMovie, favorites, voting, setIdFile, setPlay, setTitle, getUrl,	resetVideo, setPlaylist, setSerial	} = useActions()
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
-
 	const [activeId, setActiveId] = useState(0)
 
 	const handleMovie = (id: number, title: string) => {
@@ -58,7 +54,7 @@ const Movie: FC = () => {
 	useEffect(() => {
 		const active = playlist.find(item => item?.isActive === true)
 		setActiveId(Number(active?.idFile) || 0)
-	}, [])
+	}, [playlist])
 
 	const nextSeries = () => {
 		const playIndex = playlist.findIndex((item) => idFile === item.idFile)
@@ -68,7 +64,6 @@ const Movie: FC = () => {
 			playlist[+nextIndex].seasonTitle,
 			playlist[+nextIndex].titleFile,
 		])
-		console.log(playlist)
 		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
 	}
 
@@ -123,6 +118,20 @@ const Movie: FC = () => {
 													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
 												/>
 												Смотреть
+											</button>
+										)}
+
+										{serial && !isPlayed && (
+											<button
+												className={styles.play}
+												onClick={() =>
+													handleMovie(activeId, '')
+												}
+											>
+												<MaterialIcon
+													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
+												/>
+												Продолжить
 											</button>
 										)}
 									</div>

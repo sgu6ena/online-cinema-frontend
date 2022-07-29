@@ -25,7 +25,7 @@ const Season: FC<ISeason> = ({ isActive = false, items, fn, logo, title, activeI
 					{items.map((item) => (
 						<SwiperSlide className={cn(styles.slide)} key={item.file}>
 							<button
-								className={cn(styles.episode, (item.isActive || item.file === activeId )&& styles.activeEpisode)}
+								className={cn(styles.episode, (item.file === activeId) && styles.activeEpisode)}
 								onClick={() => {
 									return fn(item.file, getListDot([title, item.title]))
 								}}
