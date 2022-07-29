@@ -7,12 +7,13 @@ import styles from './Movie.module.scss'
 import Season from './Season'
 
 interface ITabs {
-	media: IMedia[];
-	fn: (id: number, title: string) => void,
+	activeId?:number
+	media: IMedia[]
+	fn: (id: number, title: string) => void
 	logo: string
 }
 
-const Tabs: FC<ITabs> = ({ media, fn, logo }) => {
+const Tabs: FC<ITabs> = ({ media, fn, logo,activeId }) => {
 	const activeTabIdx = media.findIndex(season => season.isActive)
 	const [active, setActive] = useState(activeTabIdx >= 0 ? activeTabIdx : 0)
 
@@ -39,6 +40,7 @@ const Tabs: FC<ITabs> = ({ media, fn, logo }) => {
 					index={index}
 					isActive={active === index}
 					fn={fn}
+					activeId={activeId}
 				/>
 			))}
 		</div>

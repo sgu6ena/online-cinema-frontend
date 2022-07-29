@@ -109,7 +109,7 @@
 
   .season {
     .active {
-      @apply flex  animate-fade flex-nowrap overflow-x-auto;
+      @apply flex  animate-fade flex-nowrap justify-items-start overflow-x-auto;
       .episode {
         @apply text-center rounded-layout hover:opacity-100 relative block rounded grow-0 z-10 shrink-0 transition m-2;
         min-width: 100px;
@@ -160,7 +160,8 @@
       }
     }
 
-    .swiper {
+    .slider {
+      @apply  justify-self-start mx-0;
       .slide {
         @apply w-fit w-80;
         background-color: transparent;
