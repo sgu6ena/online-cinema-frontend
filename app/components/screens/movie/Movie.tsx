@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { useActions } from '../../../hooks/useActions'
 import { useMovie } from '../../../hooks/useMovie'
@@ -27,10 +27,13 @@ const Movie: FC = () => {
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
 
+	const [activeId, setActiveId] = useState(0)
+
 	const handleMovie = (id: number, title: string) => {
 		setIdFile(`${id}`)
 		setPlay(true)
 		setTitle(getListDot([movie?.title || '', title]))
+		setActiveId(id)
 	}
 
 	useEffect(() => {
@@ -52,6 +55,11 @@ const Movie: FC = () => {
 		}
 	}, [idFile])
 
+	useEffect(() => {
+		const active = playlist.find(item => item?.isActive === true)
+		setActiveId(Number(active?.idFile) || 0)
+	}, [])
+
 	const nextSeries = () => {
 		const playIndex = playlist.findIndex((item) => idFile === item.idFile)
 		const nextIndex = playlist.length > playIndex + 1 ? playIndex + 1 : 0
@@ -60,6 +68,7 @@ const Movie: FC = () => {
 			playlist[+nextIndex].seasonTitle,
 			playlist[+nextIndex].titleFile,
 		])
+		console.log(playlist)
 		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
 	}
 
@@ -132,7 +141,7 @@ const Movie: FC = () => {
 						</div>
 						{seasons.length > 0 && seasons[0]?.items.length > 1 && (
 							<div className={styles.movieContainer}>
-								<Tabs media={seasons} fn={handleMovie} logo={movie.logo} />
+								<Tabs media={seasons} fn={handleMovie} logo={movie.logo} activeId={activeId} />
 							</div>
 						)}
 					</div>

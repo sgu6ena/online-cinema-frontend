@@ -6,7 +6,6 @@
     @apply flex-col-reverse flex flex-grow flex-shrink justify-between  gap-0.5 lg:flex-row;
 
     .videoBox {
-
       @apply flex-grow-0 flex-shrink-0;
 
       .actions {
@@ -19,6 +18,7 @@
               @apply text-2xl;
             }
           }
+
           .active {
             svg {
               @apply text-primary;
@@ -75,7 +75,6 @@
       }
     }
   }
-
 }
 
 .rating {
@@ -90,7 +89,7 @@
 }
 
 .movieContainer {
-  @apply p-0 lg:p-0  ;
+  @apply p-0 lg:p-0;
 }
 
 .votes {
@@ -110,13 +109,13 @@
 
   .season {
     .active {
-      @apply flex  animate-fade flex-nowrap overflow-x-auto;
+      @apply flex  animate-fade flex-nowrap justify-items-start overflow-x-auto;
       .episode {
         @apply text-center rounded-layout hover:opacity-100 relative block rounded grow-0 z-10 shrink-0 transition m-2;
         min-width: 100px;
 
         .imageBox {
-          @apply relative rounded-layout bg-gray-950 p-0 ;
+          @apply relative rounded-layout bg-gray-950 p-0;
           aspect-ratio: 16/9;
           width: 305px;
 
@@ -134,11 +133,6 @@
           }
         }
 
-        .progress {
-          @apply h-1  absolute top-40 left-2 right-2 bg-gray-300  rounded-full z-30;
-          width: calc(100% - 16px);
-        }
-
         @screen lg {
           min-width: 120px;
         }
@@ -146,6 +140,31 @@
         &:hover {
           filter: drop-shadow(0 2px 4px #555);
         }
+      }
+
+      .activeEpisode {
+        .imageBox {
+          @apply border bg-primary text-primary border-primary;
+        }
+
+        .progress {
+          @apply h-6  absolute top-36 left-2 right-2 bg-gray-950 rounded-full z-30;
+
+          width: calc(100% - 16px);
+        }
+
+        .progress:after {
+          @apply text-white;
+          content: 'продожить просмотр';
+        }
+      }
+    }
+
+    .slider {
+      @apply  justify-self-start mx-0;
+      .slide {
+        @apply w-fit w-80;
+        background-color: transparent;
       }
     }
   }
