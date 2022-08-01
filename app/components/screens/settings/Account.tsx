@@ -1,11 +1,13 @@
 import SkeletonLoader from '../../ui/SkeletonLoader'
 import { useProfile } from './useProfile'
 import { FC } from 'react'
+import Heading from '../../ui/heading/Heading'
 
 const Account:FC = () => {
 	const { user, isLoading } = useProfile()
 	return (
 		<div>
+			<Heading title={'АККАУНТ'} className='mb-5' />
 			{isLoading && <SkeletonLoader />}
 			{user && (
 				<div className='text-white text-lg  '>

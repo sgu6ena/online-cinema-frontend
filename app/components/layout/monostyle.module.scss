@@ -1,21 +1,25 @@
 $header-height: 70px;
 
 .mainStyle {
-  @apply flex flex-col justify-between;
+  @apply flex flex-col  justify-between;
   min-height: 100vh;
 
+
   .layout {
-    @apply relative;
+    @apply    h-full ;
     //background: #1d1f23;
+    flex-grow: 1;
 
     .center {
-      @apply text-white mt-20 ;
+      @apply text-white    mt-20 ;
+      //min-height: 40vh;
 
     }
   }
 
 
   .footer {
-    @apply text-gray-700 align-bottom;
+    @apply text-gray-700 align-bottom ;
+    background: #303437;
   }
 }

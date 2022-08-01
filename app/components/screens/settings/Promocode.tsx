@@ -1,9 +1,10 @@
 import { FC } from 'react'
+import Heading from '../../ui/heading/Heading'
 
 const Promocode:FC = () => {
 	return (
 		<div>
-			промокод
+			<Heading title={'ПРОМОКОД'} className='mb-5' />
 		</div>
 	)
 }

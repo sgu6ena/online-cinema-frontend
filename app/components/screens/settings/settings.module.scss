@@ -1,0 +1,23 @@
+.settings {
+  @apply  flex items-stretch justify-items-stretch min-h-full ;
+
+  .left {
+    @apply w-96 p-layout;
+    //background: linear-gradient( rgb(25 27 31) , #303437);
+    background: linear-gradient(180deg, rgb(25 27 31),  #303437);
+    ul {
+
+      @apply flex flex-col gap-8;
+      li {
+        @apply text-xl;
+        a {
+          @apply hover:text-primary;
+        }
+      }
+    }
+  }
+
+  .right {
+    @apply bg-gray-900 p-layout w-full ;
+  }
+}

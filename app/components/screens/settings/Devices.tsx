@@ -1,9 +1,11 @@
 import { FC } from 'react'
+import Heading from '../../ui/heading/Heading'
 
 const Devices:FC = () => {
 	return (
 		<div>
-			устройства
+			<Heading title={'УСТРОЙСТВА'} className='mb-5' />
+
 		</div>
 	)
 }

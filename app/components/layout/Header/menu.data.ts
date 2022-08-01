@@ -40,7 +40,7 @@ export const userMenu: IMenuItem[] =
 		},
 		{
 			icon: 'MdPersonOutline',
-			link: LINKS.PROFILE,
+			link: LINKS.SETTINGS,
 			title: 'Профиль',
 		},
 
