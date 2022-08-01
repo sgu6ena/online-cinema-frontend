@@ -9,12 +9,14 @@ import Search from '../Search/Search'
 import Logo from './Logo'
 import styles from './header.module.scss'
 import NavMenu from './nav-menu/NavMenu'
+import { useRuble } from '../../../hooks/useAuth'
 
 const Burgers = dynamic(() => import('./burgers/Burgers'), {
 	ssr: false,
 })
 
 const Header: FC = () => {
+	const isRuble = useRuble()
 	return (
 		<div className={styles.header}>
 			<div className={styles.start}>
@@ -23,11 +25,11 @@ const Header: FC = () => {
 			</div>
 
 			<div className={styles.end}>
-				<Link href={LINKS.RUBLE}>
+				{isRuble && <Link href={LINKS.RUBLE}>
 					<a className={'hidden xl:block'}>
 						<Button>Попробовать за рубль</Button>
 					</a>
-				</Link>
+				</Link>	}
 				<Search />
 				<Burgers />
 			</div>

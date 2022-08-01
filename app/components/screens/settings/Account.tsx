@@ -2,6 +2,7 @@ import SkeletonLoader from '../../ui/SkeletonLoader'
 import { useProfile } from './useProfile'
 import { FC } from 'react'
 import Heading from '../../ui/heading/Heading'
+import styles from "./settings.module.scss"
 
 const Account:FC = () => {
 	const { user, isLoading } = useProfile()
@@ -10,7 +11,7 @@ const Account:FC = () => {
 			<Heading title={'АККАУНТ'} className='mb-5' />
 			{isLoading && <SkeletonLoader />}
 			{user && (
-				<div className='text-white text-lg  '>
+				<div className={styles.card}>
 					<img
 						src={user.avatar}
 						alt={user.login}

@@ -1,10 +1,11 @@
 .settings {
-  @apply  flex items-stretch justify-items-stretch min-h-full ;
+  @apply flex items-stretch justify-items-stretch min-h-full ;
 
   .left {
     @apply w-96 p-layout;
     //background: linear-gradient( rgb(25 27 31) , #303437);
-    background: linear-gradient(180deg, rgb(25 27 31),  #303437);
+    background: linear-gradient(180deg, rgb(25 27 31), #303437);
+
     ul {
 
       @apply flex flex-col gap-8;
@@ -19,5 +20,32 @@
 
   .right {
     @apply bg-gray-900 p-layout w-full ;
+  }
+}
+
+
+.card {
+  @apply flex flex-col gap-5 p-5 bg-gray-950 rounded-2xl w-fit;
+  max-width: 450px;
+  h2{
+    @apply mb-0;
+
+  }
+  .line {
+    @apply flex items-center gap-4;
+    .icon {
+      @apply h-10 w-10;
+      svg {
+        @apply h-full w-full  text-primary;
+      }
+    }
+
+
+  } .title {
+      @apply text-sm;
+    }
+
+  .subtitle {
+    @apply text-sm text-gray-500;
   }
 }

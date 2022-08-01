@@ -7,7 +7,7 @@ export interface IInitialState {
 	user: IAuthResponse | null
 	token: string,
 	isLoading: boolean
-	isRegistered:boolean
+	isRegistered: boolean
 }
 
 export interface ILoginPassword {
@@ -26,6 +26,8 @@ export interface IAuthResponse {
 	avatar: string
 	level: string
 	dtEnd: string
+	dtFlow: string | null
+	promo: boolean
 }
 
 export interface IRegister {
