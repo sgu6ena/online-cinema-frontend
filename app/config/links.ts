@@ -10,4 +10,9 @@ export const LINKS = {
 	FAVORITES: '/favorites', //избранное
 	HISTORY: '/history', //История просмотра
 	SEARCH: '/search', //поиск с фильтрами
+	SETTINGS: '/settings', //страница настроек
+	SUBSCRIPTIONS: '/settings/subscriptions', //подписки
+	PROMOCODE: '/settings/promocode', //промокод
+	DEVICES: '/settings/devices', //устройства
+	ACCOUNT: '/settings/account', //аккуаунт
 }

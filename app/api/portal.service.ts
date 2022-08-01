@@ -1,5 +1,5 @@
 import axios, { axiosClassic, axiosClassicPortal } from './interceptors'
-import { IUserData } from '../components/screens/profile/user.interface'
+import { IUserData } from '../components/screens/settings/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'

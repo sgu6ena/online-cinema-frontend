@@ -19,20 +19,14 @@ export const notUserMenu: IMenuItem[] =
 export const userMenu: IMenuItem[] =
 	[
 		{
+			icon: 'MdSearch',
+			link: LINKS.SEARCH,
+			title: 'Поиск',
+		},
+		{
 			icon: 'MdBookmarkBorder',
 			link: LINKS.FAVORITES,
 			title: 'Избранное',
-		},
-		{
-			icon: 'MdPersonOutline',
-			link: LINKS.PROFILE,
-			title: 'Профиль',
-		},
-
-		{
-			icon: 'MdShoppingBag',
-			link: LINKS.RUBLE,
-			title: 'PORTAL за рубль',
 		},
 		{
 			icon: 'MdHistory',
@@ -40,10 +34,16 @@ export const userMenu: IMenuItem[] =
 			title: 'История просмотра',
 		},
 		{
-			icon: 'MdSearch',
-			link: LINKS.SEARCH,
-			title: 'Поиск',
+			icon: 'MdShoppingBag',
+			link: LINKS.RUBLE,
+			title: 'PORTAL за рубль',
 		},
+		{
+			icon: 'MdPersonOutline',
+			link: LINKS.PROFILE,
+			title: 'Профиль',
+		},
+
 	]
 
 

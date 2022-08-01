@@ -6,6 +6,7 @@ import { toastError } from '../../utils/toast-error'
 
 import { IAuthResponse, ILoginPassword, IRegister, ITokens } from './user.interface'
 import { toast } from 'react-hot-toast'
+import Cookies from 'js-cookie'
 
 export const register = createAsyncThunk<IAuthResponse, IRegister>(
 	'register',
@@ -27,6 +28,7 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 		try {
 			const response = await AuthService.login(login, password)
 			toast.success('Вы успешно вошли')
+			Cookies.set('atp', response.token)
 			return response
 		} catch (error) {
 			toastError(error)

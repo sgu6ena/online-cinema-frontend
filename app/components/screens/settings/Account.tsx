@@ -1,23 +1,18 @@
+import SkeletonLoader from '../../ui/SkeletonLoader'
+import { useProfile } from './useProfile'
 import { FC } from 'react'
 
-import SkeletonLoader from '../../ui/SkeletonLoader'
-import Heading from '../../ui/heading/Heading'
-
-import { useProfile } from './useProfile'
-
-const Profile: FC = () => {
+const Account:FC = () => {
 	const { user, isLoading } = useProfile()
-
 	return (
-		<div className="p-layout">
-			<Heading title={'Профиль'} className="mb-5" />{' '}
+		<div>
 			{isLoading && <SkeletonLoader />}
 			{user && (
-				<div className="text-white text-lg  ">
+				<div className='text-white text-lg  '>
 					<img
 						src={user.avatar}
 						alt={user.login}
-						className="rounded rounded-full"
+						className='rounded rounded-full'
 					/>
 					<p>Логин: {user.login}</p>
 					<p>E-mail: {user.email}</p>
@@ -30,4 +25,4 @@ const Profile: FC = () => {
 	)
 }
 
-export default Profile
+export default Account

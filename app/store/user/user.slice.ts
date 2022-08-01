@@ -4,10 +4,12 @@ import { getStoreLocalStorage } from '../../utils/local-storage'
 
 import { login, logout, register } from './user.actions'
 import { IInitialState } from './user.interface'
+import Cookies from 'js-cookie'
 
 const initialState: IInitialState = {
 	isLoading: false,
 	user: getStoreLocalStorage('user'),
+	token: Cookies.get('atp')||'',
 	isRegistered: false,
 }
 

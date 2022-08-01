@@ -20,7 +20,7 @@ export const instance = axios.create({
 })
 
 instance.interceptors.request.use((config) => {
-	const accessToken = Cookies.get('token')
+	const accessToken = Cookies.get('atp')
 	if (config.headers && accessToken) {
 		config.headers['HTTP-X-TOKEN'] = `${accessToken}`
 	}

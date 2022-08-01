@@ -5,6 +5,7 @@ export interface ITokens {
 
 export interface IInitialState {
 	user: IAuthResponse | null
+	token: string,
 	isLoading: boolean
 	isRegistered:boolean
 }
