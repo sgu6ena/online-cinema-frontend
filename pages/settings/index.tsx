@@ -1,9 +1,15 @@
 import Settings from '../../app/components/screens/settings/Settings'
 import { NextPage } from 'next'
 import Account from '../../app/components/screens/settings/Account'
+import { useRouter } from 'next/router'
+import { LINKS } from '../../app/config/links'
+import { useEffect } from 'react'
 
 const SettingsPage: NextPage = () => {
-	return <Settings><Account/></Settings>
+	const {push} = useRouter()
+	useEffect(()=>{push(LINKS.SUBSCRIPTIONS)},[])
+
+	return <Settings/>
 }
 
 

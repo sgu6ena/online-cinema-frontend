@@ -16,7 +16,7 @@ const Footer:FC= () => {
 			<div className={styles.second}>
 				<Subheading title={'Разделы'}/>
 				<ul>
-					{sections.map(item=> <li key={item.link} ><Link href={item.link}><a>{item.title}</a></Link></li>)}
+					{sections.map(item=> <li key={item.title} ><Link href={item.link}><a>{item.title}</a></Link></li>)}
 				</ul>
 			</div>
 			<div className={styles.last}></div>

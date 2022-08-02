@@ -5,7 +5,6 @@ const Devices:FC = () => {
 	return (
 		<div>
 			<Heading title={'УСТРОЙСТВА'} className='mb-5' />
-
 		</div>
 	)
 }

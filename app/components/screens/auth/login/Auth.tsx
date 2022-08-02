@@ -34,17 +34,16 @@ const Auth: FC = () => {
 
 	return (
 		<>
-			<Meta title="Авторизация" />
+			<Meta title='Авторизация' />
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					{' '}
-					{isLoading && <SkeletonLoader className="h-60" />}{' '}
+					{isLoading && <SkeletonLoader className='h-60' />}
 					{!isLoading && (
 						<>
-							<Heading title={'Вход в аккаунт'} className="mb-3" />
+							<Heading title={'Вход в аккаунт'} className='mb-3' />
 							<Heading
-								title="Войдите для доступа к подписке и списку избранного"
-								className="text-gray-600 text-xl mb-3"
+								title='Войдите для доступа к подписке и списку избранного'
+								className='text-gray-500  text-xl mb-8'
 							/>
 							<AuthFields
 								register={registerInput}
@@ -54,18 +53,18 @@ const Auth: FC = () => {
 
 							<div className={styles.buttons}>
 								<p>
-									<Link href="app/components/screens/auth/login/Auth">
+									<Link href='app/components/screens/auth/login/Auth'>
 										<a>Забыли пароль?</a>
 									</Link>
 								</p>
-								<Button type="submit" disabled={!formState.isValid}>
+								<Button type='submit' disabled={!formState.isValid}>
 									Войти
 								</Button>
 							</div>
 							<p>
 								Еще нет аккаунта?{' '}
 								<Link href={LINKS.REGISTER}>
-									<a className="link text-primary"> Зарегистрируйтесь</a>
+									<a className='link text-primary'> Зарегистрируйтесь</a>
 								</Link>
 							</p>
 						</>

@@ -1,11 +1,11 @@
 import SkeletonLoader from '../../ui/SkeletonLoader'
-import { useProfile } from './useProfile'
 import { FC } from 'react'
 import Heading from '../../ui/heading/Heading'
 import styles from "./settings.module.scss"
+import { useAuth } from '../../../hooks/useAuth'
 
 const Account:FC = () => {
-	const { user, isLoading } = useProfile()
+	const { user,   isLoading } = useAuth()
 	return (
 		<div>
 			<Heading title={'АККАУНТ'} className='mb-5' />

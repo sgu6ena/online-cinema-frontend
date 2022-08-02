@@ -2,23 +2,20 @@ import { FC } from 'react'
 import Heading from '../../ui/heading/Heading'
 import Subheading from '../../ui/heading/Subheading'
 import Button from '../../ui/form-elemets/Button'
-import styles from "./settings.module.scss"
-import {RiListCheck2 } from 'react-icons/ri'
+import styles from './settings.module.scss'
+import { RiListCheck2 } from 'react-icons/ri'
 import MaterialIcon from '../../ui/MaterialIcon'
-import { useProfile } from './useProfile'
 import { useAuth } from '../../../hooks/useAuth'
 
-
 const Subscriptions: FC = () => {
-	// const { user, isLoading } = useProfile()
-	const {user, isLoading} = 	useAuth()
+
+	const { user,   isLoading } = useAuth()
 	const isSubscribed = !!user?.paid
 	const date = user?.dtEnd
-
 	return (
 		<div>
 			<Heading title={'ПОДПИСКА'} className='mb-5' />
-			{isLoading&&<div>Loading...</div>}
+			{isLoading && <div>Loading...</div>}
 			<div className={styles.card}>
 				<img src='/images/settings/subs.png' alt='' className={'w-full'} />
 				<Subheading title='Смотреть в удовольствие' />
@@ -50,11 +47,11 @@ const Subscriptions: FC = () => {
 					</div>
 				</div>
 				{isSubscribed && <div>
-					<div>Подписка оформлена</div>
+					<div className={'text-green-500 font-bold'}>Подписка оформлена</div>
 					<div className={styles.subtitle}>следующее списание произойдет {date} </div>
 				</div>}
 				{isSubscribed
-					? <Button>Отменить подписку</Button>
+					? <Button className='bg-gray-600'>Отменить подписку</Button>
 					: <Button>Оформить подписку</Button>
 				}
 			</div>
