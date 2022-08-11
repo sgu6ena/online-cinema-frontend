@@ -6,7 +6,7 @@ export const LINKS = {
 	LOGIN: '/auth',//страница логина
 	REGISTER: '/register', //регистрация
 	PROFILE: '/profile',//профиль
-	RUBLE: '/ruble',//купить за рубль
+	RUBLE: '/settings/subscriptions',//купить за рубль
 	FAVORITES: '/favorites', //избранное
 	HISTORY: '/history', //История просмотра
 	SEARCH: '/search', //поиск с фильтрами

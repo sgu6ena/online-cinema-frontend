@@ -4,8 +4,9 @@ import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl } from '../config/api-portal.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
-import { getMoviesUrl } from '../config/api.config'
+import { getAuthUrl, getMoviesUrl, sendSMS } from '../config/api.config'
 import { IListFilter } from '../shared/types/seaarch.types'
+import { IAuthResponse, IRegister } from '../store/user/user.interface'
 
 interface IMain {
 	status: number
@@ -81,22 +82,29 @@ export const PortalService = {
 		return data?.data
 	},
 
-	async getSearchWithFilter(query:string, genre:string, country:string, type_content:string,  year:string, sort:string ,category:string, page:string|number="1") {
-				const data = await axiosClassicPortal.get(
+	async getSearchWithFilter(query: string, genre: string, country: string, type_content: string, year: string, sort: string, category: string, page: string | number = '1') {
+		const data = await axiosClassicPortal.get(
 			`searchExt/20`
-	,{
-				params:{
-					query:query,
-					genre:genre,
-					country:country,
-					year:year,
+			, {
+				params: {
+					query: query,
+					genre: genre,
+					country: country,
+					year: year,
 					type_content,
 					page,
-					cid:category,
-					id_sort:sort
-				}
-			}	)
+					cid: category,
+					id_sort: sort,
+				},
+			})
 		return data.data
 	},
 
+
+	async sendSms(mobile: string) {
+		const response = await axios.post<any, any>(sendSMS(), {
+			mobile,
+		})
+		return response
+	},
 }
