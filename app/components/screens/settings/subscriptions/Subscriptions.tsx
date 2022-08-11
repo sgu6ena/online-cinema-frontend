@@ -62,7 +62,7 @@ const Subscriptions: FC = () => {
 					<div>
 						<div className={'text-green-500 font-bold'}>Подписка оформлена</div>
 						<div className={styles.subtitle}>
-							следующее списание произойдет {date}{' '}
+							{date}{' '}
 						</div>
 					</div>
 				)}

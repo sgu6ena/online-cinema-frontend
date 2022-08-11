@@ -8,7 +8,7 @@
     @apply bg-black absolute top-44 m-auto z-50  rounded-2xl opacity-100;
 
     form {
-      @apply p-layout flex flex-col w-96 gap-8;
+      @apply p-layout flex flex-col w-[400px] gap-8;
       .head {
         h1 {
           @apply text-center text-white mb-0;

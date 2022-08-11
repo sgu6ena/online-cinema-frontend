@@ -1,12 +1,13 @@
-import axios, { axiosClassic, axiosClassicPortal } from './interceptors'
 import { IUserData } from '../components/screens/settings/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
-import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl } from '../config/api-portal.config'
-import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { ISlide } from '../components/ui/slider/slider.interface'
-import { getAuthUrl, getMoviesUrl, sendSMS } from '../config/api.config'
+import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
+import { checkSMS, getMoviesUrl, sendSMS } from '../config/api.config'
+import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { IListFilter } from '../shared/types/seaarch.types'
-import { IAuthResponse, IRegister } from '../store/user/user.interface'
+import { ICheckSms, ISendSms } from '../store/settings/settings.interface'
+
+import axios, { axiosClassicPortal } from './interceptors'
 
 interface IMain {
 	status: number
@@ -22,10 +23,7 @@ export const PortalService = {
 		return data.data.data.items
 	},
 
-	async getCategory(
-		slug: string | undefined = '0',
-		page = '1',
-	) {
+	async getCategory(slug: string | undefined = '0', page = '1') {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug) + '/20',
 			{
@@ -58,8 +56,12 @@ export const PortalService = {
 			genres: m.genre,
 			rate_age: m.rate_age,
 		}))
-		const genres = response.data.data.filter((item) => item.viewport === 0.8 && item.title === 'Жанры')
-		const collections = response.data.data.filter((item) => item.viewport === 0.3)
+		const genres = response.data.data.filter(
+			(item) => item.viewport === 0.8 && item.title === 'Жанры',
+		)
+		const collections = response.data.data.filter(
+			(item) => item.viewport === 0.3,
+		)
 		return {
 			slider: slides,
 			collections,
@@ -72,7 +74,6 @@ export const PortalService = {
 		return data?.data.data
 	},
 
-
 	async getGenres() {
 		return axios.get<IGenrePortal[]>(APP_URL_PORTAL + '/listGenre')
 	},
@@ -82,28 +83,42 @@ export const PortalService = {
 		return data?.data
 	},
 
-	async getSearchWithFilter(query: string, genre: string, country: string, type_content: string, year: string, sort: string, category: string, page: string | number = '1') {
-		const data = await axiosClassicPortal.get(
-			`searchExt/20`
-			, {
-				params: {
-					query: query,
-					genre: genre,
-					country: country,
-					year: year,
-					type_content,
-					page,
-					cid: category,
-					id_sort: sort,
-				},
-			})
+	async getSearchWithFilter(
+		query: string,
+		genre: string,
+		country: string,
+		type_content: string,
+		year: string,
+		sort: string,
+		category: string,
+		page: string | number = '1',
+	) {
+		const data = await axiosClassicPortal.get(`searchExt/20`, {
+			params: {
+				query: query,
+				genre: genre,
+				country: country,
+				year: year,
+				type_content,
+				page,
+				cid: category,
+				id_sort: sort,
+			},
+		})
 		return data.data
 	},
 
-
 	async sendSms(mobile: string) {
-		const response = await axios.post<any, any>(sendSMS(), {
+		const response = await axios.post<any, ISendSms>(sendSMS(), {
 			mobile,
+		})
+		return response
+	},
+
+	async checkSms(sms: string, promo: boolean) {
+		const response = await axios.post<any, ICheckSms>(checkSMS(), {
+			sms,
+			promo,
 		})
 		return response
 	},

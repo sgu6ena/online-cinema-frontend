@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast'
 import { PortalService } from '../../api/portal.service'
 import { toastError } from '../../utils/toast-error'
 
-import { ISendSms } from './settings.interface'
+import { ICheckSms, ISendSms } from './settings.interface'
 
 export const sendSMS = createAsyncThunk<any, ISendSms>(
 	'sendSMS',
@@ -12,6 +12,20 @@ export const sendSMS = createAsyncThunk<any, ISendSms>(
 		try {
 			const response = await PortalService.sendSms(mobile)
 			toast.success('Смс было отправлено')
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+)
+
+export const checkSMS = createAsyncThunk<any, ICheckSms>(
+	'checkSMS',
+	async ({ sms, promo }, thunkApi) => {
+		try {
+			const response = await PortalService.checkSms(sms, promo)
+			toast.success('ок')
 			return response
 		} catch (error) {
 			toastError(error)
