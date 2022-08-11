@@ -1,8 +1,10 @@
+$width: 400px;
+$center: 50%;
 .settings {
-  @apply flex items-stretch justify-items-stretch min-h-full;
+  @apply flex items-stretch flex-col md:flex-row justify-items-stretch min-h-full;
 
   .left {
-    @apply w-96 p-layout;
+    @apply md:w-96 w-full p-layout;
     background: linear-gradient(180deg, rgb(25 27 31), #303437);
 
     ul {

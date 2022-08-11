@@ -1,10 +1,9 @@
 import { FC } from 'react'
 
-import Button from '../../ui/form-elemets/Button'
-import Field from '../../ui/form-elemets/Field'
-import Heading from '../../ui/heading/Heading'
-
-import styles from './settings.module.scss'
+import Button from '../../../ui/form-elemets/Button'
+import Field from '../../../ui/form-elemets/Field'
+import Heading from '../../../ui/heading/Heading'
+import styles from '../settings.module.scss'
 
 const Promocode: FC = () => {
 	return (

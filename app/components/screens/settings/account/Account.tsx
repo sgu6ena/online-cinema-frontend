@@ -1,21 +1,22 @@
-import SkeletonLoader from '../../ui/SkeletonLoader'
 import { FC } from 'react'
-import Heading from '../../ui/heading/Heading'
-import styles from "./settings.module.scss"
-import { useAuth } from '../../../hooks/useAuth'
 
-const Account:FC = () => {
-	const { user,   isLoading } = useAuth()
+import { useAuth } from '../../../../hooks/useAuth'
+import SkeletonLoader from '../../../ui/SkeletonLoader'
+import Heading from '../../../ui/heading/Heading'
+import styles from '../settings.module.scss'
+
+const Account: FC = () => {
+	const { user, isLoading } = useAuth()
 	return (
 		<div>
-			<Heading title={'АККАУНТ'} className='mb-5' />
+			<Heading title={'АККАУНТ'} className="mb-5" />
 			{isLoading && <SkeletonLoader />}
 			{user && (
 				<div className={styles.card}>
 					<img
 						src={user.avatar}
 						alt={user.login}
-						className='rounded rounded-full'
+						className="rounded rounded-full"
 					/>
 					<p>Логин: {user.login}</p>
 					<p>E-mail: {user.email}</p>

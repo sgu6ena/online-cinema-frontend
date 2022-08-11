@@ -1,0 +1,45 @@
+.wrapper {
+  @apply fixed top-0 left-0 h-full w-full flex  justify-center;
+  .back {
+    @apply absolute top-0 left-0 bg-gray-600 opacity-70 z-40 w-full h-full;
+  }
+
+  .modal {
+    @apply bg-black absolute top-44 m-auto z-50  rounded-2xl opacity-100;
+
+    form {
+      @apply p-layout flex flex-col w-96 gap-8;
+      .head {
+        h1 {
+          @apply text-center text-white mb-0;
+        }
+
+        p {
+          @apply text-center text-gray-500 text-md;
+        }
+      }
+
+      .checkbox {
+        @apply flex gap-4;
+      }
+
+      span {
+        @apply text-xs text-gray-500;
+      }
+
+      a {
+        @apply border-0   transition-all border-b hover:text-primary;
+      }
+
+      .footer {
+        button {
+          @apply w-full;
+        }
+
+        p {
+          @apply mt-4 text-sm text-gray-500 ;
+        }
+      }
+    }
+  }
+}

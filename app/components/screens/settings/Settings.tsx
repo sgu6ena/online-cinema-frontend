@@ -1,11 +1,13 @@
-import { FC, useEffect } from 'react'
-import Heading from '../../ui/heading/Heading'
-import { settingsMenu } from './menu.data'
 import Link from 'next/link'
-import styles from './settings.module.scss'
 import { useRouter } from 'next/router'
-import { useAuth } from '../../../hooks/useAuth'
+import { FC, useEffect } from 'react'
+
 import { LINKS } from '../../../config/links'
+import { useAuth } from '../../../hooks/useAuth'
+import Heading from '../../ui/heading/Heading'
+
+import { settingsMenu } from './menu.data'
+import styles from './settings.module.scss'
 
 const Settings: FC = ({ children }) => {
 	const { push, asPath } = useRouter()
@@ -20,19 +22,25 @@ const Settings: FC = ({ children }) => {
 
 	return (
 		<div className={styles.settings}>
-			{!isLoading && user &&
+			{!isLoading && user && (
 				<>
 					<div className={styles.left}>
-						<Heading title={'НАСТРОЙКИ'} className='mb-20' />
+						<Heading title={'НАСТРОЙКИ'} className="mb-20" />
 						<ul>
-							{settingsMenu.map(item => <li key={item.link}><Link href={item.link}><a
-								className={asPath === item.link ? 'text-primary':''}>{item.title}</a></Link></li>)}
+							{settingsMenu.map((item) => (
+								<li key={item.link}>
+									<Link href={item.link}>
+										<a className={asPath === item.link ? 'text-primary' : ''}>
+											{item.title}
+										</a>
+									</Link>
+								</li>
+							))}
 						</ul>
 					</div>
-					<div className={styles.right}>
-						{children}
-					</div>
-				</>}
+					<div className={styles.right}>{children}</div>
+				</>
+			)}
 		</div>
 	)
 }

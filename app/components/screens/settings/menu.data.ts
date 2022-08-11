@@ -1,5 +1,5 @@
-import { IMenuItem } from '../../layout/Navigation/MenuContainer/menu.interface'
 import { LINKS } from '../../../config/links'
+import { IMenuItem } from '../../layout/Navigation/MenuContainer/menu.interface'
 
 export const settingsMenu: IMenuItem[] = [
 	{
