@@ -3,7 +3,9 @@ import * as MovieActions from './movie/movie.actions'
 import * as VideoActions from './video/video.actions'
 import * as HomeActions from './home/home.actions'
 import * as SearchActions from './search/search.actions'
+import * as SettingsActions from './settings/settings.actions'
 import { videoAC } from './video/video.slice'
+
 
 export const allActions = {
 	...UserActions,
@@ -11,5 +13,6 @@ export const allActions = {
 	...VideoActions,
 	...videoAC,
 	...HomeActions,
-	...SearchActions
+	...SearchActions,
+	...SettingsActions
 }
