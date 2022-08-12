@@ -20,11 +20,10 @@ const CodeFromSms:FC = () => {
 	})
 
 	const promo = useRuble()
-	console.log({ promo })
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		console.log({sms:data.sms, promo:promo })
+		console.log({sms:data.sms, promo })
 		//@ts-ignore
-		checkSMS({sms:data.sms, promo:promo })
+		checkSMS({sms:data.sms, promo})
 	}
 
 	return (
