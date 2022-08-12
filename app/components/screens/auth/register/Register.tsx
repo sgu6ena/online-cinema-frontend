@@ -47,7 +47,7 @@ const Register = () => {
 					{formState.isSubmitted && isRegistered && !isLoading && (
 						<Heading
 							title="Проверьте вашу электронную почту для завершения регистрации"
-							className="text-gray-500 text-xl mb-3"
+							className="text-gray-500 text-xl mb-8"
 						/>
 					)}
 					{!formState.isSubmitted && !isLoading && (
@@ -55,7 +55,7 @@ const Register = () => {
 							<Heading title={'Регистрация'} className="mb-3" />
 							<Heading
 								title="Зарегистрируйтесь для просмотра  фильмов и сериалов"
-								className="text-gray-600 text-xl mb-3"
+								className="text-gray-500 text-xl mb-8"
 							/>
 							<RegisterFields register={registerInput} formState={formState} />
 

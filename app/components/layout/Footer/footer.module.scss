@@ -1,0 +1,18 @@
+.footer{
+  @apply flex p-layout gap-10 items-stretch text-gray-500;    ul{
+                                                                li{
+                                                                  @apply py-2;
+                                                                }
+                                                              }
+  .first{
+    @apply w-1/4 text-lg;
+
+
+  }
+  .second{
+    @apply w-1/4 text-lg;
+  }
+  .last{
+    @apply  w-1/2;
+  }
+}

@@ -18,13 +18,9 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 						[styles.vertical]: variant === 'vertical',
 					})}
 				>
-					<Image
+					<img
 						src={item.posterPath || './images/posters/no_poster.jpg'}
 						alt={item.name}
-						layout='fill'
-						draggable={false}
-						priority
-						unoptimized
 					/>
 					<div className={styles.tags}>
 						<div className={cn(styles.tag, item.access&&styles.pay)}> {item.access ? 'Платно' : 'Бесплатно'}</div>

@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import {IAuthResponse, ITokens} from '../../store/user/user.interface'
 
 export const saveTokensStorage = (data: ITokens) => {
-    Cookies.set('token', data.token)
+    Cookies.set('atp', data.token)
     // Cookies.set('refreshToken', data.refreshToken)
 }
 
@@ -15,6 +15,6 @@ export const saveToStorage = (data: { user: IAuthResponse, token: ITokens }) => 
 }
 
 export const removeTokensStorage = () => {
-    Cookies.remove('token')
+    Cookies.remove('atp')
     // Cookies.remove('refreshToken')
 }

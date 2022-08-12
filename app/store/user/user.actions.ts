@@ -1,11 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-
 import { AuthService } from '../../api/auth/auth.service'
 import { toastError } from '../../utils/toast-error'
 
-import { IAuthResponse, ILoginPassword, IRegister, ITokens } from './user.interface'
+import { IAuthResponse, ILoginPassword, IRegister,  ITokens } from './user.interface'
 import { toast } from 'react-hot-toast'
+import Cookies from 'js-cookie'
+import { PortalService } from '../../api/portal.service'
 
 export const register = createAsyncThunk<IAuthResponse, IRegister>(
 	'register',
@@ -27,6 +28,7 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 		try {
 			const response = await AuthService.login(login, password)
 			toast.success('Вы успешно вошли')
+			Cookies.set('atp', response.token)
 			return response
 		} catch (error) {
 			toastError(error)
@@ -39,3 +41,4 @@ export const logout = createAsyncThunk(
 	'logout',
 	async (_, thunkApi) => await AuthService.logout(),
 )
+

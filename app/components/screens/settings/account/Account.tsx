@@ -1,19 +1,18 @@
 import { FC } from 'react'
 
-import SkeletonLoader from '../../ui/SkeletonLoader'
-import Heading from '../../ui/heading/Heading'
+import { useAuth } from '../../../../hooks/useAuth'
+import SkeletonLoader from '../../../ui/SkeletonLoader'
+import Heading from '../../../ui/heading/Heading'
+import styles from '../settings.module.scss'
 
-import { useProfile } from './useProfile'
-
-const Profile: FC = () => {
-	const { user, isLoading } = useProfile()
-
+const Account: FC = () => {
+	const { user, isLoading } = useAuth()
 	return (
-		<div className="p-layout">
-			<Heading title={'Профиль'} className="mb-5" />{' '}
+		<div>
+			<Heading title={'АККАУНТ'} className="mb-5" />
 			{isLoading && <SkeletonLoader />}
 			{user && (
-				<div className="text-white text-lg  ">
+				<div className={styles.card}>
 					<img
 						src={user.avatar}
 						alt={user.login}
@@ -30,4 +29,4 @@ const Profile: FC = () => {
 	)
 }
 
-export default Profile
+export default Account

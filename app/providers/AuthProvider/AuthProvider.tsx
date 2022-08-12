@@ -24,7 +24,7 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 	// }, [])
 
 	useEffect(() => {
-		const token = Cookies.get('token')
+		const token = Cookies.get('atp')
 		if (!token && user) logout()
 	}, [pathname])
 
