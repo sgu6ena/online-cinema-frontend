@@ -32,12 +32,17 @@
       }
 
       .footer {
+        @apply flex flex-col gap-2;
         button {
           @apply w-full;
         }
 
+        .cancel {
+          @apply bg-gray-800 text-gray-300;
+        }
+
         p {
-          @apply mt-4 text-xs text-gray-600 ;
+          @apply mt-4 text-sm text-gray-500 ;
         }
       }
     }

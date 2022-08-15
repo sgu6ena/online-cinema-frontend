@@ -1,12 +1,12 @@
 import { FC } from 'react'
 
-import { useLoadingSendSMS } from '../../../../../hooks/useSettings'
+import {  useSettings } from '../../../../../hooks/useSettings'
 
 import SendSms from './SendSms'
 import CodeFromSms from './CodeFromSms'
 
 const Pay: FC = () => {
-	const { isLoading, isSmsSend } = useLoadingSendSMS()
+	const { isLoading, isSmsSend } = useSettings()
 
 	return (
 		<>

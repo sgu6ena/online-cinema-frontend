@@ -8,11 +8,6 @@ import Heading from '../../../../ui/heading/Heading'
 import Button from '../../../../ui/form-elemets/Button'
 import { useRuble } from '../../../../../hooks/useAuth'
 
-interface ICodeFromSms {
-	phone: string
-	acceptTerms: boolean
-}
-
 const CodeFromSms:FC = () => {
 	const { checkSMS } = useActions()
 	const { register, handleSubmit, formState } = useForm<ICheckSms>({
@@ -21,9 +16,7 @@ const CodeFromSms:FC = () => {
 
 	const promo = useRuble()
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		console.log({sms:data.sms, promo })
-		//@ts-ignore
-		checkSMS({sms:data.sms, promo})
+		checkSMS({sms:data.sms, promo:promo||true})
 	}
 
 	return (

@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast'
 import { PortalService } from '../../api/portal.service'
 import { toastError } from '../../utils/toast-error'
 
-import { ICheckSms, ISendSms } from './settings.interface'
+import { IChangePassword, ICheckSms, ISendSms } from './settings.interface'
 
 export const sendSMS = createAsyncThunk<any, ISendSms>(
 	'sendSMS',
@@ -26,6 +26,20 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 		try {
 			const response = await PortalService.checkSms(sms, promo)
 			toast.success('ок')
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+)
+
+export const changePassword = createAsyncThunk<any, IChangePassword>(
+	'changePassword',
+	async ({ passwordOld,password }, thunkApi) => {
+		try {
+			const response = await PortalService.changePass(passwordOld, password)
+			toast.success('Пароль был изменен')
 			return response
 		} catch (error) {
 			toastError(error)
