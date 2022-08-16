@@ -4,6 +4,7 @@
     "title": "Portal API",
     "version": "0.0.1"
   },
+
   "servers": [
     {
       "url": "https://api.portal.idc.md/api/"
@@ -105,12 +106,22 @@
         }
       }
     },
-    "/get_pass/:id": {
+    "/get_pass/{id}": {
       "get": {
         "tags": [
           "profile"
         ],
         "summary": "забыли пароль",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -471,6 +482,11 @@
       }
     }
   },
+  "security": [
+    {
+
+    }
+  ],
   "components": {
     "schemas": {
       "Auth": {
