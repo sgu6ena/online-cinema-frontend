@@ -275,18 +275,15 @@
         "summary": "Запро отправить смс для подтверждения покупки подписки",
         "description": "44",
         "operationId": "sendSms",
-        "produces": [
-          "application/json"
-        ],
         "parameters":[{
           "name": "phone",
           "required": true,
-          "type": "string"
+          "in": "path"
         },
           {
             "name": "promo",
             "required": true,
-            "type": "boolean"
+            "in": "path"
           }
         ],
 
