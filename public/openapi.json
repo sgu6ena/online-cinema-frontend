@@ -278,8 +278,10 @@
         "requestBody": {
           "description": "Вход с помощью  логина и пароля. В качестве логина может быть и email",
           "content": {
-            "phone": "77814920",
-            "promo": true
+            "application/json": {
+              "phone": "77814920",
+              "promo": true
+            }
           },
           "required": true
         },
