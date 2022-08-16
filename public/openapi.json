@@ -147,12 +147,32 @@
         }
       }
     },
-    "/file/category/{:cid}/{:limit}": {
+    "/file/category/{cid}/{limit}": {
       "get": {
         "tags": [
           "жанр"
         ],
         "summary": "для постраничного вывода - список фильмов из категории",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cid",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "allowEmptyValue": true,
+            "example": 12
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -160,12 +180,22 @@
         }
       }
     },
-    "/file/{:id}": {
+    "/file/{id}": {
       "get": {
         "tags": [
           "фильм"
         ],
         "summary": "информация о файле",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -179,6 +209,16 @@
           "фильм"
         ],
         "summary": "id - номер серии !!! берётся из массива media в методе file",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -192,6 +232,18 @@
           "фильм"
         ],
         "summary": "история просмотра",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "allowEmptyValue": true,
+            "example": 12
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -205,6 +257,18 @@
           "фильм"
         ],
         "summary": "избранное",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "allowEmptyValue": true,
+            "example": 12
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -218,6 +282,16 @@
           "фильм"
         ],
         "summary": "добавить/удалить из избранного",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -231,6 +305,24 @@
           "фильм"
         ],
         "summary": "id фильма, 0 - убрать голос, 1 дизлайк, 2 хз, 3 лайк",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "vote",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Успешно"
@@ -244,6 +336,18 @@
           "фильм"
         ],
         "summary": "поиск ",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "allowEmptyValue": true,
+            "example": 12
+          }
+        ],
         "description": "country_list - список id стран через разделитель |genre_list - список id жанров через разделитель |year - год (по справочнику)query - часть названия фильма",
         "responses": {
           "200": {
@@ -265,28 +369,33 @@
         }
       }
     },
-
-
     "/sendSMS": {
       "post": {
         "tags": [
           "profile"
         ],
         "summary": "Запро отправить смс для подтверждения покупки подписки",
-        "description": "44",
         "operationId": "sendSms",
-        "parameters":[{
-          "name": "phone",
+        "requestBody": {
           "required": true,
-          "in": "path"
-        },
-          {
-            "name": "promo",
-            "required": true,
-            "in": "path"
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "phone": {
+                    "type": "number",
+                    "example": 77814920
+                  },
+                  "promo": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
           }
-        ],
-
+        },
         "responses": {
           "200": {
             "description": "Успешно"
@@ -303,11 +412,20 @@
         "description": "33",
         "operationId": "checkSMS",
         "requestBody": {
-          "description": "",
+          "required": true,
           "content": {
-            "code": "5555"
-          },
-          "required": true
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "example": 999999
+                  }
+                }
+              }
+            }
+          }
         },
         "responses": {
           "200": {
@@ -327,8 +445,21 @@
         "requestBody": {
           "description": "Вход с помощью  логина и пароля. В качестве логина может быть и email",
           "content": {
-            "password": "555555",
-            "passwordOld": "555555"
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "passwordOld": {
+                    "type": "string",
+                    "example": "999999"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "777777"
+                  }
+                }
+              }
+            }
           },
           "required": true
         },
