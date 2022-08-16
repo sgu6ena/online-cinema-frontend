@@ -275,16 +275,21 @@
         "summary": "Запро отправить смс для подтверждения покупки подписки",
         "description": "44",
         "operationId": "sendSms",
-        "requestBody": {
-          "description": "Вход с помощью  логина и пароля. В качестве логина может быть и email",
-          "content": {
-            "application/json": {
-              "phone": "77814920",
-              "promo": true
-            }
-          },
-          "required": true
+        "produces": [
+          "application/json"
+        ],
+        "parameters":[{
+          "name": "phone",
+          "required": true,
+          "type": "string"
         },
+          {
+            "name": "promo",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+
         "responses": {
           "200": {
             "description": "Успешно"
