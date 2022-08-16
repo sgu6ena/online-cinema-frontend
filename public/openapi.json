@@ -297,7 +297,7 @@
         ],
         "summary": "Подтверждения - ввести код из смс",
         "description": "33",
-        "operationId": "sendSms",
+        "operationId": "checkSMS",
         "requestBody": {
           "description": "",
           "content": {
