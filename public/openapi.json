@@ -185,6 +185,72 @@
           }
         }
       }
+    },
+    "/history/{limit}": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "история просмотра",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/bookmark/{limit}": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "избранное",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/bookmark/change/{id}": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "добавить/удалить из избранного",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/like/{id}/{vote}": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "id фильма, 0 - убрать голос, 1 дизлайк, 2 хз, 3 лайк",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/searchExt/{limit} ": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "поиск ",
+        "description": "\ncountry_list - список id стран через разделитель |\ngenre_list - список id жанров через разделитель |\nyear - год (по справочнику)\nquery - часть названия фильма",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
     }
   },
   "components": {
