@@ -40,6 +40,19 @@
         }
       }
     },
+    "/listFilter": {
+      "get": {
+        "tags": [
+          "главная"
+        ],
+        "summary": "Список фильтров",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос"
+          }
+        }
+      }
+    },
     "/get_token": {
       "post": {
         "tags": [
@@ -127,6 +140,45 @@
           "profile"
         ],
         "summary": "отказаться от подписки",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/file/category/{:cid}/{:limit}": {
+      "get": {
+        "tags": [
+          "жанр"
+        ],
+        "summary": "для постраничного вывода - список фильмов из категории",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/file/{:id}": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "информация о файле",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/file/url/{id}": {
+      "get": {
+        "tags": [
+          "фильм"
+        ],
+        "summary": "id - номер серии !!! берётся из массива media в методе file",
         "responses": {
           "200": {
             "description": "Успешно"
