@@ -74,4 +74,5 @@ const ChangePass: FC<IChangePass> = ({ setIsShow }) => {
 	)
 }
 
+
 export default ChangePass

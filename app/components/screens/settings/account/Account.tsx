@@ -24,26 +24,19 @@ const Account: FC = () => {
 				<>
 					<table className={styles.table}>
 						<tbody>
-						<tr>
-							<td>Логин</td>
-							<td><span>{user.login}</span></td>
-						</tr>
-						<tr>
-							<td>Пароль</td>
+						<tr><td>Логин</td>
+							<td><span>{user.login}</span></td></tr>
+						<tr><td>Пароль</td>
 							<td>********</td>
-							<td align='right' onClick={() => setShowModal(true)}>Изменить пароль</td>
-						</tr>
-						<tr>
-							<td>E-mail</td>
+							<td align='right' onClick={() => setShowModal(true)}>Изменить пароль</td></tr>
+						<tr><td>E-mail</td>
 							<td><span>{user.email}</span></td>
-							<td align='right'>Изменить email</td>
+							{/*<td align='right'>Изменить email</td>*/}
 						</tr>
-						<tr>{user.name &&
-							<>
+						<tr>{user.name &&<>
 								<td>Имя</td>
 								<td><span>{user.name}</span></td>
-							</>}
-						</tr>
+							</>}</tr>
 						</tbody>
 					</table>
 				</>

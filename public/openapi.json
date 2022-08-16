@@ -1,0 +1,178 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Portal API",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "https://api.portal.idc.md/api/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "главная",
+      "description": "Информация для отображения на главной странице"
+    },
+    {
+      "name": "profile"
+    },
+    {
+      "name": "фильм"
+    },
+    {
+      "name": "жанр"
+    }
+  ],
+  "paths": {
+    "/main": {
+      "get": {
+        "tags": [
+          "главная"
+        ],
+        "summary": "Получение информации для главной страницы",
+        "description": "Отображение подборок и слайдеров на главной",
+        "operationId": "getMain",
+        "responses": {
+          "200": {
+            "description": "Успешный запрос"
+          }
+        }
+      }
+    },
+    "/get_token": {
+      "post": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "Авторизация и получение токена",
+        "description": "Вход в аккаунт",
+        "operationId": "getToken",
+        "requestBody": {
+          "description": "Вход с помощью  логина и пароля. В качестве логина может быть и email",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Auth"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Успешная авторизация",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthOk"
+                }
+              }
+            }
+          },
+          "490": {
+            "description": "Указанный логин/email не существует"
+          }
+        }
+      }
+    },
+    "/getUserProfile": {
+      "get": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "получение данных пользователя",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          },
+          "490": {
+            "description": "Отсутствует токен"
+          }
+        }
+      }
+    },
+    "/get_pass/:id": {
+      "get": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "забыли пароль",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          },
+          "490": {
+            "description": "Отсутствует токен"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "выйти",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/unsubscription": {
+      "get": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "отказаться от подписки",
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Auth": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string",
+            "format": "string",
+            "example": "000000"
+          },
+          "password": {
+            "type": "string",
+            "format": "string",
+            "example": "666666"
+          }
+        }
+      },
+      "AuthOk": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "number",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "string",
+                "example": "варыловарылоарлыовр"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
