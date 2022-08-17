@@ -2,10 +2,18 @@ import { IUserData } from '../components/screens/settings/user.interface'
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
-import { checkSMS, getMoviesUrl, sendSMS } from '../config/api.config'
+import {
+	activatePromocode,
+	changePass,
+	checkSMS,
+	getMoviesUrl,
+	sendSMS,
+	smartTv,
+	unsubscribe,
+} from '../config/api.config'
 import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { IListFilter } from '../shared/types/seaarch.types'
-import { ICheckSms, ISendSms } from '../store/settings/settings.interface'
+import { IChangePassword, ICheckSms, ISendSms } from '../store/settings/settings.interface'
 
 import axios, { axiosClassicPortal } from './interceptors'
 
@@ -120,6 +128,25 @@ export const PortalService = {
 			sms,
 			promo,
 		})
+		return response
+	},
+	async changePass(passwordOld: string, password: string) {
+		const response = await axios.post<any, IChangePassword>(changePass(), {
+			passwordOld,
+			password,
+		})
+		return response
+	},
+	async unsubscribe() {
+		const response = await axios.get<any, void>(unsubscribe())
+		return response
+	},
+	async activateSmart(code:string) {
+		const response = await axios.get<any, any>(smartTv(code))
+		return response
+	},
+	async activatePromocode(code:string) {
+		const response = await axios.get<any, any>(activatePromocode(code))
 		return response
 	},
 }

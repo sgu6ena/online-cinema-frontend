@@ -1,7 +1,13 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react';
 
-import styles from './modalPay.module.scss'
-import { useActions } from '../../../../../hooks/useActions'
+
+
+import { useActions } from '../../../../../hooks/useActions';
+
+
+
+import styles from './modalPay.module.scss';
+
 
 interface IModal {
 	setIsShow: (isShow: boolean) => void

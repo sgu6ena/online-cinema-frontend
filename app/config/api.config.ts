@@ -6,3 +6,7 @@ export const getGenresUrl = (string: string | number) => `/genres/${string}`
 export const getMoviesUrl = (string: string) => `/movies/${string}`
 export const sendSMS = () => '/sendSMS'
 export const checkSMS = () => '/checkSMS'
+export const changePass = () =>'/updatePassword'
+export const unsubscribe = () =>'/unsubscribe'
+export const smartTv = (code:string)=> `/smartTV/active/${code}`
+export const activatePromocode = (code:string)=> `/promocode/${code}`

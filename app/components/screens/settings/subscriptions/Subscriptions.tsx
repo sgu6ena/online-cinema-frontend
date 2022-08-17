@@ -10,6 +10,7 @@ import styles from '../settings.module.scss'
 
 import Pay from './ModalPay/Pay'
 import Modal from './ModalPay/Modal'
+import Unsubscribe from './ModalPay/Unsubscribe'
 
 const Subscriptions: FC = () => {
 	const { user, isLoading } = useAuth()
@@ -67,7 +68,8 @@ const Subscriptions: FC = () => {
 					</div>
 				)}
 				{isSubscribed ? (
-					<Button className='bg-gray-600'>Отменить подписку</Button>
+					<button className='bg-gray-600 p-2 rounded-layout' onClick={() => setShowModal(!isShowModal)}>Отменить
+						подписку</button>
 				) : (
 					<Button onClick={() => setShowModal(!isShowModal)}>
 						Оформить подписку
@@ -75,7 +77,9 @@ const Subscriptions: FC = () => {
 				)}
 			</div>
 
-			{isShowModal && <Modal setIsShow={setShowModal}><Pay /> </Modal>}
+				{isShowModal && <Modal setIsShow={setShowModal}>
+				{isSubscribed ? <Unsubscribe setIsShow={setShowModal} /> : <Pay />}
+			</Modal>}
 		</div>
 	)
 }

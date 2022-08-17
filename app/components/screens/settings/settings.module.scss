@@ -48,4 +48,14 @@ $center: 50%;
   .subtitle {
     @apply text-sm text-gray-500;
   }
+
+
+
+
+}
+.table{
+  @apply my-6 bg-gray-700 w-full max-w-5xl p-10 rounded-2xl bg-opacity-50 text-gray-300 text-shadow;
+  td{
+    @apply px-6 py-3 text-xs uppercase;
+  }
 }

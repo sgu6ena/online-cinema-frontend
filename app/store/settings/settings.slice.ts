@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { sendSMS } from './settings.actions'
+import { changePassword, promocode, sendSMS, smartActive, unsubscribe } from './settings.actions'
 import { initialState } from './settings.interface'
+
 
 export const settingsSlice = createSlice({
 	name: 'settings',
@@ -23,6 +24,46 @@ export const settingsSlice = createSlice({
 			.addCase(sendSMS.rejected, (state) => {
 				state.isLoading = false
 			})
+			.addCase(changePassword.pending, (state) => {
+				state.isLoading = true
+				state.isError = false
+			})
+			.addCase(changePassword.fulfilled, (state) => {
+				state.isLoading = false
+				state.isError = false
+			})
+			.addCase(changePassword.rejected, (state) => {
+				state.isLoading = false
+				state.isError = true
+			})
+			.addCase(unsubscribe.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(unsubscribe.fulfilled, (state) => {
+				state.isLoading = false
+			})
+			.addCase(unsubscribe.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(smartActive.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(smartActive.fulfilled, (state) => {
+				state.isLoading = false
+			})
+			.addCase(smartActive.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(promocode.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(promocode.fulfilled, (state) => {
+				state.isLoading = false
+			})
+			.addCase(promocode.rejected, (state) => {
+				state.isLoading = false
+			})
+
 	},
 })
 
