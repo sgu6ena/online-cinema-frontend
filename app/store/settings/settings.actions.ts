@@ -17,7 +17,7 @@ export const sendSMS = createAsyncThunk<any, ISendSms>(
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
-	}
+	},
 )
 
 export const checkSMS = createAsyncThunk<any, ICheckSms>(
@@ -31,12 +31,12 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
-	}
+	},
 )
 
 export const changePassword = createAsyncThunk<any, IChangePassword>(
 	'changePassword',
-	async ({ passwordOld,password }, thunkApi) => {
+	async ({ passwordOld, password }, thunkApi) => {
 		try {
 			const response = await PortalService.changePass(passwordOld, password)
 			toast.success('Пароль был изменен')
@@ -45,5 +45,18 @@ export const changePassword = createAsyncThunk<any, IChangePassword>(
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
-	}
+	},
+)
+
+export const unsubscribe = createAsyncThunk<any, void>(
+	'unsubscribe',
+	async (_, thunkApi) => {
+		try {
+			const response = await PortalService.unsubscribe()
+			toast.success('Подписка была отменена')
+			return response
+		} catch (error) {
+			toastError('Произошла ошибка')
+		}
+	},
 )

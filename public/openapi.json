@@ -7,6 +7,9 @@
   "servers": [
     {
       "url": "https://api.portal.idc.md/api/"
+    },
+    {
+      "url": "http://api.portal.idc.md/api/"
     }
   ],
   "tags": [
@@ -332,6 +335,34 @@
             "name": "id",
             "schema": {
               "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
+    "/smartTV/active/{id}": {
+      "get": {
+        "tags": [
+          "settings"
+        ],
+        "summary": "активировать на смарт тв",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
             },
             "required": true
           }

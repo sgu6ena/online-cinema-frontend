@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import {  useSettings } from '../../../../../hooks/useSettings'
+import { useSettings } from '../../../../../hooks/useSettings'
 
-import SendSms from './SendSms'
 import CodeFromSms from './CodeFromSms'
+import SendSms from './SendSms'
 
 const Pay: FC = () => {
 	const { isLoading, isSmsSend } = useSettings()

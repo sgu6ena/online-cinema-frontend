@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { changePassword, sendSMS } from './settings.actions'
+import { changePassword, sendSMS, unsubscribe } from './settings.actions'
 import { initialState } from './settings.interface'
 
 
@@ -36,6 +36,19 @@ export const settingsSlice = createSlice({
 				state.isLoading = false
 				state.isError = true
 			})
+			.addCase(unsubscribe.pending, (state) => {
+				state.isLoading = true
+				state.isError = false
+			})
+			.addCase(unsubscribe.fulfilled, (state) => {
+				state.isLoading = false
+				state.isError = false
+			})
+			.addCase(unsubscribe.rejected, (state) => {
+				state.isLoading = false
+				state.isError = true
+			})
+
 	},
 })
 

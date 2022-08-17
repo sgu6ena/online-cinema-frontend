@@ -7,3 +7,5 @@ export const getMoviesUrl = (string: string) => `/movies/${string}`
 export const sendSMS = () => '/sendSMS'
 export const checkSMS = () => '/checkSMS'
 export const changePass = () =>'/updatePassword'
+export const unsubscribe = () =>'/unsubscribe'
+export const smartTv = (id:string)=> `/smartTV/active/${id}`

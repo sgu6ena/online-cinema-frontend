@@ -11,3 +11,5 @@ const Devices: FC = () => {
 }
 
 export default Devices
+
+

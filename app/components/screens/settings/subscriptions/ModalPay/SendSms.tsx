@@ -1,12 +1,15 @@
-import React, { FC } from 'react'
-import styles from './modalPay.module.scss'
-import Heading from '../../../../ui/heading/Heading'
-import Field from '../../../../ui/form-elemets/Field'
-import Link from 'next/link'
-import { LINKS } from '../../../../../config/links'
-import Button from '../../../../ui/form-elemets/Button'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { useActions } from '../../../../../hooks/useActions'
+import Link from 'next/link';
+import React, { FC } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { LINKS } from '../../../../../config/links';
+import { useActions } from '../../../../../hooks/useActions';
+import Button from '../../../../ui/form-elemets/Button';
+import Field from '../../../../ui/form-elemets/Field';
+import Heading from '../../../../ui/heading/Heading';
+
+import styles from './modalPay.module.scss';
+
 
 interface ISendSms {
 	phone: string

@@ -1,14 +1,16 @@
-import React, { FC } from 'react'
-import { useActions } from '../../../../../hooks/useActions'
+import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { ICheckSms } from '../../../../../store/settings/settings.interface'
-import Field from '../../../../ui/form-elemets/Field'
-import styles from './modalPay.module.scss'
-import Heading from '../../../../ui/heading/Heading'
-import Button from '../../../../ui/form-elemets/Button'
-import { useRuble } from '../../../../../hooks/useAuth'
 
-const CodeFromSms:FC = () => {
+import { useActions } from '../../../../../hooks/useActions'
+import { useRuble } from '../../../../../hooks/useAuth'
+import { ICheckSms } from '../../../../../store/settings/settings.interface'
+import Button from '../../../../ui/form-elemets/Button'
+import Field from '../../../../ui/form-elemets/Field'
+import Heading from '../../../../ui/heading/Heading'
+
+import styles from './modalPay.module.scss'
+
+const CodeFromSms: FC = () => {
 	const { checkSMS } = useActions()
 	const { register, handleSubmit, formState } = useForm<ICheckSms>({
 		mode: 'onChange',
@@ -16,7 +18,7 @@ const CodeFromSms:FC = () => {
 
 	const promo = useRuble()
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		checkSMS({sms:data.sms, promo:promo||true})
+		checkSMS({ sms: data.sms, promo: promo || true })
 	}
 
 	return (

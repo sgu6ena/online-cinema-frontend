@@ -8,6 +8,7 @@ export const initialState: IState = {
 	isLoading: false,
 	isSmsSend: false,
 	isError: false,
+
 }
 
 export interface ISendSms {
