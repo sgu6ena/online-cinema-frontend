@@ -346,7 +346,7 @@
         }
       }
     },
-    "/smartTV/active/{id}": {
+    "/smartTV/active/{code}": {
       "get": {
         "tags": [
           "settings"
@@ -360,7 +360,8 @@
         "parameters": [
           {
             "in": "path",
-            "name": "id",
+            "name": "code",
+            "description": "введите код с экрана телевизора",
             "schema": {
               "type": "string"
             },
@@ -370,6 +371,9 @@
         "responses": {
           "200": {
             "description": "Успешно"
+          },
+          "490": {
+            "description": "неправильный код"
           }
         }
       }
