@@ -68,7 +68,8 @@ const Subscriptions: FC = () => {
 					</div>
 				)}
 				{isSubscribed ? (
-					<Button className='bg-gray-600' onClick={() => setShowModal(!isShowModal)}>Отменить подписку</Button>
+					<button className='bg-gray-600 p-2 rounded-layout' onClick={() => setShowModal(!isShowModal)}>Отменить
+						подписку</button>
 				) : (
 					<Button onClick={() => setShowModal(!isShowModal)}>
 						Оформить подписку
@@ -76,7 +77,9 @@ const Subscriptions: FC = () => {
 				)}
 			</div>
 
-			{isShowModal && <Modal setIsShow={setShowModal}> {isSubscribed?<Unsubscribe setIsShow={setShowModal}/>: <Pay />} </Modal>}
+				{isShowModal && <Modal setIsShow={setShowModal}>
+				{isSubscribed ? <Unsubscribe setIsShow={setShowModal} /> : <Pay />}
+			</Modal>}
 		</div>
 	)
 }

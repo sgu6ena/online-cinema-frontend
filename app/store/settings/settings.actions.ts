@@ -5,6 +5,7 @@ import { PortalService } from '../../api/portal.service'
 import { toastError } from '../../utils/toast-error'
 
 import { IChangePassword, ICheckSms, ISendSms } from './settings.interface'
+import { number } from 'prop-types'
 
 export const sendSMS = createAsyncThunk<any, ISendSms>(
 	'sendSMS',
@@ -54,6 +55,34 @@ export const unsubscribe = createAsyncThunk<any, void>(
 		try {
 			const response = await PortalService.unsubscribe()
 			toast.success('Подписка была отменена')
+			return response
+		} catch (error) {
+			toastError('Произошла ошибка')
+		}
+	},
+)
+
+
+export const smartActive = createAsyncThunk<any, { code: string }>(
+	'smartActive',
+	async ({ code }, thunkApi) => {
+		try {
+			const response = await PortalService.activateSmart(code)
+			toast.success('Успешно активировано')
+			return response
+		} catch (error) {
+			toastError('Произошла ошибка')
+		}
+	},
+)
+
+
+export const promocode = createAsyncThunk<any, { code: string }>(
+	'promocode',
+	async ({ code }, thunkApi) => {
+		try {
+			const response = await PortalService.activatePromocode(code)
+			toast.success('Промокод успешно активирован ')
 			return response
 		} catch (error) {
 			toastError('Произошла ошибка')

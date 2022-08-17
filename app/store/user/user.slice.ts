@@ -51,7 +51,6 @@ export const userSlice = createSlice({
 				state.isLoading = false
 				state.user = null
 				state.isRegistered = false
-
 			})
 	},
 })
