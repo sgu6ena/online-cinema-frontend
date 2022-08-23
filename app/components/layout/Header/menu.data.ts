@@ -84,22 +84,22 @@ export const headerMobileMenu: IMenuItem[] =
 export const headerNavMenu: IMenuItem[] = [
 	{
 		icon: 'MdLocalMovies',
-		link: '/favorites',
+		link: LINKS.FAVORITES ,
 		title: 'Мой PORTAL',
 	},
 	{
 		icon: 'MdMovieCreation',
-		link: '/genres/100',
+		link: LINKS.FILMS,
 		title: 'Фильмы',
 	},
 	{
 		icon: 'MdMovieFilter',
-		link: '/genres/39',
+		link: LINKS.SERIALS,
 		title: 'Сериалы',
 	},
 	{
 		icon: 'MdChildCare',
-		link: '/genres/20',
+		link: LINKS.MULTFILMS,
 		title: 'Мультфильмы',
 	},
 ]

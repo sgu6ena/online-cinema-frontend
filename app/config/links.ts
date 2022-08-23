@@ -7,7 +7,7 @@ export const LINKS = {
 	REGISTER: '/register', //регистрация
 	PROFILE: '/profile',//профиль
 	RUBLE: '/settings/subscriptions',//купить за рубль
-	FAVORITES: '/favorites', //избранное
+	FAVORITES: '/my/favorites', //избранное
 	HISTORY: '/history', //История просмотра
 	SEARCH: '/search', //поиск с фильтрами
 	SETTINGS: '/settings', //страница настроек
@@ -15,7 +15,9 @@ export const LINKS = {
 	PROMOCODE: '/settings/promocode', //промокод
 	DEVICES: '/settings/devices', //устройства
 	ACCOUNT: '/settings/account', //аккаунт
-
+	FILMS:'/genres/100',
+	SERIALS:'/genres/39',
+	MULTFILMS:'/genres/20',
 
 	 FEEDBACK:'/feedback'//Сообщить об ошибке
 }

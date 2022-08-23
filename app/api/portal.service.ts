@@ -17,6 +17,8 @@ import { IChangePassword, ICheckSms, ISendSms } from '../store/settings/settings
 
 import axios, { axiosClassicPortal } from './interceptors'
 
+const MOVIES_ON_PAGE = '24'
+
 interface IMain {
 	status: number
 	success: boolean
@@ -33,7 +35,7 @@ export const PortalService = {
 
 	async getCategory(slug: string | undefined = '0', page = '1') {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getCategoryUrl(slug) + '/20',
+			getCategoryUrl(slug) + '/'+ MOVIES_ON_PAGE,
 			{
 				params: {
 					page: page ? page.toString() : '1',
@@ -44,7 +46,7 @@ export const PortalService = {
 	},
 
 	async getBookmark(page: string = '1') {
-		const data = await axios.get(`bookmark/20`, {
+		const data = await axios.get(`bookmark/`+MOVIES_ON_PAGE, {
 			params: {
 				page: page ? page : '1',
 			},
@@ -101,7 +103,7 @@ export const PortalService = {
 		category: string,
 		page: string | number = '1',
 	) {
-		const data = await axiosClassicPortal.get(`searchExt/20`, {
+		const data = await axiosClassicPortal.get(`searchExt/`+MOVIES_ON_PAGE, {
 			params: {
 				query: query,
 				genre: genre,
