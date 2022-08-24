@@ -14,7 +14,8 @@ const My: FC = ({ children }) => {
 	const { user } = useAuth()
 	const isUser = !!user
 	return (
-		<div>
+		<div className={'px-layout'}>
+			<Heading title={'Я смотрю'} className={'py-8'} />
 			{!isUser ? (
 				<div className="mt-32 text-center">
 					<div className="mb-5 text-2xl">
@@ -23,8 +24,7 @@ const My: FC = ({ children }) => {
 					<AuthButton slug={asPath} />
 				</div>
 			) : (
-				<div className={'px-layout'}>
-					<Heading title={'Я смотрю'} className={'py-8'} />
+				<>
 					<ul className={' flex gap-10'}>
 						{myMenu.map((i) => (
 							<li
@@ -44,7 +44,7 @@ const My: FC = ({ children }) => {
 						))}
 					</ul>
 					{children}
-				</div>
+				</>
 			)}
 		</div>
 	)
