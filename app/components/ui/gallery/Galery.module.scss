@@ -46,7 +46,7 @@
   }
 
   &.vertical {
-    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-36 h-52 2xl:w-64  2xl:h-96 xl:w-56 xl:h-80;
+    @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-36 h-52 xl:w-64  xl:h-96;
   }
 
   &.horizontal {
@@ -74,10 +74,10 @@
 }
 
 .movies {
-  @apply xl:py-layout py-2 px-2 lg:px-0  grid lg:grid-cols-5 gap-y-10 xl:grid-cols-6 sm:grid-cols-4 xl:gap-x-10 lg:gap-x-5 sm:gap-x-5 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 sm:grid-cols-3 grid-cols-2;
+  @apply xl:py-layout py-2 px-2 lg:px-0  grid lg:grid-cols-4 gap-y-10 xl:grid-cols-6 sm:grid-cols-4 xl:gap-x-20 lg:gap-x-10 sm:gap-x-5 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 sm:grid-cols-3 grid-cols-2;
 
   > a {
-    @apply mx-auto mb-4 lg:w-40 sm:w-32 w-36 xl:w-56 2xl:w-64 animate-fade;
+    @apply mx-auto mb-4 lg:w-40 sm:w-32 w-36 xl:w-64  animate-fade;
   }
 }
 
