@@ -1,9 +1,10 @@
-import { toastError } from '../../../utils/toast-error'
-import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
-import { PortalService } from '../../../api/portal.service'
-import { IPagination } from '../../../shared/types/movie.types'
-import { useAuth } from '../../../hooks/useAuth'
+import { useQuery } from 'react-query'
+
+import { PortalService } from '../../../../api/portal.service'
+import { useAuth } from '../../../../hooks/useAuth'
+import { IPagination } from '../../../../shared/types/movie.types'
+import { toastError } from '../../../../utils/toast-error'
 
 export const useBookmarks = () => {
 	const { user } = useAuth()
@@ -22,13 +23,10 @@ export const useBookmarks = () => {
 				toastError(e, 'get bookmark')
 			},
 			enabled: isUser,
-		},
+		}
 	)
 	const movies = data?.data
 	const pagination = data?.pagination as IPagination
 
-
 	return { isLoading, movies, pagination, isUser }
 }
-
-

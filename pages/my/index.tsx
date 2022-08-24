@@ -2,8 +2,8 @@ import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import My from '../../app/components/screens/my/My'
 import { LINKS } from '../../app/config/links'
+import My from '../../app/components/screens/my/My'
 
 const MyPage: NextPage = () => {
 	const { push } = useRouter()
@@ -11,7 +11,7 @@ const MyPage: NextPage = () => {
 		push(LINKS.FAVORITES)
 	}, [])
 
-	return <My />
+	return <My/>
 }
 
 export default MyPage
