@@ -1,6 +1,5 @@
 import Settings from '../../app/components/screens/settings/Settings'
 import { NextPage } from 'next'
-import Account from '../../app/components/screens/settings/account/Account'
 import { useRouter } from 'next/router'
 import { LINKS } from '../../app/config/links'
 import { useEffect } from 'react'
