@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
+
 import My from '../../app/components/screens/my/My'
 
-import dynamic from 'next/dynamic'
 const DynamicHistory = dynamic(
 	() => import('../../app/components/screens/my/history/history'),
 	{
@@ -10,7 +11,11 @@ const DynamicHistory = dynamic(
 )
 
 const HistoryPage: NextPage = () => {
-	return <My><DynamicHistory /></My>
+	return (
+		<My>
+			<DynamicHistory />
+		</My>
+	)
 }
 
 export default HistoryPage
