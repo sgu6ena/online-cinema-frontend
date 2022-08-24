@@ -1,19 +1,20 @@
-import { IMenuItem } from '../../layout/Navigation/MenuContainer/menu.interface'
 import { LINKS } from '../../../config/links'
+import { IMenuItem } from '../../layout/Navigation/MenuContainer/menu.interface'
 
-export const myMenu: IMenuItem[] = [{
-	icon: 'MdBookmarkBorder',
-	link: LINKS.FAVORITES,
-	title: 'Мое Избранное',
-},
+export const myMenu: IMenuItem[] = [
+	{
+		icon: 'MdBookmarkBorder',
+		link: LINKS.FAVORITES,
+		title: 'Избранное',
+	},
 	{
 		icon: 'MdBookmarkBorder',
 		link: LINKS.HISTORY,
-		title: 'Моя история',
+		title: 'История просмотра',
 	},
 	{
 		icon: 'MdBookmarkBorder',
 		link: LINKS.RATING,
-		title: 'Мои оценки',
+		title: 'Оценки',
 	},
 ]
