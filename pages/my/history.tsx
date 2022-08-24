@@ -9,7 +9,6 @@ const DynamicHistory = dynamic(
 	}
 )
 
-
 const HistoryPage: NextPage = () => {
 	return <My><DynamicHistory /></My>
 }

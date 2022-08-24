@@ -17,8 +17,6 @@ import { IChangePassword, ICheckSms, ISendSms } from '../store/settings/settings
 
 import axios, { axiosClassicPortal } from './interceptors'
 
-const MOVIES_ON_PAGE = '24'
-
 interface IMain {
 	status: number
 	success: boolean
@@ -35,7 +33,7 @@ export const PortalService = {
 
 	async getCategory(slug: string | undefined = '0', page = '1') {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getCategoryUrl(slug) + '/'+ MOVIES_ON_PAGE,
+			getCategoryUrl(slug) + '/20',
 			{
 				params: {
 					page: page ? page.toString() : '1',
@@ -46,7 +44,7 @@ export const PortalService = {
 	},
 
 	async getBookmark(page: string = '1') {
-		const data = await axios.get(`bookmark/`+MOVIES_ON_PAGE, {
+		const data = await axios.get(`bookmark/20`, {
 			params: {
 				page: page ? page : '1',
 			},
@@ -54,14 +52,6 @@ export const PortalService = {
 		return data.data
 	},
 
-	async getHistory(page: string = '1') {
-		const data = await axios.get(`history/`+MOVIES_ON_PAGE, {
-			params: {
-				page: page ? page : '1',
-			},
-		})
-		return data.data
-	},
 	async getMain() {
 		const response = await axiosClassicPortal.get<IMain>('/main')
 		const slides: ISlide[] = response.data.data[0].items.map((m: any) => ({
@@ -111,7 +101,7 @@ export const PortalService = {
 		category: string,
 		page: string | number = '1',
 	) {
-		const data = await axiosClassicPortal.get(`searchExt/`+MOVIES_ON_PAGE, {
+		const data = await axiosClassicPortal.get(`searchExt/20`, {
 			params: {
 				query: query,
 				genre: genre,
