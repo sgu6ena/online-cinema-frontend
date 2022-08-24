@@ -346,6 +346,36 @@
         }
       }
     },
+    "/history/{limit}": {
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "История просмотра",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "limit",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "allowEmptyValue": true,
+            "example": 12
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешно"
+          }
+        }
+      }
+    },
     "/smartTV/active/{code}": {
       "get": {
         "tags": [
