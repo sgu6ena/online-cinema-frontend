@@ -54,6 +54,14 @@ export const PortalService = {
 		return data.data
 	},
 
+	async getHistory(page: string = '1') {
+		const data = await axios.get(`history/`+MOVIES_ON_PAGE, {
+			params: {
+				page: page ? page : '1',
+			},
+		})
+		return data.data
+	},
 	async getMain() {
 		const response = await axiosClassicPortal.get<IMain>('/main')
 		const slides: ISlide[] = response.data.data[0].items.map((m: any) => ({
