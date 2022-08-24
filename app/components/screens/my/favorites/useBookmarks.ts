@@ -1,9 +1,9 @@
-import { toastError } from '../../../utils/toast-error'
+import { toastError } from '../../../../utils/toast-error'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
-import { PortalService } from '../../../api/portal.service'
-import { IPagination } from '../../../shared/types/movie.types'
-import { useAuth } from '../../../hooks/useAuth'
+import { PortalService } from '../../../../api/portal.service'
+import { IPagination } from '../../../../shared/types/movie.types'
+import { useAuth } from '../../../../hooks/useAuth'
 
 export const useBookmarks = () => {
 	const { user } = useAuth()

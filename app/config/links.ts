@@ -8,7 +8,8 @@ export const LINKS = {
 	PROFILE: '/profile',//профиль
 	RUBLE: '/settings/subscriptions',//купить за рубль
 	FAVORITES: '/my/favorites', //избранное
-	HISTORY: '/history', //История просмотра
+	HISTORY: '/my/history', //История просмотра
+	RATING:'/my/rating', // мои оценки
 	SEARCH: '/search', //поиск с фильтрами
 	SETTINGS: '/settings', //страница настроек
 	SUBSCRIPTIONS: '/settings/subscriptions', //подписки
@@ -18,6 +19,7 @@ export const LINKS = {
 	FILMS:'/genres/100',
 	SERIALS:'/genres/39',
 	MULTFILMS:'/genres/20',
+
 
 	 FEEDBACK:'/feedback'//Сообщить об ошибке
 }

@@ -1,15 +1,16 @@
 import type { NextPage } from 'next'
-
-
 import dynamic from 'next/dynamic'
+import My from '../../app/components/screens/my/My'
 
-
-const DynamicFavorites = dynamic(() => import('../../app/components/screens/favorites/favorites'),{
-	ssr: false,
-})
+const DynamicFavorites = dynamic(
+	() => import('../../app/components/screens/my/favorites/favorites'),
+	{
+		ssr: false,
+	}
+)
 
 const FavoritesPage: NextPage = () => {
-	return <DynamicFavorites />
+	return <My><DynamicFavorites /></My>
 }
 
 export default FavoritesPage
