@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import Logo from '../Header/Logo'
 import MenuContainer from './MenuContainer/MenuContainer'
 import styles from './Navigation.module.scss'
 
