@@ -1,6 +1,6 @@
 .container {
   @apply xl:py-layout justify-center gap-y-14 py-2 px-2 lg:px-0 xl:px-5 grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 sm:grid-cols-4
-  gap-1 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-2;
+  gap-1 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-2 ;
 }
 
 .mainContainer {
@@ -23,6 +23,6 @@
 }
 
 .mainBanner {
-  @apply rounded m-auto h-full w-full;
+  @apply rounded m-auto h-full w-full ;
   aspect-ratio: 147/40;
 }

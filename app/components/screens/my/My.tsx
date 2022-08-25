@@ -25,7 +25,7 @@ const My: FC = ({ children }) => {
 				</div>
 			) : (
 				<>
-					<ul className={' flex gap-10'}>
+					<ul className={' flex lg:gap-10 gap-4 md:flex-row flex-col xl:mb-1 mb-5 '}>
 						{myMenu.map((i) => (
 							<li
 								key={i.link}
@@ -34,7 +34,7 @@ const My: FC = ({ children }) => {
 										'text-primary': asPath.split('?')[0] === i.link,
 										'text-gray-300': asPath.split('?')[0] !== i.link,
 									},
-									'text-md underline underline-offset-4 font-bold uppercase'
+									'lg:text-md text-sm underline underline-offset-4 font-bold uppercase'
 								)}
 							>
 								<Link href={i.link}>
