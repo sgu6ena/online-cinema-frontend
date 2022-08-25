@@ -1,9 +1,14 @@
 import { NextPage } from 'next'
-import Admin from '../../app/components/screens/admin/Admin'
 
+import Actors from '../../app/components/screens/admin/actors/actors'
+import Admin from '../../app/components/screens/admin/admin'
 
 const ActorsPage: NextPage = () => {
-	return <Admin />
+	return (
+		<Admin>
+			<Actors />
+		</Admin>
+	)
 }
 
 export default ActorsPage
