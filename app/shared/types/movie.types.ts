@@ -26,6 +26,8 @@ export interface IMovie {
 	videoUrl: string
 	rating: number
 	slug: string
+	season?:number
+	episode?:number
 }
 export  interface IMainGenreItem{
 	id: number

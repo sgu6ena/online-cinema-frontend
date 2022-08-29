@@ -15,10 +15,11 @@ const SearchField: FC<ISearchField> = ({ searchTerm, handleSearch }) => {
 	useEffect(() => {
 	}, [searchTerm])
 	return (
-		// <div className={styles.search}>
-		// 	<MaterialIcon name={'MdSearch'} />
-		// 	<input placeholder="Поиск" value={searchTerm} onChange={handleSearch} />
-		// </div>
+		<>
+		{/*<div className={styles.search}>*/}
+		{/*	<MaterialIcon name={'MdSearch'} />*/}
+		{/*	<input placeholder="Поиск" value={searchTerm} onChange={handleSearch} />*/}
+		{/*</div>*/}
 		<div className={styles.searchBox}>
 			<button
 				className={styles.btnSearch}>
@@ -30,7 +31,7 @@ const SearchField: FC<ISearchField> = ({ searchTerm, handleSearch }) => {
 							 handleSearch(e)
 						 }} />
 		</div>
-
+</>
 	)
 }
 

@@ -1,6 +1,7 @@
-import axios, {axiosClassicPortal} from './interceptors'
-import { APP_URL_PORTAL, getMovieUrl, sendBookmarkUrl, sendVoteUrl } from '../config/api-portal.config'
+import axios, {  axiosClassicPortal } from './interceptors'
+import {  getMovieUrl, sendBookmarkUrl, sendVoteUrl } from '../config/api-portal.config'
 import {  IMoviePortalPage } from '../shared/types/movie.types'
+import { getMoviesUrl } from '../config/api.config'
 
 export const PortalMovieService = {
     async getById(id: string) {
@@ -27,7 +28,6 @@ export const PortalMovieService = {
         const data = await axios.get<any>(
             sendBookmarkUrl(`${id}`),
         )
-
         return data.data
     },
 
@@ -36,8 +36,19 @@ export const PortalMovieService = {
         const data = await axios.get<any>(
             sendVoteUrl(`${id}`, vote),
         )
-
         return data.data
+    },
+
+    async create() {
+        return axios.post<string>(getMoviesUrl(''))
+    },
+
+    async update(_id: string, data: any) {
+        return axios.put<string>(getMoviesUrl(`/${_id}`), data)
+    },
+
+    async delete(_id: string) {
+        return axios.delete<string>(getMoviesUrl(`/${_id}`))
     },
 
 
