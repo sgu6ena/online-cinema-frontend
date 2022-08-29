@@ -23,4 +23,8 @@ export const navItems: INavItem[] = [
 		link: getAdminUrl('genres'),
 		title: 'Жанры',
 	},
+	{
+		link: getAdminUrl('banners'),
+		title: 'Баннеры',
+	},
 ]
