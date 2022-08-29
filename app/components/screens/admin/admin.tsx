@@ -8,7 +8,7 @@ const Admin: FC = ({ children }) => {
 		<div className={'py-layout'}>
 			<Heading title={'Админка'} className={'text-center pb-16'} />
 			<AdminNavigation />
-			<div className={'p-layout'}>{children}</div>
+			<div className={'px-layout'}>{children}</div>
 		</div>
 	)
 }
