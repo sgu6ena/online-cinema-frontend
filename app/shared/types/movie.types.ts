@@ -26,16 +26,16 @@ export interface IMovie {
 	videoUrl: string
 	rating: number
 	slug: string
-	season?:number
-	episode?:number
+	season?: number
+	episode?: number
 }
-export  interface IMainGenreItem{
+export interface IMainGenreItem {
 	id: number
 	title: string
 	url: string
 	color: string
 }
-export interface IMainGenres{
+export interface IMainGenres {
 	autoplay: boolean
 	infinite: boolean
 	items: IMainGenreItem[]
@@ -88,6 +88,8 @@ export interface IMoviePortal {
 	rate_kp: number
 	rate_imdb: number
 	vote: IVotePortal
+	season?:number
+	episode?:number
 }
 
 export interface IMoviePortalFull extends IMoviePortal {

@@ -12,7 +12,7 @@ export const movieSlice = createSlice({
 			.addCase(getMovie.pending, (state) => {
 				state.isLoading = true
 				state.movie = null
-				state.collection =initialState.collection
+				state.collection = initialState.collection
 			})
 			.addCase(
 				getMovie.fulfilled,

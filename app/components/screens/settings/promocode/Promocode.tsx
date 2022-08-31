@@ -7,14 +7,14 @@ import styles from '../settings.module.scss'
 import { useActions } from '../../../../hooks/useActions'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-const Promocode: FC = () => {
+const PromoCode: FC = () => {
 
-	const { promocode } = useActions()
+	const { promoCode } = useActions()
 	const { register, handleSubmit } = useForm({
 		mode: 'onChange',
 	})
 	const onSubmit: SubmitHandler<any> = (data) => {
-		promocode(data.code)
+		promoCode(data.code)
 	}
 	return (
 		<div>
@@ -33,4 +33,4 @@ const Promocode: FC = () => {
 	)
 }
 
-export default Promocode
+export default PromoCode

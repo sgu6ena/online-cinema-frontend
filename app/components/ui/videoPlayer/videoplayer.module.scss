@@ -12,7 +12,7 @@
 }
 
 .imageBox {
-  @apply relative bg-gray-950 p-0 ;
+  @apply relative bg-gray-950 p-0;
   //@include fade-bg-gradient-gor();
   aspect-ratio: 16/10;
   width: 600px;
@@ -28,6 +28,5 @@
     object-fit: contain;
     @apply rounded p-0 m-0;
     filter: blur(0px);
-
   }
 }

@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 import { PortalService } from '../../../../api/portal.service'
 import { useAuth } from '../../../../hooks/useAuth'
-import { IMovie, IPagination } from '../../../../shared/types/movie.types'
+import { IMoviePortal, IPagination } from '../../../../shared/types/movie.types'
 import { toastError } from '../../../../utils/toast-error'
 
 export const useHistory = () => {
@@ -20,16 +20,19 @@ export const useHistory = () => {
 				return data.data
 			},
 			onError: (e) => {
-				toastError(e, 'get history')
+				toastError(e)
 			},
 			enabled: isUser,
-		}
+		},
 	)
-	const movies = data?.data?.map((item:any)=>{
-		if (item.episode>0 && item.genre[0].name!=`Сезон ${item.season} · Серия ${item.episode}`)
-			item.genre.unshift( {name:`Сезон ${item.season} · Серия ${item.episode}`})
-		return	item
-	})
+	const movies = data?.data
+	// const movies = data?.data?.map((item: IMoviePortal) => {
+	// 	const seasonEpisode = `Сезон ${item.season} · Серия ${item.episode}`
+	// 	if (item?.episode && item?.episode > 0 && item.genre[0].name !== seasonEpisode)
+	// 		item.genre.unshift({ name: seasonEpisode, id:'99999' })
+	//
+	// 	return item
+	// })
 
 	const pagination = data?.pagination as IPagination
 	return { isLoading, movies, pagination, isUser }

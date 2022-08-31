@@ -1,5 +1,6 @@
-import { IFilter } from '../../shared/types/seaarch.types'
-import { IMoviePortal, IPagination } from '../../shared/types/movie.types'
+import { IMoviePortal, IPagination } from '../../shared/types/movie.types';
+import { IFilter } from '../../shared/types/seaarch.types';
+
 
 export interface ISearchState extends IFilter {
 	isLoadingFilters: boolean
@@ -7,7 +8,6 @@ export interface ISearchState extends IFilter {
 	// data:IMoviePortalPerPage
 	movies: IMoviePortal[]
 	pagination: IPagination
-
 }
 
 export const initialState: ISearchState = {

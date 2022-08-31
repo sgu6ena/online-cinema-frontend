@@ -22,7 +22,11 @@ const Gallery: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 						age: movie.rate_age,
 						rate_kp: movie.rate_kp,
 						rate_imdb: movie.rate_imdb,
-						genres:movie.genre
+						genres:movie.genre,
+						content:movie.season?{
+							title:`Сезон ${movie.season} `,
+							subTitle:`Серия ${movie.episode} `
+						}:undefined
 					}}
 					variant="vertical"
 				/>

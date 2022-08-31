@@ -1,12 +1,17 @@
-import {FC} from 'react';
-import cn from "classnames";
+import cn from 'classnames'
+import { FC } from 'react'
 
-const Description: FC<{ text: string, className?: string }> = ({text, className = ''}) => {
-    return (
-        <div className={cn('text-lg font-light text-white text-opacity-60', className)}>
-            {text}
-        </div>
-    );
-};
+const Description: FC<{ text: string; className?: string }> = ({
+	text,
+	className = '',
+}) => {
+	return (
+		<div
+			className={cn('text-lg font-light text-white text-opacity-60', className)}
+		>
+			{text}
+		</div>
+	)
+}
 
-export default Description;
+export default Description

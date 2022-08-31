@@ -1,9 +1,9 @@
-interface IGenreIcon{
+interface IGenreIcon {
 	id: number
 	title: string
 	icon: string
 }
-export const genreIcons:IGenreIcon[] = [
+export const genreIcons: IGenreIcon[] = [
 	{
 		id: 1,
 		title: 'Аниме',
@@ -96,8 +96,8 @@ export const genreIcons:IGenreIcon[] = [
 		icon: './images/genres/tv.png',
 	},
 	{
-		id:0,
-		title:'икона по умолчанию',
-		icon:'./images/genres/tv.png'
-	}
+		id: 0,
+		title: 'икона по умолчанию',
+		icon: './images/genres/tv.png',
+	},
 ]

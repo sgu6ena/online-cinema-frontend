@@ -20,7 +20,7 @@ export const useBookmarks = () => {
 				return data.data
 			},
 			onError: (e) => {
-				toastError(e, 'get bookmark')
+				toastError(e)
 			},
 			enabled: isUser,
 		}

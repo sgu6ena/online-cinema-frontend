@@ -1,16 +1,17 @@
-import {FC} from 'react';
-import styles from "./AuthPlaсeholder.module.scss"
-import AuthButton from "./AuthButton";
+import { FC } from 'react'
 
-const AuthPlaceholder: FC<{ slug: string }> = ({slug}) => {
-    return (
-        <div className={styles.placeholder}>
-            <div>
-                <div>Для просмотра фильма вы должны войти</div>
-                <AuthButton slug={slug}/>
-            </div>
-        </div>
-    );
-};
+import AuthButton from './AuthButton'
+import styles from './AuthPlaсeholder.module.scss'
 
-export default AuthPlaceholder;
+const AuthPlaceholder: FC<{ slug: string }> = ({ slug }) => {
+	return (
+		<div className={styles.placeholder}>
+			<div>
+				<div>Для просмотра фильма вы должны войти</div>
+				<AuthButton slug={slug} />
+			</div>
+		</div>
+	)
+}
+
+export default AuthPlaceholder

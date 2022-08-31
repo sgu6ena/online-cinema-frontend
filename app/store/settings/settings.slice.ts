@@ -1,8 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { changePassword, promocode, sendSMS, smartActive, unsubscribe } from './settings.actions'
+import {
+	changePassword,
+	promoCode,
+	sendSMS,
+	smartActive,
+	unsubscribe,
+} from './settings.actions'
 import { initialState } from './settings.interface'
-
 
 export const settingsSlice = createSlice({
 	name: 'settings',
@@ -54,16 +59,15 @@ export const settingsSlice = createSlice({
 			.addCase(smartActive.rejected, (state) => {
 				state.isLoading = false
 			})
-			.addCase(promocode.pending, (state) => {
+			.addCase(promoCode.pending, (state) => {
 				state.isLoading = true
 			})
-			.addCase(promocode.fulfilled, (state) => {
+			.addCase(promoCode.fulfilled, (state) => {
 				state.isLoading = false
 			})
-			.addCase(promocode.rejected, (state) => {
+			.addCase(promoCode.rejected, (state) => {
 				state.isLoading = false
 			})
-
 	},
 })
 

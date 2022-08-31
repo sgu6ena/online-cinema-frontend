@@ -24,6 +24,23 @@
     );
   }
 }
+@mixin fade-bg-gradient2($direction: 90deg) {
+  &::before {
+    @apply w-full h-full rounded absolute  top-0 left-0 z-1;
+    content: '';
+
+    background: linear-gradient(
+                    $direction,
+                    #101215 0%,
+                    rgba(#101215, 0.6) 7.71%,
+                    rgba(#101215, 0.3) 10.11%,
+                    rgba(#101215, 0.1) 15%,
+                    rgba(#101215, 0.0) 20%
+
+
+    );
+  }
+}
 
 @mixin fade-bg-gradient-double($direction: 90deg) {
   &::before {
