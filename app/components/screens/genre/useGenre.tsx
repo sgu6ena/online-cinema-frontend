@@ -18,7 +18,7 @@ export const useGenre = () => {
 		{
 			onSuccess: (data) => data.data,
 			onError: (e) => {
-				toastError(e, 'get movie portal')
+				toastError(e)
 			},
 			enabled: !!query.id,
 		},
