@@ -5,7 +5,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../hooks/useActions'
 import { useSearch } from '../../../hooks/useSearchFilters'
-import { IList } from '../../../shared/types/seaarch.types'
+import { IList } from '../../../shared/types/search.types'
 import MaterialIcon from '../../ui/MaterialIcon'
 import Pagination from '../../ui/Pagination'
 import Field from '../../ui/form-elemets/Field'

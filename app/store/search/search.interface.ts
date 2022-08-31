@@ -1,5 +1,5 @@
 import { IMoviePortal, IPagination } from '../../shared/types/movie.types';
-import { IFilter } from '../../shared/types/seaarch.types';
+import { IFilter } from '../../shared/types/search.types';
 
 
 export interface ISearchState extends IFilter {
