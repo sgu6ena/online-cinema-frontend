@@ -1,10 +1,14 @@
-import Settings from '../../app/components/screens/settings/Settings'
 import { NextPage } from 'next'
-import Promocode from '../../app/components/screens/settings/promocode/Promocode'
 
-const PromocodePage: NextPage = () => {
-	return <Settings><Promocode/></Settings>
+import Settings from '../../app/components/screens/settings/Settings'
+import PromoCode from '../../app/components/screens/settings/promocode/Promocode'
+
+const PromoCodePage: NextPage = () => {
+	return (
+		<Settings>
+			<PromoCode />
+		</Settings>
+	)
 }
 
-
-export default PromocodePage
+export default PromoCodePage

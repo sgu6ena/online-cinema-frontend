@@ -1,14 +1,13 @@
 export interface IState {
 	isLoading: boolean
 	isSmsSend: boolean
-	isError:boolean
+	isError: boolean
 }
 
 export const initialState: IState = {
 	isLoading: false,
 	isSmsSend: false,
 	isError: false,
-
 }
 
 export interface ISendSms {

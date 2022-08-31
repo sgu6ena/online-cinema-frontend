@@ -1,18 +1,25 @@
-import { FC } from 'react'
-import { IMainGenreItem } from '../../../shared/types/movie.types'
 import Link from 'next/link'
-import { getGenreUrl } from '../../../config/url.config'
+import { FC } from 'react'
 
-import styles from "./genres.module.scss"
+import { getGenreUrl } from '../../../config/url.config'
+import { IMainGenreItem } from '../../../shared/types/movie.types'
+
 import { genreIcons } from './genreIcons'
+import styles from './genres.module.scss'
 
 const GenreItem: FC<{ genre: IMainGenreItem }> = ({ genre }) => {
 	return (
 		<Link href={getGenreUrl(genre.id.toString())}>
-			<a  className={styles.item} >
-					<img src={genreIcons.find(item=>item.id===genre.id)?.icon||genreIcons.find(item=>item.id===0)?.icon||''} className={styles.img}/>
-					{genre.title}
-
+			<a className={styles.item}>
+				<img
+					src={
+						genreIcons.find((item) => item.id === genre.id)?.icon ||
+						genreIcons.find((item) => item.id === 0)?.icon ||
+						''
+					}
+					className={styles.img}
+				/>
+				{genre.title}
 			</a>
 		</Link>
 	)

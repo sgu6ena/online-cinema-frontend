@@ -8,8 +8,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import MaterialIcon from '../MaterialIcon'
 import { ISlide } from '../slider/slider.interface'
-import SliderContent from './SliderContent'
 
+import SliderContent from './SliderContent'
 
 const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 	return (
@@ -27,7 +27,7 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 				<SwiperSlide
 					key={i.link}
 					style={{
-						background:"#101215",
+						background: '#101215',
 						maxHeight: '600px',
 						aspectRatio: '16/9',
 						maxWidth: '1300px',
@@ -39,10 +39,10 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 			))}
 
 			<button className={'arrow left z-20'}>
-				<MaterialIcon name='MdChevronRight' />
+				<MaterialIcon name="MdChevronRight" />
 			</button>
 			<button className={'arrow right z-10'}>
-				<MaterialIcon name='MdChevronLeft' />
+				<MaterialIcon name="MdChevronLeft" />
 			</button>
 		</Swiper>
 	)

@@ -1,8 +1,5 @@
-import {
-	IMoviePortalFull,
-	IVotePortal,
-} from '../../shared/types/movie.types'
 import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
+import { IMoviePortalFull, IVotePortal } from '../../shared/types/movie.types'
 
 export interface IMovieState {
 	movie: IMoviePortalFull | null
@@ -20,12 +17,12 @@ export const initialState: IMovieState = {
 	isLoading: false,
 	movie: null,
 	collection: {
-		title:'',
-		items:[],
-		cid:0,
-		autoplay:false,
-		infinite:false,
-		viewport:0
+		title: '',
+		items: [],
+		cid: 0,
+		autoplay: false,
+		infinite: false,
+		viewport: 0,
 	},
 	isFavorite: false,
 	isFavoriteLoading: false,

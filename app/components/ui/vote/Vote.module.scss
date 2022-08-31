@@ -1,21 +1,21 @@
 .vote {
-	@apply flex  gap-3;
-	button {
-		@apply border-white border-opacity-20 border px-4 py-2  opacity-50 rounded border;
-	}
+  @apply flex  gap-3;
+  button {
+    @apply border-white border-opacity-20 border px-4 py-2  opacity-50 rounded border;
+  }
 
-	.like {
-		color: green;
-	}
+  .like {
+    color: green;
+  }
 
-	.dislike {
-		@apply text-primary;
-	}
+  .dislike {
+    @apply text-primary;
+  }
 
-	.ats {
-	}
+  .ats {
+  }
 
-	.myVote {
-		@apply  opacity-100;
-	}
+  .myVote {
+    @apply opacity-100;
+  }
 }

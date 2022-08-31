@@ -1,7 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { initialState } from './video.interface'
-import { getUrl } from './video.actions'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+
 import { IMedia } from '../../shared/types/movie.types'
+
+import { getUrl } from './video.actions'
+import { initialState } from './video.interface'
 
 export const videoSlice = createSlice({
 	name: 'video',
@@ -14,13 +16,15 @@ export const videoSlice = createSlice({
 		setPlaylist(state, action: PayloadAction<IMedia[]>) {
 			state.seasons = action.payload
 			state.playlist = action.payload
-				.map(season => season.items
-					.map(item => ({
+				.map((season) =>
+					season.items.map((item) => ({
 						titleFile: item.title,
 						idFile: item.file.toString(),
 						seasonTitle: season.title,
 						isActive: item.isActive || false,
-					}))).flat(1)
+					}))
+				)
+				.flat(1)
 		},
 		setIdFile(state, action: PayloadAction<string>) {
 			state.idFile = action.payload

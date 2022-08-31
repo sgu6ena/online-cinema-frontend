@@ -9,4 +9,4 @@ export const checkSMS = () => '/checkSMS'
 export const changePass = () =>'/updatePassword'
 export const unsubscribe = () =>'/unsubscribe'
 export const smartTv = (code:string)=> `/smartTV/active/${code}`
-export const activatePromocode = (code:string)=> `/promocode/${code}`
+export const activatePromoCode = (code:string)=> `/promocode/${code}`

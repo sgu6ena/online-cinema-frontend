@@ -1,12 +1,11 @@
 .placeholder {
-  @apply flex absolute top-0 left-0 w-full h-full ;
+  @apply flex absolute top-0 left-0 w-full h-full;
 
   > div {
     @apply m-auto text-center;
 
     > div {
       @apply text-white mb-4 text-lg;
-
     }
   }
 }

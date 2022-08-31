@@ -1,15 +1,17 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import {PortalMovieService} from "../../api/portalMovie.service";
-import {toastError} from "../../utils/toast-error";
+import { PortalMovieService } from '../../api/portalMovie.service'
+import { toastError } from '../../utils/toast-error'
 
-
-export const getUrl = createAsyncThunk<string, string>('video/getUrlByID', async (fileId, thunkApi) => {
-    try {
-        const response = await PortalMovieService.getUrl(fileId)
-        return response.data.url
-    } catch (error) {
-        toastError(error)
-        return thunkApi.rejectWithValue(error)
-    }
-})
+export const getUrl = createAsyncThunk<string, string>(
+	'video/getUrlByID',
+	async (fileId, thunkApi) => {
+		try {
+			const response = await PortalMovieService.getUrl(fileId)
+			return response.data.url
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+)

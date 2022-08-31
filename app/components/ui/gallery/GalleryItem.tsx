@@ -1,11 +1,11 @@
 import cn from 'classnames'
-import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import { getGenresList } from '../../../utils/movie/getGenresList'
+
 import styles from './Galery.module.scss'
 import { IGalleryItemProps } from './gallery.interface'
-import { getGenresList } from '../../../utils/movie/getGenresList'
 
 const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 	return (
@@ -23,7 +23,10 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 						alt={item.name}
 					/>
 					<div className={styles.tags}>
-						<div className={cn(styles.tag, item.access&&styles.pay)}> {item.access ? 'Платно' : 'Бесплатно'}</div>
+						<div className={cn(styles.tag, item.access && styles.pay)}>
+							{' '}
+							{item.access ? 'Платно' : 'Бесплатно'}
+						</div>
 						{!!item.rate_kp && (
 							<div className={styles.tag}>
 								Кинопоиск: {item.rate_kp && Math.trunc(item.rate_kp * 10) / 10}
@@ -35,6 +38,13 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 							</div>
 						)}
 					</div>
+
+					{item?.content?.title && <div className={styles.content}>
+						<div>{item.content?.title} </div>
+						<div>·</div>
+						<div>{item.content?.subTitle}</div>
+					</div>}
+
 				</div>
 				<h4 className={styles.h4}>
 					<span>{item.year}</span>

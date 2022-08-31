@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { PortalService } from '../../api/portal.service'
 import { IMoviePortalPerPage } from '../../shared/types/movie.types'
-import { IFilter, IList, IListFilter } from '../../shared/types/seaarch.types'
+import { IFilter } from '../../shared/types/seaarch.types'
 import { toastError } from '../../utils/toast-error'
 
 export const getSearchParameters = createAsyncThunk<IFilter, void>(
@@ -37,7 +37,7 @@ export const getSearch = createAsyncThunk<
 		sort: string
 		type_content: string
 		year: string
-		page:string
+		page: string
 	}
 >('search/getSearch', async (params, thunkApi) => {
 	try {
@@ -48,7 +48,8 @@ export const getSearch = createAsyncThunk<
 			params.country,
 			params.type_content,
 			params.year,
-			params.sort,	params.category,
+			params.sort,
+			params.category,
 			params.page.toString()
 		)
 		return response

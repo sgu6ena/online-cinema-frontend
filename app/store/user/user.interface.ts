@@ -5,7 +5,7 @@ export interface ITokens {
 
 export interface IInitialState {
 	user: IAuthResponse | null
-	token: string,
+	token: string
 	isLoading: boolean
 	isRegistered: boolean
 }
@@ -35,4 +35,3 @@ export interface IRegister {
 	email: string
 	password: string
 }
-

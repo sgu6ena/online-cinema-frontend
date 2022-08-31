@@ -1,10 +1,10 @@
-
-import ReactPaginate from 'react-paginate'
-import { IPagination } from '../../shared/types/movie.types'
 import { router } from 'next/client'
 import { FC } from 'react'
+import ReactPaginate from 'react-paginate'
 
-const Pagination:FC<{pagination:IPagination}> = ({ pagination }) => {
+import { IPagination } from '../../shared/types/movie.types'
+
+const Pagination: FC<{ pagination: IPagination }> = ({ pagination }) => {
 	const handlePagination = (page: any) => {
 		const path = router.pathname
 		const query = router.query
@@ -17,14 +17,14 @@ const Pagination:FC<{pagination:IPagination}> = ({ pagination }) => {
 	return (
 		<div>
 			<ReactPaginate
-				className='paginate'
-				breakLabel='...'
-				nextLabel=' >'
+				className="paginate"
+				breakLabel="..."
+				nextLabel=" >"
 				onPageChange={handlePagination}
 				pageRangeDisplayed={2}
 				pageCount={pagination.totalPages}
-				previousLabel='< '
-				activeClassName='active'
+				previousLabel="< "
+				activeClassName="active"
 				initialPage={pagination.currentPage - 1}
 			/>
 		</div>

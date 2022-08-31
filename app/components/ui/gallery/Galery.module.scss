@@ -55,7 +55,7 @@
   }
 
   &.withText {
-    @include fade-bg-gradient(0deg);
+    @include fade-bg-gradient2(0deg);
   }
 
   img {
@@ -69,6 +69,12 @@
     }
     .pay{
       @apply bg-primary text-white;
+    }
+  }
+  .content{
+    @apply absolute lg:bottom-2 bottom-0.5 lg:left-1 lg:right-1  left-0.5 right-0.5 flex flex-wrap lg:flex-row lg:gap-3 flex-row gap-1  justify-center z-20 ;
+    div{
+      @apply text-center font-medium uppercase text-xs flex-nowrap
     }
   }
 }

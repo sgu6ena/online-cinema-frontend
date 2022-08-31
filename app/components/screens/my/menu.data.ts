@@ -12,9 +12,9 @@ export const myMenu: IMenuItem[] = [
 		link: LINKS.HISTORY,
 		title: 'История просмотра',
 	},
-	{
-		icon: 'MdBookmarkBorder',
-		link: LINKS.RATING,
-		title: 'Оценки',
-	},
+	// {
+	// 	icon: 'MdBookmarkBorder',
+	// 	link: LINKS.RATING,
+	// 	title: 'Оценки',
+	// },
 ]
