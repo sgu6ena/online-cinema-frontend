@@ -1,8 +1,11 @@
 .footer {
-  @apply flex p-layout  gap-10 flex-wrap items-stretch text-gray-500;
+  @apply flex p-layout  gap-0 flex-wrap items-stretch text-gray-500;
   ul {
     li {
-      @apply py-2;
+      @apply py-2 ;
+      a{
+        @apply hover:text-primary transition-all;
+      }
     }
   }
 
@@ -11,10 +14,30 @@
   }
 
   .second {
-    @apply  lg:w-1/4  md:w-1/2 w-full  text-lg;
+    @apply lg:w-1/4  lg:pl-10  md:w-1/2 w-full  text-lg;
   }
 
   .last {
-    @apply  lg:w-1/2   w-full ;
+    @apply lg:w-1/2   w-full;
+    .links {
+      @apply flex flex-col  gap-10;
+      .stores {
+        @apply flex flex-wrap gap-5;
+        a {
+          @apply bg-gray-900 text-white rounded-xl pt-1 pl-1 hover:bg-primary hover:bg-opacity-80 transition-all;
+        }
+      }
+      .ss{
+        a{
+          @apply p-3 ;
+          svg{
+            @apply w-7 h-7;
+          }
+
+        }
+
+      }
+    }
   }
+
 }

@@ -35,22 +35,22 @@ export const sections: IMenuItem[] =
 		},
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.MAIN,
+			link: LINKS.FAVORITES,
 			title: 'Новинки',
 		},
 		{
 			icon: 'MdLogin',
-			link: LINKS.MAIN,
+			link: LINKS.FILMS,
 			title: 'Фильмы',
 		},
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.MAIN,
+			link: LINKS.SERIALS,
 			title: 'Сериалы',
 		},
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.MAIN,
+			link: LINKS.MULTFILMS,
 			title: 'Мультфильмы',
 		},
 		{
@@ -64,6 +64,4 @@ export const sections: IMenuItem[] =
 			title: 'Что посмотреть',
 		},
 	]
-
-
 
