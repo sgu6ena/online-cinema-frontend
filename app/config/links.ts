@@ -30,5 +30,21 @@ export const LINKS = {
 	MULTFILMS:'/genres/20',
 
 
-	FEEDBACK:'/feedback'//Сообщить об ошибке
+	FEEDBACK:'/feedback',//Сообщить об ошибке
+
+
+	APPSTORE:'https://s.idc.md/portal_ios',
+	GOOGLEPLAY:'https://s.idc.md/portal_android',
+	APPGALLERY:'/',
+	SAMSUNG:'/',
+	LG:'/',
+	HISENSE:'/',
+	MIBOX:'/',
+
+	VK:'https://vk.com/idc_md',
+	FACEBOOK:'https://www.facebook.com/idc.md',
+	OK:'https://ok.ru/idknet',
+	INSTAGRAM:'https://www.instagram.com/idc_pmr/',
+	VIBER:'https://invite.viber.com/?g2=AQBLHJE8CUqlCkkxt0lJqdMCxeHJVEFYdx2fn2NG8dmb803e%2FbtbamjywQkMoUE3&lang=ru',
+	TELEGRAM:'https://telegram.me/idcmd'
 }

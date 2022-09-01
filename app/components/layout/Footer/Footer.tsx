@@ -3,6 +3,7 @@ import styles from './footer.module.scss'
 import Subheading from '../../ui/heading/Subheading'
 import { aboutUs, sections } from './menu.data'
 import Link from 'next/link'
+import SocialLinks from './socialLinks'
 
 const Footer:FC= () => {
 	return (
@@ -19,7 +20,9 @@ const Footer:FC= () => {
 					{sections.map(item=> <li key={item.title} ><Link href={item.link}><a>{item.title}</a></Link></li>)}
 				</ul>
 			</div>
-			<div className={styles.last}></div>
+			<div className={styles.last}>
+				<SocialLinks/>
+			</div>
 		</div>
 	)
 }

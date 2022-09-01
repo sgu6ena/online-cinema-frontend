@@ -29,7 +29,7 @@ const CatalogPortal: FC = () => {
 				{titleGenre ? (
 					<Heading
 						title={titleGenre}
-						className="pl-40 lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1"
+						className="lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1"
 					/>
 				) : (
 					<div className="p-5 pb-0">

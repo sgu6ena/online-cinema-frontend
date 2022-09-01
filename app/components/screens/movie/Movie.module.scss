@@ -7,7 +7,6 @@
 
     .videoBox {
       @apply flex-grow-0 flex-shrink-0;
-
       .actions {
         @apply mt-3 flex-center-between;
         .buttons {
@@ -36,6 +35,10 @@
       @apply p-2  lg:p-layout text-gray-500;
       //width: 40%;
 
+      .genres {
+        @apply leading-10
+      }
+
       h1 {
         @apply text-white text-4xl;
         font-family: 'Oswald', sans-serif;
@@ -57,7 +60,7 @@
         }
 
         a {
-          @apply underline-offset-4 underline;
+          @apply underline-offset-4 whitespace-nowrap underline;
         }
       }
     }
@@ -161,7 +164,7 @@
     }
 
     .slider {
-      @apply  justify-self-start mx-0;
+      @apply justify-self-start mx-0;
       .slide {
         @apply w-fit w-80;
         background-color: transparent;

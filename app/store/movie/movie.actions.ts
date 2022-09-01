@@ -42,7 +42,7 @@ export const favorites = createAsyncThunk<any, any>(
 			})
 			return response.data.active
 		} catch (error) {
-			toastError(error)
+			toastError('Вы должны войти для добавление в избранное')
 			return thunkApi.rejectWithValue(error)
 		}
 	}
