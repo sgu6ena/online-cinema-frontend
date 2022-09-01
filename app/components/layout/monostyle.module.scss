@@ -6,7 +6,7 @@ $header-height: 70px;
 
 
   .layout {
-    @apply    h-full ;
+    @apply    h-full  ;
     //background: #1d1f23;
     flex-grow: 1;
 
@@ -19,7 +19,7 @@ $header-height: 70px;
 
 
   .footer {
-    @apply text-gray-700 align-bottom ;
+    @apply mt-20 text-gray-700 align-bottom ;
     background: #303437;
   }
 }

@@ -1,18 +1,20 @@
-.footer{
-  @apply flex p-layout gap-10 items-stretch text-gray-500;    ul{
-                                                                li{
-                                                                  @apply py-2;
-                                                                }
-                                                              }
-  .first{
-    @apply w-1/4 text-lg;
-
-
+.footer {
+  @apply flex p-layout  gap-10 flex-wrap items-stretch text-gray-500;
+  ul {
+    li {
+      @apply py-2;
+    }
   }
-  .second{
-    @apply w-1/4 text-lg;
+
+  .first {
+    @apply lg:w-1/4  md:w-1/2 w-full text-lg;
   }
-  .last{
-    @apply  w-1/2;
+
+  .second {
+    @apply  lg:w-1/4  md:w-1/2 w-full  text-lg;
+  }
+
+  .last {
+    @apply  lg:w-1/2   w-full ;
   }
 }

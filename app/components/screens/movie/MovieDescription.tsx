@@ -16,7 +16,7 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
         <div className={styles.description}>
             <Heading title={movie.title} className='mb-5 '/>
             <p><Rating imdb={movie.rate_imdb} kp={movie.rate_kp}/></p>
-            <p>
+            <p className={styles.genres}>
                 <a>{movie.year}</a><span>·</span>
                 {movie.genre.map((genre) => (
                     <>
