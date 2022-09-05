@@ -9,14 +9,9 @@ export const aboutUs: IMenuItem[] =
 			title: 'Регистрация и оплата',
 		},
 		{
-			icon: 'MdPersonAddAlt',
-			link: LINKS.PROCESSING,
-			title: 'Политика приватности',
-		},
-		{
 			icon: 'MdLogin',
 			link: LINKS.AGREEMENT,
-			title: 'Пользовательское соглашение',
+			title: 'Публичные условия',
 		},
 		{
 			icon: 'MdPersonAddAlt',
@@ -35,7 +30,7 @@ export const sections: IMenuItem[] =
 		},
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.FAVORITES,
+			link: LINKS.FILMS,
 			title: 'Новинки',
 		},
 		{

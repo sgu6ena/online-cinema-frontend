@@ -1,7 +1,7 @@
 .smart {
-  @apply flex flex-col  justify-center container m-auto;
+  @apply flex flex-col justify-center container m-auto;
   h1 {
-    @apply text-center font-extrabold lg:text-7xl md:text-4xl text-2xl leading-normal;
+    @apply text-center mt-10  font-extrabold lg:text-7xl md:text-4xl text-2xl leading-normal;
     span {
       @apply block text-primary
     }
