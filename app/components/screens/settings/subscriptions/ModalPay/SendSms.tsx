@@ -70,7 +70,7 @@ const SendSms:FC = () => {
 							{/*<Link href={LINKS.PROCESSING}>*/}
 							{/*		<a target="_blank">обработку моих персональных данных</a>*/}
 							{/*	</Link>*/}
-							{/*</span>*/}
+							</span>
 					</label>
 				</div>
 				<div className={styles.footer}>
