@@ -66,11 +66,11 @@ const SendSms:FC = () => {
 										уловиями договора пользовательского соглашения
 									</a>
 								</Link>{' '}
-							и даю свое согласие на{' '}
-							<Link href={LINKS.PROCESSING}>
-									<a target="_blank">обработку моих персональных данных</a>
-								</Link>
-							</span>
+							{/*и даю свое согласие на{' '}*/}
+							{/*<Link href={LINKS.PROCESSING}>*/}
+							{/*		<a target="_blank">обработку моих персональных данных</a>*/}
+							{/*	</Link>*/}
+							{/*</span>*/}
 					</label>
 				</div>
 				<div className={styles.footer}>
