@@ -1,0 +1,86 @@
+.smart {
+  @apply flex flex-col  justify-center container m-auto;
+  h1 {
+    @apply text-center font-extrabold lg:text-7xl md:text-4xl text-2xl leading-normal;
+    span {
+      @apply block text-primary
+    }
+  }
+
+  h2 {
+    @apply text-center md:text-2xl text-lg my-5 max-w-screen-md m-auto
+  }
+
+  img.main {
+    @apply max-w-screen-xl m-auto w-full
+  }
+
+  .details {
+    @apply flex lg:flex-row flex-col  justify-center ;
+    .item {
+      @apply flex flex-col items-center max-w-[400px] mx-auto;
+      img {
+        @apply text-primary h-28 w-28 object-contain my-5 ;
+      }
+
+      h3 {
+        @apply text-white text-3xl text-center font-medium my-5
+      }
+
+      p {
+        @apply text-center text-gray-500 text-xl
+      }
+    }
+  }
+
+  .instructions {
+    @apply mt-20;
+    h2 {
+      @apply text-white text-3xl font-medium my-5
+    }
+
+    h3 {
+      @apply text-center text-xl text-gray-500;
+    }
+
+    .tabnames {
+      @apply flex justify-center ;
+      button {
+        @apply border-b border-b-2 text-transparent;
+
+        &.active {
+          @apply border-b border-b-2 text-primary;
+        }
+      }
+
+    }
+
+
+      .tab {
+        @apply md:p-layout p-2 text-3xl text-center text-gray-600 transition-all;
+        .instr{
+          @apply flex flex-wrap gap-x-20 gap-y-10 justify-center;
+          .item{
+            @apply max-w-[600px];
+            img{
+              @apply text-white ;
+            }
+            .desc{
+                @apply flex gap-5 my-5;
+            }
+            .number {
+              @apply lg:h-20 lg:w-20  w-10 h-10 flex justify-center items-center bg-primary rounded-full text-white grow-0 shrink-0;
+            }
+            p{
+              @apply text-lg text-left max-w-[400px];
+            }
+
+          }  h4{
+               @apply text-white text-4xl uppercase font-bold text-center;
+             }
+        }
+      }
+
+
+  }
+}

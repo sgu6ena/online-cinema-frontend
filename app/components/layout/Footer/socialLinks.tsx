@@ -50,24 +50,24 @@ const SocialLinks: FC = () => {
 				<Subheading title={'PORTAL на большом экране'} />
 				<div className={styles.stores}>
 
-					<Link href={LINKS.APPSTORE}>
+					<Link href={LINKS.SAMSUNG}>
 						<a>
-							<Image src={Samsung} alt="Appstore" width={150} height={60} />
+							<Image src={Samsung} alt="Samsung" width={150} height={60} />
 						</a>
 					</Link>
-					<Link href={LINKS.APPSTORE}>
+					<Link href={LINKS.LG}>
 						<a>
-							<Image src={Lg} alt="Appstore" width={150} height={60} />
+							<Image src={Lg} alt="Lg" width={150} height={60} />
 						</a>
 					</Link>
-					<Link href={LINKS.APPSTORE}>
+					<Link href={LINKS.HISENSE}>
 						<a>
-							<Image src={Hisense} alt="Appstore" width={150} height={60} />
+							<Image src={Hisense} alt="Hisense" width={150} height={60} />
 						</a>
 					</Link>
-					<Link href={LINKS.APPSTORE}>
+					<Link href={LINKS.MIBOX}>
 						<a>
-							<Image src={Mibox} alt="Appstore" width={150} height={60} />
+							<Image src={Mibox} alt="Mibox" width={150} height={60} />
 						</a>
 					</Link>
 				</div>
