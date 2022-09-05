@@ -8,8 +8,8 @@ export const getAdminHomeUrl = () => getAdminUrl('').slice(0, -1)
 
 
 export const LINKS = {
-	AGREEMENT: 'https://portal.idc.md/public_terms.v2.pdf', //пользовательское соглашение
-	PROCESSING: '',//обработка персональных данных
+	AGREEMENT: '/public_terms.v2.pdf', //пользовательское соглашение
+	//PROCESSING: '',//обработка персональных данных
 
 	MAIN: '/', //главная
 	LOGIN: '/auth',//страница логина
@@ -36,10 +36,10 @@ export const LINKS = {
 	APPSTORE:'https://s.idc.md/portal_ios',
 	GOOGLEPLAY:'https://s.idc.md/portal_android',
 	APPGALLERY:'/',
-	SAMSUNG:'/',
-	LG:'/',
-	HISENSE:'/',
-	MIBOX:'/',
+	SAMSUNG:'/smart',
+	LG:'/smart',
+	HISENSE:'/smart',
+	MIBOX:'/smart',
 
 	VK:'https://vk.com/idc_md',
 	FACEBOOK:'https://www.facebook.com/idc.md',

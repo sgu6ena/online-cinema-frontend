@@ -91,10 +91,10 @@ const RegisterFields: FC<IAuthFields> = ({
 						{' '}
             пользовательского соглашения
 					</a>{' '}
-          и даю{' '}
-          <a href={LINKS.PROCESSING} className="link">
-						свое согласие на обработку моих персональных данных{' '}
-					</a>
+          {/*и даю{' '}*/}
+          {/*<a href={LINKS.PROCESSING} className="link">*/}
+					{/*	свое согласие на обработку моих персональных данных{' '}*/}
+					{/*</a>*/}
 				</span>
       </label>
     </>
