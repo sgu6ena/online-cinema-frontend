@@ -30,7 +30,7 @@ export const sections: IMenuItem[] =
 		},
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.FILMS,
+			link: LINKS.NEW,
 			title: 'Новинки',
 		},
 		{
@@ -55,7 +55,7 @@ export const sections: IMenuItem[] =
 		},
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.MAIN,
+			link: LINKS.RECOMENDED,
 			title: 'Что посмотреть',
 		},
 	]

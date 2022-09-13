@@ -1,5 +1,5 @@
 .footer {
-  @apply flex p-layout  gap-0 flex-wrap items-stretch text-gray-500;
+  @apply flex px-layout pt-0 pb-5  gap-0 flex-wrap items-stretch text-gray-500;
   ul {
     li {
       @apply py-2 ;
@@ -10,15 +10,15 @@
   }
 
   .first {
-    @apply lg:w-1/4  md:w-1/2 w-full text-lg;
+    @apply lg:w-1/4 pt-layout md:w-1/2 w-full text-lg;
   }
 
   .second {
-    @apply lg:w-1/4  lg:pl-10  md:w-1/2 w-full  text-lg;
+    @apply lg:w-1/4 pt-layout lg:pl-10  md:w-1/2 w-full  text-lg;
   }
 
   .last {
-    @apply lg:w-1/2   w-full;
+    @apply lg:w-1/2  pt-layout w-full;
     .links {
       @apply flex flex-col  gap-10;
       .stores {

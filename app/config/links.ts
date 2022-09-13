@@ -25,6 +25,8 @@ export const LINKS = {
 	PROMOCODE: '/settings/promocode', //промокод
 	DEVICES: '/settings/devices', //устройства
 	ACCOUNT: '/settings/account', //аккаунт
+	NEW:'/genres/101', //новинки
+	RECOMENDED:'/genres/107', //рекомендуем
 	FILMS:'/genres/100',
 	SERIALS:'/genres/39',
 	MULTFILMS:'/genres/20',
