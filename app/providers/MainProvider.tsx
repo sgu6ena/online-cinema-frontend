@@ -7,6 +7,7 @@ import Layout from '../components/layout/Layout'
 import { store } from '../store/store'
 
 import HeadProvider from './HeadProvider/HeadProvider'
+import AuthProvider from './authProvider/AuthProvider'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -15,17 +16,19 @@ const queryClient = new QueryClient({
 		},
 	},
 })
-const MainProvider: FC = ({ children}) => {
+const MainProvider: FC = ({ children }) => {
 	return (
 		<HeadProvider>
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
-					<Toaster />
-					<Layout>{children}</Layout>
+					<AuthProvider>
+						<Toaster />
+						<Layout>{children}</Layout>
+					</AuthProvider>
 				</QueryClientProvider>
 			</Provider>
 		</HeadProvider>
-	)
+)
 }
 
 export default MainProvider
