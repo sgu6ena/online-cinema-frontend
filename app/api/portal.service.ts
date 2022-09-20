@@ -3,7 +3,7 @@ import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
 import {
-	activatePromoCode,
+	activatePromoCode, activateRegister,
 	changePass,
 	checkSMS,
 	getMoviesUrl,
@@ -35,7 +35,7 @@ export const PortalService = {
 
 	async getCategory(slug: string | undefined = '0', page = '1') {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getCategoryUrl(slug) + '/'+ MOVIES_ON_PAGE,
+			getCategoryUrl(slug) + '/' + MOVIES_ON_PAGE,
 			{
 				params: {
 					page: page ? page.toString() : '1',
@@ -46,7 +46,7 @@ export const PortalService = {
 	},
 
 	async getBookmark(page: string = '1') {
-		const data = await axios.get(`bookmark/`+MOVIES_ON_PAGE, {
+		const data = await axios.get(`bookmark/` + MOVIES_ON_PAGE, {
 			params: {
 				page: page ? page : '1',
 			},
@@ -55,7 +55,7 @@ export const PortalService = {
 	},
 
 	async getHistory(page: string = '1') {
-		const data = await axios.get(`history/`+MOVIES_ON_PAGE, {
+		const data = await axios.get(`history/` + MOVIES_ON_PAGE, {
 			params: {
 				page: page ? page : '1',
 			},
@@ -111,7 +111,7 @@ export const PortalService = {
 		category: string,
 		page: string | number = '1',
 	) {
-		const data = await axiosClassicPortal.get(`searchExt/`+MOVIES_ON_PAGE, {
+		const data = await axiosClassicPortal.get(`searchExt/` + MOVIES_ON_PAGE, {
 			params: {
 				query: query,
 				genre: genre,
@@ -151,11 +151,16 @@ export const PortalService = {
 		const response = await axios.get<any, void>(unsubscribe())
 		return response
 	},
-	async activateSmart(code:string) {
+	async activateSmart(code: string) {
+		console.log(code)
 		const response = await axios.get<any, any>(smartTv(code))
 		return response
 	},
-	async activatePromocode(code:string) {
+	async activateRegister(code: string) {
+		const response = await axios.get<any, any>(activateRegister(code))
+		return response
+	},
+	async activatePromocode(code: string) {
 		const response = await axios.get<any, any>(activatePromoCode(code))
 		return response
 	},

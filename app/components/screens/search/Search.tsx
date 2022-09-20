@@ -40,7 +40,7 @@ const Search: FC = () => {
 		pagination,
 	} = useSearch()
 
-	const { handleSubmit, control, register, getValues, watch } = useForm({
+	const { handleSubmit, control, register, getValues, watch, formState } = useForm({
 		mode: 'onChange',
 	})
 	const { query } = useRouter()
@@ -52,6 +52,7 @@ const Search: FC = () => {
 		const params = {
 			title: data.query || '',
 			genre: data.genres?.join('|') || '',
+		//	genre:'39',
 			country: data.country?.join('|') || '',
 			category: data.category || '',
 			sort: data.sort || '',
@@ -177,7 +178,6 @@ const Search: FC = () => {
 						/>
 					</div>
 					<button className={'self-center btn-primary p-3 mb-2'}>
-						{' '}
 						<MaterialIcon name={'MdSearch'} />
 					</button>
 				</div>

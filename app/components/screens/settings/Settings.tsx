@@ -17,7 +17,6 @@ const Settings: FC = ({ children }) => {
 		if (!user) {
 			push(LINKS.LOGIN)
 		}
-		console.log(asPath)
 	}, [])
 
 	return (

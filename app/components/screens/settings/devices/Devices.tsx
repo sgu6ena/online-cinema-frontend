@@ -13,8 +13,7 @@ const Devices: FC = () => {
 		mode: 'onChange',
 	})
 	const onSubmit: SubmitHandler<any> = (data) => {
-		console.log(data.code )
-		smartActive(data.code)
+		smartActive({code:data.code})
 	}
 
 	return (

@@ -2,9 +2,9 @@
 	@apply relative mb-8 animate-fade;
 
 	> label {
-		@apply block;
+		@apply   text-xs  block;
 		> .custom-select__single-value {
-			@apply text-white;
+			@apply text-xs text-white;
 		}
 		> span {
 			@apply text-xs uppercase text-gray-600 block mb-1;

@@ -37,7 +37,7 @@ const Auth: FC = () => {
 			<Meta title='Авторизация' />
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
-					{isLoading && <SkeletonLoader className='h-60' />}
+					{isLoading && <><SkeletonLoader />ВХОД<SkeletonLoader /></>}
 					{!isLoading && (
 						<>
 							<Heading title={'Вход в аккаунт'} className='mb-3' />

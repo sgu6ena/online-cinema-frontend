@@ -46,7 +46,7 @@ export const useMovies = () => {
 		() => PortalMovieService.create(),
 		{
 			onError(error) {
-				toast('Create movie')
+				toast('Create movie error')
 			},
 			onSuccess({ data: _id }) {
 				toast.success('Create movie was successful')
