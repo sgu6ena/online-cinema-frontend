@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-hot-toast'
 
-import { PortalMovieService } from '../../api/portalMovie.service'
+import { PortalService } from '../../api/portal.service'
 import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
 import { IMoviePortalFull, IVotePortal } from '../../shared/types/movie.types'
 import { toastError } from '../../utils/toast-error'
@@ -16,7 +16,7 @@ export const getMovie = createAsyncThunk<
 	string
 >('movies/getByID', async (movieId, thunkApi) => {
 	try {
-		const response = await PortalMovieService.getById(movieId)
+		const response = await PortalService.getById(movieId)
 		const movie = response.data
 		const collection = response.data.list[0]
 		const isFavorite = response.data.is_favorite
@@ -31,7 +31,7 @@ export const favorites = createAsyncThunk<any, any>(
 	'movies/favorites',
 	async (movieId, thunkApi) => {
 		try {
-			const response = await PortalMovieService.sendBookmark(movieId)
+			const response = await PortalService.sendBookmark(movieId)
 			const fav = response.data.active
 			toast.success(fav ? 'Добавлено в избранное' : 'Удалено из избранного', {
 				style: {
@@ -61,7 +61,7 @@ export const voting = createAsyncThunk<
 				color: '#fff',
 			},
 		})
-		const response = await PortalMovieService.sendVote(movieId, vote)
+		const response = await PortalService.sendVote(movieId, vote)
 		return response.data
 	} catch (error) {
 		toastError(error)

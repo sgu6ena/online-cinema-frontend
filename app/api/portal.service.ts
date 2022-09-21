@@ -1,7 +1,7 @@
-import { IUserData } from '../components/screens/settings/user.interface'
+
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
-import { APP_URL_PORTAL, getCategoryUrl } from '../config/api-portal.config'
+import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl, sendBookmarkUrl, sendVoteUrl } from '../config/api.config'
 import {
 	activatePromoCode, activateRegister,
 	changePass,
@@ -11,7 +11,7 @@ import {
 	smartTv,
 	unsubscribe,
 } from '../config/api.config'
-import { IGenrePortal, IMainGenres, IMoviePortalPerPage } from '../shared/types/movie.types'
+import { IGenrePortal, IMainGenres, IMoviePortalPage, IMoviePortalPerPage } from '../shared/types/movie.types'
 import { IListFilter } from '../shared/types/search.types'
 import { IChangePassword, ICheckSms, ISendSms } from '../store/settings/settings.interface'
 
@@ -87,11 +87,6 @@ export const PortalService = {
 		}
 	},
 
-	async getProfile() {
-		const data = await axios.get<IUserData>('/getUserProfile')
-		return data?.data.data
-	},
-
 	async getGenres() {
 		return axios.get<IGenrePortal[]>(APP_URL_PORTAL + '/listGenre')
 	},
@@ -152,7 +147,6 @@ export const PortalService = {
 		return response
 	},
 	async activateSmart(code: string) {
-		console.log(code)
 		const response = await axios.get<any, any>(smartTv(code))
 		return response
 	},
@@ -164,4 +158,51 @@ export const PortalService = {
 		const response = await axios.get<any, any>(activatePromoCode(code))
 		return response
 	},
+	async getById(id: string) {
+		const data = await axios.get<IMoviePortalPage>(
+			getMovieUrl(`${id}`),
+		)
+		return data.data
+	},
+
+
+	async getUrl(id: string) {
+		const response = await axios.get(getMovieUrl(`url/${id}`))
+		return response.data
+	},
+
+	async getSearch(str: string) {
+		const data = await axiosClassicPortal.get(
+			getMovieUrl(`find/12?id_sort=8&pid=all&query=${str}`),
+		)
+		return data.data
+	},
+
+	async sendBookmark(id: string) {
+		const data = await axios.get<any>(
+			sendBookmarkUrl(`${id}`),
+		)
+		return data.data
+	},
+
+
+	async sendVote(id: string, vote: number) {
+		const data = await axios.get<any>(
+			sendVoteUrl(`${id}`, vote),
+		)
+		return data.data
+	},
+
+	async create() {
+		return axios.post<string>(getMoviesUrl(''))
+	},
+
+	async update(_id: string, data: any) {
+		return axios.put<string>(getMoviesUrl(`/${_id}`), data)
+	},
+
+	async delete(_id: string) {
+		return axios.delete<string>(getMoviesUrl(`/${_id}`))
+	},
+
 }

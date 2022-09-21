@@ -3,7 +3,7 @@ import { ChangeEvent, useMemo, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useMutation, useQuery } from 'react-query'
 
-import { PortalMovieService } from '../../../../api/portalMovie.service'
+import { PortalService } from '../../../../api/portal.service'
 import { getAdminUrl } from '../../../../config/url.config'
 import { useDebounce } from '../../../../hooks/useDubounce'
 import { getGenresList } from '../../../../utils/movie/getGenresList'
@@ -15,7 +15,7 @@ export const useMovies = () => {
 
 	const queryData = useQuery(
 		['movie list', debouncedSearch],
-		() => PortalMovieService.getSearch(debouncedSearch),
+		() => PortalService.getSearch(debouncedSearch),
 		{
 			select: ({ data }) =>
 				data.map(
@@ -43,7 +43,7 @@ export const useMovies = () => {
 
 	const { mutateAsync: createAsync } = useMutation(
 		'create movie',
-		() => PortalMovieService.create(),
+		() => PortalService.create(),
 		{
 			onError(error) {
 				toast('Create movie error')
@@ -57,7 +57,7 @@ export const useMovies = () => {
 
 	const { mutateAsync: deleteAsync } = useMutation(
 		'delete movie',
-		(movieId: string) => PortalMovieService.delete(movieId),
+		(movieId: string) => PortalService.delete(movieId),
 		{
 			onError(error) {
 				toast('Delete movie')

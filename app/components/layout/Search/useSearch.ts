@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
 import { useDebounce } from '../../../hooks/useDubounce'
-import { PortalMovieService } from '../../../api/portalMovie.service'
+import { PortalService } from '../../../api/portal.service'
 
 export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -16,7 +16,7 @@ export const useSearch = () => {
 
 	const { isSuccess, data } = useQuery(
 		['search movie list', debouncedSearch],
-		() => PortalMovieService.getSearch(debouncedSearch),
+		() => PortalService.getSearch(debouncedSearch),
 		{
 			select: ({ data }) => data,
 			enabled: !!debouncedSearch,

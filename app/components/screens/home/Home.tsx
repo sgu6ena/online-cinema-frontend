@@ -44,6 +44,7 @@ const Home: FC<IHome> = () => {
       <Meta
         title="PORTAL"
         description="Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий"
+        image={'/smart/main.png'}
       ></Meta>
 
       {isLoading && <HomeLoading/>}

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-import { APP_URL_PORTAL } from '../config/api-portal.config'
+import { APP_URL_PORTAL } from '../config/api.config'
 
 import { errorCatch, getContentType } from './api.helperts'
 
