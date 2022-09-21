@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
 import axios, { axiosClassic } from '../interceptors'
-import { getAuthUrl, getUserProfile } from '../../config/api.config'
+import { getAuthUrl, getUserProfile, logout } from '../../config/api.config'
 import { IAuthResponse, IRegister, ITokens } from '../../store/user/user.interface'
 
 import { removeTokensStorage, saveToStorage } from './auth.helper'
@@ -32,5 +32,6 @@ export const AuthService = {
 	logout() {
 		removeTokensStorage()
 		localStorage.removeItem('user')
+		return axios.get(logout())
 	},
 }

@@ -46,6 +46,7 @@ const ChangePass: FC<IChangePass> = ({ setIsShow }) => {
 										 })}
 										 placeholder='Старый пароль '
 										 error={formState.errors && formState.errors.passwordOld}
+										 autoComplete={'off'}
 					/>
 						<Field type='password'
 									 {...register('password', {
@@ -57,6 +58,7 @@ const ChangePass: FC<IChangePass> = ({ setIsShow }) => {
 									 })}
 									 placeholder='Новый пароль '
 									 error={formState.errors && formState.errors.password}
+									 autoComplete={'off'}
 						/></>}
 				<div className={styles.footer}>
 

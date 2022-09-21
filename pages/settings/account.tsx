@@ -1,12 +1,18 @@
 import { NextPage } from 'next'
 
 import Settings from '../../app/components/screens/settings/Settings'
-import Account from '../../app/components/screens/settings/account/Account'
 
+import dynamic from 'next/dynamic'
+const DynamicAccount = dynamic(
+	() => import('../../app/components/screens/settings/account/Account'),
+	{
+		ssr: false,
+	}
+)
 const AccountPage: NextPage = () => {
 	return (
 		<Settings>
-			<Account />
+			<DynamicAccount />
 		</Settings>
 	)
 }
