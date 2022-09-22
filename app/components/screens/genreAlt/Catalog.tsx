@@ -40,27 +40,22 @@ const Catalog: FC = () => {
 	return (
 		<Meta title={titleGenre}>
 			<div className={'px-5'}>
-				{titleGenre ? (
+				{titleGenre ?
 					<Heading
 						title={titleGenre}
 						className='lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1'
 					/>
-				) : (
+				:
 					<div className='p-5 pb-0'>
 						<SkeletonLoader className='h-12' />
 					</div>
-				)}
-				{!isLoading || movies.length ? (
-					<>
-						{movies && <Gallery movies={movies} />}
-						{!isLoading ?	<div className={'flex justify-center'}>
-							<Button onClick={show}> Показать еще</Button>
-						</div>: <SkeletonLoader className={'h-10'}/>	}
+				}
+				{!isLoading || movies && movies.length ? movies && <Gallery movies={movies} /> : <CatalogLoader />}
 
-					</>
-				) : (
-					<CatalogLoader />
-				)}
+				{!isLoading ?
+					<div className={'flex justify-center'}>
+					<Button onClick={show}> Показать еще</Button>
+				</div> : <CatalogLoader />}
 			</div>
 		</Meta>
 	)
