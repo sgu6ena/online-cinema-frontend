@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
 import MovieItem from './MovieItem'
 import styles from './MovieList.module.scss'
