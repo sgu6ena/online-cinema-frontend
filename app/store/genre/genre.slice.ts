@@ -13,8 +13,19 @@ export const GenreSlice = createSlice({
 				state.isLoading = true
 			})
 			.addCase(getGenreById.fulfilled, (state, { payload }) => {
-				state.movies=[...state.movies,...payload.data.items]
+				if(state.genreId === payload.genreId && payload.page!='1') {
+					state.movies = [...state.movies, ...payload.movies.items]
+					state.genreId = payload.genreId
+					state.page = payload.page
+
+				}
+				else {
+					state.movies = payload.movies.items
+					state.genreId = payload.genreId
+					state.page = payload.page
+				}
 				state.isLoading = false
+				state.title = payload.movies.title
 			})
 			.addCase(getGenreById.rejected, (state) => {
 				state.isLoading = false

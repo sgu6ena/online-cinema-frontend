@@ -5,10 +5,12 @@ export interface IState{
 	movies:IMoviePortal[]
 	genreId:string
 	page:string
+	title:string
 }
 export const initialState:IState = {
 	isLoading: false,
 	genreId:'',
 	page:'',
-	movies:[]
+	movies:[],
+	title:''
 }
