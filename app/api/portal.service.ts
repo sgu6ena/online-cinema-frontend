@@ -1,4 +1,3 @@
-
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl, sendBookmarkUrl, sendVoteUrl } from '../config/api.config'
@@ -25,6 +24,11 @@ interface IMain {
 	data: [...IGalleryHome[], IMainGenres]
 }
 
+export interface IParams {
+	page?: string
+	id_sort?: '1' | '2' | '3' | '4' | '5'
+}
+
 export const PortalService = {
 	async getAll() {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
@@ -33,12 +37,14 @@ export const PortalService = {
 		return data.data.data.items
 	},
 
-	async getCategory(slug: string | undefined = '0', page = '1') {
+	async getCategory(slug: string | undefined = '0', { page, id_sort }: IParams) {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug) + '/' + MOVIES_ON_PAGE,
 			{
 				params: {
 					page: page ? page.toString() : '1',
+					id_sort: id_sort || '1',
+					year:'2022'
 				},
 			},
 		)

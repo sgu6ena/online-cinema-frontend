@@ -5,7 +5,6 @@ import { IFilter } from '../../shared/types/search.types';
 export interface ISearchState extends IFilter {
 	isLoadingFilters: boolean
 	isLoading: boolean
-	// data:IMoviePortalPerPage
 	movies: IMoviePortal[]
 	pagination: IPagination
 }

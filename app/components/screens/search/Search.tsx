@@ -29,10 +29,8 @@ const Search: FC = () => {
 	const { getSearchParameters, getSearch } = useActions()
 	const {
 		isLoadingFilters,
-		isLoading,
 		genre,
 		country,
-		category,
 		year,
 		sort,
 		type_content,

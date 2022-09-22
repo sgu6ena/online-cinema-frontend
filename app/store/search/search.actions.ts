@@ -44,7 +44,6 @@ export const getSearch = createAsyncThunk<
 		const response = await PortalService.getSearchWithFilter(
 			params.title,
 			params.genre,
-
 			params.country,
 			params.type_content,
 			params.year,

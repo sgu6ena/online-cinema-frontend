@@ -48,7 +48,7 @@ const Select: FC<ISelect> = ({
                     onChange={onChange}
                     components={animatedComponents}
                     isLoading={isLoading}
-                  isClearable
+                 // isClearable
                 />
                 {error && <div className={formStyles.error}>{error.message}</div>}
             </label>
