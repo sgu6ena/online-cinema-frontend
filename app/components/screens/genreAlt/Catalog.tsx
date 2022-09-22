@@ -9,6 +9,7 @@ import SkeletonLoader from '../../ui/SkeletonLoader'
 import Gallery from '../../ui/gallery/Gallery'
 import CatalogLoader from '../../loaders/CatalogLoader'
 import Button from '../../ui/form-elemets/Button'
+import SortMenu from '../../ui/sortMenu/sortMenu'
 
 const Catalog: FC = () => {
 	const { getGenreById } = useActions()
@@ -18,6 +19,7 @@ const Catalog: FC = () => {
 	const { isLoading, movies, genreId: stateGenreId, title: titleGenre } = useGenreById()
 
 	const [page, setPage] = useState(1)
+	const [sortId, setSortId] = useState<'1' | '2' | '3' | '4' | '5'>('1')
 
 	const show = () => {
 		setPage(page + 1)
@@ -25,27 +27,36 @@ const Catalog: FC = () => {
 
 	useEffect(() => {
 		setPage(1)
-	}, [genreId])
+	}, [genreId, sortId])
 
 	useEffect(() => {
 		if (stateGenreId !== genreId) {
-			getGenreById({ genreId, page: '1' })
+			getGenreById({
+				genreId,
+				params: {
+					page: '1',
+					id_sort: sortId,
+				},
+			})
 		} else {
-			getGenreById({ genreId, page: page.toString() })
+			getGenreById({ genreId, params: { page: page.toString(), id_sort: sortId } })
 		}
 
-	}, [genreId, page])
+	}, [genreId, page, sortId])
 
 
 	return (
 		<Meta title={titleGenre}>
 			<div className={'px-5'}>
 				{titleGenre ?
-					<Heading
-						title={titleGenre}
-						className='lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1'
-					/>
-				:
+					<div className={'flex justify-between items-center lg:pr-5 pr-2'}>
+						<Heading
+							title={titleGenre}
+							className='lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1'
+						/>
+						<SortMenu sortId={sortId} onChange={setSortId} />
+					</div>
+					:
 					<div className='p-5 pb-0'>
 						<SkeletonLoader className='h-12' />
 					</div>
@@ -54,8 +65,8 @@ const Catalog: FC = () => {
 
 				{!isLoading ?
 					<div className={'flex justify-center'}>
-					<Button onClick={show}> Показать еще</Button>
-				</div> : <CatalogLoader />}
+						<Button onClick={show}> Показать еще</Button>
+					</div> : <CatalogLoader />}
 			</div>
 		</Meta>
 	)
