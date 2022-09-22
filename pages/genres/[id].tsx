@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 
 const DynamicCatalogPortal = dynamic(
-	() => import('../../app/components/screens/genre/CatalogPortal'),
+	() => import('../../app/components/screens/genreAlt/Catalog'),
 	{
 		ssr: false,
 	}

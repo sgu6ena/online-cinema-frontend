@@ -10,8 +10,6 @@ export const useGenre = () => {
 	const page = String(query?.page)
 	const genreId = String(query.id)
 
-
-
 	const { isLoading, data } = useQuery(
 		['жарны portal', genreId, page],
 		() => PortalService.getCategory(genreId, page),

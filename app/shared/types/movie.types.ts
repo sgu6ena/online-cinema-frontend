@@ -14,21 +14,21 @@ export interface IActor {
 	slug: string
 }
 
-export interface IMovie {
-	_id: string
-	poster: string
-	bigPoster: string
-	title: string
-	parameters: IParameters
-	genres: IGenre[]
-	actors: IActor[]
-	countOpened: number
-	videoUrl: string
-	rating: number
-	slug: string
-	season?: number
-	episode?: number
-}
+// export interface IMovie {
+// 	_id: string
+// 	poster: string
+// 	bigPoster: string
+// 	title: string
+// 	parameters: IParameters
+// 	genres: IGenre[]
+// 	actors: IActor[]
+// 	countOpened: number
+// 	videoUrl: string
+// 	rating: number
+// 	slug: string
+// 	season?: number
+// 	episode?: number
+// }
 export interface IMainGenreItem {
 	id: number
 	title: string
