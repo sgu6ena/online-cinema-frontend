@@ -1,4 +1,3 @@
-import React from 'react'
 import { useGenres } from './useGenres'
 import { IGenrePortal } from '../../../shared/types/movie.types'
 import Link from 'next/link'
