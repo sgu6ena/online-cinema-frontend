@@ -53,10 +53,10 @@ const Catalog: FC = () => {
 				{!isLoading || movies.length ? (
 					<>
 						{movies && <Gallery movies={movies} />}
-						{!isLoading && <div className={'flex justify-center'}>
+						{!isLoading ?	<div className={'flex justify-center'}>
 							<Button onClick={show}> Показать еще</Button>
-						</div>
-						}
+						</div>: <SkeletonLoader className={'h-10'}/>	}
+
 					</>
 				) : (
 					<CatalogLoader />
