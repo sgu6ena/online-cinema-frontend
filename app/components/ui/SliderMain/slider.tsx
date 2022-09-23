@@ -32,6 +32,8 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 						aspectRatio: '16/9',
 						maxWidth: '1300px',
 						objectFit: 'cover',
+						overflow:'hidden',
+						borderRadius:'1rem'
 					}}
 				>
 					<SliderContent slideData={i} />

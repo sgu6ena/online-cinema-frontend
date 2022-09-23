@@ -2,17 +2,17 @@
 
 .slide {
   @apply text-white  rounded-2xl overflow-hidden;
-  //@include fade-bg-gradient(90deg);
+  @include fade-bg-gradient(0deg);
 
   .img {
-    @apply rounded-2xl;
+    @apply rounded-2xl ;
     object-fit: cover;
     height: -webkit-fill-available;
     height: 100%;
   }
 
   .content {
-    @apply text-white absolute h-full  max-w-xl bottom-0 p-10 pb-2 flex flex-col pr-0 flex-wrap justify-end gap-4 bottom-0 left-0 z-10;
+    @apply  text-white absolute h-full w-full bottom-0 p-10 pb-6 flex flex-col pr-0 flex-wrap justify-end gap-2 bottom-0 left-0 z-10;
 
     &:hover {
       .subtitle {
@@ -27,7 +27,7 @@
     }
 
     .title {
-      @apply opacity-100  relative text-5xl capitalize leading-normal;
+      @apply opacity-100  relative text-5xl capitalize leading-snug;
       font-family: Oswald, sans-serif;
     }
 
@@ -45,7 +45,7 @@
     }
 
     .genres {
-      @apply flex  text-shadow gap-2 hidden lg:flex  overflow-hidden;
+      @apply flex mb-2  text-shadow gap-2 hidden lg:flex  overflow-hidden;
       .year {
         @apply text-white;
       }
@@ -67,7 +67,10 @@
       @apply flex mb-3 ;
 
       .show {
-        @apply btn-primary gap-5 flex-center-between px-4 w-min py-2 shadow-2xl;
+        @apply btn-primary gap-2 flex-center-between pl-6 pr-8 w-min py-2 shadow-2xl;
+        svg{
+          @apply h-8 w-8;
+        }
       }
 
       .favorites {

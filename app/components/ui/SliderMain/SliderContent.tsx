@@ -19,23 +19,12 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 			/>
 			{/*<div className="swiper-lazy-preloader"></div>*/}
 			<div className={styles.content}>
-				{/*<h3 className={cn(styles.title)}>*/}
-				{/*	{i.title.toUpperCase()}*/}
-				{/*</h3>*/}
+				<h3 className={cn(styles.title)}>
+					{i.title.toUpperCase()}
+				</h3>
 				{/*<div  className={styles.subtitle}>*/}
 				{/*	{i.subTitle}*/}
 				{/*</div>*/}
-
-				<div className={styles.buttons}>
-					<Link href={i.link}>
-						<a>
-							<div className={styles.show}>
-								<MaterialIcon name={'MdPlayArrow'} />
-								<div>Смотреть</div>
-							</div>
-						</a>
-					</Link>
-				</div>
 				<div className={styles.genres}>
 					<div>{i.year}</div>
 					{i.genres &&i.genres.map((genre) => (
@@ -50,6 +39,17 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 					{i.rate_age&&<><div>·</div>
 						<div>{i.rate_age}</div></>}
 				</div>
+				<div className={styles.buttons}>
+					<Link href={i.link}>
+						<a>
+							<div className={styles.show}>
+								<MaterialIcon name={'MdOutlinePlayArrow'} />
+								<div>Смотреть</div>
+							</div>
+						</a>
+					</Link>
+				</div>
+
 			</div>
 		</div>
 	)
