@@ -1,5 +1,5 @@
-import { IMenuItem } from '../Navigation/MenuContainer/menu.interface'
 import { LINKS } from '../../../config/links'
+import { IMenuItem } from './menu.interface'
 
 export const notUserMenu: IMenuItem[] =
 	[

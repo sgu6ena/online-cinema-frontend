@@ -8,7 +8,7 @@ import { BsPersonSquare } from 'react-icons/bs'
 import { useAuth } from '../../../../hooks/useAuth'
 import MaterialIcon from '../../../ui/MaterialIcon'
 import styles from './burgers.module.scss'
-import { headerMobileMenu, notUserMenu, userMenu } from '../menu.data'
+import { headerNavMenu, notUserMenu, userMenu } from '../menu.data'
 
 import LogoutButton from './LogoutButton'
 
@@ -31,6 +31,7 @@ const Burgers: FC = () => {
 		setShowBurgerMenu(false)
 	}, [asPath])
 
+	const avatarMenu = user ? [...userMenu] : [...notUserMenu]
 	return (
 		<>
 			<div className={styles.menu}>
@@ -45,17 +46,15 @@ const Burgers: FC = () => {
 							src={user.avatar}
 							width={40}
 							height={40}
-							className="rounded-full"
+							className='rounded-full'
 							unoptimized
 						/>
 					) : (
-						<BsPersonSquare className="h-10 w-10 text-white" />
+						<BsPersonSquare className='h-10 w-10 text-white' />
 					)}
 				</div>
-
-				{user ? (
 					<ul className={isShow ? 'active' : 'hidden'}>
-						{userMenu.map((i) => (
+						{avatarMenu.map((i) => (
 							<li key={i.link}>
 								<Link href={i.link}>
 									<a>
@@ -67,27 +66,12 @@ const Burgers: FC = () => {
 						))}
 						<LogoutButton />
 					</ul>
-				) : (
-					<ul className={isShow ? 'active' : 'hidden'}>
-						{notUserMenu.map((i) => (
-							<li key={i.link}>
-								<Link href={i.link}>
-									<a>
-										<MaterialIcon name={i.icon} />
-										{i.title}
-									</a>
-								</Link>
-							</li>
-						))}
-					</ul>
-				)}
 			</div>
-
 			<div className={styles.menu}>
 				<div
 					className={cn(
 						styles.container,
-						isShowBurgerMenu ? styles.change : ''
+						isShowBurgerMenu ? styles.change : '',
 					)}
 					onClick={toggleMenuBurger}
 				>
@@ -97,7 +81,7 @@ const Burgers: FC = () => {
 				</div>
 
 				<ul className={isShowBurgerMenu ? 'active' : 'hidden'}>
-					{headerMobileMenu.map((i) => (
+					{headerNavMenu.map((i) => (
 						<li key={i.link}>
 							<Link href={i.link}>
 								<a>
@@ -105,8 +89,18 @@ const Burgers: FC = () => {
 									{i.title}
 								</a>
 							</Link>
-						</li>
-					))}
+						</li>))}
+					<hr/>
+					{avatarMenu.map((i) => (
+						<li key={i.link}>
+							<Link href={i.link}>
+								<a>
+									<MaterialIcon name={i.icon} />
+									{i.title}
+								</a>
+							</Link>
+						</li>))}
+
 				</ul>
 			</div>
 		</>
