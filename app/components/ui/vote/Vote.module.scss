@@ -1,7 +1,7 @@
 .vote {
-  @apply flex  gap-3;
+  @apply flex  gap-3 mr-5;
   button {
-    @apply border-white border-opacity-20 border px-4 py-2  opacity-50 rounded border;
+    @apply border-white border-opacity-20 border px-4 py-1  opacity-50 rounded border;
   }
 
   .like {

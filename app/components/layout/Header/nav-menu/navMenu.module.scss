@@ -1,5 +1,5 @@
 .navMenu {
-  @apply text-2xl ml-10 truncate;
+  @apply xl:text-2xl text-xl ml-4 truncate;
   ul {
     @apply hidden lg:flex gap-5;
     li {
