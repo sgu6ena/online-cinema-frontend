@@ -27,7 +27,7 @@ const Tabs: FC<ITabs> = ({ media, fn, logo,activeId }) => {
 							className={cn(active === index && styles.active)}
 							onClick={() => setActive(index)}
 						>
-							{season.title}
+							{active === index ? season.title : season.title.slice(6)}
 						</button>
 					))}
 			</div>
