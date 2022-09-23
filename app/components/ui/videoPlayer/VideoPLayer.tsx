@@ -40,7 +40,8 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 						controls
 						ref={videoRef}
 						playing={play}
-						width={600}
+						width={'100%'}
+						height={'auto'}
 						pip
 						onEnded={nextSeries}
 					/>
