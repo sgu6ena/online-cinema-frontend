@@ -14,7 +14,7 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
     return (
 
         <div className={styles.description}>
-            <Heading title={movie.title} className='mb-5 '/>
+            <Heading title={movie.title} className={styles.laptop}/>
             <p><Rating imdb={movie.rate_imdb} kp={movie.rate_kp}/></p>
             <p className={styles.genres}>
                 <a>{movie.year}</a><span>·</span>
@@ -26,9 +26,9 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
                         <span>·</span>
                     </>
                 ))}
-                <div className={'inline'}>{minuteToHours(movie.length)}</div>
+                <div className={''}>{minuteToHours(movie.length)}</div>
                 {movie.rate_age && <><span>·</span>
-                    <div className='px-3 px-1 border inline'>{movie.rate_age}</div>
+                    <div className='px-3 px-1 border '>{movie.rate_age}</div>
                 </>}
             </p>
 

@@ -2,19 +2,28 @@
 
 .movie {
   @apply text-gray-500 pl-5 lg:pl-layout;
+  h1.mobile {
+    @apply text-white text-2xl block leading-none  lg:hidden;
+    font-family: 'Oswald', sans-serif;
+  }
+
   .main {
-    @apply flex-col-reverse flex flex-grow flex-shrink justify-between  gap-0.5 lg:flex-row;
+    @apply flex-col flex  justify-between  gap-0.5 lg:flex-row;
 
     .videoBox {
-      @apply flex-grow-0 flex-shrink-0;
+   //   @apply  xl:w-[600px] 2xl:w-[700px] w-full;
+
       .actions {
         @apply mt-3 flex-center-between;
         .buttons {
-          @apply flex gap-2;
+          @apply flex gap-4;
           button {
-            @apply text-white flex-center-between  gap-2 bg-transparent px-4 py-2 rounded mr-5 border border-gray-600;
+            @apply text-white flex-center-between lg:pr-6 gap-2 bg-transparent px-4 py-3 rounded  border border-gray-600;
             svg {
               @apply text-2xl;
+            }
+            span{
+              @apply hidden md:block
             }
           }
 
@@ -26,21 +35,23 @@
 
           .play {
             @apply bg-primary border-none;
+            span{
+              @apply hidden md:block
+            }
           }
         }
       }
     }
 
     .description {
-      @apply p-2  lg:p-layout text-gray-500;
+      @apply p-2 w-full xl:p-layout pr-0 text-gray-500;
       //width: 40%;
 
       .genres {
-        @apply leading-10
+        @apply leading-10 flex flex-wrap;   // overflow-wrap: break-word;
       }
-
-      h1 {
-        @apply text-white text-4xl;
+      h1.laptop {
+        @apply text-white text-4xl  hidden  lg:block;
         font-family: 'Oswald', sans-serif;
       }
 

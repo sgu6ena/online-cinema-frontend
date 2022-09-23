@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import { useActions } from '../../../hooks/useActions'
 import { useMovie } from '../../../hooks/useMovie'
@@ -16,6 +16,7 @@ import Vote from '../../ui/vote/Vote'
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
+import Heading from '../../ui/heading/Heading'
 
 const Movie: FC = () => {
 	const { movie, collection, isLoading, isFavorite, isFavoriteLoading, vote, myVote } = useMovie()
@@ -73,7 +74,9 @@ const Movie: FC = () => {
 			{movie && (
 				<>
 					<div className={styles.movie}>
+						<Heading title={movie.title} className={styles.mobile}/>
 						<div className={styles.main}>
+
 							<div className={styles.videoBox}>
 								<VideoPLayer
 									url={url || ''}
@@ -105,9 +108,9 @@ const Movie: FC = () => {
 															: 'MdBookmarkBorder'
 												}
 											/>
-											Избранное
+											<span>Избранное</span>
 										</button>
-										{!serial && !isPlayed && (
+										{ !isPlayed && (
 											<button
 												className={styles.play}
 												onClick={() =>
@@ -117,23 +120,23 @@ const Movie: FC = () => {
 												<MaterialIcon
 													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
 												/>
-												Смотреть
+												<span>Смотреть</span>
 											</button>
 										)}
 
-										{serial && !isPlayed && (
-											<button
-												className={styles.play}
-												onClick={() =>
-													handleMovie(activeId, '')
-												}
-											>
-												<MaterialIcon
-													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
-												/>
-												Продолжить
-											</button>
-										)}
+										{/*{serial && !isPlayed && (*/}
+										{/*	<button*/}
+										{/*		className={styles.play}*/}
+										{/*		onClick={() =>*/}
+										{/*			handleMovie(activeId, '')*/}
+										{/*		}*/}
+										{/*	>*/}
+										{/*		<MaterialIcon*/}
+										{/*			name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}*/}
+										{/*		/>*/}
+										{/*		Продолжить*/}
+										{/*	</button>*/}
+										{/*)}*/}
 									</div>
 
 									{movieId && (
