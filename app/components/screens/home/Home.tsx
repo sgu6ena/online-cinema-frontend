@@ -31,8 +31,7 @@ export const collectionsToItems = (items: IMoviePortal[]): IGalleryItem[] => {
 	]
 }
 const Home: FC<IHome> = () => {
-	const { isLoading, slides, collections, genres, genresCollections } =
-		useHome()
+	const { isLoading, slides, collections, genres, genresCollections } = useHome()
 	const { getMainHome } = useActions()
 
 	useEffect(() => {
@@ -40,28 +39,29 @@ const Home: FC<IHome> = () => {
 	}, [])
 
 	return (
-		<>
-			<Meta
-				title='PORTAL'
-				description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
-				image={'/smart/main.png'}
-			></Meta>
-			<div className={styles.mainSlider}>
-				{isLoading ? <HomeLoading /> : slides.length && <SliderMain slides={slides} />}
-			</div>
+		<Meta
+			title='PORTAL'
+			description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
+			image={'https://idc.md/storage/app/media/images/banners/portal/main.png'}
+		>
+			{isLoading ? <HomeLoading /> :
+				<>
+					{slides.length &&
+						<div className={styles.mainSlider}>
+							<SliderMain slides={slides} />
+						</div>}
 
-			{!isLoading &&
-				collections &&
-				collections.map((c) => <Collection collection={c} key={c.title} />)}
-			{!isLoading && genres[0] && genres[0].items && genres[0].items.length && (
-				<GenresSlider genres={genres[0]} />
-			)}
-			{!isLoading &&
-				genresCollections &&
-				genresCollections.map((c) => (
-					<Collection collection={c} key={c.title} />
-				))}
-		</>
+					{collections &&
+						collections.map((c) => <Collection collection={c} key={c.title} />)}
+					{genres[0] && genres[0].items && genres[0].items.length && (
+						<GenresSlider genres={genres[0]} />
+					)}
+					{
+						genresCollections &&
+						genresCollections.map((c) => (
+							<Collection collection={c} key={c.title} />
+						))}</>}
+		</Meta>
 	)
 }
 
