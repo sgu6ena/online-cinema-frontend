@@ -46,21 +46,21 @@ const Home: FC<IHome> = () => {
 		>
 			{isLoading ? <HomeLoading /> :
 				<>
-					{slides.length &&
+					{slides.length > 0 ?
 						<div className={styles.mainSlider}>
 							<SliderMain slides={slides} />
-						</div>}
+						</div> : null}
 
-					{collections &&
-						collections.map((c) => <Collection collection={c} key={c.title} />)}
-					{genres[0] && genres[0].items && genres[0].items.length && (
+					{collections ?
+						collections.map((c) => <Collection collection={c} key={c.title} />) : <></>}
+					{genres[0] && genres[0].items && genres[0].items.length ? (
 						<GenresSlider genres={genres[0]} />
-					)}
+					) : null}
 					{
-						genresCollections &&
-						genresCollections.map((c) => (
-							<Collection collection={c} key={c.title} />
-						))}</>}
+						genresCollections ?
+							genresCollections.map((c) => (
+								<Collection collection={c} key={c.title} />
+							)) : null}</>}
 		</Meta>
 	)
 }
