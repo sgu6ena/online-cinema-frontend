@@ -81,10 +81,10 @@ const Movie: FC = () => {
 	}
 
 	return (
-		<>
+		<Meta title={movie?.title||'PORTAL'} image={movie?.logo}>
 			{isLoading && <MovieSkeleton />}
 			{movie && (
-				<Meta title={movie.title} image={movie.logo}>
+				<>
 					<div className={styles.movie}>
 						<Heading title={movie.title} className={styles.mobile} />
 						<div className={styles.main}>
@@ -170,9 +170,9 @@ const Movie: FC = () => {
 						)}
 					</div>
 					<Collection collection={collection} />
-				</Meta>
+				</>
 			)}
-		</>
+		</Meta>
 	)
 }
 
