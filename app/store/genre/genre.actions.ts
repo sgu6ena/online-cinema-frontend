@@ -9,7 +9,7 @@ export const getGenreById = createAsyncThunk<any, { genreId: string, params: IPa
 		try {
 			if (genreId) {
 				const response = await PortalService.getCategory(genreId, params)
-				return { movies: response.data.data, genreId, page:params.page }
+				return { movies: response.data.data, genreId, page:params.page, pagination:response.data.pagination }
 			} else {
 				return { movies: [], genreId: '', page: '1' }
 			}
