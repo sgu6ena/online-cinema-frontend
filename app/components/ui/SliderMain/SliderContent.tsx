@@ -19,9 +19,11 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 			/>
 			{/*<div className="swiper-lazy-preloader"></div>*/}
 			<div className={styles.content}>
-				<h3 className={cn(styles.title)}>
+				<Link href={i.link}>
+					<a><h3 className={cn(styles.title)}>
 					{i.title.toUpperCase()}
-				</h3>
+				</h3>	</a>
+				</Link>
 				{/*<div  className={styles.subtitle}>*/}
 				{/*	{i.subTitle}*/}
 				{/*</div>*/}

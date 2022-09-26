@@ -17,6 +17,7 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 			loop
 			// preloadImages={true}
 			// lazy={{ enabled: true }}
+			autoplay={true}
 			centeredSlides={true}
 			modules={[Navigation, Pagination, A11y, Lazy, Autoplay]}
 			spaceBetween={10}
