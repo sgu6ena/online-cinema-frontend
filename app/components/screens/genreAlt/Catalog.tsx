@@ -46,7 +46,8 @@ const Catalog: FC = () => {
 
 
 	return (
-		<Meta title={titleGenre}>
+		<Meta title={titleGenre||'PORTAL'} description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
+					image={'https://idc.md/storage/app/media/images/banners/portal/main.png'}>
 			<div className={'px-5'}>
 				{titleGenre ?
 					<div className={'flex justify-between items-center lg:pr-5 pr-2'}>

@@ -10,13 +10,15 @@ const Logo: FC = () => {
     return (
         <Link href={LINKS.MAIN}>
             <a className={styles.logo}>
-                {/*<Image*/}
-                {/*	src={logoImage}*/}
-                {/*	height={25}*/}
-                {/*	width={35}*/}
-                {/*	alt="Portal"*/}
-                {/*	draggable={false}*/}
-                {/*/>*/}
+                <div className={styles.img} >
+									<Image
+										src={logoImage}
+										height={30}
+										width={30}
+										alt="Portal"
+										draggable={false}
+									/>
+								</div>
 
                 <span className={styles.text}>PORTAL</span>
             </a>
