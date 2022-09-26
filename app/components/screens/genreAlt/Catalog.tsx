@@ -46,7 +46,7 @@ const Catalog: FC = () => {
 
 
 	return (
-		<Meta title={titleGenre}>
+		<Meta title={titleGenre||'PORTAL'}>
 			<div className={'px-5'}>
 				{titleGenre ?
 					<div className={'flex justify-between items-center lg:pr-5 pr-2'}>
