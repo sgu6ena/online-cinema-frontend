@@ -16,12 +16,12 @@ const Catalog: FC = () => {
 
 	const { query } = useRouter()
 	const genreId = query.id && String(query.id) || ''
-	const { isLoading, movies, genreId: stateGenreId, title: titleGenre } = useGenreById()
+	const { isLoading, movies, genreId: stateGenreId, title: titleGenre , sortAvailable, totalPages} = useGenreById()
 
 	const [page, setPage] = useState(1)
 	const [sortId, setSortId] = useState<'1' | '2' | '3' | '4' | '5'>('1')
 
-	const show = () => {
+	const showMore = () => {
 		setPage(page + 1)
 	}
 
@@ -54,7 +54,7 @@ const Catalog: FC = () => {
 							title={titleGenre}
 							className='lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1'
 						/>
-						<SortMenu sortId={sortId} onChange={setSortId} />
+						{sortAvailable?	<SortMenu sortId={sortId} onChange={setSortId} />:''}
 					</div>
 					:
 					<div className='p-5 pb-0'>
@@ -65,7 +65,7 @@ const Catalog: FC = () => {
 
 				{!isLoading ?
 					<div className={'flex justify-center'}>
-						<Button onClick={show}> Показать еще</Button>
+						{totalPages>page &&<Button onClick={showMore}> Показать еще</Button>}
 					</div> : <CatalogLoader />}
 			</div>
 		</Meta>

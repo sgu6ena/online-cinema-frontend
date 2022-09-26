@@ -15,7 +15,7 @@ const GallerySlider: FC<{ items: IGalleryItem[] }> = ({ items }) => {
 		>
 			{items.map((item: IGalleryItem, index) => (
 				<SwiperSlide
-					key={item.link + Math.random() * index}
+					key={item.link + Math.random() * index + item.posterPath}
 					className={styles.slide}
 				>
 					<GalleryItem item={item} variant="vertical" />

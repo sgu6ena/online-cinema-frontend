@@ -15,12 +15,16 @@ const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 		<div>
 			<div className={styles.collectionsWrapper} key={collection.title}>
 				<div className={styles.collection}>
-					<Heading title={collection.title} />
+					<Link href={getGenreUrl(collection.cid.toString())}>
+						<a>
+							<Heading title={collection.title} />
+						</a>
+					</Link>
 					<Link href={getGenreUrl(collection.cid.toString())}>
 						<a>
 							<button>
 								<span> Смотреть все</span>
-								<MaterialIcon name="MdChevronRight" />
+								<MaterialIcon name='MdChevronRight' />
 							</button>
 						</a>
 					</Link>
