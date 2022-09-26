@@ -41,6 +41,7 @@ export interface IMainGenres {
 	items: IMainGenreItem[]
 	title: string
 	viewport: number
+	cid:number
 }
 export interface IGenrePortal {
 	cid: string
