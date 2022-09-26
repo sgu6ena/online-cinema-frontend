@@ -17,11 +17,23 @@ import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 import Heading from '../../ui/heading/Heading'
+import Meta from '../../../utils/meta/Meta'
 
 const Movie: FC = () => {
 	const { movie, collection, isLoading, isFavorite, isFavoriteLoading, vote, myVote } = useMovie()
 	const { url, idFile, serial, title, isPlayed, playlist, seasons } = useVideo()
-	const {	getMovie, favorites, voting, setIdFile, setPlay, setTitle, getUrl,	resetVideo, setPlaylist, setSerial	} = useActions()
+	const {
+		getMovie,
+		favorites,
+		voting,
+		setIdFile,
+		setPlay,
+		setTitle,
+		getUrl,
+		resetVideo,
+		setPlaylist,
+		setSerial,
+	} = useActions()
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
 	const [activeId, setActiveId] = useState(0)
@@ -72,9 +84,9 @@ const Movie: FC = () => {
 		<>
 			{isLoading && <MovieSkeleton />}
 			{movie && (
-				<>
+				<Meta title={movie.title} image={movie.logo}>
 					<div className={styles.movie}>
-						<Heading title={movie.title} className={styles.mobile}/>
+						<Heading title={movie.title} className={styles.mobile} />
 						<div className={styles.main}>
 
 							<div className={styles.videoBox}>
@@ -110,7 +122,7 @@ const Movie: FC = () => {
 											/>
 											<span>Избранное</span>
 										</button>
-										{ !isPlayed && (
+										{!isPlayed && (
 											<button
 												className={styles.play}
 												onClick={() =>
@@ -158,7 +170,7 @@ const Movie: FC = () => {
 						)}
 					</div>
 					<Collection collection={collection} />
-				</>
+				</Meta>
 			)}
 		</>
 	)
