@@ -81,7 +81,8 @@ const Movie: FC = () => {
 	}
 
 	return (
-		<Meta title={movie?.title||'PORTAL'} image={movie?.logo}>
+		<Meta title={movie?.title||'PORTAL'} description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
+					image={'https://idc.md/storage/app/media/images/banners/portal/main.png'} >
 			{isLoading && <MovieSkeleton />}
 			{movie && (
 				<>
