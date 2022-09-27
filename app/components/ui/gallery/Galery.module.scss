@@ -15,7 +15,7 @@
 }
 
 .h4 {
-  @apply text-white text-sm font-bold text-shadow pl-1 pt-2;
+  @apply text-white text-sm text-shadow font-bold text-shadow pl-1 pt-2 z-50;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -59,7 +59,7 @@
   }
 
   img {
-    @apply h-full w-full bg-gray-700 rounded ;
+    @apply h-full w-full bg-gray-700 rounded;
   }
 
   .tags {
@@ -67,14 +67,16 @@
     .tag {
       @apply font-semibold w-fit shadow-gray-600 shadow   text-xs rounded bg-white text-gray-600 px-1;
     }
-    .pay{
+
+    .pay {
       @apply bg-primary text-white;
     }
   }
-  .content{
-    @apply absolute lg:bottom-2 bottom-0.5 lg:left-1 lg:right-1  left-0.5 right-0.5 flex flex-wrap lg:flex-row lg:gap-3 flex-row gap-1  justify-center z-20 ;
-    div{
-      @apply text-center font-medium uppercase text-xs flex-nowrap
+
+  .content {
+    @apply absolute lg:bottom-2 bottom-0.5 lg:left-1 lg:right-1  left-0.5 right-0.5 flex flex-wrap lg:flex-row lg:gap-3 flex-row gap-1  justify-center z-20;
+    div {
+      @apply text-center font-medium uppercase text-xs flex-nowrap;
     }
   }
 }
@@ -83,10 +85,86 @@
   @apply xl:py-layout py-2 px-1 lg:px-0  grid lg:grid-cols-5 gap-y-10 xl:grid-cols-6 sm:grid-cols-4 xl:gap-x-10 lg:gap-x-5 sm:gap-x-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 sm:grid-cols-3 grid-cols-2;
 
   > a {
-    @apply mx-auto mb-4 lg:w-40 sm:w-32 w-36 xl:w-56 2xl:w-64 animate-fade ;
+    @apply mx-auto mb-4 lg:w-40 sm:w-32 w-36 xl:w-56 2xl:w-64 animate-fade;
   }
 }
 
 .button {
   @apply btn-primary py-2 px-10;
+}
+
+.itemAlt {
+  @apply relative transition-all mr-1 overflow-hidden border-transparent border flex  items-end shadow-lg rounded-2xl will-change-contents;
+  flex: 0 0 auto;
+
+  &:hover {
+    //@apply border-primary border ;
+    filter: drop-shadow(0px 10px 13px rgba(255, 0, 0, 0.6));
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: #e30b13;
+  }
+
+  &.vertical {
+    @apply lg:w-40 lg:h-64 sm:w-36 sm:h-52 w-36 h-52 2xl:w-64  2xl:h-96 xl:w-56 xl:h-80;
+  }
+
+  &.horizontal {
+    @apply mb-8 h-44;
+    width: 31%;
+  }
+.top{
+  @apply flex justify-between;
+  .age {
+    @apply rounded p-1 text-sm shadow-lg text-shadow border font-bold;
+  }
+  button{
+    @apply pb-5 pl-5;
+    svg{
+
+      @apply w-8 h-8;
+    }
+
+  }
+}
+
+  .rate {
+    @apply flex gap-2 items-center ml-1 mb-1 text-xl;
+    svg {
+      @apply h-5 w-5;
+    }
+    .imdb{
+      @apply bg-white rounded px-1 pt-0.5 pb-1 text-sm  leading-none text-gray-700;
+      font-family: Oswald, sans-serif;
+    }
+  }
+
+  h5 {
+    @apply text-white;
+  }
+
+  img {
+    @apply h-full w-full bg-gray-700 rounded-2xl;
+  }
+
+  .content {
+    @apply hidden;
+    @apply absolute    transition-all;
+  }
+
+  &:hover {
+    @include fade-bg-gradient2(0deg);
+  }
+
+  &:hover .content {
+    @apply flex transition-all h-full z-50 w-full top-0 left-0 p-2 pt-4 rounded-2xl shadow-lg bg-gray-950 bg-opacity-50 overflow-hidden flex flex-col justify-between;
+    transition: all 0.3s;
+  }
+}
+
+.pay {
+  @apply text-primary text-shadow font-bold text-xs ml-1;
+}
+
+.free {
+  @apply text-gray-600 text-shadow font-bold text-xs ml-1;
 }

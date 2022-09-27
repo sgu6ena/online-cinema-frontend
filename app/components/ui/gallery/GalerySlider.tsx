@@ -2,10 +2,10 @@ import { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import styles from './Galery.module.scss'
-import GalleryItem from './GalleryItem'
-import { IGalleryItem } from './gallery.interface'
+import GalleryItemAlt from './GalleryItemAlt'
+import { IMoviePortal } from '../../../shared/types/movie.types'
 
-const GallerySlider: FC<{ items: IGalleryItem[] }> = ({ items }) => {
+const GallerySlider: FC<{ items: IMoviePortal[] }> = ({ items }) => {
 	return (
 		<Swiper
 			className={styles.gallery}
@@ -13,12 +13,12 @@ const GallerySlider: FC<{ items: IGalleryItem[] }> = ({ items }) => {
 			centeredSlides={false}
 			spaceBetween={20}
 		>
-			{items.map((item: IGalleryItem, index) => (
+			{items.map((item: IMoviePortal, index) => (
 				<SwiperSlide
-					key={item.link + Math.random() * index + item.posterPath}
+					key={item.url + Math.random() * index + item.logo}
 					className={styles.slide}
 				>
-					<GalleryItem item={item} variant="vertical" />
+					<GalleryItemAlt movie={item}  />
 				</SwiperSlide>
 			))}
 		</Swiper>
