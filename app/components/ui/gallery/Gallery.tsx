@@ -12,22 +12,7 @@ const Gallery: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 			{movies.map((movie: IMoviePortal) => (
 				<GalleryItem
 					key={movie.id.toString()}
-					item={{
-						name: movie.title,
-						link: getMoviesUrl(movie.id),
-						posterPath: movie.logo,
-						year: movie.year,
-						title: movie.title,
-						access: movie.access,
-						age: movie.rate_age,
-						rate_kp: movie.rate_kp,
-						rate_imdb: movie.rate_imdb,
-						genres:movie.genre,
-						content:movie.season?{
-							title:`Сезон ${movie.season} `,
-							subTitle:`Серия ${movie.episode} `
-						}:undefined
-					}}
+					item={movie}
 					variant="vertical"
 				/>
 			))}

@@ -6,21 +6,21 @@ import { getGenresList } from '../../../utils/movie/getGenresList'
 
 import styles from './Galery.module.scss'
 import { IGalleryItemProps } from './gallery.interface'
+import { getMoviesUrl } from '../../../config/api.config'
 
 const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 	return (
-		<Link href={item.link}>
+		<Link href={getMoviesUrl(item.id)}>
 			<a>
 				<div
 					className={cn(styles.item, {
-						[styles.withText]: item.content,
 						[styles.horizontal]: variant === 'horizontal',
 						[styles.vertical]: variant === 'vertical',
 					})}
 				>
 					<img
-						src={item.posterPath || './images/posters/no_poster.jpg'}
-						alt={item.name}
+						src={item.logo || './images/posters/no_poster.jpg'}
+						alt={item.title}
 					/>
 					<div className={styles.tags}>
 						<div className={cn(styles.tag, item.access && styles.pay)}>
@@ -39,11 +39,6 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 						)}
 					</div>
 
-					{item?.content?.title && <div className={styles.content}>
-						<div>{item.content?.title} </div>
-						<div>·</div>
-						<div>{item.content?.subTitle}</div>
-					</div>}
 
 				</div>
 				<h4 className={styles.h4}>
@@ -51,7 +46,7 @@ const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 					{item.title}
 				</h4>
 				<h5 className={styles.h5}>
-					{item.genres && getGenresList(item.genres, ' ·')}
+					{item.genre && getGenresList(item.genre, ' ·')}
 				</h5>
 			</a>
 		</Link>

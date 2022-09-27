@@ -1,5 +1,5 @@
 export const API_URL = `${process.env.APP_URL}/api`
-export const APP_URL_PORTAL = `//api.portal.idc.md/api`
+export const APP_URL_PORTAL = `https://api.portal.idc.md/api`
 
 export const getCategoryUrl = (string: string) => `/file/category/${string}`
 export const getMovieUrl = (string: string) => `/file/${string}`

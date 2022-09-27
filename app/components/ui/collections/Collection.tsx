@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React, { FC } from 'react'
 
 import { getGenreUrl } from '../../../config/url.config'
-import { collectionsToItems } from '../../screens/home/Home'
+
 import MaterialIcon from '../MaterialIcon'
 import GallerySlider from '../gallery/GalerySlider'
 import { IGalleryHome } from '../gallery/gallery.interface'
@@ -30,7 +30,7 @@ const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 					</Link>
 				</div>
 				<GallerySlider
-					items={collectionsToItems(collection.items.filter((i) => i.id))}
+					items={collection.items.filter((i) => i.id)}
 				/>
 			</div>
 		</div>

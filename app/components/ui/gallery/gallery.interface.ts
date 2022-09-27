@@ -1,24 +1,7 @@
-import {IGenre, IMoviePortal} from '../../../shared/types/movie.types'
-
-export interface IGalleryItem {
-  posterPath: string
-  name: string
-  link: string
-  year?: number
-  title?: string
-  age?: string
-  genres?: IGenre[]
-  access?: 0 | 1 | 2
-  rate_kp?: number
-  rate_imdb?: number
-  content?: {
-    title: string
-    subTitle?: string
-  }
-}
+import { IMoviePortal} from '../../../shared/types/movie.types'
 
 export interface IGalleryItemProps {
-  item: IGalleryItem
+  item: IMoviePortal
   variant: 'vertical' | 'horizontal'
 }
 

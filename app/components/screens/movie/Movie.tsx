@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { useRouter } from 'next/router'
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { useActions } from '../../../hooks/useActions'
 import { useMovie } from '../../../hooks/useMovie'
