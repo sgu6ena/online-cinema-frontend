@@ -53,19 +53,19 @@ const Burgers: FC = () => {
 						<BsPersonSquare className='h-10 w-10 text-white' />
 					)}
 				</div>
-					<ul className={isShow ? 'active' : 'hidden'}>
-						{avatarMenu.map((i) => (
-							<li key={i.link}>
-								<Link href={i.link}>
-									<a>
-										<MaterialIcon name={i.icon} />
-										{i.title}
-									</a>
-								</Link>
-							</li>
-						))}
-						<LogoutButton />
-					</ul>
+				<ul className={isShow ? 'active' : 'hidden'}>
+					{avatarMenu.map((i) => (
+						<li key={i.link}>
+							<Link href={i.link}>
+								<a>
+									<MaterialIcon name={i.icon} />
+									{i.title}
+								</a>
+							</Link>
+						</li>
+					))}
+					{user && <LogoutButton />}
+				</ul>
 			</div>
 			<div className={styles.menu}>
 				<div
@@ -90,7 +90,7 @@ const Burgers: FC = () => {
 								</a>
 							</Link>
 						</li>))}
-					<hr/>
+					<hr />
 					{avatarMenu.map((i) => (
 						<li key={i.link}>
 							<Link href={i.link}>

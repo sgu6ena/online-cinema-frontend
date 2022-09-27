@@ -115,20 +115,20 @@
 .top{
   @apply flex justify-between;
   .age {
-    @apply rounded p-1 text-sm shadow-lg text-shadow border font-bold;
+    font-family: Oswald, sans-serif;
+    @apply rounded p-1 text-lg shadow-lg text-shadow border font-bold;
   }
   button{
     @apply pb-5 pl-5;
     svg{
-
       @apply w-8 h-8;
     }
-
   }
 }
 
   .rate {
-    @apply flex gap-2 items-center ml-1 mb-1 text-xl;
+    @apply   flex gap-2 items-center ml-1 mb-1 md:text-2xl text-sm;
+    font-family: Oswald, sans-serif;
     svg {
       @apply h-5 w-5;
     }

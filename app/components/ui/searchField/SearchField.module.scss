@@ -1,8 +1,7 @@
 .searchBox {
   input {
-    @apply rounded-full air-block m-3 outline-none shadow-none bg-transparent text-white border-transparent pl-12 h-10 w-28 px-0 py-4 flex border-none items-center transition-colors placeholder-white;
+    @apply rounded-full air-block m-3 outline-none shadow-none bg-transparent text-white border-transparent pl-12 h-10 md:w-28 w-24 md:text-lg text-xs px-0 py-4 flex border-none items-center transition-colors placeholder-white;
     transition: all 0.5s ease-in-out;
-    //border-width: 2px;
   }
 
   .btnSearch {
@@ -20,12 +19,12 @@
   }
 
   .btnSearch:focus ~ input {
-    @apply bg-gray-600 outline-none  text-white rounded-3xl  w-80;
+    @apply bg-gray-600 outline-none  text-white rounded-3xl  ;
     transition: all 500ms ease-in-out;
   }
 
   input:focus {
-    @apply bg-gray-600 outline-none text-white w-80  rounded-3xl;
+    @apply bg-gray-600 outline-none text-white md:w-80 w-40  rounded-3xl;
     transition: all 500ms ease-in-out;
   }
 }
