@@ -8,7 +8,6 @@ import Meta from '../../../utils/meta/Meta'
 import HomeLoading from '../../loaders/HomeLoading'
 import SliderMain from '../../ui/SliderMain/slider'
 import Collection from '../../ui/collections/Collection'
-import {IGalleryItem} from '../../ui/gallery/gallery.interface'
 
 import styles from './Home.module.scss'
 import {IHome} from './home.interface'
