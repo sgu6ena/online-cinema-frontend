@@ -9,6 +9,7 @@ import { IGalleryHome } from '../gallery/gallery.interface'
 import Heading from '../heading/Heading'
 
 import styles from './collection.module.scss'
+import { collectionsToItems } from '../../screens/home/Home'
 
 const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 	return (
@@ -30,7 +31,7 @@ const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 					</Link>
 				</div>
 				<GallerySlider
-					items={collection.items.filter((i) => i.id)}
+					items={collectionsToItems(collection.items.filter((i) => i.id))}
 				/>
 			</div>
 		</div>
