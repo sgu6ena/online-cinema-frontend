@@ -1,9 +1,9 @@
 .navMenu {
   @apply xl:text-2xl text-xl ml-4 truncate;
   ul {
-    @apply hidden lg:flex gap-5;
+    @apply hidden lg:flex gap-3 px-2;
     li {
-      @apply relative rounded;
+      @apply relative rounded px-1;
     }
 
     li > a {
@@ -12,7 +12,7 @@
     }
 
     li > a:before {
-      @apply bg-primary rounded-full mt-4;
+      @apply bg-white rounded-full mt-4;
       content: '';
       position: absolute;
       width: 100%;
@@ -25,12 +25,18 @@
       z-index: -1;
     }
 
+
     li > a:hover:before,
     li > a:focus:before,
     li.active > a:before {
+
       margin-top: 10px;
       animation: 0.5s forwards hover-v linear;
       animation-fill-mode: forwards;
+    }
+
+    li.active > a:before {
+      @apply bg-primary;
     }
   }
 }

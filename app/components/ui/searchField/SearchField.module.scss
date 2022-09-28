@@ -1,6 +1,6 @@
 .searchBox {
   input {
-    @apply rounded-full air-block m-3 outline-none shadow-none bg-transparent text-white border-transparent pl-12 h-10 md:w-28 w-24 md:text-lg text-xs px-0 py-4 flex border-none items-center transition-colors placeholder-white;
+    @apply rounded-full air-block m-3 outline-none shadow-none bg-transparent text-white border-transparent pl-12 h-10 md:w-28 w-0 md:text-lg text-xs px-0 py-4 flex border-none items-center transition-colors placeholder-white;
     transition: all 0.5s ease-in-out;
   }
 
