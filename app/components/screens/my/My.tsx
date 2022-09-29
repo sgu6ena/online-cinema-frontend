@@ -14,7 +14,7 @@ const My: FC = ({ children }) => {
 	const { user } = useAuth()
 	const isUser = !!user
 	return (
-		<div className={' md:px-5 px-3 lg:pl-layout'}>
+		<div className={' md:px-5 mb-40 px-3 lg:pl-layout'}>
 			<Heading title={'Я смотрю'} className={'py-8'} />
 			{!isUser ? (
 				<div className="mt-32 text-center">
