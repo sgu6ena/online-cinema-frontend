@@ -1,24 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { initialState } from './interface'
-import { getParameters } from './actions'
+import { getBookmarks } from './actions'
 
-export const Slice = createSlice({
+export const FavoritsSlice = createSlice({
 	name: '',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getParameters.pending, (state) => {
+			.addCase(getBookmarks.pending, (state) => {
 				state.isLoading = true
 			})
-			.addCase(getParameters.fulfilled, (state, { payload }) => {
+			.addCase(getBookmarks.fulfilled, (state, { payload }) => {
 				state.isLoading = false
 			})
-			.addCase(getParameters.rejected, (state) => {
+			.addCase(getBookmarks.rejected, (state) => {
 				state.isLoading = false
 			})
 	},
 })
 
-export const { reducer } = Slice
+export const { reducer } = FavoritsSlice

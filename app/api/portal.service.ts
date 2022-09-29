@@ -61,6 +61,11 @@ export const PortalService = {
 		return data.data
 	},
 
+	async getBookmarks() {
+		const data = await axios.get(`bookmark/` + 20)
+		return data.data
+	},
+
 	async getHistory(page: string = '1') {
 		const data = await axios.get(`history/` + MOVIES_ON_PAGE, {
 			params: {
