@@ -42,7 +42,7 @@ const Home: FC<IHome> = () => {
       {!isLoading &&
         collections &&
         collections.map((c) => <Collection collection={c} key={c.title}/>)}
-      {!isLoading && genres[0] && genres[0].items && genres[0].items.length && (
+      {!isLoading && genres[0] && genres[0].items && genres[0].items.length>0 && (
         <GenresSlider genres={genres[0]}/>
       )}
       {!isLoading &&
