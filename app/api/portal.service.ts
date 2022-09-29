@@ -27,6 +27,7 @@ interface IMain {
 export interface IParams {
 	page?: string
 	id_sort?: '1' | '2' | '3' | '4' | '5'
+	year:string
 }
 
 export const PortalService = {
@@ -37,14 +38,14 @@ export const PortalService = {
 		return data.data.data.items
 	},
 
-	async getCategory(slug: string | undefined = '0', { page, id_sort }: IParams) {
+	async getCategory(slug: string | undefined = '0', { page, id_sort,year }: IParams) {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug) + '/' + MOVIES_ON_PAGE,
 			{
 				params: {
 					page: page ? page.toString() : '1',
 					id_sort: id_sort || '1',
-					year:'2022'
+					year:year
 				},
 			},
 		)
@@ -110,7 +111,7 @@ export const PortalService = {
 		year: string,
 		sort: string,
 		category: string,
-		page: string | number = '1',
+		page: string | number ,
 	) {
 		const data = await axiosClassicPortal.get(`searchExt/` + MOVIES_ON_PAGE, {
 			params: {

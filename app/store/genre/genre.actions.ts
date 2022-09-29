@@ -8,10 +8,10 @@ export const getGenreById = createAsyncThunk<any, { genreId: string, params: IPa
 	'genres/getUrlByID', async ({ genreId, params }, { getState, rejectWithValue }) => {
 		try {
 			if (genreId) {
-				const response = await PortalService.getCategory(genreId, params)
-				return { movies: response.data.data, genreId, page:params.page, pagination:response.data.pagination }
+				const response = await PortalService.getSearchWithFilter('', +genreId < 100 ? genreId : '', '', '', params.year, params.id_sort as string, genreId, params.page || 1)
+				return { movies: response.data, genreId, page: params.page, pagination: response.pagination }
 			} else {
-				return { movies: [], genreId: '', page: '1' }
+				return { movies: [], genreId: '', page: params.page }
 			}
 		} catch (error) {
 			toastError(error)
