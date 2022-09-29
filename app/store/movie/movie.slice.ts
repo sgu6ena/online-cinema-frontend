@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { favorites, getMovie, voting } from './movie.actions'
+import { getMovie, voting } from './movie.actions'
 import { initialState } from './movie.interface'
+import { favorites } from '../favorites/actions'
 
 export const movieSlice = createSlice({
 	name: 'movie',
@@ -38,7 +39,7 @@ export const movieSlice = createSlice({
 			})
 			.addCase(favorites.fulfilled, (state, { payload }) => {
 				state.isFavoriteLoading = false
-				state.isFavorite = payload
+				state.isFavorite = payload.active
 			})
 			.addCase(voting.pending, (state) => {
 				state.isVoteLoading = true

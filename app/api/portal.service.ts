@@ -62,7 +62,7 @@ export const PortalService = {
 	},
 
 	async getBookmarks() {
-		const data = await axios.get(`bookmark/` + 20)
+		const data = await axios.get(`bookmark/` + 200)
 		return data.data
 	},
 
