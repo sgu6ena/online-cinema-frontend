@@ -36,7 +36,7 @@ const Home: FC<IHome> = () => {
 
       {isLoading && <HomeLoading/>}
       <div className={styles.mainSlider}>
-        {!isLoading && slides.length && <SliderMain slides={slides}/>}
+        {!isLoading && slides.length>0 && <SliderMain slides={slides}/>}
       </div>
 
       {!isLoading &&
