@@ -104,8 +104,9 @@
 }
 
 .tabPanel {
+  @apply mt-5 -ml-2;
   .tabs {
-    @apply mb-3 ml-2 flex gap-3 flex-wrap;
+    @apply mb-3  ml-2 flex gap-3 flex-wrap;
     > button {
       @apply text-lg py-3 px-3 lg:px-5 border font-bold  hover:text-white hover:opacity-100 opacity-60  rounded transition-all;
       min-width: 42px;
