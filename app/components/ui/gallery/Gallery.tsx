@@ -1,19 +1,16 @@
 import { FC } from 'react'
-
-import { getMoviesUrl } from '../../../config/api.config'
 import { IMoviePortal } from '../../../shared/types/movie.types'
 
 import styles from './Galery.module.scss'
-import GalleryItem from './GalleryItem'
+import GalleryItemAlt from './GalleryItemAlt'
 
 const Gallery: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 	return (
 		<section className={styles.movies}>
 			{movies.map((movie: IMoviePortal) => (
-				<GalleryItem
+				<GalleryItemAlt
 					key={movie.id.toString()}
-					item={movie}
-					variant="vertical"
+					movie={movie}
 				/>
 			))}
 		</section>
