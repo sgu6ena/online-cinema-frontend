@@ -18,7 +18,6 @@ export const initialState: IState = {
 	genreId: '',
 	page: '',
 	movies: [],
-	params: {},
 	sortAvailable: false,
 	totalPages:0
 }
