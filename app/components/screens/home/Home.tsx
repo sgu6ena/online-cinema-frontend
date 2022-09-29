@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react'
 
-import { getMoviesUrl } from '../../../config/api.config'
 import { useActions } from '../../../hooks/useActions'
 import { useHome } from '../../../hooks/useHome'
 import { IMoviePortal } from '../../../shared/types/movie.types'

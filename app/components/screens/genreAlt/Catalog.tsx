@@ -37,7 +37,7 @@ const Catalog: FC = () => {
 	}, [])
 
 	useEffect(() => {
-		setTitleGenre([...GENRES_ALT, ...genre].find(item => item.id.toString() == genreId)?.name || 'Фильмы')
+		setTitleGenre([...GENRES_ALT, ...genre].find(item => item.id.toString() == genreId)?.name || '')
 	}, [genreId, genre])
 
 

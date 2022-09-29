@@ -12,6 +12,7 @@ import { getCountryList } from '../../../utils/movie/getCountryList'
 
 import { useActions } from '../../../hooks/useActions'
 import { BsBookmark } from 'react-icons/bs'
+import Rating, { IRating } from '../rating/Rating'
 
 const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 	const { favorites } = useActions()
@@ -41,19 +42,7 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 								</button>
 							</div>
 							<div className={styles.bottom}>
-								<div className={styles.rate}>
-									{!!movie.rate_kp && (
-										<>
-											<SiKinopoisk /> {movie.rate_kp && Math.trunc(movie.rate_kp * 10) / 10}
-										</>
-									)}
-									{!!movie.rate_imdb && (
-										<>
-											<span className={styles.imdb}>IMDb</span>
-											{movie.rate_imdb && Math.trunc(movie.rate_imdb * 10) / 10}
-										</>
-									)}
-								</div>
+								<Rating kp={movie.rate_kp} imdb={movie.rate_imdb}/>
 								<h5 className={styles.h5}>{movie.year}</h5>
 								<h5 className={styles.h5}>
 									{movie.genre && getGenresList(movie.genre.slice(0, 3), ', ')}

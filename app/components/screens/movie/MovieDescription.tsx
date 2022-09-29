@@ -8,7 +8,7 @@ import {getGenresList} from '../../../utils/movie/getGenresList'
 
 import {IMoviePortalFull} from '../../../shared/types/movie.types'
 import {minuteToHours} from '../../../utils/date/minuteToHours'
-import Rating from "../../ui/Rating";
+import Rating from "../../ui/rating/Rating";
 
 const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
     return (
@@ -28,7 +28,7 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({movie}) => {
                 ))}
                 <div className={''}>{minuteToHours(movie.length)}</div>
                 {movie.rate_age && <><span>·</span>
-                    <div className='px-3 px-1 border '>{movie.rate_age}</div>
+                    <div className={styles.age}>{movie.rate_age}</div>
                 </>}
             </p>
 
