@@ -22,7 +22,7 @@ export const favorites = createAsyncThunk<any, any>(
 
 			return { active: response.data.active, id: movieId }
 		} catch (error) {
-			toastError('Вы должны войти для добавление в избранное')
+			toastError('Вы должны войти для добавления в избранное')
 			return thunkApi.rejectWithValue(error)
 		}
 	}
