@@ -13,19 +13,10 @@ import { useActions } from '../../../hooks/useActions'
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
 import Rating from '../rating/Rating'
 import { useFavoritesById } from '../../../hooks/useFavorites'
+import FavoriteButton from '../FavoriteButton/favoriteButton'
 
 const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
-	const { favorites } = useActions()
-	const isFavorite = useFavoritesById(movie.id)
 
-	const favoritesHandler = (event: MouseEvent<HTMLButtonElement>) => {
-		event.stopPropagation()
-		event.preventDefault()
-		movie.id && favorites(movie.id)
-	}
-
-	useEffect(() => {
-	}, [isFavorite, favoritesHandler])
 	return (
 		<Link href={getMoviesUrl(movie.id)}>
 			<a>
@@ -41,11 +32,7 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 								{movie.rate_age}
 							</span>}
 							</div>
-							<button className={styles.favorite}
-											onClick={favoritesHandler}
-							>
-								{isFavorite ? <BsBookmarkFill /> : <BsBookmark />}
-							</button>
+							<FavoriteButton id={movie.id} />
 						</div>
 						<div className={styles.bottom}>
 							<Rating kp={movie.rate_kp} imdb={movie.rate_imdb} />

@@ -7,6 +7,7 @@ import { ISlide } from '../slider/slider.interface'
 
 import styles from './slider.module.scss'
 import { getGenreUrl } from '../../../config/url.config'
+import FavoriteButton from '../FavoriteButton/favoriteButton'
 
 const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 	return (
@@ -21,15 +22,15 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 			<div className={styles.content}>
 				<Link href={i.link}>
 					<a><h3 className={cn(styles.title)}>
-					{i.title.toUpperCase()}
-				</h3>	</a>
+						{i.title.toUpperCase()}
+					</h3></a>
 				</Link>
 				{/*<div  className={styles.subtitle}>*/}
 				{/*	{i.subTitle}*/}
 				{/*</div>*/}
 				<div className={styles.genres}>
 					<div>{i.year}</div>
-					{i.genres &&i.genres.map((genre) => (
+					{i.genres && i.genres.map((genre) => (
 						<>
 							<span>·</span>
 							<Link href={getGenreUrl(genre.id)}>
@@ -38,8 +39,10 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 						</>
 					))}
 
-					{i.rate_age&&<><div>·</div>
-						<div>{i.rate_age}</div></>}
+					{i.rate_age && <>
+						<div>·</div>
+						<div>{i.rate_age}</div>
+					</>}
 				</div>
 				<div className={styles.buttons}>
 					<Link href={i.link}>
@@ -49,7 +52,10 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 								<div>Смотреть</div>
 							</div>
 						</a>
+
 					</Link>
+					<div className={styles.favorites}><FavoriteButton id={i._id} /></div>
+
 				</div>
 
 			</div>
