@@ -4,23 +4,31 @@ import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
 import { useActions } from '../../../hooks/useActions'
 import { useFavoritesById } from '../../../hooks/useFavorites'
 import styles from '../gallery/Galery.module.scss'
+import { useAuth } from '../../../hooks/useAuth'
 
 const FavoriteButton: FC<{ id: string }> = ({ id }) => {
+
 	const { favorites } = useActions()
 	const isFavorite = useFavoritesById(id)
 
 	const favoritesHandler = (event: MouseEvent<HTMLButtonElement>) => {
-		event.stopPropagation()
-		event.preventDefault()
-		id && favorites(id)
+		if (user) {
+			event.stopPropagation()
+			event.preventDefault()
+			id && favorites(id)
+		}
 	}
 
+	const { user } = useAuth()
+
 	useEffect(() => {
-	}, [isFavorite, favoritesHandler])
+	}, [isFavorite, favoritesHandler, user])
+
 	return (
-		<button className={styles.favorite} onClick={favoritesHandler}>
-			{isFavorite ? <BsBookmarkFill /> : <BsBookmark />}
-		</button>
+		<>
+			{user && <button className={styles.favorite} onClick={favoritesHandler}>
+				{isFavorite ? <BsBookmarkFill /> : <BsBookmark />}
+			</button>}</>
 	)
 }
 

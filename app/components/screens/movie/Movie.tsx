@@ -19,8 +19,10 @@ import Vote from '../../ui/vote/Vote'
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
+import { useAuth } from '../../../hooks/useAuth'
 
 const Movie: FC = () => {
+	const { user } = useAuth()
 	const {
 		movie,
 		collection,
@@ -98,8 +100,9 @@ const Movie: FC = () => {
 		}
 	}
 	useEffect(() => {
-		getFavorites()
+		if (user) {	getFavorites()}
 	}, [])
+
 
 	const isContinueWatching = serial && !isPlayed && movie?.media[0].items[0].file != activeId
 	const isStartWatching = !isPlayed && !isContinueWatching

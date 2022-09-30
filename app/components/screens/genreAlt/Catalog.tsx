@@ -13,9 +13,14 @@ import SortMenu from '../../ui/sortMenu/sortMenu'
 import SortByYear from '../../ui/sortMenu/sortByYear'
 import { useSearch } from '../../../hooks/useSearchFilters'
 import { GENRES_ALT } from './data.genres'
+import { useAuth } from '../../../hooks/useAuth'
 
 const Catalog: FC = () => {
-
+	const { user } = useAuth()
+	const { getFavorites } = useActions()
+	useEffect(() => {
+		if (user) {	getFavorites()}
+	}, [])
 	const { getSearchParameters, getGenreById } = useActions()
 	const { year, genre } = useSearch()
 	const { query } = useRouter()
