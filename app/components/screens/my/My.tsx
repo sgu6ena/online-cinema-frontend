@@ -1,18 +1,26 @@
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
 import { useAuth } from '../../../hooks/useAuth'
 import Heading from '../../ui/heading/Heading'
 
 import AuthButton from './AuthButton'
 import { myMenu } from './menu.data'
+import { useActions } from '../../../hooks/useActions'
 
 const My: FC = ({ children }) => {
+
+
 	const { asPath } = useRouter()
 	const { user } = useAuth()
 	const isUser = !!user
+
+	const { getFavorites } = useActions()
+	useEffect(() => {
+		if (user) {	getFavorites()}
+	}, [])
 	return (
 		<div className={' md:px-5 mb-40 px-3 lg:pl-layout'}>
 			<Heading title={'Я смотрю'} className={'py-8'} />

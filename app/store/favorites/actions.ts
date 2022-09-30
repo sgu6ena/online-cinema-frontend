@@ -25,7 +25,7 @@ export const favorites = createAsyncThunk<any, any>(
 			toastError('Вы должны войти для добавления в избранное')
 			return thunkApi.rejectWithValue(error)
 		}
-	}
+	},
 )
 
 export const getFavorites = createAsyncThunk(
@@ -33,13 +33,16 @@ export const getFavorites = createAsyncThunk(
 	async (_, thunkApi) => {
 		try {
 			const state = thunkApi.getState() as TypeRootState
-			if (state.favorites.favoritesId.length > 0) {
+			if (state.user==null) {
+				return
+			} else if (state.favorites.favoritesId.length > 0) {
 				return state.favorites.favoritesId
+			} else {
+				const response = await PortalService.getBookmarks()
+				return response.data.map((item: IMoviePortal) => item.id)
 			}
-			const response = await PortalService.getBookmarks()
-			return response.data.map((item: IMoviePortal) => item.id)
 		} catch (error) {
 			toastError(error)
 		}
-	}
+	},
 )
