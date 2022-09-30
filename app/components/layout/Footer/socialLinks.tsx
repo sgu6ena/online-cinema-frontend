@@ -40,11 +40,11 @@ const SocialLinks: FC = () => {
 						<Image src={GooglePlay} alt='GOOGLEPLAY' width={204} height={60} />
 					</a>
 				</Link>
-				<Link href={LINKS.APPGALLERY}>
-					<a>
-						<Image src={Huawei} alt='APPGALLERY' width={204} height={60} />
-					</a>
-				</Link>
+				{/*<Link href={LINKS.APPGALLERY}>*/}
+				{/*	<a>*/}
+				{/*		<Image src={Huawei} alt='APPGALLERY' width={204} height={60} />*/}
+				{/*	</a>*/}
+				{/*</Link>*/}
 			</div>
 			<div>
 				<Subheading title={'PORTAL на большом экране'} />

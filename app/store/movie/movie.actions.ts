@@ -27,27 +27,6 @@ export const getMovie = createAsyncThunk<
 	}
 })
 
-export const favorites = createAsyncThunk<any, any>(
-	'movies/favorites',
-	async (movieId, thunkApi) => {
-		try {
-			const response = await PortalService.sendBookmark(movieId)
-			const fav = response.data.active
-			toast.success(fav ? 'Добавлено в избранное' : 'Удалено из избранного', {
-				style: {
-					borderRadius: '10px',
-					background: '#333',
-					color: '#fff',
-				},
-			})
-			return response.data.active
-		} catch (error) {
-			toastError('Вы должны войти для добавление в избранное')
-			return thunkApi.rejectWithValue(error)
-		}
-	}
-)
-
 export const voting = createAsyncThunk<
 	{ myVote: 0 | 1 | 2 | 3; vote: IVotePortal },
 	{ movieId: string; vote: number }

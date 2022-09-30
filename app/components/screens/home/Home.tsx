@@ -11,19 +11,27 @@ import Collection from '../../ui/collections/Collection'
 import styles from './Home.module.scss'
 import { IHome } from './home.interface'
 import GenresSlider from '../../ui/genres/GenresSlider'
+import { useAuth } from '../../../hooks/useAuth'
+import { getFavorites } from '../../../store/favorites/actions'
 
 export const collectionsToItems = (items: IMoviePortal[]): IMoviePortal[] => {
 	return [...items]
 }
 
 const Home: FC<IHome> = () => {
-	const { isLoading, slides, collections, genres, genresCollections } =
-		useHome()
-	const { getMainHome } = useActions()
+	const { isLoading, slides, collections, genres, genresCollections } = useHome()
+	const { getMainHome, getFavorites } = useActions()
+
+	const {user}=useAuth()
 
 	useEffect(() => {
 		getMainHome()
 	}, [])
+	useEffect(()=>{
+		if (user){
+			getFavorites()
+		}
+	},[user])
 
 	return (
 		<>
