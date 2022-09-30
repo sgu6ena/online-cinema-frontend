@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import  { FC, MouseEvent } from 'react'
+import { FC, MouseEvent, useEffect } from 'react'
 
 import { getGenresList } from '../../../utils/movie/getGenresList'
 
@@ -11,20 +11,21 @@ import { getCountryList } from '../../../utils/movie/getCountryList'
 
 import { useActions } from '../../../hooks/useActions'
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
-import Rating, { IRating } from '../rating/Rating'
-import { useFavorites } from '../../../hooks/useFavorites'
+import Rating from '../rating/Rating'
+import { useFavoritesById } from '../../../hooks/useFavorites'
 
 const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 	const { favorites } = useActions()
-	const { favoritesId } = useFavorites()
-	const isFavorited = favoritesId.find(item => item == movie.id)
-	const favoritesHandler = (event:MouseEvent<HTMLButtonElement>) => {
-			event.stopPropagation()
-			event.preventDefault()
-			movie.id && favorites(movie.id)
-		}
+	const isFavorite = useFavoritesById(movie.id)
 
+	const favoritesHandler = (event: MouseEvent<HTMLButtonElement>) => {
+		event.stopPropagation()
+		event.preventDefault()
+		movie.id && favorites(movie.id)
+	}
 
+	useEffect(() => {
+	}, [isFavorite, favoritesHandler])
 	return (
 		<Link href={getMoviesUrl(movie.id)}>
 			<a>
@@ -43,7 +44,7 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 							<button className={styles.favorite}
 											onClick={favoritesHandler}
 							>
-								{isFavorited ? <BsBookmarkFill /> : <BsBookmark />}
+								{isFavorite ? <BsBookmarkFill /> : <BsBookmark />}
 							</button>
 						</div>
 						<div className={styles.bottom}>

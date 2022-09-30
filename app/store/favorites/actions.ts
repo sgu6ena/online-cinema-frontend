@@ -1,11 +1,10 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-
-import {PortalService} from "../../api/portal.service";
-import {toastError} from "../../utils/toast-error";
-import { IMoviePortal } from '../../shared/types/movie.types'
+import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-hot-toast'
 
-
+import { PortalService } from '../../api/portal.service'
+import { IMoviePortal } from '../../shared/types/movie.types'
+import { toastError } from '../../utils/toast-error'
+import { TypeRootState } from '../store'
 
 export const favorites = createAsyncThunk<any, any>(
 	'movies/favorites',
@@ -20,7 +19,8 @@ export const favorites = createAsyncThunk<any, any>(
 					color: '#fff',
 				},
 			})
-			return { active:response.data.active, id:response.data.id }
+
+			return { active: response.data.active, id: movieId }
 		} catch (error) {
 			toastError('Вы должны войти для добавление в избранное')
 			return thunkApi.rejectWithValue(error)
@@ -28,13 +28,18 @@ export const favorites = createAsyncThunk<any, any>(
 	}
 )
 
-
 export const getFavorites = createAsyncThunk(
-	'/getFavorites', async () => {
-	try {
-		const response = await PortalService.getBookmarks()
-		return response.data.map((item:IMoviePortal)=>item.id)
-	} catch (error) {
-		toastError(error)
+	'/getFavorites',
+	async (_, thunkApi) => {
+		try {
+			const state = thunkApi.getState() as TypeRootState
+			if (state.favorites.favoritesId.length > 0) {
+				return state.favorites.favoritesId
+			}
+			const response = await PortalService.getBookmarks()
+			return response.data.map((item: IMoviePortal) => item.id)
+		} catch (error) {
+			toastError(error)
+		}
 	}
-})
+)

@@ -2,12 +2,17 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { getMovie, voting } from './movie.actions'
 import { initialState } from './movie.interface'
-import { favorites } from '../favorites/actions'
+import { settingsSlice } from '../settings/settings.slice'
+
 
 export const movieSlice = createSlice({
 	name: 'movie',
 	initialState,
-	reducers: {},
+	reducers: {
+		toggleFavorites(state){
+			state.isFavorite = !state.isFavorite
+		}
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(getMovie.pending, (state) => {
@@ -31,16 +36,7 @@ export const movieSlice = createSlice({
 				state.movie = null
 				state.collection = initialState.collection
 			})
-			.addCase(favorites.pending, (state) => {
-				state.isFavoriteLoading = true
-			})
-			.addCase(favorites.rejected, (state) => {
-				state.isFavoriteLoading = false
-			})
-			.addCase(favorites.fulfilled, (state, { payload }) => {
-				state.isFavoriteLoading = false
-				state.isFavorite = payload.active
-			})
+
 			.addCase(voting.pending, (state) => {
 				state.isVoteLoading = true
 			})
@@ -54,4 +50,6 @@ export const movieSlice = createSlice({
 			})
 	},
 })
+
+export const movieAC = movieSlice.actions
 export const { reducer } = movieSlice

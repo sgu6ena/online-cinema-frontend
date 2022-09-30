@@ -27,8 +27,7 @@ export const FavoritesSlice = createSlice({
 			})
 			.addCase(favorites.fulfilled, (state, { payload }) => {
 				state.isLoading = false
-
-				state.favoritesId = payload.active ? [...state.favoritesId,payload.id]:[...state.favoritesId]
+				state.favoritesId = payload.active ? [...state.favoritesId, payload.id] : [...state.favoritesId.filter(item => item !== payload.id)]
 			})
 	},
 })
