@@ -9,6 +9,7 @@ const nextConfig = {
 	},
 	images: {
 		domains: ['portal.idc.md'],
+		unoptimized:true
 	},
 }
 
@@ -16,6 +17,7 @@ module.exports = {
 	images: {
 		loader: 'akamai',
 		path: '',
+		unoptimized: true
 	},
 }
 module.exports = nextConfig
