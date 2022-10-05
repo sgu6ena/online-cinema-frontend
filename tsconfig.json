@@ -20,6 +20,9 @@
     "incremental": true,
     "baseUrl": "/app/",
     "paths": {
+      "react": [
+        "./node_modules/@types/react"
+      ],
       "@/components/*": [
         "components/*"
       ],
