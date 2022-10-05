@@ -9,20 +9,24 @@ import SkeletonLoader from '../../ui/SkeletonLoader'
 import Gallery from '../../ui/gallery/Gallery'
 import CatalogLoader from '../../loaders/CatalogLoader'
 import Button from '../../ui/form-elemets/Button'
-import SortMenu from '../../ui/sortMenu/sortMenu'
-import SortByYear from '../../ui/sortMenu/sortByYear'
+
+
 import { useSearch } from '../../../hooks/useSearchFilters'
 import { GENRES_ALT } from './data.genres'
 import { useAuth } from '../../../hooks/useAuth'
+import SortBy from '../../ui/sortMenu/sortBy'
+import { getCountryListAlt } from '../../../utils/movie/getCountryList'
 
 const Catalog: FC = () => {
 	const { user } = useAuth()
 	const { getFavorites } = useActions()
 	useEffect(() => {
-		if (user) {	getFavorites()}
+		if (user) {
+			getFavorites()
+		}
 	}, [])
 	const { getSearchParameters, getGenreById } = useActions()
-	const { year, genre } = useSearch()
+	const { year, genre, category, country, type_content, sort } = useSearch()
 	const { query } = useRouter()
 	const genreId = query.id && String(query.id) || ''
 	const { isLoading, movies, genreId: stateGenreId, title, sortAvailable, totalPages } = useGenreById()
@@ -30,6 +34,9 @@ const Catalog: FC = () => {
 	const [page, setPage] = useState(1)
 	const [sortId, setSortId] = useState<'1' | '2' | '3' | '4' | '5'>('1')
 	const [yearSortId, setYearSortId] = useState('1')
+	// const [genreSortId, setGenreSortId] = useState([])
+	const [countrySortId, setCountrySortId] = useState('')
+	const [typeSortId, setTypeSortId] = useState('-1')
 	const [titleGenre, setTitleGenre] = useState('')
 
 
@@ -48,8 +55,7 @@ const Catalog: FC = () => {
 
 	useEffect(() => {
 		setPage(1)
-
-	}, [genreId, sortId])
+	}, [genreId, sortId, category])
 
 	useEffect(() => {
 		if (typeof yearSortId === 'string') {
@@ -59,10 +65,12 @@ const Catalog: FC = () => {
 					page: page.toString(),
 					id_sort: sortId,
 					year: yearSortId,
+					country_list:countrySortId,
+				//	genre_list:genreId
 				},
 			})
 		}
-	}, [genreId, page, sortId, yearSortId])
+	}, [genreId, page, sortId, yearSortId, countrySortId, category])
 
 
 	return (
@@ -70,7 +78,7 @@ const Catalog: FC = () => {
 					description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
 					image={'https://idc.md/storage/app/media/images/banners/portal/main.png'}>
 			<div className={'px-5'}>
-				<div className={'flex justify-between'}>
+				<div className={'flex justify-between lg:flex-row flex-col'}>
 					{titleGenre ?
 						<div className={'flex justify-between items-center lg:pr-5 pr-2'}>
 							<Heading
@@ -86,9 +94,15 @@ const Catalog: FC = () => {
 					}
 
 
-					<div className={'flex'}>
-						<SortByYear sortId={yearSortId?.toString() || ''} onChange={setYearSortId} />
-						<SortMenu sortId={sortId} onChange={setSortId} />
+					<div className={'flex gap-2 items-end lg:flex-row flex-col'}>
+						<SortBy sortId={countrySortId} onChange={setCountrySortId} options={country} title={'страна'}
+									 />
+						{/*<SortBy sortId={typeSortId} onChange={setTypeSortId} options={type_content} />*/}
+						{/*<SortBy sortId={genreSortId} onChange={setGenreSortId} options={genre} title={'жанр'} isMulti={true} />*/}
+						{/*<SortBy sortId={genreSortId} onChange={setGenreSortId} options={category} />*/}
+						<SortBy sortId={yearSortId} onChange={setYearSortId} options={year} title={'год'} />
+						<SortBy sortId={sortId} onChange={setSortId} options={sort} title={'сортировать по'} />
+
 					</div>
 
 				</div>

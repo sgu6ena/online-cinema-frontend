@@ -27,7 +27,10 @@ interface IMain {
 export interface IParams {
 	page?: string
 	id_sort?: '1' | '2' | '3' | '4' | '5'
-	year:string
+	year?:string
+	category?:'20'|'39'|'100'
+	country_list?:string
+	genre_list?:string
 }
 
 export const PortalService = {
@@ -45,7 +48,7 @@ export const PortalService = {
 				params: {
 					page: page ? page.toString() : '1',
 					id_sort: id_sort || '1',
-					year:year
+					year:year,
 				},
 			},
 		)

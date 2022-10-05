@@ -9,17 +9,17 @@ export interface IRating {
 	kp?: number
 }
 
-const Rating: FC<IRating> = ({ imdb, kp, }) => {
+const Rating: FC<IRating> = ({ imdb, kp }) => {
 	return (
 		<div className={styles.rate}>
 			{!!kp && (
-				<div	className={styles.item}>
+				<div className={styles.item}>
 					<SiKinopoisk />
 					<div>{kp && Math.trunc(kp * 10) / 10}</div>
 				</div>
 			)}
 			{!!imdb && (
-				<div	className={styles.item}>
+				<div className={styles.item}>
 					<div className={styles.imdb}>IMDb</div>
 					<div>{imdb && Math.trunc(imdb * 10) / 10}</div>
 				</div>

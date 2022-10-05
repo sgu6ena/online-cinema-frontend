@@ -1,7 +1,7 @@
 export const GENRES_ALT = [
 	{id:20, name:'Мультфильмы'},
 	{id:39, name:'Сериалы'},
-	{id:100, name:'Все фильмы'},
+	{id:100, name:'Фильмы'},
 	{id:101, name:'Новинки на PORTAL'},
 	{id:102, name:'Смотрят сейчас'},
 	{id:104, name:'Популярное'},
