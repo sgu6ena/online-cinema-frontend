@@ -32,17 +32,17 @@ const SocialLinks: FC = () => {
 			<div className={styles.stores}>
 				<Link href={LINKS.APPSTORE}>
 					<a>
-						<Image src={Appstore} alt='Appstore' width={204} height={60} />
+						<Image unoptimized src={Appstore} alt='Appstore' width={204} height={60} />
 					</a>
 				</Link>
 				<Link href={LINKS.GOOGLEPLAY}>
 					<a>
-						<Image src={GooglePlay} alt='GOOGLEPLAY' width={204} height={60} />
+						<Image unoptimized src={GooglePlay} alt='GOOGLEPLAY' width={204} height={60} />
 					</a>
 				</Link>
 				{/*<Link href={LINKS.APPGALLERY}>*/}
 				{/*	<a>*/}
-				{/*		<Image src={Huawei} alt='APPGALLERY' width={204} height={60} />*/}
+				{/*		<Image unoptimized src={Huawei} alt='APPGALLERY' width={204} height={60} />*/}
 				{/*	</a>*/}
 				{/*</Link>*/}
 			</div>
@@ -52,22 +52,22 @@ const SocialLinks: FC = () => {
 
 					<Link href={LINKS.SAMSUNG}>
 						<a>
-							<Image src={Samsung} alt="Samsung" width={150} height={60} />
+							<Image unoptimized src={Samsung} alt="Samsung" width={150} height={60} />
 						</a>
 					</Link>
 					<Link href={LINKS.LG}>
 						<a>
-							<Image src={Lg} alt="Lg" width={150} height={60} />
+							<Image unoptimized src={Lg} alt="Lg" width={150} height={60} />
 						</a>
 					</Link>
 					<Link href={LINKS.HISENSE}>
 						<a>
-							<Image src={Hisense} alt="Hisense" width={150} height={60} />
+							<Image unoptimized src={Hisense} alt="Hisense" width={150} height={60} />
 						</a>
 					</Link>
 					<Link href={LINKS.MIBOX}>
 						<a>
-							<Image src={Mibox} alt="Mibox" width={150} height={60} />
+							<Image unoptimized src={Mibox} alt="Mibox" width={150} height={60} />
 						</a>
 					</Link>
 				</div>

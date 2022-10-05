@@ -53,13 +53,13 @@ const Smart: FC = () => {
 				<h3>Выберите модель вашего устройства</h3>
 				<div className={styles.tabnames}>
 					<button id={'samsung'} className={active == 0 ? styles.active : ''} onClick={() => setActive(0)}>
-						<Image src={Samsung} alt='Samsung' width={250} height={120} />
+						<Image unoptimized src={Samsung} alt='Samsung' width={250} height={120} />
 					</button>
 					<button id={'lg'} className={active == 1 ? styles.active : ''} onClick={() => setActive(1)}>
-						<Image src={Lg} alt='Lg' width={250} height={120} />
+						<Image unoptimized src={Lg} alt='Lg' width={250} height={120} />
 					</button>
 					<button id={'hisense'} className={active == 2 ? styles.active : ''} onClick={() => setActive(2)}>
-						<Image src={Hisense} alt='Hisense' width={250} height={120} />
+						<Image unoptimized src={Hisense} alt='Hisense' width={250} height={120} />
 					</button>
 				</div>
 				<div>
