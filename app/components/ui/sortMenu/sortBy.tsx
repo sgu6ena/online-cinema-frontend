@@ -3,13 +3,8 @@ import { FC, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 import { IList } from '../../../shared/types/search.types'
+import Select from '../form-elemets/select/Select'
 
-const DynamicSelect = dynamic(
-	() => import('../../ui/form-elemets/select/Select'),
-	{
-		ssr: false,
-	},
-)
 
 const SortBy: FC<{ sortId: string; onChange: any; options: IList[]; title?: string; isMulti?: boolean }> = ({
 																																																							sortId,
@@ -46,7 +41,7 @@ const SortBy: FC<{ sortId: string; onChange: any; options: IList[]; title?: stri
 					name='sort'
 					control={control}
 					render={({ field, fieldState: { error } }) => (
-						<DynamicSelect
+						<Select
 							isMulti={isMulti}
 							isLoading={!options.length}
 							error={error}

@@ -95,12 +95,11 @@ const Catalog: FC = () => {
 
 
 					<div className={'flex gap-2 items-end lg:flex-row flex-col'}>
-						<SortBy sortId={countrySortId} onChange={setCountrySortId} options={country} title={'страна'}
-									 />
+						{/*<SortBy sortId={countrySortId} onChange={setCountrySortId} options={country} title={'страна'}/>*/}
 						{/*<SortBy sortId={typeSortId} onChange={setTypeSortId} options={type_content} />*/}
 						{/*<SortBy sortId={genreSortId} onChange={setGenreSortId} options={genre} title={'жанр'} isMulti={true} />*/}
 						{/*<SortBy sortId={genreSortId} onChange={setGenreSortId} options={category} />*/}
-						<SortBy sortId={yearSortId} onChange={setYearSortId} options={year} title={'год'} />
+						{/*<SortBy sortId={yearSortId} onChange={setYearSortId} options={year} title={'год'} />*/}
 						<SortBy sortId={sortId} onChange={setSortId} options={sort} title={'сортировать по'} />
 
 					</div>

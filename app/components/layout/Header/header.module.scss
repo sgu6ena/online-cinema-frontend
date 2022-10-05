@@ -22,18 +22,13 @@ $header-height: 70px;
 
 
     span {
+      @apply text-primary;
       letter-spacing: 0;
       padding: .25em 0 .325em;
       display: block;
       margin: 0 auto;
       text-shadow: 0 0 80px rgba(255, 255, 255, .5);
-      background: url(https://scx2.b-cdn.net/gfx/news/2021/heat.jpg) repeat-y;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-animation: aitf 80s alternate-reverse infinite;
-      -webkit-transform: translate3d(0, 0, 0);
-      -webkit-backface-visibility: hidden;
+
     }
 
     @-webkit-keyframes aitf {

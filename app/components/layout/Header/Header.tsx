@@ -1,22 +1,20 @@
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FC } from 'react'
 
 import { LINKS } from '../../../config/links'
-import { useRuble } from '../../../hooks/useAuth'
+import { useAuth, useRuble } from '../../../hooks/useAuth'
 import Button from '../../ui/form-elemets/Button'
 import Search from '../Search/Search'
 
 import Logo from './Logo'
 import NavMenu from './nav-menu/NavMenu'
 import styles from './header.module.scss'
-
-const Burgers = dynamic(() => import('./burgers/Burgers'), {
-	ssr: false,
-})
+import Burgers from './burgers/Burgers'
 
 const Header: FC = () => {
+	const { user } = useAuth()
 	const isRuble = useRuble()
+	const isVisible = isRuble || !user
 	return (
 		<div className={styles.header}>
 			<div className={styles.start}>
@@ -25,7 +23,7 @@ const Header: FC = () => {
 			</div>
 
 			<div className={styles.end}>
-				{isRuble && (
+				{isVisible && (
 					<Link href={LINKS.RUBLE}>
 						<a className={'hidden xl:block'}>
 							<Button>Попробовать за рубль</Button>
