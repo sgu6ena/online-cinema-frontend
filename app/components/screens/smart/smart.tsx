@@ -1,14 +1,9 @@
-import Image from 'next/image'
 import { FC, useState } from 'react'
-import styles from './smart.module.scss'
-import Hisense from '../../../assets/svg/hisense.svg'
-import Lg from '../../../assets/svg/lg.svg'
-import Samsung from '../../../assets/svg/samsung.svg'
 
 import HisenseIns from './HisenseIns'
 import LgIns from './LgIns'
 import SamsungIns from './SamsungIns'
-
+import styles from './smart.module.scss'
 
 const Smart: FC = () => {
 	const [active, setActive] = useState(1)
@@ -52,14 +47,36 @@ const Smart: FC = () => {
 				<h2>ИНСТРУКЦИЯ ПО УСТАНОВКЕ</h2>
 				<h3>Выберите модель вашего устройства</h3>
 				<div className={styles.tabnames}>
-					<button id={'samsung'} className={active == 0 ? styles.active : ''} onClick={() => setActive(0)}>
-						<Image unoptimized src={Samsung} alt='Samsung' width={250} height={120} />
+					<button
+						id={'samsung'}
+						className={active == 0 ? styles.active : ''}
+						onClick={() => setActive(0)}
+					>
+						<img
+							src={'/svg/smart/hisense.svg'}
+							alt='Samsung'
+							width={250}
+							height={120}
+						/>
 					</button>
-					<button id={'lg'} className={active == 1 ? styles.active : ''} onClick={() => setActive(1)}>
-						<Image unoptimized src={Lg} alt='Lg' width={250} height={120} />
+					<button
+						id={'lg'}
+						className={active == 1 ? styles.active : ''}
+						onClick={() => setActive(1)}
+					>
+						<img src={'/svg/smart/lg.svg'} alt='Lg' width={250} height={120} />
 					</button>
-					<button id={'hisense'} className={active == 2 ? styles.active : ''} onClick={() => setActive(2)}>
-						<Image unoptimized src={Hisense} alt='Hisense' width={250} height={120} />
+					<button
+						id={'hisense'}
+						className={active == 2 ? styles.active : ''}
+						onClick={() => setActive(2)}
+					>
+						<img
+							src={'/svg/smart/hisense.svg'}
+							alt='Hisense'
+							width={250}
+							height={120}
+						/>
 					</button>
 				</div>
 				<div>
@@ -74,7 +91,6 @@ const Smart: FC = () => {
 					</div>
 				</div>
 			</div>
-
 		</div>
 	)
 }

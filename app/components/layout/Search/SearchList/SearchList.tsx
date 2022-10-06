@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
@@ -14,14 +13,11 @@ const SearchList: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 				movies.map((movie) => (
 					<Link href={getMoviesUrl(movie.id)} key={movie.id}>
 						<a>
-							<Image
+							<img
 								src={movie.logo}
 								width={50}
 								height={50}
-								objectFit="cover"
-								objectPosition="top"
-								draggable={false}
-								unoptimized
+
 							/>
 							<span>{movie.title}</span>
 						</a>

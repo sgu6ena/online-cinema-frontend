@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { FC, useRef } from 'react'
 import ReactPlayer from 'react-player'
 
@@ -51,19 +50,13 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 
 				{poster && !play && (
 					<div className={styles.imageBox}>
-						<Image
+						<img
 							src={poster}
 							alt={title}
-							layout="fill"
-							priority
-							unoptimized
 						/>
-						<Image
+						<img
 							src={poster}
 							alt={title}
-							layout="fill"
-							priority
-							unoptimized
 							className={styles.poster}
 						/>
 					</div>

@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Image from 'next/image'
 import { FC } from 'react'
 
 import { IMedia } from '../../../shared/types/movie.types'
@@ -31,19 +30,13 @@ const Season: FC<ISeason> = ({ isActive = false, items, fn, logo, title, activeI
 								}}
 							>
 								<div className={styles.imageBox}>
-									<Image
+									<img
 										src={logo}
 										alt={item.title}
-										layout='fill'
-										priority
-										unoptimized
 									/>
-									<Image
+									<img
 										src={logo}
 										alt={item.title}
-										layout='fill'
-										priority
-										unoptimized
 										className={styles.poster}
 									/>
 								</div>

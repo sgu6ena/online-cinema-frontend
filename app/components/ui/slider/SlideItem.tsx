@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
@@ -18,15 +17,11 @@ const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Смотреть' }) 
 			{slide?.bigPoster && (
 				<Link href={slide.link}>
 					<a>
-						<Image
-							lazyBoundary={'900px'}
-							layout='fill'
+						<img
 							className={styles.image}
 							src={slide.bigPoster}
 							alt={slide.title}
 							draggable={false}
-							// unoptimized
-							priority
 						/>
 					</a>
 				</Link>

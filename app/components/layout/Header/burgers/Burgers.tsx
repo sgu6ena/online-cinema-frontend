@@ -1,5 +1,4 @@
 import cn from 'classnames'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
@@ -42,12 +41,11 @@ const Burgers: FC = () => {
 					{isShow ? (
 						<MaterialIcon name={'MdClose'} />
 					) : user?.avatar ? (
-						<Image
+						<img
 							src={user.avatar}
 							width={40}
 							height={40}
 							className='rounded-full'
-							unoptimized
 						/>
 					) : (
 						<BsPersonSquare className='h-10 w-10 text-white' />

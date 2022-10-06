@@ -22,16 +22,16 @@ const Home: FC<IHome> = () => {
 	const { isLoading, slides, collections, genres, genresCollections } = useHome()
 	const { getMainHome, getFavorites } = useActions()
 
-	const {user}=useAuth()
+	const { user } = useAuth()
 
 	useEffect(() => {
 		getMainHome()
 	}, [])
-	useEffect(()=>{
-		if (user){
+	useEffect(() => {
+		if (user) {
 			getFavorites()
 		}
-	},[user])
+	}, [user])
 
 	return (
 		<>

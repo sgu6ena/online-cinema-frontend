@@ -1,8 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import logoImage from '../../../assets/images/logo.svg'
 import { LINKS } from '../../../config/links'
 import styles from './header.module.scss'
 
@@ -11,8 +9,8 @@ const Logo: FC = () => {
 		<Link href={LINKS.MAIN}>
 			<a className={styles.logo}>
 				<div className={styles.img}>
-					<Image
-						src={logoImage}
+					<img
+						src={'/svg/logo/logo.svg'}
 						height={30}
 						width={30}
 						alt='Portal'
