@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { PortalService } from '../../api/portal.service'
-import { IMoviePortalPerPage } from '../../shared/types/movie.types'
+import { IMoviePortalPerPage, ISearch } from '../../shared/types/movie.types'
 import { IFilter } from '../../shared/types/search.types'
 import { toastError } from '../../utils/toast-error'
 
@@ -28,7 +28,7 @@ export const getSearchParameters = createAsyncThunk<IFilter, void>(
 )
 
 export const getSearch = createAsyncThunk<
-	IMoviePortalPerPage,
+	ISearch,
 	{
 		title: string
 		category: string

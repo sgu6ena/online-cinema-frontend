@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FC } from 'react'
 
@@ -7,9 +8,12 @@ import Button from '../../ui/form-elemets/Button'
 import Search from '../Search/Search'
 
 import Logo from './Logo'
-import NavMenu from './nav-menu/NavMenu'
 import styles from './header.module.scss'
-import Burgers from './burgers/Burgers'
+import NavMenu from './nav-menu/NavMenu'
+
+const Burgers = dynamic(() => import('./burgers/Burgers'), {
+	ssr: false,
+})
 
 const Header: FC = () => {
 	const { user } = useAuth()

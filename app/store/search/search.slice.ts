@@ -36,8 +36,11 @@ export const searchSlice = createSlice({
 			})
 			.addCase(getSearch.fulfilled, (state, { payload }) => {
 				state.isLoading = false
-				//@ts-ignore
-				state.movies = payload.data
+				if (payload.pagination.currentPage!=1){
+					state.movies = [...state.movies, ...payload.data]
+				}else{
+					state.movies = payload.data
+				}
 				state.pagination = payload.pagination
 			})
 			.addCase(getSearch.rejected, (state) => {

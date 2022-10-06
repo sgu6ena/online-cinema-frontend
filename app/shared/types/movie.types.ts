@@ -1,34 +1,5 @@
 import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
 
-export interface IParameters {
-	year: number
-	duration: number
-	country: string
-}
-
-export interface IActor {
-	_id: string
-	photo: string
-	name: string
-	countMovies: number
-	slug: string
-}
-
-// export interface IMovie {
-// 	_id: string
-// 	poster: string
-// 	bigPoster: string
-// 	title: string
-// 	parameters: IParameters
-// 	genres: IGenre[]
-// 	actors: IActor[]
-// 	countOpened: number
-// 	videoUrl: string
-// 	rating: number
-// 	slug: string
-// 	season?: number
-// 	episode?: number
-// }
 export interface IMainGenreItem {
 	id: number
 	title: string
@@ -132,6 +103,14 @@ export interface IMoviePortalPerPage {
 	}
 	pagination: IPagination
 }
+
+export interface ISearch{
+	status: number
+	success: boolean
+	data:IMoviePortal[]
+	pagination: IPagination
+}
+
 
 export interface IPagination {
 	count: number

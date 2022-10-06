@@ -1,13 +1,13 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../hooks/useActions'
 import { useSearch } from '../../../hooks/useSearchFilters'
 import { IList } from '../../../shared/types/search.types'
 import MaterialIcon from '../../ui/MaterialIcon'
-import Pagination from '../../ui/Pagination'
+import Button from '../../ui/form-elemets/Button'
 import Field from '../../ui/form-elemets/Field'
 import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
@@ -38,19 +38,22 @@ const Search: FC = () => {
 		pagination,
 	} = useSearch()
 
-	const { handleSubmit, control, register, getValues, watch, formState } = useForm({
-		mode: 'onChange',
-	})
+	const { handleSubmit, control, register, getValues, watch, formState } =
+		useForm({
+			mode: 'onChange',
+		})
 	const { query } = useRouter()
-	let page = query.page
-		? query.page.toString() || query.page[0].toString()
-		: '1'
+
+	const [page, setPage] = useState(1)
+	const showMore = () => {
+		setPage(page + 1)
+	}
 
 	const onSubmit: SubmitHandler<any> = (data) => {
 		const params = {
 			title: data.query || '',
 			genre: data.genres?.join('|') || '',
-		//	genre:'39',
+			//	genre:'39',
 			country: data.country?.join('|') || '',
 			category: data.category || '',
 			sort: data.sort || '',
@@ -71,7 +74,7 @@ const Search: FC = () => {
 	}, [page])
 
 	return (
-		<div className="md:px-5 mb-40 px-3 lg:pl-layout">
+		<div className="md:px-5 px-3 lg:pl-layout">
 			<Heading title={'Поиск'} className={'my-10'} />
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={'flex items-end md:flex-row flex-col   '}>
@@ -110,23 +113,6 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-
-					{/*<div className={'w-full px-2'}>*/}
-					{/*	<Controller*/}
-					{/*		name="category"*/}
-					{/*		control={control}*/}
-					{/*		render={({ field, fieldState: { error } }) => (*/}
-					{/*			<DynamicSelect*/}
-					{/*				error={error}*/}
-					{/*				field={field}*/}
-					{/*				placeholder="Категории"*/}
-					{/*				options={toSelect(category)}*/}
-					{/*				isLoading={isLoading}*/}
-					{/*			/>*/}
-					{/*		)}*/}
-					{/*	/>*/}
-					{/*</div>*/}
-
 					<div className={'w-full  md:max-w-[260px] px-2'}>
 						<Controller
 							name="year"
@@ -175,18 +161,22 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<button className={'self-center btn-primary p-3 mb-2 md:w-20 w-full flex gap-3 justify-center items-center'}>
+					<button
+						className={
+							'self-center btn-primary p-3 mb-2 md:w-20 w-full flex gap-3 justify-center items-center'
+						}
+					>
 						<MaterialIcon name={'MdSearch'} />
 						<span className={'md:hidden'}>Найти</span>
 					</button>
 				</div>
 			</form>
-			<>
-				<Gallery movies={movies || []} />
-				{pagination && pagination.totalPages > 1 && (
-					<Pagination pagination={pagination} />
+			<Gallery movies={movies || []} />
+			<div className={'flex justify-center'}>
+				{pagination.totalPages > page && (
+					<Button onClick={showMore}> Показать еще</Button>
 				)}
-			</>
+			</div>
 		</div>
 	)
 }
