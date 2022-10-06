@@ -2,8 +2,10 @@
   "theme_color": "#18181E",
   "background_color": "#18181E",
   "display": "fullscreen",
+  "orientation": "portrait",
+  "start_url": "/",
   "scope": "/",
-  "start_url": "/index.html",
+  "description": "PORTAL",
   "name": "PORTAL.IDC.MD",
   "short_name": "PORTAL",
   "icons": [
