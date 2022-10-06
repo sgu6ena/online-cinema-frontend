@@ -22,6 +22,7 @@ const HeadProvider: FC = ({ children }) => {
 					content='width=device-width, initial-scale=1.0, maximum-scale=1.8'
 				/>
 				<Favicons />
+				<link rel="manifest" href="manifest.json" />
 				<meta name='theme-color' content='#18181E' />
 				<meta name='full-screen' content='yes' />
 				<meta name='apple-mobile-web-app-capable' content='yes' />
