@@ -125,20 +125,22 @@
         min-width: 100px;
 
         .imageBox {
-          @apply relative rounded-layout bg-gray-950 p-0;
+          @apply relative rounded-layout overflow-hidden bg-gray-950 p-0;
           aspect-ratio: 16/9;
           width: 305px;
 
           img {
-            object-fit: cover;
-            object-position: center;
+            @apply absolute w-full h-full;
             @apply rounded-layout p-0 m-0;
             filter: blur(2px);
+            object-fit: cover;
+            object-position: center;
           }
 
           .poster {
+            @apply absolute w-full h-full  ;
+            @apply  p-0 m-0;
             object-fit: contain;
-            @apply rounded-layout p-0 m-0;
             filter: blur(0px);
           }
         }
@@ -154,7 +156,7 @@
 
       .activeEpisode {
         .imageBox {
-          @apply border bg-primary text-primary border-primary;
+          @apply border border-2 bg-primary text-primary border-primary;
         }
 
         .progress {
