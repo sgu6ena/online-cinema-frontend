@@ -9,12 +9,14 @@ import { getGenreById } from '../../../store/genre/genre.actions'
 import Meta from '../../../utils/meta/Meta'
 import CatalogLoader from '../../loaders/CatalogLoader'
 import SkeletonLoader from '../../ui/SkeletonLoader'
-import Button from '../../ui/form-elemets/Button'
+
 import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
 import SortBy from '../../ui/sortMenu/sortBy'
 
 import { GENRES_ALT } from './data.genres'
+
+import { MdKeyboardArrowDown } from 'react-icons/md'
 
 const Catalog: FC = () => {
 	const { user } = useAuth()
@@ -117,7 +119,7 @@ const Catalog: FC = () => {
 				{!isLoading ? (
 					<div className={'flex justify-center'}>
 						{totalPages > page && (
-							<Button onClick={showMore}> Показать еще</Button>
+							<button className={'flex border border-primary gap-4 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
 						)}
 					</div>
 				) : (

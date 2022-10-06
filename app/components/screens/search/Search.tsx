@@ -11,6 +11,7 @@ import Button from '../../ui/form-elemets/Button'
 import Field from '../../ui/form-elemets/Field'
 import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
+import { MdKeyboardArrowDown } from 'react-icons/md'
 
 const DynamicSelect = dynamic(
 	() => import('../../ui/form-elemets/select/Select'),
@@ -174,7 +175,7 @@ const Search: FC = () => {
 			<Gallery movies={movies || []} />
 			<div className={'flex justify-center'}>
 				{pagination.totalPages > page && (
-					<Button onClick={showMore}> Показать еще</Button>
+					<button className={'flex border border-primary gap-4 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
 				)}
 			</div>
 		</div>
