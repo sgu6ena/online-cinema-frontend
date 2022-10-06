@@ -14,7 +14,6 @@ const {
 } = useMovies()
 
 	const movies = data
-	console.log(movies)
 	return (
 		<div>
 			<AdminHeader 				handleSearch={handleSearch} searchTerm={searchTerm} onClick={createAsync}/>
