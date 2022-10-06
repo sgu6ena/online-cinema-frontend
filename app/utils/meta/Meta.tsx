@@ -2,7 +2,6 @@ import Head from 'next/head'
 import {useRouter} from 'next/router'
 import {FC} from 'react'
 
-import logoImage from '../../assets/images/logo.svg'
 import {siteName, titleMerge} from '../../config/seo.config'
 import {onlyText} from '../string/clearText'
 
@@ -32,7 +31,7 @@ const Meta: FC<ISeo> = ({
 						<meta property="og:locale" content="ru_RU"/>
 						<meta property="og:title" content={titleMerge(title)}/>
 						<meta property="og:url" content={currentUrl}/>
-						<meta property="og:image" content={image || logoImage}/>
+						<meta property="og:image" content={image || '/svg/logo/logo.svg'}/>
 						<meta property="og:site_name" content={siteName}/>
 						<meta
 							property="og:description"

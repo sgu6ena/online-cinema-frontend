@@ -71,14 +71,14 @@ const Search: FC = () => {
 	}, [page])
 
 	return (
-		<div className="m-10">
+		<div className="md:px-5 mb-40 px-3 lg:pl-layout">
 			<Heading title={'Поиск'} className={'my-10'} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className={'flex  items-end  '}>
-					<div className={'w-full max-w-[300px] px-2'}>
+				<div className={'flex items-end md:flex-row flex-col   '}>
+					<div className={'w-full  md:max-w-[300px] px-2'}>
 						<Field {...register('query')} placeholder={'Поиск '} />
 					</div>
-					<div className={'w-full px-2'}>
+					<div className={'w-full  px-2'}>
 						<Controller
 							name="genres"
 							control={control}
@@ -127,7 +127,7 @@ const Search: FC = () => {
 					{/*	/>*/}
 					{/*</div>*/}
 
-					<div className={'w-full max-w-[260px] px-2'}>
+					<div className={'w-full  md:max-w-[260px] px-2'}>
 						<Controller
 							name="year"
 							control={control}
@@ -143,7 +143,7 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-full max-w-[280px] px-2'}>
+					<div className={'w-full  md:max-w-[280px] px-2'}>
 						<Controller
 							name="sort"
 							control={control}
@@ -159,7 +159,7 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<div className={'w-full max-w-[260px] px-2'}>
+					<div className={'w-full md:max-w-[260px] px-2'}>
 						<Controller
 							name="type_content"
 							defaultValue={'-1'}
@@ -175,8 +175,9 @@ const Search: FC = () => {
 							)}
 						/>
 					</div>
-					<button className={'self-center btn-primary p-3 mb-2'}>
+					<button className={'self-center btn-primary p-3 mb-2 md:w-20 w-full flex gap-3 justify-center items-center'}>
 						<MaterialIcon name={'MdSearch'} />
+						<span className={'md:hidden'}>Найти</span>
 					</button>
 				</div>
 			</form>
