@@ -9,13 +9,13 @@
   }
 
   .slide {
-    @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64;
+    @apply bg-none lg:w-40 flex flex-col sm:w-40 md:pl-4 pl-2 pt-10  md:w-40 w-24 xl:w-64 ;
     background-color: transparent;
   }
 }
 
 .h4 {
-  @apply text-white text-sm text-shadow font-bold text-shadow pl-1 pt-2 z-50;
+  @apply text-white md:text-sm text-xs text-shadow font-bold text-shadow pl-1 pt-2 z-50;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -94,7 +94,7 @@
 }
 
 .itemAlt {
-  @apply relative transition-all mr-1 overflow-hidden border-transparent border flex  items-end shadow-lg rounded-2xl will-change-contents;
+  @apply relative transition-all mr-1 overflow-hidden border-transparent border flex  items-end shadow-lg lg:rounded-2xl will-change-contents;
   flex: 0 0 auto;
 
   &:hover {
@@ -105,7 +105,7 @@
   }
 
   &.vertical {
-    @apply lg:w-40 lg:h-64 sm:w-36 sm:h-52 w-36 h-52 2xl:w-64  2xl:h-96 xl:w-56 xl:h-80;
+    @apply lg:w-40 lg:h-64 sm:w-36 sm:h-52  md:w-36 w-24 md:h-52 h-32 2xl:w-64  2xl:h-96 xl:w-56 xl:h-80;
   }
 
   &.horizontal {
@@ -143,7 +143,7 @@
   }
 
   img {
-    @apply h-full w-full bg-gray-700 rounded-2xl;
+    @apply h-full w-full bg-gray-700 lg:rounded-2xl rounded;
   }
 
   .content {
