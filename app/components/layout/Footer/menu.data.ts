@@ -6,19 +6,30 @@ export const aboutUs: IMenuItem[] =
 	[
 		{
 			icon: 'MdLogin',
-			link: LINKS.REGISTER,
-			title: 'Регистрация и оплата',
+			link: LINKS.ABOUT,
+			title: 'О сервисе',
 		},
+		// {
+		// 	icon: 'MdLogin',
+		// 	link: LINKS.REGISTER,
+		// 	title: 'Регистрация и оплата',
+		// },
 		{
 			icon: 'MdLogin',
 			link: LINKS.AGREEMENT,
 			title: 'Публичные условия',
 		},
+
 		{
 			icon: 'MdPersonAddAlt',
-			link: LINKS.FEEDBACK,
-			title: 'Сообщить об ошибке',
+			link: LINKS.FAQ,
+			title: 'Вопросы ответы',
 		},
+		// {
+		// 	icon: 'MdPersonAddAlt',
+		// 	link: LINKS.FEEDBACK,
+		// 	title: 'Сообщить об ошибке',
+		// },
 	]
 
 

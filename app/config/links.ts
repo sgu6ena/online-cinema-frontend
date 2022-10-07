@@ -33,6 +33,8 @@ export const LINKS = {
 
 
 	FEEDBACK:'/feedback',//Сообщить об ошибке
+	FAQ:'/faq',
+	ABOUT:'/about',
 
 
 	APPSTORE:'https://s.idc.md/portal_ios',
