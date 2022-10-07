@@ -60,7 +60,7 @@ const Catalog: FC = () => {
 	}, [genreId, sortId, category])
 
 	useEffect(() => {
-		if (typeof yearSortId === 'string') {
+		if (typeof sortId === 'string') {
 			getGenreById({
 				genreId,
 				params: {
@@ -86,7 +86,7 @@ const Catalog: FC = () => {
 						<div className={'flex justify-between items-center lg:pr-5 pr-2'}>
 							<Heading
 								title={titleGenre}
-								className='lg:px-5  lg:mb-3 lg:pt-5 px-5 pt-2 mb-1'
+								className='lg:px-5  lg:mb-3 lg:pt-5 md:px-5 px-0 pt-2 mb-2'
 							/>
 						</div>
 					) : (

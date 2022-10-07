@@ -82,10 +82,10 @@
 }
 
 .movies {
-  @apply xl:py-layout py-2 px-1 lg:px-0  grid lg:grid-cols-5 gap-y-10 xl:grid-cols-6 sm:grid-cols-4 xl:gap-x-10 lg:gap-x-5 sm:gap-x-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 sm:grid-cols-3 grid-cols-2;
+  @apply xl:py-layout sm:py-2 sm:px-1 p-0 lg:px-0  grid lg:grid-cols-5 gap-y-10 xl:grid-cols-6 sm:grid-cols-4 xl:gap-x-10 lg:gap-x-5 sm:gap-x-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 sm:grid-cols-4 grid-cols-3;
 
   > a {
-    @apply mx-auto mb-4 lg:w-40 sm:w-32 w-36 xl:w-56 2xl:w-64 animate-fade;
+    @apply mx-auto md:mb-4 mb-0 lg:w-40 sm:w-32 w-24 xl:w-56 2xl:w-64 animate-fade;
   }
 }
 
@@ -156,7 +156,7 @@
   }
 
   &:hover .content {
-    @apply flex transition-all h-full z-50 w-full top-0 left-0 p-2 pt-4 rounded-2xl shadow-lg bg-gray-950 bg-opacity-50 overflow-hidden flex flex-col justify-between;
+    @apply md:flex hidden transition-all h-full z-50 w-full top-0 left-0 p-2 pt-4 rounded-2xl shadow-lg bg-gray-950 bg-opacity-50 overflow-hidden flex flex-col justify-between;
     transition: all 0.3s;
   }
 }

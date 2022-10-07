@@ -12,7 +12,7 @@
   }
 
   .content {
-    @apply  text-white absolute h-full w-full bottom-0 md:p-10 md:pb-6 px-2 flex md:flex-col flex-row items-end md:items-start justify-between pr-0 flex-wrap md:justify-end gap-2 bottom-0 left-0 z-10;
+    @apply  text-white absolute h-full w-full bottom-0 md:p-10 md:pb-6 px-2 flex md:flex-col flex-row items-end md:items-start justify-between  flex-wrap md:justify-end gap-2 bottom-0 left-0 z-10;
 
     &:hover {
       .subtitle {
@@ -77,7 +77,7 @@
       }
 
       .favorites {
-        @apply  w-10  flex justify-center rounded text-white;
+        @apply  md:w-10 hidden   flex justify-center rounded text-white;
         svg{
           @apply lg:w-10 lg:h-10 h-4 w-4
         }

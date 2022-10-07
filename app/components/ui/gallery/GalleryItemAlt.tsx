@@ -1,22 +1,17 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import { FC, MouseEvent, useEffect } from 'react'
+import { FC } from 'react'
 
+import { getMoviesUrl } from '../../../config/api.config'
+import { IMoviePortal } from '../../../shared/types/movie.types'
+import { getCountryList } from '../../../utils/movie/getCountryList'
 import { getGenresList } from '../../../utils/movie/getGenresList'
+import FavoriteButton from '../FavoriteButton/favoriteButton'
+import Rating from '../rating/Rating'
 
 import styles from './Galery.module.scss'
-import { IMoviePortal } from '../../../shared/types/movie.types'
-import { getMoviesUrl } from '../../../config/api.config'
-import { getCountryList } from '../../../utils/movie/getCountryList'
-
-import { useActions } from '../../../hooks/useActions'
-import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
-import Rating from '../rating/Rating'
-import { useFavoritesById } from '../../../hooks/useFavorites'
-import FavoriteButton from '../FavoriteButton/favoriteButton'
 
 const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
-
 	return (
 		<Link href={getMoviesUrl(movie.id)}>
 			<a>
@@ -28,9 +23,9 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 					<div className={styles.content}>
 						<div className={styles.top}>
 							<div>
-								{movie.rate_age && <span className={styles.age}>
-								{movie.rate_age}
-							</span>}
+								{movie.rate_age && (
+									<span className={styles.age}>{movie.rate_age}</span>
+								)}
 							</div>
 							<FavoriteButton id={movie.id} />
 						</div>
@@ -46,9 +41,7 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 						</div>
 					</div>
 				</div>
-				<h4 className={styles.h4}>
-					{movie.title}
-				</h4>
+				<h4 className={styles.h4}>{movie.title}</h4>
 				<div className={movie.access ? styles.pay : styles.free}>
 					{movie.access ? 'Подписка' : 'Бесплатно'}
 				</div>
