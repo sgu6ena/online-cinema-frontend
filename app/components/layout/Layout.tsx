@@ -13,7 +13,7 @@ const Layout: FC = ({ children }) => {
 			</div>
 			<div className={styles.footer}>
 				<Footer />
-				<div className={'px-layout text-sm text-gray-600'}>
+				<div className={'md:px-layout px-2 text-sm text-gray-600'}>
 					СЗАО “Интерднестрком”, 2017 - {new Date().getFullYear()}
 				</div>
 			</div>

@@ -44,7 +44,7 @@
     }
 
     .description {
-      @apply p-2 w-full xl:p-layout pr-0 md:text-md lg:text-lg text-sm text-gray-500;
+      @apply md:p-2 w-full xl:p-layout pr-0 md:text-md lg:text-lg text-sm text-gray-500;
       //width: 40%;
 
       .genres {

@@ -1,37 +1,41 @@
 .footer {
-  @apply flex px-layout pt-0 pb-5  gap-0 flex-wrap items-stretch text-gray-500;
+  @apply flex md:px-layout px-3 pt-0 pb-5  gap-0 flex-wrap items-stretch text-gray-500;
   ul {
+    @apply  md:text-lg text-sm ;
     li {
-      @apply py-2 ;
+      @apply md:py-2 ;
       a{
         @apply hover:text-primary transition-all;
       }
     }
   }
+  h2{
+    @apply mb-2;
+  }
 
   .first {
-    @apply lg:w-1/4 pt-layout md:w-1/2 w-full text-lg;
+    @apply lg:w-1/4 md:pt-layout  pt-4  md:w-1/2 w-full text-lg;
   }
 
   .second {
-    @apply lg:w-1/4 pt-layout lg:pl-10  md:w-1/2 w-full  text-lg;
+    @apply lg:w-1/4 md:pt-layout  pt-4 lg:pl-10  md:w-1/2 w-full  text-lg;
   }
 
   .last {
-    @apply lg:w-1/2  pt-layout w-full;
+    @apply lg:w-1/2  md:pt-layout pt-4  w-full;
     .links {
-      @apply flex flex-col  gap-10;
+      @apply flex flex-col  md:gap-10 gap-5;
       .stores {
-        @apply flex flex-wrap gap-5;
+        @apply flex flex-wrap md:gap-5 gap-3;
         a {
-          @apply bg-gray-900 text-white rounded-xl pt-1 pl-1 hover:bg-primary hover:bg-opacity-80 transition-all;
+          @apply bg-gray-900 text-white h-10 w-28 flex justify-center items-center md:w-40 md:h-16 rounded-xl  hover:bg-primary hover:bg-opacity-80 transition-all;
         }
       }
       .ss{
         a{
-          @apply p-3 ;
+          @apply md:p-3 p-2 md:h-14 md:w-14 flex justify-center items-center h-9 w-9;
           svg{
-            @apply w-7 h-7;
+            @apply md:w-7 md:h-7 h-5 w-5;
           }
         }
       }

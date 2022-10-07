@@ -119,7 +119,7 @@ const Catalog: FC = () => {
 				{!isLoading ? (
 					<div className={'flex justify-center'}>
 						{totalPages > page && (
-							<button className={'flex border border-primary gap-4 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
+							<button className={'flex border border-primary gap-4 mt-5 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
 						)}
 					</div>
 				) : (

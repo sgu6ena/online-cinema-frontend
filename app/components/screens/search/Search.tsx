@@ -175,7 +175,7 @@ const Search: FC = () => {
 			<Gallery movies={movies || []} />
 			<div className={'flex justify-center'}>
 				{pagination.totalPages > page && (
-					<button className={'flex border border-primary gap-4 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
+					<button className={'flex border mt-5 border-primary gap-4 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
 				)}
 			</div>
 		</div>
