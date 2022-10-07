@@ -1,25 +1,18 @@
-$header-height: 70px;
-
 .mainStyle {
   @apply flex flex-col  justify-between;
   min-height: 100vh;
 
-
   .layout {
-    @apply    h-full  ;
-    //background: #1d1f23;
+    @apply h-full;
     flex-grow: 1;
 
     .center {
-      @apply text-white    mt-20 ;
-      //min-height: 40vh;
-
+      @apply text-white   lg:mt-20  md:mt-16 mt-12 ;
     }
   }
 
-
   .footer {
-    @apply mt-20 text-gray-700 align-bottom ;
+    @apply mt-20 text-gray-700 align-bottom;
     background: #303437;
   }
 }

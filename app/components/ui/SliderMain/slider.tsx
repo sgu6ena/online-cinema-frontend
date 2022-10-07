@@ -28,13 +28,13 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 				<SwiperSlide
 					key={i.link}
 					style={{
-						background: '#101215',
+
 						maxHeight: '600px',
 						aspectRatio: '16/9',
 						maxWidth: '1300px',
 						objectFit: 'cover',
 						overflow:'hidden',
-						borderRadius:'1rem'
+						// borderRadius:'1rem'
 					}}
 				>
 					<SliderContent slideData={i} />
@@ -44,7 +44,7 @@ const SliderSwiper: FC<{ slides: ISlide[] }> = ({ slides }) => {
 			<button className={'arrow left z-20'}>
 				<MaterialIcon name="MdChevronRight" />
 			</button>
-			<button className={'arrow right z-10'}>
+			<button className={'arrow right z-20 '}>
 				<MaterialIcon name="MdChevronLeft" />
 			</button>
 		</Swiper>

@@ -18,16 +18,13 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 				alt={i.title}
 				className={cn(styles.img, '')}
 			/>
-			{/*<div className="swiper-lazy-preloader"></div>*/}
 			<div className={styles.content}>
 				<Link href={i.link}>
 					<a><h3 className={cn(styles.title)}>
 						{i.title.toUpperCase()}
 					</h3></a>
 				</Link>
-				{/*<div  className={styles.subtitle}>*/}
-				{/*	{i.subTitle}*/}
-				{/*</div>*/}
+
 				<div className={styles.genres}>
 					<div>{i.year}</div>
 					{i.genres && i.genres.map((genre) => (
@@ -52,7 +49,6 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 								<div>Смотреть</div>
 							</div>
 						</a>
-
 					</Link>
 					<div className={styles.favorites}><FavoriteButton id={i._id} /></div>
 

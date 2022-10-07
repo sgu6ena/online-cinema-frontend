@@ -1,9 +1,6 @@
-$header-height: 70px;
-
 .header {
-  @apply lg:px-5 px-2 pl-0 bg-gray-900 text-white rounded-none fixed flex justify-between items-center top-0 left-0 z-20 opacity-100;
+  @apply lg:px-5 md:px-2 px-0 pl-0 lg:h-20  md:h-16 h-12  bg-gray-900 text-white rounded-none fixed flex justify-between items-center top-0 left-0 z-20 opacity-100;
   width: 100vw;
-  height: $header-height;
 
   .logo {
 
@@ -11,7 +8,7 @@ $header-height: 70px;
       @apply md:hidden;
     }
 
-    @apply flex-shrink-0 ml-5 text-3xl text-white gap-3 flex items-center;
+    @apply flex-shrink-0 md:ml-5 ml-3 text-3xl text-white gap-3 flex items-center;
     .text {
       @apply lg:block text-primary mt-2 hidden;
       font-family: 'Inter', sans-serif;

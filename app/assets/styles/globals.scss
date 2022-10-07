@@ -112,7 +112,7 @@ input[type=checkbox] {
 }
 
 .arrow {
-  @apply flex items-center justify-center rounded-full bg-white bg-opacity-30 text-white text-2xl p-2 animate-fade absolute z-30 ;
+  @apply md:flex hidden items-center justify-center rounded-full bg-white bg-opacity-30 text-white text-2xl p-2 animate-fade absolute z-30 ;
   top: calc(50% - 1rem);
 
   &.left {
@@ -125,7 +125,7 @@ input[type=checkbox] {
 }
 
 .swiper-slide {
-  @apply flex justify-center bg-gray-700 rounded-2xl ;
+  @apply flex justify-center bg-transparent;
 }
 
 .slider-pagination {
