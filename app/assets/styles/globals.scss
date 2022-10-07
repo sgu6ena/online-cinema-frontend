@@ -14,6 +14,16 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   @apply bg-gray-900 relative;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 50px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #191B1F, #666,#191B1F);
+  }
 }
 
 //html {
