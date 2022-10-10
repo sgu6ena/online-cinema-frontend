@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-hot-toast'
 
 import { PortalService } from '../../api/portal.service'
-import { IMoviePORTAL } from '../../shared/types/movie.types'
+import { IMoviePortal } from '../../shared/types/movie.types'
 import { toastError } from '../../utils/toast-error'
 import { TypeRootState } from '../store'
 
@@ -39,7 +39,7 @@ export const getFavorites = createAsyncThunk(
 				return state.favorites.favoritesId
 			} else {
 				const response = await PortalService.getBookmarks()
-				return response.data.map((item: IMoviePORTAL) => item.id)
+				return response.data.map((item: IMoviePortal) => item.id)
 			}
 		} catch (error) {
 			toastError(error)
