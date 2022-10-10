@@ -13,7 +13,7 @@ const Logo: FC = () => {
 						src={'/svg/logo/logo.svg'}
 						height={30}
 						width={30}
-						alt='Portal'
+						alt='PORTAL'
 						draggable={false}
 					/>
 				</div>

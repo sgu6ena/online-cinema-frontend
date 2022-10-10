@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
 import { PortalService } from '../../../../api/portal.service'
-import { toastError } from '../../../../utils/toast-error'
 import { toast } from 'react-hot-toast'
 
 export const useActivate = () => {

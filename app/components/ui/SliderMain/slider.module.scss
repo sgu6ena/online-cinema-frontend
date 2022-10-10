@@ -77,7 +77,7 @@
       }
 
       .favorites {
-        @apply  md:w-10 hidden   flex justify-center rounded text-white;
+        @apply  md:w-10 hidden md:flex justify-center rounded text-white;
         svg{
           @apply lg:w-10 lg:h-10 h-4 w-4
         }

@@ -1,0 +1,55 @@
+.faq {
+  @apply px-7 py-5  block border border-primary my-1 border-opacity-40 rounded-xl cursor-pointer;
+  .question {
+    @apply flex items-center gap-2 justify-between;
+    h5 {
+      @apply text-gray-300 text-xl;
+    }
+
+    .button {
+      @apply relative  h-7 mt-0 w-7 p-4;
+
+      &:before,
+      &:after {
+        @apply absolute bg-primary;
+        content: "";
+        transition: transform 0.3s ease;
+      }
+
+      &:before {
+        @apply w-0.5 top-0 h-full left-1/2;
+        margin-left: -1px;
+      }
+
+      &:after {
+        @apply left-0 top-1/2 w-full h-0.5;
+        margin-top: -1px;
+      }
+    }
+
+    .button.active {
+      &:before {
+        transform: rotate(90deg);
+      }
+
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .answer {
+    @apply h-0 ;
+    transition: all 0.3s ease-out;
+  }
+
+  .active {
+    @apply text-gray-600 text-sm mt-4 h-auto block overflow-visible opacity-100;
+    transition: all 0.3s ease-out;
+  }
+
+  .inactive {
+    @apply text-gray-600 text-sm overflow-hidden opacity-20 ;
+    transition: all 0.3s ease-out;
+  }
+}

@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { IMoviePortal } from '../../../shared/types/movie.types'
 
 import styles from './Galery.module.scss'

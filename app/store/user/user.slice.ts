@@ -9,7 +9,7 @@ import { IInitialState } from './user.interface'
 const initialState: IInitialState = {
 	isLoading: false,
 	user: getStoreLocalStorage('user'),
-	token: Cookies.get('atp') || '',
+	token: Cookies.get('atp') || typeof window!=='undefined' ? window.localStorage.getItem('atp')||'' : '',
 	isRegistered: false,
 }
 

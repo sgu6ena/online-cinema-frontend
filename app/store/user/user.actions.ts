@@ -32,6 +32,7 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 			const response = await AuthService.login(login, password)
 			toast.success('Вы успешно вошли')
 			Cookies.set('atp', response.token)
+			localStorage.setItem('atp', response.token)
 			return response
 		} catch (error) {
 			toastError(error)
