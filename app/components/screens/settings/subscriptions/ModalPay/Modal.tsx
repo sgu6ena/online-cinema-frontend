@@ -1,13 +1,8 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react'
 
+import { useActions } from '../../../../../hooks/useActions'
 
-
-import { useActions } from '../../../../../hooks/useActions';
-
-
-
-import styles from './modalPay.module.scss';
-
+import styles from './modalPay.module.scss'
 
 interface IModal {
 	setIsShow: (isShow: boolean) => void
@@ -20,7 +15,7 @@ const Modal: FC<IModal> = ({ setIsShow, children }) => {
 		setIsShow(true)
 	}, [])
 
-	const closeModal=()=>{
+	const closeModal = () => {
 		setIsShow(false)
 		resetIsSendSms()
 	}

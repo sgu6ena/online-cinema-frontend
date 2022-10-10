@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '../../../../../hooks/useActions'
-import { useRuble } from '../../../../../hooks/useAuth'
+import { useAuth, useRuble } from '../../../../../hooks/useAuth'
 import { ICheckSms } from '../../../../../store/settings/settings.interface'
 import Button from '../../../../ui/form-elemets/Button'
 import Field from '../../../../ui/form-elemets/Field'
@@ -16,9 +16,9 @@ const CodeFromSms: FC = () => {
 		mode: 'onChange',
 	})
 
-	const promo = useRuble()
+	const { user } = useAuth()
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		checkSMS({ sms: data.sms, promo: promo || true })
+		checkSMS({ sms: data.sms, promo: user?.promo || true })
 	}
 
 	return (

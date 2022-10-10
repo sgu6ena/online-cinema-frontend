@@ -24,7 +24,9 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 	'checkSMS',
 	async ({ sms, promo }, thunkApi) => {
 		try {
+			console.log({sms, promo})
 			const response = await PortalService.checkSms(sms, promo)
+
 			toast.success('ок')
 			return response
 		} catch (error) {

@@ -9,6 +9,7 @@ import Field from '../../../../ui/form-elemets/Field';
 import Heading from '../../../../ui/heading/Heading';
 
 import styles from './modalPay.module.scss';
+import { useAuth } from '../../../../../hooks/useAuth'
 
 
 interface ISendSms {
@@ -24,13 +25,13 @@ const SendSms:FC = () => {
 	const onSubmit: SubmitHandler<ISendSms> = (data) => {
 		sendSMS({ mobile: data.phone })
 	}
-
+	const { user } = useAuth()
 	return (
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.head}>
 					<Heading title="Подписка" />
-					<p>14 дней за 1 рубль, далее 32 RUP</p>
+					<p>{user?.promo? '14 дней за 1 рубль, далее 32 RUP':'32 RUP в месяц'}</p>
 				</div>
 				<div>
 					<Field
