@@ -42,6 +42,7 @@ const Home: FC<IHome> = () => {
 			></Meta>
 
 			{isLoading && <HomeLoading />}
+
 			<div className={styles.mainSlider}>
 				{!isLoading && slides.length > 0 && <SliderMain slides={slides} />}
 			</div>
@@ -49,9 +50,11 @@ const Home: FC<IHome> = () => {
 			{!isLoading &&
 				collections &&
 				collections.map((c) => <Collection collection={c} key={c.title} />)}
+
 			{!isLoading && genres[0] && genres[0].items && genres[0].items.length > 0 && (
 				<GenresSlider genres={genres[0]} />
 			)}
+
 			{!isLoading &&
 				genresCollections &&
 				genresCollections.map((c) => (
