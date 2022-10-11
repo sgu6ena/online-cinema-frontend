@@ -23,6 +23,5 @@
 }
 
 .mainBanner {
-  @apply rounded m-auto h-full w-full ;
-  aspect-ratio: 110/40;
+  @apply rounded m-auto h-full w-full aspect-[11/4] md:aspect-[7/2];
 }
