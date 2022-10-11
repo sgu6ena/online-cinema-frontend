@@ -28,7 +28,7 @@ const Home: FC<IHome> = () => {
 		getMainHome()
 	}, [])
 	useEffect(() => {
-		if (!!user) {
+		if (!!user?.level) {
 			getFavorites()
 		}
 	}, [user])
@@ -41,7 +41,7 @@ const Home: FC<IHome> = () => {
 				image={'/images/smart/main.png'}
 			></Meta>
 
-			{isLoading && <HomeLoading />}
+			{!isLoading && <HomeLoading />}
 			<div className={styles.mainSlider}>
 				{!isLoading && slides.length > 0 && <SliderMain slides={slides} />}
 			</div>

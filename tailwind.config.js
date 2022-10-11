@@ -30,12 +30,18 @@ module.exports = {
 		},
 
 		extend: {
+			aspectRatio: {
+				'4/3': '4 / 3',
+				'16/9': '16 / 9',
+				'7/2': '7 / 2',
+				'11/4': '11 / 4',
+			},
 			spacing: {
 				0.5: '0.12rem',
 				layout: '2.75rem',
 			},
 			fontSize: {
-				'md':'1rem',
+				'md': '1rem',
 				'2lg': '1.38rem',
 			},
 			borderRadius: {
@@ -91,9 +97,9 @@ module.exports = {
 					'&:hover': {
 						backgroundColor: '#ff0009',
 					},
-					'&:disabled':{
-						backgroundColor:'#39393f'
-					}
+					'&:disabled': {
+						backgroundColor: '#39393f',
+					},
 				},
 
 				'.text-link': {

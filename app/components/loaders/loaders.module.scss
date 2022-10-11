@@ -1,6 +1,6 @@
 .container {
-  @apply xl:py-layout justify-center gap-y-14 py-2 px-2 lg:px-0 xl:px-5 grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 sm:grid-cols-4
-  gap-1 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-2 ;
+  @apply xl:py-layout justify-center gap-y-14 py-2 px-0 lg:px-0 xl:px-5 grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 sm:grid-cols-4
+  gap-1 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 grid-cols-3 ;
 }
 
 .mainContainer {
@@ -8,11 +8,11 @@
 }
 
 .item {
-  @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-36 h-52 xl:w-64  xl:h-96;
+  @apply lg:w-40 lg:h-64 sm:w-32 sm:h-52 w-24 h-40 xl:w-64  xl:h-96;
 }
 
 .titleContainer {
-  @apply flex justify-between my-5;
+  @apply flex justify-between my-5 gap-2;
   .title {
     @apply h-10 w-60  px-40 mt-5;
   }
@@ -23,6 +23,5 @@
 }
 
 .mainBanner {
-  @apply rounded m-auto h-full w-full ;
-  aspect-ratio: 147/40;
+  @apply rounded m-auto h-full w-full aspect-[11/4] md:aspect-[7/2];
 }

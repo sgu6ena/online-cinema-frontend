@@ -40,7 +40,7 @@
   }
 
   ul {
-    @apply absolute top-16 pt-4 right-1 animate-fade  p-0  transition-all border-none bg-gray-900 w-60  z-50;
+    @apply absolute md:top-16 top-10 pt-4 right-0 animate-fade  p-0  transition-all border-none bg-gray-900 md:w-60 w-full  z-50;
     li {
       @apply text-white border-b border-b-gray-700 transition-all;
       a {

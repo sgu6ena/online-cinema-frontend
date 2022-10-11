@@ -98,7 +98,7 @@ const Burgers: FC = () => {
 								</a>
 							</Link>
 						</li>))}
-
+					{user && <LogoutButton />}
 				</ul>
 			</div>
 		</>
