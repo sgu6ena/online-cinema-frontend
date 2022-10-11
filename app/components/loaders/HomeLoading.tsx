@@ -10,7 +10,7 @@ const HomeLoading = () => {
 	return (
 		<div className={'overflow-hidden'}>
 			<SkeletonLoader className={styles.mainBanner} />
-			<div className='px-layout '>
+			<div className='lg:px-layout '>
 				<SliderMovieBlock />
 				<SliderMovieBlock />
 				<SliderMovieBlock />

@@ -8,16 +8,16 @@ export const useActivate = () => {
 
 	const activateKey = String(query.key)
 
-
 	const { isLoading, data, isError, isSuccess } = useQuery(
-		['активакия регистрации', activateKey],
+		['активация регистрации', activateKey],
 		() => PortalService.activateRegister(activateKey),
 		{
 			onSuccess: (data) => data,
 			onError: (e) => {
 				toast.error(e as string)
 			},
-			//enabled: !!query.key,
+
+
 		},
 	)
 

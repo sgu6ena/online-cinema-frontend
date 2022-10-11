@@ -28,7 +28,7 @@ const Home: FC<IHome> = () => {
 		getMainHome()
 	}, [])
 	useEffect(() => {
-		if (!!user) {
+		if (!!user?.level) {
 			getFavorites()
 		}
 	}, [user])
