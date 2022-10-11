@@ -25,13 +25,13 @@ const CodeFromSms: FC = () => {
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className={styles.head}>
 				<Heading title="Введите код из SMS" />
-				<p>На указаный вами номер телефона выслан код подтверждения</p>
+				<p>На указанный вами номер телефона выслан код подтверждения</p>
 			</div>
 			<Field
 				{...register('sms', {
 					required: 'Обязательное поле',
 				})}
-				placeholder="код из смс "
+				placeholder="код из SMS "
 				error={formState.errors && formState.errors.sms}
 			/>
 			<div className={styles.footer}>
