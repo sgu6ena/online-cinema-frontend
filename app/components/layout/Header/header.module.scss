@@ -46,6 +46,9 @@
   .end {
     @apply flex flex items-center gap-2 ;
 
+    .ruble{
+      @apply xl:px-layout lg:px-5 md:px-2 px-1.5;
+    }
     a {
       @apply flex-shrink-0;
     }

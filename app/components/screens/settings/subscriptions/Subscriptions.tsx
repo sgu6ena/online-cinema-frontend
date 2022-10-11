@@ -72,7 +72,7 @@ const Subscriptions: FC = () => {
 						подписку</button>
 				) : (
 					<Button onClick={() => setShowModal(!isShowModal)}>
-						{user?.promo? 'Оформить подписку за рубль':'Оформить подписку за 32р'}
+						{user?.promo? 'Оформить подписку за 1 RUP':'Оформить подписку за 32 RUP'}
 					</Button>
 				)}
 			</div>
