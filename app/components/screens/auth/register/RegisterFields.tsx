@@ -1,5 +1,5 @@
 import {FC} from 'react'
-import {FormState, UseFormRegister, UseFormWatch} from 'react-hook-form'
+import {FormState, UseFormRegister} from 'react-hook-form'
 
 import {LINKS} from '../../../../config/links'
 import {validEmail} from '../../../../shared/regex'
@@ -25,7 +25,7 @@ const RegisterFields: FC<IAuthFields> = ({
           },
           maxLength: {
             value: 50,
-            message: 'Логин должен содержать более 50 символов ',
+            message: 'Логин должен содержать не более 50 символов ',
           },
         })}
         placeholder="Логин"
@@ -41,7 +41,7 @@ const RegisterFields: FC<IAuthFields> = ({
           },
           maxLength: {
             value: 50,
-            message: 'E-mail должен содержать более 50 символов ',
+            message: 'E-mail должен содержать не более 50 символов ',
           },
           pattern: {
             value: validEmail,
@@ -90,11 +90,7 @@ const RegisterFields: FC<IAuthFields> = ({
           <a href={LINKS.AGREEMENT} target="_blank" className="link">
 						{' '}
             пользовательского соглашения
-					</a>{' '}
-          {/*и даю{' '}*/}
-          {/*<a href={LINKS.PROCESSING} className="link">*/}
-					{/*	свое согласие на обработку моих персональных данных{' '}*/}
-					{/*</a>*/}
+					</a>
 				</span>
       </label>
     </>

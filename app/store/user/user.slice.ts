@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 import { getStoreLocalStorage } from '../../utils/local-storage'
 
-import { login, logout, register } from './user.actions'
+import {  login, logout, recovery, register } from './user.actions'
 import { IInitialState } from './user.interface'
 
 const initialState: IInitialState = {
@@ -47,6 +47,19 @@ export const userSlice = createSlice({
 				state.user = null
 				state.isRegistered = false
 			})
+			.addCase(recovery.pending, (state) => {
+				state.isLoading = true
+
+			})
+			.addCase(recovery.fulfilled, (state, { payload }) => {
+				state.isLoading = false
+
+			})
+			.addCase(recovery.rejected, (state, { payload }) => {
+				state.isLoading = false
+
+			})
+
 			.addCase(logout.fulfilled, (state) => {
 				state.isLoading = false
 				state.user = null

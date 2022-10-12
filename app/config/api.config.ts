@@ -7,6 +7,7 @@ export const sendBookmarkUrl = (string: string) => `/bookmark/change/${string}`
 export const sendVoteUrl = (id: string, vote: number) => `/like/${id}/${vote}`
 
 export const getAuthUrl = (string: string) => `/${string}`
+export const recovery = ()=> '/recovery'
 export const logout = () => `/logout`
 export const getUserProfile = () => '/getUserProfile'
 export const getGenresUrl = (string: string | number) => `/genres/${string}`
@@ -17,4 +18,5 @@ export const changePass = () =>'/updatePassword'
 export const unsubscribe = () =>'/unsubscription'
 export const smartTv = (code:string)=> `/smartTV/active/${code}`
 export const activateRegister = (code:string)=> `/activate?actkey=${code}`
+export const recoveryPassword = (code:string)=>`/get_pass/${code}`
 export const activatePromoCode = (code:string)=> `/promocode/${code}`

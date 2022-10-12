@@ -8,5 +8,7 @@ export interface IRegisterInput {
 	email: string
 	password: string
 	passwordRpt: string
-
+}
+export interface IRecoveryInput {
+	email: string
 }

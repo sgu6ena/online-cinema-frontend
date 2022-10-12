@@ -54,7 +54,7 @@ const Register = () => {
 						<>
 							<Heading title={'Регистрация'} className="mb-3" />
 							<Heading
-								title="Зарегистрируйтесь для просмотра  фильмов и сериалов"
+								title="Зарегистрируйтесь для просмотра фильмов и сериалов"
 								className="text-gray-500 text-xl mb-8"
 							/>
 							<RegisterFields register={registerInput} formState={formState} />

@@ -1,6 +1,13 @@
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
-import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl, sendBookmarkUrl, sendVoteUrl } from '../config/api.config'
+import {
+	APP_URL_PORTAL,
+	getCategoryUrl,
+	getMovieUrl,
+	recoveryPassword,
+	sendBookmarkUrl,
+	sendVoteUrl,
+} from '../config/api.config'
 import {
 	activatePromoCode,
 	activateRegister,
@@ -156,6 +163,10 @@ export const PortalService = {
 			passwordOld,
 			password,
 		})
+		return response
+	},
+	async recoveryPassword(code: string) {
+		const response = await axios.get<any, any>(recoveryPassword(code))
 		return response
 	},
 	async unsubscribe() {

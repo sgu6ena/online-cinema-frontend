@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 import { toast } from 'react-hot-toast'
 
 import { AuthService } from '../../api/auth/auth.service'
+import { IRecoveryInput } from '../../components/screens/auth/auth.interface'
 import { toastError } from '../../utils/toast-error'
 
 import {
@@ -23,7 +24,7 @@ export const register = createAsyncThunk<IAuthResponse, IRegister>(
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
-	}
+	},
 )
 export const login = createAsyncThunk<ITokens, ILoginPassword>(
 	'login',
@@ -38,10 +39,25 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 			toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
-	}
+	},
+)
+
+export const recovery = createAsyncThunk<any, IRecoveryInput>(
+	'forgot',
+	async ({ email }, thunkApi) => {
+		try {
+			const response = await AuthService.recovery(email)
+			toast.success('Вы успешно вошли')
+
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	},
 )
 
 export const logout = createAsyncThunk(
 	'logout',
-	async (_, thunkApi) => await AuthService.logout()
+	async (_, thunkApi) => await AuthService.logout(),
 )
