@@ -16,7 +16,7 @@ export interface ISendSms {
 
 export interface ICheckSms {
 	sms: string
-	promo: boolean
+	promo: 'true'|'false'
 }
 
 export interface IChangePassword {

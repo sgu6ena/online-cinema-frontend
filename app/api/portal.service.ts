@@ -144,7 +144,7 @@ export const PortalService = {
 		return response
 	},
 
-	async checkSms(sms: string, promo: boolean) {
+	async checkSms(sms: string, promo: 'true'|'false') {
 		const response = await axios.post<any, ICheckSms>(checkSMS(), {
 			sms,
 			promo,

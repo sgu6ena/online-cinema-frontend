@@ -18,7 +18,7 @@ const CodeFromSms: FC = () => {
 
 	const { user } = useAuth()
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		checkSMS({ sms: data.sms, promo: user?.promo || true })
+		checkSMS({ sms: data.sms, promo: user?.promo?'true':'false' || 'true' })
 	}
 
 	return (
