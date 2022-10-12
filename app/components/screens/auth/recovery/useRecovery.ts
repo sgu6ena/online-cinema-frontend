@@ -16,8 +16,6 @@ export const useRecovery = () => {
 			onError: (e) => {
 				toast.error(e as string)
 			},
-
-
 		},
 	)
 

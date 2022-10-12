@@ -16,8 +16,6 @@ export const useActivate = () => {
 			onError: (e) => {
 				toast.error(e as string)
 			},
-
-
 		},
 	)
 

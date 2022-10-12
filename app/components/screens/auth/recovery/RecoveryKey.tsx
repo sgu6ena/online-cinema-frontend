@@ -12,7 +12,7 @@ const RecoveryKey: FC = () => {
 			<Heading title={"Восстановление пароля"}/>
 			<div className={'py-layout'}>
 				{isLoading && <SkeletonLoader/>}
-				{isSuccess && 'Восстановление пароля прошло успешно'}
+				{isSuccess && 'Восстановление пароля прошло успешно - проверьте Вашу электронную почту '}
 				{isError && 'Ошибка при восстановлении пароля'}
 			</div>
 		</div>

@@ -22,9 +22,9 @@ const Recovery: FC = () => {
 		formState,
 	} = useForm<any>({ mode: 'onChange' })
 	const { isLoading } = useAuth()
-	const { forgot } = useActions()
+	const { recovery } = useActions()
 	const onSubmit: SubmitHandler<IRecoveryInput> = (data) => {
-		forgot(data)
+		recovery(data)
 	}
 
 	return (
