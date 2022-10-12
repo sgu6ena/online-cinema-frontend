@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import {
-	changePassword,
+	changePassword, checkSMS,
 	promoCode,
 	sendSMS,
 	smartActive,
@@ -16,6 +16,9 @@ export const settingsSlice = createSlice({
 		resetIsSendSms(state) {
 			state.isSmsSend = false
 		},
+		resetIsPromoAvailable(state){
+			state.isPromoAvailable = false
+		}
 	},
 	extraReducers: (builder) => {
 		builder
@@ -58,6 +61,16 @@ export const settingsSlice = createSlice({
 			})
 			.addCase(smartActive.rejected, (state) => {
 				state.isLoading = false
+			})
+			.addCase(checkSMS.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(checkSMS.fulfilled, (state) => {
+				state.isLoading = false
+			})
+			.addCase(checkSMS.rejected, (state) => {
+				state.isLoading = false
+				state.isPromoAvailable = false
 			})
 			.addCase(promoCode.pending, (state) => {
 				state.isLoading = true

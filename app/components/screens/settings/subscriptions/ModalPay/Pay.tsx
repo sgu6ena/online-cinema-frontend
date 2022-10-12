@@ -11,7 +11,7 @@ const Pay: FC = () => {
 	return (
 		<>
 			{isLoading && <p>Loading...</p>}
-			{!isSmsSend && !isLoading ? <SendSms /> : <CodeFromSms />}
+			{!isLoading && (!isSmsSend ?  <SendSms /> : <CodeFromSms />)}
 		</>
 	)
 }

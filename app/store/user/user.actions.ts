@@ -43,12 +43,11 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 )
 
 export const recovery = createAsyncThunk<any, IRecoveryInput>(
-	'forgot',
+	'recovery',
 	async ({ email }, thunkApi) => {
 		try {
 			const response = await AuthService.recovery(email)
-			toast.success('Вы успешно вошли')
-
+			toast.success('Проверьте вашу электронную почту')
 			return response
 		} catch (error) {
 			toastError(error)
