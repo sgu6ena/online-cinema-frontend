@@ -3,13 +3,13 @@ import Cookies from 'js-cookie'
 
 import { getStoreLocalStorage } from '../../utils/local-storage'
 
-import {  login, logout, recovery, register } from './user.actions'
+import { getUserData, login, logout, recovery, register } from './user.actions'
 import { IInitialState } from './user.interface'
 
 const initialState: IInitialState = {
 	isLoading: false,
 	user: getStoreLocalStorage('user'),
-	token: Cookies.get('atp') || typeof window!=='undefined' ? window.localStorage.getItem('atp')||'' : '',
+	token: Cookies.get('atp') || typeof window !== 'undefined' ? window.localStorage.getItem('atp') || '' : '',
 	isRegistered: false,
 }
 
@@ -59,11 +59,21 @@ export const userSlice = createSlice({
 				state.isLoading = false
 
 			})
-
 			.addCase(logout.fulfilled, (state) => {
 				state.isLoading = false
 				state.user = null
 				state.isRegistered = false
+			})
+			.addCase(getUserData.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(getUserData.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(getUserData.fulfilled, (state, { payload }) => {
+				state.isLoading = false
+				console.log(payload)
+				state.user = payload
 			})
 	},
 })

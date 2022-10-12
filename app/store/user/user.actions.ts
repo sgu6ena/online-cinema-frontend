@@ -12,6 +12,7 @@ import {
 	IRegister,
 	ITokens,
 } from './user.interface'
+import { PortalService } from '../../api/portal.service'
 
 export const register = createAsyncThunk<IAuthResponse, IRegister>(
 	'register',
@@ -59,4 +60,9 @@ export const recovery = createAsyncThunk<any, IRecoveryInput>(
 export const logout = createAsyncThunk(
 	'logout',
 	async (_, thunkApi) => await AuthService.logout(),
+)
+
+export const getUserData = createAsyncThunk(
+	'getUserData',
+	async (_, thunkApi) => await PortalService.getUser(),
 )
