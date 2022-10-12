@@ -16,7 +16,7 @@ const Account: FC = () => {
 		<div>
 			<div className={'flex justify-between max-w-5xl '}>
 				<Heading title={'АККАУНТ'} className='mb-5' />
-				{user && <img width={100} height={100} src={user.avatar} alt={user.login} className='rounded rounded-full' />}
+				{/*{user && <img width={100} height={100} src={user.avatar} alt={user.login} className='rounded rounded-full' />}*/}
 			</div>
 
 			{isLoading && <SkeletonLoader />}

@@ -31,7 +31,7 @@ const SendSms:FC = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.head}>
 					<Heading title="Подписка" />
-					<p>{user?.promo? '14 дней за 1 рубль, далее 32 RUP':'32 RUP в месяц'}</p>
+					<p>{user?.promo? '14 дней за 1 RUP, далее 32 RUP':'32 RUP в месяц'}</p>
 				</div>
 				<div>
 					<Field
@@ -50,7 +50,7 @@ const SendSms:FC = () => {
 								message: 'Лишние символы',
 							},
 						})}
-						placeholder="номер телефона "
+						placeholder="номер телефона (77XXXXXX)"
 						error={formState.errors && formState.errors.phone}
 					/>
 
@@ -64,7 +64,7 @@ const SendSms:FC = () => {
 								Я согласен с{' '}
 							<Link href={LINKS.AGREEMENT}>
 									<a target="_blank">
-										уловиями договора пользовательского соглашения
+										условиями договора пользовательского соглашения
 									</a>
 								</Link>{' '}
 							{/*и даю свое согласие на{' '}*/}

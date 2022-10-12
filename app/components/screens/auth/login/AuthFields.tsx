@@ -25,7 +25,7 @@ const AuthFields: FC<IAuthFields> = ({
           },
           maxLength: {
             value: 50,
-            message: 'Логин должен содержать более 50 символов ',
+            message: 'Логин должен содержать не более 50 символов ',
           },
         })}
         placeholder="e-mail или  логин"

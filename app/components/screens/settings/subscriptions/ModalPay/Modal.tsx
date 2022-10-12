@@ -3,13 +3,14 @@ import { FC, useEffect } from 'react'
 import { useActions } from '../../../../../hooks/useActions'
 
 import styles from './modalPay.module.scss'
+import { getUserData } from '../../../../../store/user/user.actions'
 
 interface IModal {
 	setIsShow: (isShow: boolean) => void
 }
 
 const Modal: FC<IModal> = ({ setIsShow, children }) => {
-	const { resetIsSendSms } = useActions()
+	const { resetIsSendSms, getUserData } = useActions()
 
 	useEffect(() => {
 		setIsShow(true)
@@ -18,6 +19,7 @@ const Modal: FC<IModal> = ({ setIsShow, children }) => {
 	const closeModal = () => {
 		setIsShow(false)
 		resetIsSendSms()
+		getUserData()
 	}
 
 	return (

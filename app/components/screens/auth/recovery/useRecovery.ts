@@ -3,14 +3,14 @@ import { useQuery } from 'react-query'
 import { PortalService } from '../../../../api/portal.service'
 import { toast } from 'react-hot-toast'
 
-export const useActivate = () => {
+export const useRecovery = () => {
 	const { query } = useRouter()
 
-	const activateKey = String(query.key)
+	const recoveryKey = String(query.key)
 
 	const { isLoading, data, isError, isSuccess } = useQuery(
-		['активация регистрации', activateKey],
-		() => PortalService.activateRegister(activateKey),
+		['восстановление пароля', recoveryKey],
+		() => PortalService.recoveryPassword(recoveryKey),
 		{
 			onSuccess: (data) => data,
 			onError: (e) => {

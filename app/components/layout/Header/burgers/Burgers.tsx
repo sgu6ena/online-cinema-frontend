@@ -2,7 +2,6 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
-import { BsPersonSquare } from 'react-icons/bs'
 
 import { useAuth } from '../../../../hooks/useAuth'
 import MaterialIcon from '../../../ui/MaterialIcon'
@@ -35,22 +34,33 @@ const Burgers: FC = () => {
 		<>
 			<div className={styles.menu}>
 				<div
-					className={cn(styles.avatar, isShow ? styles.change : '')}
+					className={cn(
+						styles.avatar,
+						isShow ? styles.change : '',
+					)}
 					onClick={toggleMenuAvatar}
 				>
-					{isShow ? (
-						<MaterialIcon name={'MdClose'} />
-					) : user?.avatar ? (
-						<img
-							src={user.avatar}
-							width={40}
-							height={40}
-							className='rounded-full'
-						/>
-					) : (
-						<BsPersonSquare className='h-10 w-10 text-white' />
-					)}
+					<div className={styles.bar1}></div>
+					<div className={styles.bar2}></div>
+					<div className={styles.bar3}></div>
 				</div>
+				{/*<div*/}
+				{/*	className={cn(styles.avatar, isShow ? styles.change : '')}*/}
+				{/*	onClick={toggleMenuAvatar}*/}
+				{/*>*/}
+				{/*	{isShow ? (*/}
+				{/*		<MaterialIcon name={'MdClose'} />*/}
+				{/*	) : user?.avatar ? (*/}
+				{/*		<img*/}
+				{/*			src={user.avatar}*/}
+				{/*			width={40}*/}
+				{/*			height={40}*/}
+				{/*			className='rounded-full'*/}
+				{/*		/>*/}
+				{/*	) : (*/}
+				{/*		<BsPersonSquare className='h-10 w-10 text-white' />*/}
+				{/*	)}*/}
+				{/*</div>*/}
 				<ul className={isShow ? 'active' : 'hidden'}>
 					{avatarMenu.map((i) => (
 						<li key={i.link}>

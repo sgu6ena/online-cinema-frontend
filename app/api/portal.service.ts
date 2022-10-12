@@ -1,6 +1,14 @@
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
-import { APP_URL_PORTAL, getCategoryUrl, getMovieUrl, sendBookmarkUrl, sendVoteUrl } from '../config/api.config'
+import {
+	APP_URL_PORTAL,
+	getCategoryUrl,
+	getMovieUrl,
+	getUserDataUrl,
+	recoveryPassword,
+	sendBookmarkUrl,
+	sendVoteUrl,
+} from '../config/api.config'
 import {
 	activatePromoCode,
 	activateRegister,
@@ -11,9 +19,18 @@ import {
 	smartTv,
 	unsubscribe,
 } from '../config/api.config'
-import { IGenrePortal, IMainGenres, IMoviePortalPage, IMoviePortalPerPage } from '../shared/types/movie.types'
+import {
+	IGenrePortal,
+	IMainGenres,
+	IMoviePortalPage,
+	IMoviePortalPerPage,
+} from '../shared/types/movie.types'
 import { IListFilter } from '../shared/types/search.types'
-import { IChangePassword, ICheckSms, ISendSms } from '../store/settings/settings.interface'
+import {
+	IChangePassword,
+	ICheckSms,
+	ISendSms,
+} from '../store/settings/settings.interface'
 
 import axios, { axiosClassicPortal } from './interceptors'
 
@@ -37,12 +54,15 @@ export interface IParams {
 export const PortalService = {
 	async getAll() {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getCategoryUrl('102/60'),
+			getCategoryUrl('102/60')
 		)
 		return data.data.data.items
 	},
 
-	async getCategory(slug: string | undefined = '0', { page, id_sort, year }: IParams) {
+	async getCategory(
+		slug: string | undefined = '0',
+		{ page, id_sort, year }: IParams
+	) {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug) + '/' + MOVIES_ON_PAGE,
 			{
@@ -51,7 +71,7 @@ export const PortalService = {
 					id_sort: id_sort || '1',
 					year: year,
 				},
-			},
+			}
 		)
 		return data
 	},
@@ -91,10 +111,10 @@ export const PortalService = {
 			rate_age: m.rate_age,
 		}))
 		const genres = response.data.data.filter(
-			(item) => item.viewport === 0.8 && item.title === 'Жанры',
+			(item) => item.viewport === 0.8 && item.title === 'Жанры'
 		)
 		const collections = response.data.data.filter(
-			(item) => item.viewport === 0.3,
+			(item) => item.viewport === 0.3
 		)
 		return {
 			slider: slides,
@@ -120,7 +140,7 @@ export const PortalService = {
 		year: string,
 		sort: string,
 		category: string,
-		page: string | number,
+		page: string | number
 	) {
 		const data = await axiosClassicPortal.get(`searchExt/` + MOVIES_ON_PAGE, {
 			params: {
@@ -144,7 +164,7 @@ export const PortalService = {
 		return response
 	},
 
-	async checkSms(sms: string, promo: boolean) {
+	async checkSms(sms: string, promo: 'true' | 'false') {
 		const response = await axios.post<any, ICheckSms>(checkSMS(), {
 			sms,
 			promo,
@@ -156,6 +176,10 @@ export const PortalService = {
 			passwordOld,
 			password,
 		})
+		return response
+	},
+	async recoveryPassword(code: string) {
+		const response = await axios.get<any, any>(recoveryPassword(code))
 		return response
 	},
 	async unsubscribe() {
@@ -175,12 +199,13 @@ export const PortalService = {
 		return response
 	},
 	async getById(id: string) {
-		const data = await axios.get<IMoviePortalPage>(
-			getMovieUrl(`${id}`),
-		)
+		const data = await axios.get<IMoviePortalPage>(getMovieUrl(`${id}`))
 		return data.data
 	},
-
+	async getUser() {
+		const response = await axios.get(getUserDataUrl())
+		return response.data
+	},
 
 	async getUrl(id: string) {
 		const response = await axios.get(getMovieUrl(`url/${id}`))
@@ -189,23 +214,18 @@ export const PortalService = {
 
 	async getSearch(str: string) {
 		const data = await axiosClassicPortal.get(
-			getMovieUrl(`find/12?id_sort=8&pid=all&query=${str}`),
+			getMovieUrl(`find/12?id_sort=8&pid=all&query=${str}`)
 		)
 		return data.data
 	},
 
 	async sendBookmark(id: string) {
-		const data = await axios.get<any>(
-			sendBookmarkUrl(`${id}`),
-		)
+		const data = await axios.get<any>(sendBookmarkUrl(`${id}`))
 		return data.data
 	},
 
-
 	async sendVote(id: string, vote: number) {
-		const data = await axios.get<any>(
-			sendVoteUrl(`${id}`, vote),
-		)
+		const data = await axios.get<any>(sendVoteUrl(`${id}`, vote))
 		return data.data
 	},
 
@@ -220,5 +240,4 @@ export const PortalService = {
 	async delete(_id: string) {
 		return axios.delete<string>(getMoviesUrl(`/${_id}`))
 	},
-
 }

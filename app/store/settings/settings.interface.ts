@@ -1,4 +1,5 @@
 export interface IState {
+	isPromoAvailable: boolean
 	isLoading: boolean
 	isSmsSend: boolean
 	isError: boolean
@@ -7,6 +8,7 @@ export interface IState {
 export const initialState: IState = {
 	isLoading: false,
 	isSmsSend: false,
+	isPromoAvailable: true,
 	isError: false,
 }
 
@@ -16,7 +18,7 @@ export interface ISendSms {
 
 export interface ICheckSms {
 	sms: string
-	promo: boolean
+	promo: 'true' | 'false'
 }
 
 export interface IChangePassword {

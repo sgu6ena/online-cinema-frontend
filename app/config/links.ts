@@ -14,6 +14,7 @@ export const LINKS = {
 	MAIN: '/', //главная
 	LOGIN: '/auth',//страница логина
 	REGISTER: '/register', //регистрация
+	FORGOT:'/auth/recovery',//забыли пароль
 	PROFILE: '/profile',//профиль
 	RUBLE: '/settings/subscriptions',//купить за рубль
 	FAVORITES: '/my/favorites', //избранное

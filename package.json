@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "npm run build && next export && next-nginx-routes",
+    "export": "npm run build && next export -o _static && next-nginx-routes",
     "start": "next start",
     "lint": "next lint"
   },

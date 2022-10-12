@@ -53,7 +53,7 @@ const Auth: FC = () => {
 
 							<div className={styles.buttons}>
 								<p>
-									<Link href='app/components/screens/auth/login/Auth'>
+									<Link href={LINKS.FORGOT}>
 										<a>Забыли пароль?</a>
 									</Link>
 								</p>

@@ -68,11 +68,11 @@ const Subscriptions: FC = () => {
 					</div>
 				)}
 				{isSubscribed ? (
-					<button className='bg-gray-600 p-2 rounded-layout' onClick={() => setShowModal(!isShowModal)}>Отменить
+					!date && <button className='bg-gray-600 p-2 rounded-layout' onClick={() => setShowModal(!isShowModal)}>Отменить
 						подписку</button>
 				) : (
 					<Button onClick={() => setShowModal(!isShowModal)}>
-						{user?.promo? 'Оформить подписку за рубль':'Оформить подписку за 32р'}
+						{user?.promo? 'Оформить подписку за 1 RUP':'Оформить подписку за 32 RUP'}
 					</Button>
 				)}
 			</div>

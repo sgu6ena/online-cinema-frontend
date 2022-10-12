@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
-import { LINKS } from '../../../config/links'
 import { useAuth, useRuble } from '../../../hooks/useAuth'
+import Modal from '../../screens/settings/subscriptions/ModalPay/Modal'
+import Pay from '../../screens/settings/subscriptions/ModalPay/Pay'
 import Button from '../../ui/form-elemets/Button'
 import Search from '../Search/Search'
 
@@ -19,6 +19,9 @@ const Header: FC = () => {
 	const { user } = useAuth()
 	const isRuble = useRuble()
 	const isVisible = isRuble || !user
+
+	const [isShowModal, setShowModal] = useState(false)
+
 	return (
 		<div className={styles.header}>
 			<div className={styles.start}>
@@ -28,11 +31,16 @@ const Header: FC = () => {
 
 			<div className={styles.end}>
 				{isVisible && (
-					<Link href={LINKS.RUBLE}>
-						<a className={'hidden xl:block'}>
-							<Button>Попробовать за рубль</Button>
-						</a>
-					</Link>
+					<>
+						{isShowModal && (
+							<Modal setIsShow={setShowModal}>
+								<Pay />
+							</Modal>
+						)}
+						<Button onClick={() => setShowModal(!isShowModal)} className={styles.ruble}>
+							Попробовать за рубль
+						</Button>
+					</>
 				)}
 				<Search />
 				<Burgers />

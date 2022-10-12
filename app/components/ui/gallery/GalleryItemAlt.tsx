@@ -42,6 +42,9 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 					</div>
 				</div>
 				<h4 className={styles.h4}>{movie.title}</h4>
+
+				{movie.episode?<div className={styles.serial}>сезон {movie.season} серия {movie.episode}</div>:''}
+
 				<div className={movie.access ? styles.pay : styles.free}>
 					{movie.access ? 'Подписка' : 'Бесплатно'}
 				</div>
