@@ -1,5 +1,5 @@
 import { FC } from 'react'
-
+import { version } from '../../../package.json'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import styles from './monostyle.module.scss'
@@ -13,8 +13,11 @@ const Layout: FC = ({ children }) => {
 			</div>
 			<div className={styles.footer}>
 				<Footer />
-				<div className={'md:px-layout px-2 text-sm text-gray-600'}>
-					СЗАО “Интерднестрком”, 2017 - {new Date().getFullYear()}
+				<div className={styles.down}>
+					<div className={'md:px-layout px-2 text-sm text-gray-600'}>
+						СЗАО “Интерднестрком”, 2017 - {new Date().getFullYear()}
+					</div>
+					<div>{version}</div>
 				</div>
 			</div>
 		</div>

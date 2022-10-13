@@ -15,4 +15,7 @@
     @apply md:mt-20 mt-5 text-gray-700 align-bottom;
     background: #303437;
   }
+  .down{
+    @apply text-gray-600 text-sm flex-center-between;
+  }
 }
