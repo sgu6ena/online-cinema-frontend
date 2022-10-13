@@ -72,8 +72,8 @@ const Smart: FC = () => {
 						onClick={() => setActive(2)}
 					>
 						<img
-							src={'/svg/smart/hisense.svg'}
-							alt='Hisense'
+							src={'/svg/smart/samsung.svg'}
+							alt='Samsung'
 							width={250}
 							height={120}
 						/>
