@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { FC, useEffect } from 'react'
 
 import { LINKS } from '../../../config/links'
+import { useActions } from '../../../hooks/useActions'
 import { useAuth } from '../../../hooks/useAuth'
 import Heading from '../../ui/heading/Heading'
 
@@ -11,17 +12,19 @@ import styles from './settings.module.scss'
 
 const Settings: FC = ({ children }) => {
 	const { push, asPath } = useRouter()
-	const { user, isLoading } = useAuth()
-
+	const { user } = useAuth()
+	const { getUserData } = useActions()
 	useEffect(() => {
 		if (!user) {
 			push(LINKS.LOGIN)
 		}
 	}, [])
-
+	useEffect(() => {
+		getUserData()
+	}, [asPath])
 	return (
 		<div className={styles.settings}>
-			{!isLoading && user && (
+			{user && (
 				<>
 					<div className={styles.left}>
 						<Heading title={'НАСТРОЙКИ'} className="mb-20" />

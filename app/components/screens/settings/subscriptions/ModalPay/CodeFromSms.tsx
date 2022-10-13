@@ -18,7 +18,7 @@ const CodeFromSms: FC = () => {
 	})
 
 	const { user } = useAuth()
-	const { isPromoAvailable } = useSettings()
+	const { isPromoAvailable, error, isError, isPayed } = useSettings()
 
 	const isPromo = isPromoAvailable && user?.promo === true
 	const inNoRubble = !isPromoAvailable && user?.promo === true
@@ -26,14 +26,16 @@ const CodeFromSms: FC = () => {
 		checkSMS({ sms: data.sms, promo: isPromo ? 'true' : 'false' })
 	}
 
-	return (
+	return (!isPayed ?
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className={styles.head}>
 				<Heading title='Введите код из SMS' />
 				<p>На указанный вами номер телефона выслан код подтверждения</p>
 			</div>
-			<p className={'text-primary text-sm text-center'}>
-				{inNoRubble && 'PORTAL за рубль недоступен, но вы можете приобрести подписку за 32 RUP. Для подтвержения  введите код из смс.'}</p>
+			{isError && <p className={'text-primary text-sm text-center'}>
+				{error}
+			</p>}
+
 			<Field
 				{...register('sms', {
 					required: 'Обязательное поле',
@@ -45,10 +47,11 @@ const CodeFromSms: FC = () => {
 				<Button type='submit' disabled={!formState.isValid}>
 					{isPromoAvailable ? 'Подтвердить подписку' : 'Купить подписку за 32 RUP'}
 				</Button>
-				<p> * Отказаться можно в любой момент </p>
+				<p>Отказаться можно в любой момент </p>
 			</div>
-		</form>
-	)
+		</form> :
+		<p>подписка куплена</p>
+)
 }
 
 export default CodeFromSms

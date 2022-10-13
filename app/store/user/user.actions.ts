@@ -13,6 +13,7 @@ import {
 	ITokens,
 } from './user.interface'
 import { PortalService } from '../../api/portal.service'
+import { saveToStorage } from '../../api/auth/auth.helper'
 
 export const register = createAsyncThunk<IAuthResponse, IRegister>(
 	'register',
@@ -34,7 +35,7 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 			const response = await AuthService.login(login, password)
 			toast.success('Вы успешно вошли')
 			Cookies.set('atp', response.token)
-			localStorage.setItem('atp', response.token)
+			saveToStorage(response)
 			return response
 		} catch (error) {
 			toastError(error)
@@ -64,5 +65,13 @@ export const logout = createAsyncThunk(
 
 export const getUserData = createAsyncThunk(
 	'getUserData',
-	async (_, thunkApi) => await PortalService.getUser(),
+	async (_, thunkApi) => {
+		try {
+			const response = await PortalService.getUser()
+			return response.data
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	},
 )

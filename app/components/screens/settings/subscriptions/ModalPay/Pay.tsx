@@ -9,19 +9,21 @@ import styles from './modalPay.module.scss'
 
 const Pay: FC = () => {
 	const { user } = useAuth()
-	const { isLoading, isSmsSend } = useSettings()
+	const { isLoading, isSmsSend, isError, error } = useSettings()
 
 	return (
 		<>
-			{!user?.id ? (
+			{!user ? (
 				<p className={styles.modalText}>Необходимо авторизироваться</p>
 			) : isLoading ? (
 				<p className={styles.modalText}>Loading...</p>
 			) : !isSmsSend ? (
 				<SendSms />
 			) : (
-				<CodeFromSms />
+				<>
+				<CodeFromSms /> </>
 			)}
+
 		</>
 	)
 }
