@@ -3,6 +3,10 @@ export const getContentType = () => ({
 })
 
 export const errorCatch = (error: any): string => {
+
+	if(error==='Отсутствует токен')
+		return 'Необходимо авторизироваться'
+
 	if (typeof error === 'string')
 		return error
 
