@@ -21,14 +21,14 @@ const MovieSkeleton: FC = () => {
 						<div className='w-full'>
 							<SkeletonLoader count={1} className={'h-5 mt-10'} />
 						</div>
-						<div className='w-96'>
+						<div className='md:w-96 w-32'>
 							<SkeletonLoader count={1} className={'h-5 mt-10'} />
 						</div>
 					</div>
 					<SkeletonLoader count={6} className={'h-5 mt-6'} />
 				</div>
 			</div>
-			<div className="pr-5 pt-layout">
+			<div className="md:pr-5 pt-layout">
 				<SliderMovieBlock />
 			</div>
 
