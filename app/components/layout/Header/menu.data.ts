@@ -31,7 +31,7 @@ export const userMenu: IMenuItem[] =
 		{
 			icon: 'MdBookmarkBorder',
 			link: LINKS.FAVORITES,
-			title: 'Избранное',
+			title: 'Мой PORTAL',
 		},
 		{
 			icon: 'MdHistory',

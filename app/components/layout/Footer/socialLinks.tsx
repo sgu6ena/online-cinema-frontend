@@ -68,16 +68,16 @@ const SocialLinks: FC = () => {
 							/>
 						</a>
 					</Link>
-					<Link href={LINKS.MIBOX}>
-						<a>
-							<img
-								src='/svg/smart/mibox.svg'
-								alt='Mibox'
-								width={150}
-								height={60}
-							/>
-						</a>
-					</Link>
+					{/*<Link href={LINKS.MIBOX}>*/}
+					{/*	<a>*/}
+					{/*		<img*/}
+					{/*			src='/svg/smart/mibox.svg'*/}
+					{/*			alt='Mibox'*/}
+					{/*			width={150}*/}
+					{/*			height={60}*/}
+					{/*		/>*/}
+					{/*	</a>*/}
+					{/*</Link>*/}
 				</div>
 			</div>
 			<div>
