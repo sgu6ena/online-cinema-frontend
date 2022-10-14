@@ -30,7 +30,7 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
 	(config) => config,
 	async (error) => {
-		throw errorCatch(error)
+			throw errorCatch(error)
 	},
 )
 

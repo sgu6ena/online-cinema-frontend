@@ -11,6 +11,6 @@ export const useAuthRedirect = () => {
 	const redirect = query.redirect ? String(query.redirect) : '/'
 
 	useEffect(() => {
-		if (user) push(redirect)
+		if (user?.avatar) push(redirect)
 	}, [user, redirect, push])
 }

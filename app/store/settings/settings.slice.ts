@@ -14,6 +14,7 @@ export const settingsSlice = createSlice({
 	initialState,
 	reducers: {
 		resetIsSendSms(state) {
+			state.isError=false
 			state.isSmsSend = false
 		},
 		resetIsPromoAvailable(state){
@@ -54,12 +55,15 @@ export const settingsSlice = createSlice({
 				state.isLoading = false
 			})
 			.addCase(smartActive.pending, (state) => {
+				state.isError=false
 				state.isLoading = true
 			})
 			.addCase(smartActive.fulfilled, (state) => {
+				state.isError=false
 				state.isLoading = false
 			})
 			.addCase(smartActive.rejected, (state) => {
+
 				state.isLoading = false
 			})
 			.addCase(checkSMS.pending, (state) => {
@@ -67,10 +71,15 @@ export const settingsSlice = createSlice({
 			})
 			.addCase(checkSMS.fulfilled, (state) => {
 				state.isLoading = false
+				state.isError=false
+				state.isPayed = true
 			})
-			.addCase(checkSMS.rejected, (state) => {
+			.addCase(checkSMS.rejected, (state, payload) => {
+				state.error = payload.payload as string
+				state.isError=true
 				state.isLoading = false
-				state.isPromoAvailable = false
+				if (payload.payload === 'промо недоступен')
+					state.isPromoAvailable = false
 			})
 			.addCase(promoCode.pending, (state) => {
 				state.isLoading = true

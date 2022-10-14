@@ -72,7 +72,6 @@ export const userSlice = createSlice({
 			})
 			.addCase(getUserData.fulfilled, (state, { payload }) => {
 				state.isLoading = false
-				console.log(payload)
 				state.user = payload
 			})
 	},

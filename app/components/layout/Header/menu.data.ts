@@ -38,11 +38,11 @@ export const userMenu: IMenuItem[] =
 			link: LINKS.HISTORY,
 			title: 'История просмотра',
 		},
-		{
-			icon: 'MdShoppingBag',
-			link: LINKS.RUBLE,
-			title: 'PORTAL за рубль',
-		},
+		// {
+		// 	icon: 'MdShoppingBag',
+		// 	link: LINKS.RUBLE,
+		// 	title: 'PORTAL за рубль',
+		// },
 		{
 			icon: 'MdPersonOutline',
 			link: LINKS.SETTINGS,

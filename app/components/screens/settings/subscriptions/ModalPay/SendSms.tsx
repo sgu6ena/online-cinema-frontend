@@ -67,10 +67,6 @@ const SendSms:FC = () => {
 										условиями договора пользовательского соглашения
 									</a>
 								</Link>{' '}
-							{/*и даю свое согласие на{' '}*/}
-							{/*<Link href={LINKS.PROCESSING}>*/}
-							{/*		<a target="_blank">обработку моих персональных данных</a>*/}
-							{/*	</Link>*/}
 							</span>
 					</label>
 				</div>
@@ -78,7 +74,7 @@ const SendSms:FC = () => {
 					<Button type="submit" disabled={!formState.isValid}>
 						Отправить SMS
 					</Button>
-					<p> * Отказаться можно в любой момент </p>
+					<p>Отказаться можно в любой момент </p>
 				</div>
 			</form>
 

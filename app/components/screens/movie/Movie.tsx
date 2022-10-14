@@ -170,7 +170,7 @@ const Movie: FC = () => {
 												<MaterialIcon
 													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
 												/>
-												Продолжить
+												<span>Продолжить</span>
 											</button>
 										)}
 									</div>

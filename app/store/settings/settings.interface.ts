@@ -3,6 +3,8 @@ export interface IState {
 	isLoading: boolean
 	isSmsSend: boolean
 	isError: boolean
+	isPayed:boolean
+	error: string
 }
 
 export const initialState: IState = {
@@ -10,6 +12,8 @@ export const initialState: IState = {
 	isSmsSend: false,
 	isPromoAvailable: true,
 	isError: false,
+	isPayed:false,
+	error:''
 }
 
 export interface ISendSms {
