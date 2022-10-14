@@ -3,7 +3,7 @@
   .question {
     @apply flex items-center gap-2 justify-between;
     h5 {
-      @apply text-gray-300 text-xl;
+      @apply text-gray-300 text-shadow shadow-2xl text-xl;
     }
 
     .button {
@@ -44,7 +44,7 @@
   }
 
   .active {
-    @apply text-gray-600 text-sm mt-4 h-auto block overflow-visible opacity-100;
+    @apply text-gray-500 text-sm mt-4 h-auto block overflow-visible opacity-100;
     transition: all 0.3s ease-out;
   }
 
