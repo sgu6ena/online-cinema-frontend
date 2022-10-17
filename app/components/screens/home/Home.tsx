@@ -12,7 +12,7 @@ import styles from './Home.module.scss'
 import { IHome } from './home.interface'
 import GenresSlider from '../../ui/genres/GenresSlider'
 import { useAuth } from '../../../hooks/useAuth'
-import { getFavorites } from '../../../store/favorites/actions'
+
 
 export const collectionsToItems = (items: IMoviePortal[]): IMoviePortal[] => {
 	return [...items]
@@ -20,7 +20,7 @@ export const collectionsToItems = (items: IMoviePortal[]): IMoviePortal[] => {
 
 const Home: FC<IHome> = () => {
 	const { isLoading, slides, collections, genres, genresCollections } = useHome()
-	const { getMainHome, getFavorites } = useActions()
+	const { getMainHome, getFavoritesIds } = useActions()
 
 	const { user } = useAuth()
 
@@ -29,7 +29,7 @@ const Home: FC<IHome> = () => {
 	}, [])
 	useEffect(() => {
 		if (!!user?.level) {
-			getFavorites()
+			getFavoritesIds()
 		}
 	}, [user])
 

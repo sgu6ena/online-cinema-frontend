@@ -1,8 +1,15 @@
-export interface IState{
+import { IMoviePortal, IPagination } from '../../shared/types/movie.types'
+
+export interface IState {
 	isLoading: boolean
-	favoritesId:string[]
+	movies: IMoviePortal[]
+	pagination: IPagination | null
+	favoritesId: string[]
 }
-export const initialState:IState = {
+
+export const initialState: IState = {
 	isLoading: false,
-	favoritesId:[]
+	movies: [],
+	pagination: null,
+	favoritesId: [],
 }

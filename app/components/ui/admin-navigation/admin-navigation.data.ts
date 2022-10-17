@@ -1,6 +1,9 @@
 import { getAdminHomeUrl, getAdminUrl } from '../../../config/url.config'
 
-import { INavItem } from './admin-navigation.interface'
+export interface INavItem {
+	title: string
+	link: string
+}
 
 export const navItems: INavItem[] = [
 	{
