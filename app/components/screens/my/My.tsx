@@ -9,6 +9,7 @@ import Heading from '../../ui/heading/Heading'
 import AuthButton from './AuthButton'
 import { myMenu } from './menu.data'
 import { useActions } from '../../../hooks/useActions'
+import { getFavoritesIds } from '../../../store/favorites/actions'
 
 const My: FC = ({ children }) => {
 
@@ -17,9 +18,9 @@ const My: FC = ({ children }) => {
 	const { user } = useAuth()
 	const isUser = !!user
 
-	const { getFavorites } = useActions()
+	const { getFavoritesIds } = useActions()
 	useEffect(() => {
-		if (user) {	getFavorites()}
+		if (user) {	getFavoritesIds()}
 	}, [])
 	return (
 		<div className={' md:px-5 mb-40 px-3 lg:pl-layout'}>
