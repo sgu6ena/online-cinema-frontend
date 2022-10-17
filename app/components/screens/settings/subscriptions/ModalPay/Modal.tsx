@@ -13,6 +13,9 @@ interface IModal {
 const Modal: FC<IModal> = ({ setIsShow, children }) => {
 	const { resetIsSendSms, getUserData } = useActions()
 	const { isPayed } = useSettings()
+
+
+
 	useEffect(() => {
 		setIsShow(true)
 	}, [])
