@@ -1,25 +1,35 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
+import { useActions } from '../../../../hooks/useActions'
+import { useAuth } from '../../../../hooks/useAuth'
+import { useFavorites } from '../../../../hooks/useFavorites'
 import CatalogLoader from '../../../loaders/CatalogLoader'
-import Pagination from '../../../ui/Pagination'
 import Gallery from '../../../ui/gallery/Gallery'
-
-import { useBookmarks } from './useBookmarks'
+import ShowMore from '../../../ui/showMore/showMore'
 
 const Favorites: FC = () => {
-	const { movies, isLoading, pagination } = useBookmarks()
+	const { getFavorites } = useActions()
+	const { pagination, movies, isLoading } = useFavorites()
+	const [page, setPage] = useState(1)
+	const { user } = useAuth()
 
+	useEffect(() => {
+		if (user) {
+			getFavorites({ page: page.toString() })
+		}
+	}, [page])
 	return (
-		<div>
-			{!isLoading && movies && pagination ? (
-				<>
-					<Gallery movies={movies} />
-					{pagination.totalPages > 1 && <Pagination pagination={pagination} />}
-				</>
-			) : (
-				<CatalogLoader />
-			)}
-		</div>
+		<>
+			{movies.length>0 && pagination &&	<Gallery movies={movies} />	}
+			{isLoading && <CatalogLoader />}
+			{!isLoading &&
+				<ShowMore
+					totalPages={pagination?.totalPages}
+					setPage={setPage}
+					page={page}
+				/>
+			}
+		</>
 	)
 }
 

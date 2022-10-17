@@ -8,7 +8,7 @@ import { LINKS } from '../../app/config/links'
 const SettingsPage: NextPage = () => {
 	const { push } = useRouter()
 	useEffect(() => {
-		push(LINKS.SUBSCRIPTIONS)
+		push(LINKS.ACCOUNT)
 	}, [])
 
 	return <Settings />

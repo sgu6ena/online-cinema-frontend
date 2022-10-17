@@ -125,9 +125,8 @@
         min-width: 100px;
 
         .imageBox {
-          @apply relative rounded-layout overflow-hidden bg-gray-950 p-0;
+          @apply relative rounded-layout overflow-hidden bg-gray-950 md:w-72 w-40 p-0;
           aspect-ratio: 16/9;
-          width: 305px;
 
           img {
             @apply absolute w-full h-full;
@@ -161,7 +160,6 @@
 
         .progress {
           @apply h-6  absolute top-36 left-2 right-2 bg-gray-950 rounded-full z-30;
-
           width: calc(100% - 16px);
         }
 
@@ -175,7 +173,7 @@
     .slider {
       @apply justify-self-start mx-0;
       .slide {
-        @apply w-fit w-80;
+        @apply w-fit md:w-80 w-44;
         background-color: transparent;
       }
     }

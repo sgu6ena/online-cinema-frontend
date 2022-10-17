@@ -28,12 +28,12 @@ export const favorites = createAsyncThunk<any, any>(
 	},
 )
 
-export const getFavorites = createAsyncThunk(
-	'/getFavorites',
+export const getFavoritesIds = createAsyncThunk(
+	'/getFavoritesIds',
 	async (_, thunkApi) => {
 		try {
 			const state = thunkApi.getState() as TypeRootState
-			if (state.user==null) {
+			if (state.user == null) {
 				return
 			} else if (state.favorites.favoritesId.length > 0) {
 				return state.favorites.favoritesId
@@ -42,7 +42,18 @@ export const getFavorites = createAsyncThunk(
 				return response.data.map((item: IMoviePortal) => item.id)
 			}
 		} catch (error) {
-			toastError(error)
+			console.log(error)
 		}
 	},
 )
+
+export const getFavorites = createAsyncThunk<any, { page:string }>(
+	'/getFavorites',
+	async ({ page }, thinkApi) => {
+		try {
+			const response = await PortalService.getBookmark(page)
+			return response
+		} catch (error) {
+
+		}
+	})

@@ -6,6 +6,7 @@ import { reducer as userReducer } from './user/user.slice'
 import { reducer as videoReducer } from './video/video.slice'
 import { reducer as genreReducer } from './genre/genre.slice'
 import { reducer as favoritesReducer } from './favorites/slice'
+import { reducer as historyReducer } from './history/slice'
 
 export const reducers = {
 	user: userReducer,
@@ -15,5 +16,6 @@ export const reducers = {
 	search: searchReducer,
 	settings: settingsReducer,
 	genre: genreReducer,
-	favorites: favoritesReducer
+	favorites: favoritesReducer,
+	history:historyReducer
 }

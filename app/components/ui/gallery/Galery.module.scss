@@ -169,5 +169,6 @@
   @apply text-gray-600 text-shadow font-bold text-xs ml-1;
 }
 .serial{
-  @apply  text-gray-300 text-xs ml-1;
+  @apply  text-gray-300 sm:text-xs ml-1 ml-1;
+  font-size: 11px;
 }

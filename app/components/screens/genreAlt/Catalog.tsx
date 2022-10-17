@@ -20,10 +20,10 @@ import { MdKeyboardArrowDown } from 'react-icons/md'
 
 const Catalog: FC = () => {
 	const { user } = useAuth()
-	const { getFavorites } = useActions()
+	const { getFavoritesIds } = useActions()
 	useEffect(() => {
 		if (user) {
-			getFavorites()
+			getFavoritesIds()
 		}
 	}, [])
 	const { getSearchParameters, getGenreById } = useActions()

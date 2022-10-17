@@ -9,6 +9,4 @@ export const GENRES_ALT = [
 	{id:106, name:'Оцениваемое'},
 	{id:107, name:'Рекомендуем'},
 	{id:108, name:'TOP Week Real'},
-
-
 ]

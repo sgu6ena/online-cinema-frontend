@@ -45,7 +45,7 @@ const Movie: FC = () => {
 		setPlaylist,
 		setSerial,
 		toggleFavorites,
-		getFavorites,
+		getFavoritesIds,
 	} = useActions()
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
@@ -100,7 +100,9 @@ const Movie: FC = () => {
 		}
 	}
 	useEffect(() => {
-		if (user) {	getFavorites()}
+		if (user) {
+			getFavoritesIds()
+		}
 	}, [])
 
 
