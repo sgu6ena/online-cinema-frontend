@@ -20,6 +20,8 @@ import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 import { useAuth } from '../../../hooks/useAuth'
+import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
+import { getMoviesBread } from '../../../utils/breadcrumb/movie'
 
 const Movie: FC = () => {
 	const { user } = useAuth()
@@ -61,6 +63,8 @@ const Movie: FC = () => {
 	useEffect(() => {
 		movieId && getMovie(movieId)
 	}, [movieId])
+
+
 
 	useEffect(() => {
 		resetVideo()
@@ -105,7 +109,6 @@ const Movie: FC = () => {
 		}
 	}, [])
 
-
 	const isContinueWatching = serial && !isPlayed && movie?.media[0].items[0].file != activeId
 	const isStartWatching = !isPlayed && !isContinueWatching
 
@@ -119,6 +122,7 @@ const Movie: FC = () => {
 			{movie && (
 				<>
 					<div className={styles.movie}>
+						<Breadcrumbs breadcrumbs={getMoviesBread(movie)} />
 						<Heading title={movie.title} className={styles.mobile} />
 						<div className={styles.main}>
 							<div className={styles.videoBox}>

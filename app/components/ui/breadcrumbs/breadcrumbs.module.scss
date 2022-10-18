@@ -1,0 +1,9 @@
+.line{
+  @apply lg:pt-5 pt-3 lg:mb-0 mb-3;
+  span{
+    @apply m-1
+  }
+  a{
+    @apply hover:text-primary transition-all  cursor-pointer;
+  }
+}
