@@ -6,6 +6,9 @@ import Heading from '../../../ui/heading/Heading'
 import styles from '../settings.module.scss'
 import { useActions } from '../../../../hooks/useActions'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import Breadcrumbs from '../../../ui/breadcrumbs/breadcrumbs'
+import { getSettingsBread } from '../../../../utils/breadcrumb/settings'
+import { LINKS } from '../../../../config/links'
 
 const PromoCode: FC = () => {
 
@@ -18,6 +21,7 @@ const PromoCode: FC = () => {
 	}
 	return (
 		<div>
+			{/*<Breadcrumbs breadcrumbs={getSettingsBread('Промокод', LINKS.PROMOCODE)} />*/}
 			<Heading title={'АКТИВАЦИЯ ПРОМОКОДА'} className="mb-5" />
 			<form className={styles.card} onSubmit={handleSubmit(onSubmit)}>
 				<Field

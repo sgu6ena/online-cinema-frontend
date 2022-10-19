@@ -9,6 +9,9 @@ import Heading from '../../ui/heading/Heading'
 
 import { settingsMenu } from './menu.data'
 import styles from './settings.module.scss'
+import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
+import { getMoviesBread } from '../../../utils/breadcrumb/movie'
+import { getSettingsBread } from '../../../utils/breadcrumb/settings'
 
 const Settings: FC = ({ children }) => {
 	const { push, asPath } = useRouter()
@@ -27,6 +30,7 @@ const Settings: FC = ({ children }) => {
 			{user && (
 				<>
 					<div className={styles.left}>
+
 						<Heading title={'НАСТРОЙКИ'} className="mb-20" />
 						<ul>
 							{settingsMenu.map((item) => (
@@ -40,7 +44,9 @@ const Settings: FC = ({ children }) => {
 							))}
 						</ul>
 					</div>
-					<div className={styles.right}>{children}</div>
+					<div className={styles.right}>
+
+						{children}</div>
 				</>
 			)}
 		</div>

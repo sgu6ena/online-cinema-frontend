@@ -11,6 +11,9 @@ import styles from '../settings.module.scss'
 import Modal from './ModalPay/Modal'
 import Pay from './ModalPay/Pay'
 import Unsubscribe from './ModalPay/Unsubscribe'
+import Breadcrumbs from '../../../ui/breadcrumbs/breadcrumbs'
+import { getSettingsBread } from '../../../../utils/breadcrumb/settings'
+import { LINKS } from '../../../../config/links'
 
 const Subscriptions: FC = () => {
 	const { user } = useAuth()
@@ -22,6 +25,7 @@ const Subscriptions: FC = () => {
 
 	return (
 		<div>
+			{/*<Breadcrumbs breadcrumbs={getSettingsBread('ПОДПИСКА', LINKS.SUBSCRIPTIONS)} />*/}
 			<Heading title={'ПОДПИСКА'} className='mb-5' />
 			<div className={styles.card}>
 				<img src='/images/settings/subs.png' alt='' className={'w-full'} />

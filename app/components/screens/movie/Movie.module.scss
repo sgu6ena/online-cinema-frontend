@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .movie {
-  @apply text-gray-500 md:px-5 px-3 lg:pl-layout;
+  @apply text-gray-500 md:px-5 px-3 lg:pl-10;
   h1.mobile {
     @apply text-white text-2xl block leading-none  lg:hidden;
     font-family: 'Oswald', sans-serif;
@@ -44,7 +44,7 @@
     }
 
     .description {
-      @apply md:p-2 w-full xl:p-layout pr-0 md:text-md lg:text-lg text-sm text-gray-500;
+      @apply md:p-2 w-full xl:p-layout pr-0 md:text-md text-sm text-gray-500;
       //width: 40%;
 
       .genres {

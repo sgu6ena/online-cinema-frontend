@@ -8,8 +8,10 @@ import * as VideoActions from './video/video.actions'
 import { videoAC } from './video/video.slice'
 import * as GenreActions from './genre/genre.actions'
 import * as FavoritesActions from './favorites/actions'
-import {movieAC} from './movie/movie.slice'
+import { movieAC } from './movie/movie.slice'
 import * as HistoryActions from './history/actions'
+import { searchAC } from './search/search.slice'
+
 
 export const allActions = {
 	...UserActions,
@@ -23,5 +25,6 @@ export const allActions = {
 	...GenreActions,
 	...FavoritesActions,
 	...movieAC,
-	...HistoryActions
+	...HistoryActions,
+	...searchAC,
 }
