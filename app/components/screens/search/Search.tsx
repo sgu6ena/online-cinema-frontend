@@ -7,11 +7,10 @@ import { useActions } from '../../../hooks/useActions'
 import { useSearch } from '../../../hooks/useSearchFilters'
 import { IList } from '../../../shared/types/search.types'
 import MaterialIcon from '../../ui/MaterialIcon'
-import Button from '../../ui/form-elemets/Button'
 import Field from '../../ui/form-elemets/Field'
 import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
-import { MdKeyboardArrowDown } from 'react-icons/md'
+import ShowMore from '../../ui/showMore/showMore'
 
 const DynamicSelect = dynamic(
 	() => import('../../ui/form-elemets/select/Select'),
@@ -173,11 +172,13 @@ const Search: FC = () => {
 				</div>
 			</form>
 			<Gallery movies={movies || []} />
-			<div className={'flex justify-center'}>
-				{pagination.totalPages > page && (
-					<button className={'flex border mt-5 border-primary gap-4 pl-8 py-2 rounded-lg pr-5 items-center'} onClick={showMore}> Показать еще <MdKeyboardArrowDown className={'h-6 w-6'}/>   </button>
-				)}
-			</div>
+			{pagination && (
+				<ShowMore
+					totalPages={pagination?.totalPages}
+					setPage={setPage}
+					page={page}
+				/>
+			)}
 		</div>
 	)
 }

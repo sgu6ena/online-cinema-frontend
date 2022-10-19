@@ -6,7 +6,11 @@ import { initialState } from './search.interface'
 export const searchSlice = createSlice({
 	name: 'search',
 	initialState,
-	reducers: {},
+	reducers: {
+		setSort(state, {payload}) {
+			state.currentSort = payload
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(getSearchParameters.pending, (state) => {
@@ -36,9 +40,9 @@ export const searchSlice = createSlice({
 			})
 			.addCase(getSearch.fulfilled, (state, { payload }) => {
 				state.isLoading = false
-				if (payload.pagination.currentPage!=1){
+				if (payload.pagination.currentPage != 1) {
 					state.movies = [...state.movies, ...payload.data]
-				}else{
+				} else {
 					state.movies = payload.data
 				}
 				state.pagination = payload.pagination
@@ -48,5 +52,7 @@ export const searchSlice = createSlice({
 			})
 	},
 })
+
+export const searchAC = searchSlice.actions
 
 export const { reducer } = searchSlice

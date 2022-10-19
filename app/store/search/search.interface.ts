@@ -1,12 +1,13 @@
-import { IMoviePortal, IPagination } from '../../shared/types/movie.types';
-import { IFilter } from '../../shared/types/search.types';
+import { IMoviePortal, IPagination } from '../../shared/types/movie.types'
+import { IFilter, IList } from '../../shared/types/search.types'
 
 
 export interface ISearchState extends IFilter {
 	isLoadingFilters: boolean
 	isLoading: boolean
 	movies: IMoviePortal[]
-	pagination: IPagination
+	pagination: IPagination | null
+	currentSort: '1' | '2' | '3' | '4' | '5'
 }
 
 export const initialState: ISearchState = {
@@ -16,17 +17,9 @@ export const initialState: ISearchState = {
 	country: [],
 	genre: [],
 	sort: [],
+	currentSort: '1',
 	type_content: [],
 	year: [],
-
-
 	movies: [],
-	pagination: {
-		count: 0,
-		total: 0,
-		perPage: 0,
-		currentPage: 0,
-		totalPages: 0,
-		links: {},
-	}
+	pagination: null,
 }
