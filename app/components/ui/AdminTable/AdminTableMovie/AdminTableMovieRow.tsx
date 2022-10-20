@@ -6,7 +6,7 @@ import { IAdminMovieTable } from '../admin-table.interface'
 const AdminTableMovieRow: FC<IAdminMovieTable> = ({ tableItem:movie, removeHandler }) => {
 	return (
 		<tr>
-			<td>{movie.title}</td>
+			<td><img src={movie.logo} alt={movie.title} />{movie.title}</td>
 			<td>{movie.year}</td>
       <td>{movie.history}</td>
       <td>{movie.rate_kp}</td>

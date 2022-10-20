@@ -21,7 +21,7 @@ const Movies: FC = () => {
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} onClick={createAsync} />
 			<AdminMovieTable
 				tableItems={movies}
-				headerItems={['НАЗВАНИЕ', 'ГОД', 'ПРОСМОТРОВ', 'РЕЙТИНГ КП', 'ГОЛОСОВ КП', 'ДАТА ЗАЛИВКИ', 'ДАТА РЕДАКТИРОВАНИЯ', 'СКРЫТЫЙ', 'ТИП КОНТЕНТА']}
+				headerItems={['Название', 'Год', 'Просмотров', 'Рейтинг КП', 'Голосов КП', 'Дата заливки', 'Дата редактирования', 'Скрытый?', 'Тип контента']}
 				removeHandler={deleteAsync}
 				isLoading={isLoading} />
 		</div>
