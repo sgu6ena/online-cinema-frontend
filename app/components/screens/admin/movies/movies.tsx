@@ -1,27 +1,29 @@
 import { FC } from 'react'
-import AdminTable from '../../../ui/AdminTable/AdminTable'
+
 import AdminHeader from '../../../ui/AdminHeader/AdminHeader'
 import { useMovies } from './useMovie'
+import AdminMovieTable from '../../../ui/AdminTable/AdminTableMovie/AdminMovieTable'
 
-const Movies: FC = () =>{
-const {
-	createAsync,
-	data,
-	isLoading,
-	deleteAsync,
-	searchTerm,
-	handleSearch,
-} = useMovies()
+const Movies: FC = () => {
+	const {
+		createAsync,
+		data,
+		isLoading,
+		deleteAsync,
+		searchTerm,
+		handleSearch,
+	} = useMovies()
+	const movies = data?.data ? data.data : []
 
-	const movies = data
+
 	return (
 		<div>
-			<AdminHeader 				handleSearch={handleSearch} searchTerm={searchTerm} onClick={createAsync}/>
-			<AdminTable
+			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} onClick={createAsync} />
+			<AdminMovieTable
 				tableItems={movies}
-				headerItems={['id','название','год выпуска','дата добавления', 'жанры']}
+				headerItems={['НАЗВАНИЕ', 'ГОД', 'ПРОСМОТРОВ', 'РЕЙТИНГ КП', 'ГОЛОСОВ КП', 'ДАТА ЗАЛИВКИ', 'ДАТА РЕДАКТИРОВАНИЯ', 'СКРЫТЫЙ', 'ТИП КОНТЕНТА']}
 				removeHandler={deleteAsync}
-				isLoading={isLoading}/>
+				isLoading={isLoading} />
 		</div>
 	)
 }

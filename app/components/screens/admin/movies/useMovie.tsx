@@ -6,8 +6,8 @@ import { useMutation, useQuery } from 'react-query'
 import { PortalService } from '../../../../api/portal.service'
 import { getAdminUrl } from '../../../../config/url.config'
 import { useDebounce } from '../../../../hooks/useDubounce'
-import { getGenresList } from '../../../../utils/movie/getGenresList'
-import { ITableItem } from '../../../ui/AdminTable/admin-table.interface'
+import { AdminService } from '../../../../api/admin/admin.service'
+import { toastError } from '../../../../utils/toast-error'
 
 export const useMovies = () => {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -15,24 +15,14 @@ export const useMovies = () => {
 
 	const queryData = useQuery(
 		['movie list', debouncedSearch],
-		() => PortalService.getSearch(debouncedSearch),
+		() => AdminService.getFileList('1',debouncedSearch),
 		{
-			select: ({ data }) =>
-				data.map(
-					(movie: any): ITableItem => ({
-						_id: movie._id,
-						editUrl: getAdminUrl(`movie/edit/${movie._id}`),
-						items: [
-							movie.title,
-							getGenresList(movie.genres),
-							String(movie.rating),
-						],
-					})
-				),
+
 			onError(error) {
-				toast('Список фильмов')
+				toastError('Ошибка получения списка фильмов')
 			},
-		}
+
+		},
 	)
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,11 +36,11 @@ export const useMovies = () => {
 		() => PortalService.create(),
 		{
 			onError(error) {
-				toast('Create movie error')
+				toastError('Ошибка при создании фильма')
 			},
-			onSuccess({ data: _id }) {
-				toast.success('Create movie was successful')
-				push(getAdminUrl(`movie/edit/${_id}`))
+			onSuccess({ data: id }) {
+				toast.success('Создание фильма прошло успешно')
+				push(getAdminUrl(`movie/edit/${id}`))
 			},
 		}
 	)
@@ -60,10 +50,10 @@ export const useMovies = () => {
 		(movieId: string) => PortalService.delete(movieId),
 		{
 			onError(error) {
-				toast('Delete movie')
+				toastError('Ошибка удаления фильма')
 			},
 			onSuccess() {
-				toast('Delete movie was successful')
+				toast('Удаление фильма прошло успешно')
 				queryData.refetch()
 			},
 		}
