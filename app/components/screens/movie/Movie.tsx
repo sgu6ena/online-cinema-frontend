@@ -22,6 +22,7 @@ import Tabs from './Tabs'
 import { useAuth } from '../../../hooks/useAuth'
 import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
 import { getMoviesBread } from '../../../utils/breadcrumb/movie'
+import Report from '../../ui/report/report'
 
 const Movie: FC = () => {
 	const { user } = useAuth()
@@ -154,6 +155,7 @@ const Movie: FC = () => {
 											/>
 											<span>Избранное</span>
 										</button>
+
 										{isStartWatching && (
 											<button
 												className={styles.play}
@@ -167,7 +169,7 @@ const Movie: FC = () => {
 												<span>Смотреть</span>
 											</button>
 										)}
-
+										<Report/>
 										{isContinueWatching && (
 											<button
 												className={styles.play}
@@ -192,6 +194,7 @@ const Movie: FC = () => {
 								</div>
 							</div>
 							<MovieDescription movie={movie} />
+
 						</div>
 						{seasons.length > 0 && seasons[0]?.items.length > 1 && (
 							<div className={styles.movieContainer}>
@@ -202,9 +205,12 @@ const Movie: FC = () => {
 									activeId={activeId}
 								/>
 							</div>
+
 						)}
+
 					</div>
 					<Collection collection={collection} />
+
 				</>
 			)}
 		</Meta>

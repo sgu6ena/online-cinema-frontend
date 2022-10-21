@@ -1,0 +1,32 @@
+.report {
+  @apply p-0  border-transparent cursor-pointer;
+
+  svg {
+    @apply h-12 w-12
+  }
+
+
+}
+
+.wrapper {
+  @apply  fixed z-20 top-0  left-0 h-full w-full flex  justify-center;
+  .back {
+    @apply absolute top-0 left-0 bg-gray-600 opacity-70 z-70 w-full h-full;
+  }
+
+  .modal {
+    @apply bg-black  absolute top-44 m-auto z-70 p-4 rounded-2xl opacity-100;
+
+
+    p{
+      @apply text-center mb-5
+    }
+    textarea {
+      @apply bg-gray-700 focus:border-primary rounded-3xl rounded-br outline-0 focus:shadow-none
+
+    }
+    .button{
+      @apply bg-primary w-full p-2 text-white rounded mt-3 text-center
+    }
+  }
+}
