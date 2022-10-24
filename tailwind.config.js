@@ -84,6 +84,9 @@ module.exports = {
 				60:'60',
 				70:'70'
 			},
+			ringColor:{
+
+			}
 		},
 	},
 	plugins: [
