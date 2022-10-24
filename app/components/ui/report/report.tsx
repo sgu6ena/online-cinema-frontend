@@ -6,16 +6,21 @@ import Heading from '../heading/Heading'
 import { useRouter } from 'next/router'
 import { useAuth } from '../../../hooks/useAuth'
 import Subheading from '../heading/Subheading'
+import { toast } from 'react-hot-toast'
 
 const Report: FC = () => {
 	const [openModal, setOpenModal] = useState(false)
 	const { user } = useAuth()
-	const { asPath } = useRouter()
+	const {  asPath} = useRouter()
 	const feedbackSubmit = (event:any) => {
-		console.log({ user: user?.id + ' ' + user?.email, asPath, data:event.target.previousElementSibling.value })
+		console.log({ from: 'userid:' + user?.id + ' email:' + user?.email,asPath, text:event.target.previousElementSibling.value })
+		setOpenModal(!openModal)
+		event.target.previousElementSibling.value = ''
+		toast.success('Спасибо за обращение')
 	}
 	return (
-		<div>
+		<div className={'hidden'}>
+			{user?<>
 			<div className={styles.report} title='Сообщить, если что-то не так' onClick={() => setOpenModal(!openModal)}>
 				<MaterialIcon name='MdError' />
 			</div>
@@ -33,7 +38,7 @@ const Report: FC = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div></>:''}
 		</div>
 	)
 }

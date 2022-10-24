@@ -4,8 +4,6 @@
   svg {
     @apply h-12 w-12
   }
-
-
 }
 
 .wrapper {
@@ -17,12 +15,11 @@
   .modal {
     @apply bg-black  absolute top-44 m-auto z-70 p-4 rounded-2xl opacity-100;
 
-
     p{
       @apply text-center mb-5
     }
     textarea {
-      @apply bg-gray-700 focus:border-primary rounded-3xl rounded-br outline-0 focus:shadow-none
+      @apply bg-gray-700 focus:border-primary focus:border rounded-3xl rounded-br ring-primary
 
     }
     .button{
