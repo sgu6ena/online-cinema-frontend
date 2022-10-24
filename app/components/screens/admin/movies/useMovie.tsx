@@ -13,11 +13,12 @@ export const useMovies = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
+	const { push, query } = useRouter()
+	const page = query.page || '1'
 	const queryData = useQuery(
-		['movie list', debouncedSearch],
-		() => AdminService.getFileList('1',debouncedSearch),
+		['movie list', debouncedSearch, page],
+		() => AdminService.getFileList(page as string || '1', debouncedSearch),
 		{
-
 			onError(error) {
 				toastError('Ошибка получения списка фильмов')
 			},
@@ -28,8 +29,6 @@ export const useMovies = () => {
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value)
 	}
-
-	const { push } = useRouter()
 
 	const { mutateAsync: createAsync } = useMutation(
 		'create movie',
@@ -42,7 +41,7 @@ export const useMovies = () => {
 				toast.success('Создание фильма прошло успешно')
 				push(getAdminUrl(`movie/edit/${id}`))
 			},
-		}
+		},
 	)
 
 	const { mutateAsync: deleteAsync } = useMutation(
@@ -56,17 +55,18 @@ export const useMovies = () => {
 				toast('Удаление фильма прошло успешно')
 				queryData.refetch()
 			},
-		}
+		},
 	)
 
 	return useMemo(
 		() => ({
+			page: query.page,
 			handleSearch,
 			...queryData,
 			searchTerm,
 			deleteAsync,
 			createAsync,
 		}),
-		[queryData, searchTerm, deleteAsync, createAsync]
+		[queryData, searchTerm, deleteAsync, createAsync],
 	)
 }

@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { initialState } from './interface'
 import { favorites, getFavorites, getFavoritesIds } from './actions'
-import { getSearch } from '../search/search.actions'
 
 export const FavoritesSlice = createSlice({
 	name: 'favorites',
