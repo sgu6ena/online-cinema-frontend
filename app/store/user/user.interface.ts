@@ -24,7 +24,7 @@ export interface IAuthResponse {
 	paid: 0 | 1 | 2
 	point: string
 	avatar: string
-	level: string
+	level: 0 | 1 | 2 | 3 | 4 | 5
 	dtEnd: string
 	dtFlow: string | null
 	promo: boolean
@@ -35,6 +35,7 @@ export interface IRegister {
 	email: string
 	password: string
 }
-export interface IRecoveryResponse{
+
+export interface IRecoveryResponse {
 
 }

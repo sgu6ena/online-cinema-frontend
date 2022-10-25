@@ -7,8 +7,8 @@ export const AdminService = {
 		return data.data
 	},
 
-	async getFileList(page:string, search:string='') {
-		const data = await axios.get<IAdminFileList>(`adm/fileList?page=${page}&query=${search}&cid=all&year=&hidden=undefined&accessChange=undefined`)
+	async getFileList(page:string, search:string='', cid:string='', year:string='', hidden:string='') {
+		const data = await axios.get<IAdminFileList>(`adm/fileList?page=${page}&query=${search}&cid=${cid}&year=${year}&hidden=undefined&accessChange=undefined`)
 		return data.data
 	},
 

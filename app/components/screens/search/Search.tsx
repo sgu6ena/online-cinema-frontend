@@ -42,12 +42,9 @@ const Search: FC = () => {
 		useForm({
 			mode: 'onChange',
 		})
-	const { query } = useRouter()
 
 	const [page, setPage] = useState(1)
-	const showMore = () => {
-		setPage(page + 1)
-	}
+
 
 	const onSubmit: SubmitHandler<any> = (data) => {
 		const params = {
