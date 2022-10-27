@@ -6,13 +6,25 @@ import AdminMovieTable from '../../../ui/AdminTable/AdminTableMovie/AdminMovieTa
 import Pagination from '../../../ui/pagination/pagination'
 import { useRouter } from 'next/router'
 import SortBy from '../../../ui/sortMenu/sortBy'
-import { useSearch } from '../../../../hooks/useSearchFilters'
-import { IList } from '../../../../shared/types/search.types'
+
 import { useActions } from '../../../../hooks/useActions'
 
 const Movies: FC = () => {
 	const { query } = useRouter()
-	const {	createAsync,	data,	isLoading,	deleteAsync,searchTerm,handleYear,	handleCid,handleSearch, genre, years, cid, year	} = useMovies()
+	const {
+		createAsync,
+		data,
+		isLoading,
+		deleteAsync,
+		searchTerm,
+		handleYear,
+		handleCid,
+		handleSearch,
+		genre,
+		years,
+		cid,
+		year,
+	} = useMovies()
 	const movies = data?.data ? data.data : []
 	useEffect(() => {
 		query.page = '1'

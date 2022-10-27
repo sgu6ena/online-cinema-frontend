@@ -1,0 +1,45 @@
+
+
+
+.gallery {
+  @apply flex items-center  gap-3 flex-nowrap;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slide {
+    @apply bg-none flex flex-col sm:w-48 md:pl-4 pl-2 pt-4   w-24  ;
+    background-color: transparent;
+  }
+}
+
+.item {
+  @apply relative;
+  .index {
+    @apply absolute z-30 left-0 top-0 rounded-full italic bg-transparent text-primary   text-7xl text-shadow;
+
+    text-shadow: 1px 1px 2px white, -1px -1px 1px white, -1px 1px 1px white, 1px -1px 1px white;
+  }
+
+  img {
+    @apply relative aspect-[3/5]  rounded;
+  }
+
+  h5 {
+    @apply text-xs text-gray-300 mt-2;
+  }
+
+  .cnt{
+    @apply bg-white px-3 text-xs text-gray-900 font-bold rounded absolute top-2 -right-2;
+  }
+
+  .like {
+    @apply px-3 bg-[#007700] text-xs text-white font-bold rounded absolute bottom-2 -left-2;
+  }
+
+  .dislike {
+    @apply   px-3 bg-primary text-xs text-white font-bold rounded absolute bottom-2 -right-2;
+  }
+}

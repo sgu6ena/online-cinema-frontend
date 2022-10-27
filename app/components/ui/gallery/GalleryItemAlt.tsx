@@ -35,9 +35,10 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 							<h5 className={styles.h5}>
 								{movie.genre && getGenresList(movie.genre.slice(0, 3), ', ')}
 							</h5>
-							<h5 className={styles.h5}>
-								{getCountryList(movie.country.slice(0, 2))}
-							</h5>
+							{movie.country &&
+								<h5 className={styles.h5}>
+									{getCountryList(movie.country.slice(0, 2))}
+								</h5>}
 						</div>
 					</div>
 				</div>
