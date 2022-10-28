@@ -1,34 +1,57 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useUsers } from './useUsers'
-import AdminTable from '../../../ui/AdminTable/AdminTable'
+
+import styles from '../../../ui/AdminTable/AdminTable.module.scss'
+import AdminTableHeader from '../../../ui/AdminTable/AdminTableHeader'
+import SkeletonLoader from '../../../ui/SkeletonLoader'
+
+import AdminTableUsersRow from '../../../ui/AdminTable/AdminTableUsersRow'
 
 const Users: FC = () => {
 
-	// @ts-ignore
-	const { data: { data: { data } }, isLoading } = useUsers()
+	const [isActive, setActive] = useState(false)
+	const { data, isLoading } = useUsers()
+	const [users, setUsers] = useState([])
+	const [isDescribe, setIsDescribe] = useState(false)
+	useEffect(() => {
+		const allUsers = isDescribe ? [...data].sort((a, b) => {
+			const a1 = new Date(a.date_flow)
+			const b1 = new Date(b.date_flow)
+			return a1 > b1 ? -1 : 1
+		}) : data
+		if (isActive) {
+			setUsers(allUsers.filter((user:any) => {
+				const dateNow = new Date()
+				const dateEnd = new Date(user.sub_end)
+				return dateNow < dateEnd
+			}))
+		} else {
+			setUsers(allUsers)
+		}
+	}, [isActive, data, isDescribe])
 
-	const userTable = data.map((user: any, index: number) => ({
-		_id: user.id,
-		editUrl: user.id,
-		items: [
-			index + 1,
-			user.id,
-			user.login,
-			user.email,
-			user.subscribe ? 'оформлена' : 'не оформлена',
-			user.paid ? 'оплачено' : 'не оплачено',
-			user.sub_end,
-			user.date_flow
-		],
-	}))
-
-	console.log(userTable)
+	const headerItems = ['N', 'id', 'логин', 'почта', 'подписка', 'оплата', 'ДАТА ОКОНЧАНИЯ ПОДПИСКИ', 'ДАТА ОТКАЗА']
 	return <div>
+		<div className={'pl-3 flex  gap-8'}>
+			<label className={'flex  gap-2 items-center'}>
+				<input type='checkbox' checked={isActive} onChange={() => {
+					setActive(!isActive)
+				}} /> <span>показать только активные подписки</span>
+			</label>
+			<label  className={'flex  gap-2 items-center'}>
+				<input type='checkbox' checked={isDescribe} onChange={() => {
+					setIsDescribe(!isDescribe)
+				}} /> <span>сортировать по отказникам</span>
+			</label>
+		</div>
 
-		<AdminTable isLoading={isLoading} tableItems={userTable}
-								headerItems={['N', 'id', 'логин', 'почта', 'подписка', 'оплата', 'ДАТА ОКОНЧАНИЯ ПОДПИСКИ', 'ДАТА ОТКАЗА']}
-								removeHandler={() => {
-								}} />
+
+		<table className={styles.table}>
+			<AdminTableHeader headerItems={headerItems} />
+			<AdminTableUsersRow users={users} />
+		</table>
+		{isLoading && <SkeletonLoader count={1} height={48} className='mt-4' />}
+
 
 	</div>
 }

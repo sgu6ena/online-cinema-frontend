@@ -12,5 +12,5 @@ export const useUsers=()=>{
 			},
 		},
 	)
-	return users
+	return { data:users?.data?.data.data||[], isLoading:users.isLoading }
 }
