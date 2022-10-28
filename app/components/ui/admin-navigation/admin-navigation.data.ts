@@ -18,13 +18,13 @@ export const navItems: INavItem[] = [
 		link: getAdminUrl('movies'),
 		title: 'Фильмы',
 	},
-	{
-		link: getAdminUrl('actors'),
-		title: 'Актеры',
-	},
+	// {
+	// 	link: getAdminUrl('actors'),
+	// 	title: 'Актеры',
+	// },
 	{
 		link: getAdminUrl('genres'),
-		title: 'Жанры',
+		title: 'Подборки',
 	},
 	{
 		link: getAdminUrl('banners'),
