@@ -62,6 +62,7 @@ export interface IMoviePortal {
 	vote: IVotePortal
 	season?:number
 	episode?:number
+	cnt?:number
 }
 
 export interface IMoviePortalFull extends IMoviePortal {

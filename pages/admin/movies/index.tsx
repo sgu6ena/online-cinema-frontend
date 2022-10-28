@@ -1,12 +1,18 @@
 import { NextPage } from 'next'
 
 import Admin from '../../../app/components/screens/admin/admin'
-import Movies from '../../../app/components/screens/admin/movies/movies'
 
+import dynamic from 'next/dynamic'
+const DynamicMovies = dynamic(
+	() => import('../../../app/components/screens/admin/movies/movies'),
+	{
+		ssr: false,
+	}
+)
 const MoviesPage: NextPage = () => {
 	return (
 		<Admin>
-			<Movies />
+			<DynamicMovies />
 		</Admin>
 	)
 }

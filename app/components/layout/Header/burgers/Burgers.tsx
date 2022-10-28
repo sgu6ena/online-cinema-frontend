@@ -3,14 +3,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
-import { useAuth } from '../../../../hooks/useAuth'
+import { isAdminSelector, useAuth } from '../../../../hooks/useAuth'
 import MaterialIcon from '../../../ui/MaterialIcon'
 import styles from './burgers.module.scss'
 import { headerNavMenu, notUserMenu, userMenu } from '../menu.data'
 
 import LogoutButton from './LogoutButton'
+import { LINKS } from '../../../../config/links'
 
 const Burgers: FC = () => {
+	const isAdmin = isAdminSelector()
 	const { user } = useAuth()
 	const { asPath } = useRouter()
 	const [isShow, setIsShow] = useState(false)
@@ -44,24 +46,15 @@ const Burgers: FC = () => {
 					<div className={styles.bar2}></div>
 					<div className={styles.bar3}></div>
 				</div>
-				{/*<div*/}
-				{/*	className={cn(styles.avatar, isShow ? styles.change : '')}*/}
-				{/*	onClick={toggleMenuAvatar}*/}
-				{/*>*/}
-				{/*	{isShow ? (*/}
-				{/*		<MaterialIcon name={'MdClose'} />*/}
-				{/*	) : user?.avatar ? (*/}
-				{/*		<img*/}
-				{/*			src={user.avatar}*/}
-				{/*			width={40}*/}
-				{/*			height={40}*/}
-				{/*			className='rounded-full'*/}
-				{/*		/>*/}
-				{/*	) : (*/}
-				{/*		<BsPersonSquare className='h-10 w-10 text-white' />*/}
-				{/*	)}*/}
-				{/*</div>*/}
 				<ul className={isShow ? 'active' : 'hidden'}>
+					{isAdmin && <li>
+						<Link href={LINKS.ADMIN}>
+							<a>
+								<MaterialIcon name='MdAdminPanelSettings' />
+							Админка
+							</a>
+						</Link>
+					</li>}
 					{avatarMenu.map((i) => (
 						<li key={i.link}>
 							<Link href={i.link}>
@@ -99,6 +92,14 @@ const Burgers: FC = () => {
 							</Link>
 						</li>))}
 					<hr />
+					{isAdmin && <li>
+						<Link href={LINKS.ADMIN}>
+							<a>
+								<MaterialIcon name='MdAdminPanelSettings' />
+								Админка
+							</a>
+						</Link>
+					</li>}
 					{avatarMenu.map((i) => (
 						<li key={i.link}>
 							<Link href={i.link}>

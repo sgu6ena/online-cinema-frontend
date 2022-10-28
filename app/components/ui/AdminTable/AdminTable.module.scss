@@ -1,15 +1,25 @@
 .table {
-  @apply w-full my-5 p-4 border-collapse  ;
+  @apply w-full my-5 p-2 border-collapse  ;
   tr {
-    @apply border-primary border rounded-lg overflow-hidden  w-full rounded-lg overflow-hidden  border border-gray-900 rounded-lg border-8   bg-gray-700 bg-opacity-20 mt-4 px-5 transition-colors hover:bg-opacity-50 text-white text-opacity-80;
+    @apply border-primary border rounded overflow-hidden  w-full rounded-lg overflow-hidden  border border-gray-900 rounded-lg border-8   bg-gray-700 bg-opacity-20 mt-4 px-2 transition-colors hover:bg-opacity-50 text-white text-opacity-80;
 
     > th,
     > td {
-      @apply text-left py-3 px-5 ;
+      @apply text-center py-2 px-2 ;
+      &:first-child {
+        @apply text-left pl-4 flex justify-start;
+      }
       &:last-child {
         @apply text-right justify-end;
       }
+      &:hover img{
+        @apply object-cover transition-all rounded  z-20
+      }
     }
+  }
+  img {
+    @apply w-7 h-7 object-cover shrink-0 block mr-5 scale-[1.5] rounded -ml-2 transition-all z-10;
+    object-position: top;
   }
 
   thead {
