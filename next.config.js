@@ -8,7 +8,7 @@ const withPWA = require('next-pwa')({
 
 
 module.exports = module.exports = withPWA({
-	basePath:'.',
+	basePath:'/',
 	poweredByHeader: false,
 	optimizeFonts: false,
 	env: {
