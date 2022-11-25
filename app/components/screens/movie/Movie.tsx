@@ -162,7 +162,7 @@ const Movie: FC = () => {
 												<span>Смотреть</span>
 											</button>
 										)}
-										<Report />
+										{/*<Report />*/}
 										{isContinueWatching && (
 											<button
 												className={styles.play}

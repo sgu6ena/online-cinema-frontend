@@ -2,7 +2,7 @@
   @apply p-0  border-transparent cursor-pointer;
 
   svg {
-    @apply h-12 w-12
+    @apply h-8 w-8
   }
 }
 
@@ -14,12 +14,17 @@
 
   .modal {
     @apply bg-black  absolute top-44 m-auto z-70 p-4 rounded-2xl opacity-100;
-
+    .head{
+      @apply flex-center-between mb-6;
+      svg{
+        @apply w-8 h-8;
+      }
+    }
     p{
-      @apply text-center mb-5
+      @apply mb-2 font-light text-md
     }
     textarea {
-      @apply bg-gray-700 focus:border-primary focus:border rounded-3xl rounded-br ring-primary
+      @apply bg-gray-700 focus:border-gray-500 focus:border rounded-xl rounded-br ring-primary
 
     }
     .button{

@@ -19,6 +19,8 @@ const GalleryItemAlt: FC<{ movie: IMoviePortal }> = ({ movie }) => {
 					<img
 						src={movie.logo || './images/posters/no_poster.jpg'}
 						alt={movie.title}
+						width={260}
+						height={400}
 					/>
 					<div className={styles.content}>
 						<div className={styles.top}>

@@ -17,6 +17,8 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 				src={i.bigPoster + ''}
 				alt={i.title}
 				className={cn(styles.img, '')}
+				width={1300}
+				height={600}
 			/>
 			<div className={styles.content}>
 				<Link href={i.link}>

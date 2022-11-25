@@ -18,6 +18,9 @@ const GenreItem: FC<{ genre: IMainGenreItem }> = ({ genre }) => {
 						''
 					}
 					className={styles.img}
+					width={300}
+					height={300}
+					alt={genre.title}
 				/>
 				{genre.title}
 			</a>

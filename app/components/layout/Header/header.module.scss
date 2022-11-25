@@ -1,9 +1,7 @@
 .header {
   @apply lg:px-5 md:px-2 px-0 pl-0 lg:h-20  md:h-16 h-12  bg-gray-900 text-white rounded-none fixed flex justify-between items-center top-0 left-0 z-20 opacity-100;
   width: 100vw;
-
   .logo {
-
     .img {
       @apply md:hidden;
     }
@@ -24,17 +22,7 @@
       padding: .25em 0 .325em;
       display: block;
       margin: 0 auto;
-      text-shadow: 0 0 80px rgba(255, 255, 255, .5);
-
-    }
-
-    @-webkit-keyframes aitf {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
+      //text-shadow: 0 0 80px rgba(255, 255, 255, .5);
     }
   }
 
@@ -52,15 +40,6 @@
     a {
       @apply flex-shrink-0;
     }
-  }
-}
-
-@keyframes bounceIn {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
   }
 }
 

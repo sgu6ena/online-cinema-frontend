@@ -1,25 +1,29 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useLayoutEffect } from 'react'
 
-import { useActions } from '../../../hooks/useActions'
-import { useHome } from '../../../hooks/useHome'
-import { IMoviePortal } from '../../../shared/types/movie.types'
-import Meta from '../../../utils/meta/Meta'
-import HomeLoading from '../../loaders/HomeLoading'
-import SliderMain from '../../ui/SliderMain/slider'
-import Collection from '../../ui/collections/Collection'
+import HomeLoading from '@/components/loaders/HomeLoading'
+
+import Collection from '@/ui/collections/Collection'
+import GenresSlider from '@/ui/genres/GenresSlider'
+import Slider from '@/ui/sliderMain/slider'
+
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+import { useHome } from '@/hooks/useHome'
+
+import { IMoviePortal } from '@/shared/types/movie.types'
+
+import Meta from '@/utils/meta/Meta'
 
 import styles from './Home.module.scss'
 import { IHome } from './home.interface'
-import GenresSlider from '../../ui/genres/GenresSlider'
-import { useAuth } from '../../../hooks/useAuth'
-
 
 export const collectionsToItems = (items: IMoviePortal[]): IMoviePortal[] => {
 	return [...items]
 }
 
 const Home: FC<IHome> = () => {
-	const { isLoading, slides, collections, genres, genresCollections } = useHome()
+	const { isLoading, slides, collections, genres, genresCollections } =
+		useHome()
 	const { getMainHome, getFavoritesIds } = useActions()
 
 	const { user } = useAuth()
@@ -27,11 +31,17 @@ const Home: FC<IHome> = () => {
 	useEffect(() => {
 		getMainHome()
 	}, [])
-	useEffect(() => {
+
+	useLayoutEffect(() => {
 		if (user) {
 			getFavoritesIds()
 		}
 	}, [user])
+
+	const isSlides = !isLoading && slides.length > 0
+	const isCollections = !isLoading && collections
+	const isGenres = !isLoading && genres[0] && genres[0].items && genres[0].items.length > 0
+	const isGenresCollections = !isLoading && genresCollections
 
 	return (
 		<>
@@ -43,23 +53,13 @@ const Home: FC<IHome> = () => {
 
 			{isLoading && <HomeLoading />}
 
-			<div className={styles.mainSlider}>
-				{!isLoading && slides.length > 0 && <SliderMain slides={slides} />}
-			</div>
+			{isSlides && <div className={styles.mainSlider}><Slider slides={slides} /></div>}
 
-			{!isLoading &&
-				collections &&
-				collections.map((c) => <Collection collection={c} key={c.title} />)}
+			{isCollections && collections.map((c) => <Collection collection={c} key={c.title} />)}
 
-			{!isLoading && genres[0] && genres[0].items && genres[0].items.length > 0 && (
-				<GenresSlider genres={genres[0]} />
-			)}
+			{isGenres && <GenresSlider genres={genres[0]} />}
 
-			{!isLoading &&
-				genresCollections &&
-				genresCollections.map((c) => (
-					<Collection collection={c} key={c.title} />
-				))}
+			{isGenresCollections && genresCollections.map((c) => <Collection collection={c} key={c.title} />)}
 		</>
 	)
 }
