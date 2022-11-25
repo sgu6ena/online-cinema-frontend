@@ -23,7 +23,7 @@ const Ruble: FC = () => {
 						<Modal setIsShow={setShowModal}>
 							{!user ? (
 								<div className={'p-8 text-center'}>
-									<p>Необходимо авторизироваться</p>
+									<div>Необходимо авторизироваться</div>
 									<Link href={`/auth?redirect=${LINKS.SUBSCRIPTIONS}`}>
 										<a><Button className={'mt-5'} onClick={() => setShowModal(false)}>Войти</Button></a>
 									</Link>

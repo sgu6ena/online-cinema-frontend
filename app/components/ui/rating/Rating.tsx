@@ -1,5 +1,4 @@
 import { FC } from 'react'
-
 import { SiKinopoisk } from 'react-icons/si'
 
 import styles from './rating.module.scss'
@@ -11,20 +10,20 @@ export interface IRating {
 
 const Rating: FC<IRating> = ({ imdb, kp }) => {
 	return (
-		<div className={styles.rate}>
+		<strong className={styles.rate}>
 			{!!kp && (
-				<div className={styles.item}>
+				<strong className={styles.item}>
 					<SiKinopoisk />
-					<div>{kp && Math.trunc(kp * 10) / 10}</div>
-				</div>
+					<strong>{kp && Math.trunc(kp * 10) / 10}</strong>
+				</strong>
 			)}
 			{!!imdb && (
-				<div className={styles.item}>
-					<div className={styles.imdb}>IMDb</div>
-					<div>{imdb && Math.trunc(imdb * 10) / 10}</div>
-				</div>
+				<strong className={styles.item}>
+					<strong className={styles.imdb}>IMDb</strong>
+					<strong>{imdb && Math.trunc(imdb * 10) / 10}</strong>
+				</strong>
 			)}
-		</div>
+		</strong>
 	)
 }
 

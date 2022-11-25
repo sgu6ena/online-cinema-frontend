@@ -1,17 +1,15 @@
 .rate {
-  @apply text-white flex gap-3 items-center ml-1 mb-1 md:text-2xl text-sm;
+  @apply text-white flex gap-3 items-center mr-0 pr-0 ml-1 mb-1 md:text-2xl text-sm;
   font-family: Oswald, sans-serif;
 
   .item {
-    @apply flex gap-2 justify-center items-center;
+    @apply mx-0 flex gap-2 font-light justify-center items-center;
     svg {
-      @apply h-6 w-6;
+      @apply px-0 h-6 w-6;
     }
 
     .imdb {
       @apply bg-white rounded px-1 lg:mt-1  pt-0.5 pb-1 text-sm  leading-none text-gray-700;
-
     }
   }
-
 }

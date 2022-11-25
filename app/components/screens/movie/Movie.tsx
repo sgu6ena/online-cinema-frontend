@@ -3,26 +3,26 @@ import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
 import { useActions } from '../../../hooks/useActions'
+import { useAuth } from '../../../hooks/useAuth'
 import { useFavoritesById } from '../../../hooks/useFavorites'
 import { useMovie } from '../../../hooks/useMovie'
 import { useVideo } from '../../../hooks/useVideo'
 import { getMovie } from '../../../store/movie/movie.actions'
+import { getMoviesBread } from '../../../utils/breadcrumb/movie'
 import Meta from '../../../utils/meta/Meta'
 import { getListDot } from '../../../utils/movie/getGenresList'
 import MovieSkeleton from '../../loaders/MovieSkeleton'
 import MaterialIcon from '../../ui/MaterialIcon'
+import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
 import Collection from '../../ui/collections/Collection'
 import Heading from '../../ui/heading/Heading'
+import Report from '../../ui/report/report'
 import VideoPLayer from '../../ui/videoPlayer/VideoPLayer'
 import Vote from '../../ui/vote/Vote'
 
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
-import { useAuth } from '../../../hooks/useAuth'
-import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
-import { getMoviesBread } from '../../../utils/breadcrumb/movie'
-import Report from '../../ui/report/report'
 
 const Movie: FC = () => {
 	const { user } = useAuth()
@@ -64,8 +64,6 @@ const Movie: FC = () => {
 	useEffect(() => {
 		movieId && getMovie(movieId)
 	}, [movieId])
-
-
 
 	useEffect(() => {
 		resetVideo()
@@ -139,11 +137,7 @@ const Movie: FC = () => {
 
 								<div className={styles.actions}>
 									<div className={styles.buttons}>
-										{movie.trailer && (
-											<button>
-												<MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер
-											</button>
-										)}
+										{movie.trailer && <button><MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер</button>}
 										<button
 											onClick={favoriteHandler}
 											className={cn(isFavorite && styles.active)}
@@ -155,7 +149,6 @@ const Movie: FC = () => {
 											/>
 											<span>Избранное</span>
 										</button>
-
 										{isStartWatching && (
 											<button
 												className={styles.play}
@@ -169,7 +162,7 @@ const Movie: FC = () => {
 												<span>Смотреть</span>
 											</button>
 										)}
-										<Report/>
+										<Report />
 										{isContinueWatching && (
 											<button
 												className={styles.play}
@@ -194,7 +187,6 @@ const Movie: FC = () => {
 								</div>
 							</div>
 							<MovieDescription movie={movie} />
-
 						</div>
 						{seasons.length > 0 && seasons[0]?.items.length > 1 && (
 							<div className={styles.movieContainer}>
@@ -205,12 +197,9 @@ const Movie: FC = () => {
 									activeId={activeId}
 								/>
 							</div>
-
 						)}
-
 					</div>
 					<Collection collection={collection} />
-
 				</>
 			)}
 		</Meta>

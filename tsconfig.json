@@ -18,7 +18,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "/app/",
+    "baseUrl": "app",
+    "rootDir": ".",
     "paths": {
       "react": [
         "./node_modules/@types/react"

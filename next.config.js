@@ -1,10 +1,14 @@
-/** @type {import('next').NextConfig} */
+/**
+ * @type {import('next').NextConfig}
+ */
 const withPWA = require('next-pwa')({
-	dest: 'public'
+	dest: 'public',
+	disable: process.env.NODE_ENV !== 'production',
 })
 
 
 module.exports = module.exports = withPWA({
+	basePath:'.',
 	poweredByHeader: false,
 	optimizeFonts: false,
 	env: {
@@ -16,6 +20,11 @@ module.exports = module.exports = withPWA({
 		domains: ['portal.idc.md'],
 		dangerouslyAllowSVG: true,
 	},
+
+serviceWorker: {
+		workbox: {
+			debug: false,
+		},
+	},
+
 })
-
-

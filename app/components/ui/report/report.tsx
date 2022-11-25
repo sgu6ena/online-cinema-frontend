@@ -19,7 +19,7 @@ const Report: FC = () => {
 		toast.success('Спасибо за обращение')
 	}
 	return (
-		<div className={'hidden'}>
+		<div >
 			{user?<>
 			<div className={styles.report} title='Сообщить, если что-то не так' onClick={() => setOpenModal(!openModal)}>
 				<MaterialIcon name='MdError' />
