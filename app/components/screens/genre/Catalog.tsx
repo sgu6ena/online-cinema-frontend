@@ -9,14 +9,12 @@ import { getGenreById } from '../../../store/genre/genre.actions'
 import Meta from '../../../utils/meta/Meta'
 import CatalogLoader from '../../loaders/CatalogLoader'
 import SkeletonLoader from '../../ui/SkeletonLoader'
-
 import Gallery from '../../ui/gallery/Gallery'
 import Heading from '../../ui/heading/Heading'
+import ShowMore from '../../ui/showMore/showMore'
 import SortBy from '../../ui/sortMenu/sortBy'
 
 import { GENRES_ALT } from './data.genres'
-
-import ShowMore from '../../ui/showMore/showMore'
 
 const Catalog: FC = () => {
 	const { user } = useAuth()
@@ -27,20 +25,43 @@ const Catalog: FC = () => {
 		}
 	}, [])
 	const { getSearchParameters, getGenreById, setSort } = useActions()
-	const { year, genre, category, country, type_content, sort, currentSort, pagination, isLoading: isLoadingSearch } = useSearch()
+	const {
+		year,
+		genre,
+		category,
+		country,
+		type_content,
+		sort,
+		currentSort,
+
+		isLoading: isLoadingSearch,
+	} = useSearch()
 	const { query } = useRouter()
 	const genreId = (query.id && String(query.id)) || ''
-	const { isLoading:isLoadingGenre, movies, genreId: stateGenreId, title, sortAvailable, totalPages } = useGenreById()
+	const {
+		isLoading: isLoadingGenre,
+		movies,
+		genreId: stateGenreId,
+		pagination,
+		title,
+		sortAvailable,
+		totalPages,
+	} = useGenreById()
 	const [page, setPage] = useState(1)
-  const [titleGenre, setTitleGenre] = useState('')
+	const [titleGenre, setTitleGenre] = useState('')
 	const isLoading = isLoadingGenre
 
+	useEffect(()=>{
+		console.log({ totalPages, pagination })},[totalPages, pagination])
 	useEffect(() => {
 		getSearchParameters()
 	}, [])
 
 	useEffect(() => {
-		setTitleGenre([...GENRES_ALT, ...genre].find((item) => item.id.toString() == genreId)?.name || '')
+		setTitleGenre(
+			[...GENRES_ALT, ...genre].find((item) => item.id.toString() == genreId)
+				?.name || ''
+		)
 	}, [genreId, genre])
 
 	useEffect(() => {
@@ -60,12 +81,14 @@ const Catalog: FC = () => {
 				},
 			})
 		}
-	}, [genreId, page, currentSort,  category])
+	}, [genreId, page, currentSort, category])
+
+
 
 	return (
 		<Meta
 			title={titleGenre || 'PORTAL'}
-			description='Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий'
+			description="Фильмы на любой вкус, мультфильмы, популярные сериалы, новинки от ведущих мировых киностудий"
 			image={'https://idc.md/storage/app/media/images/banners/portal/main.png'}
 		>
 			<div className={'px-5'}>
@@ -74,12 +97,12 @@ const Catalog: FC = () => {
 						<div className={'flex justify-between items-center lg:pr-5 pr-2'}>
 							<Heading
 								title={titleGenre}
-								className='lg:px-5  lg:mb-3 lg:pt-5 md:px-5 px-0 pt-2 mb-2'
+								className="lg:px-5  lg:mb-3 lg:pt-5 md:px-5 px-0 pt-2 mb-2"
 							/>
 						</div>
 					) : (
-						<div className='p-5 pb-0'>
-							<SkeletonLoader className='h-12' />
+						<div className="p-5 pb-0">
+							<SkeletonLoader className="h-12" />
 						</div>
 					)}
 
@@ -100,12 +123,13 @@ const Catalog: FC = () => {
 				)}
 
 				{!isLoading ? (
-					pagination &&
-					<ShowMore
-						totalPages={pagination?.totalPages}
-						setPage={setPage}
-						page={page}
-					/>
+					pagination && (
+						<ShowMore
+							totalPages={pagination?.totalPages}
+							setPage={setPage}
+							page={page}
+						/>
+					)
 				) : (
 					<CatalogLoader />
 				)}

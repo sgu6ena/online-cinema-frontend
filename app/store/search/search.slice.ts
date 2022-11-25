@@ -9,6 +9,7 @@ export const searchSlice = createSlice({
 	reducers: {
 		setSort(state, {payload}) {
 			state.currentSort = payload
+
 		},
 	},
 	extraReducers: (builder) => {
@@ -40,12 +41,13 @@ export const searchSlice = createSlice({
 			})
 			.addCase(getSearch.fulfilled, (state, { payload }) => {
 				state.isLoading = false
+				state.pagination = payload.pagination
 				if (payload.pagination.currentPage != 1) {
 					state.movies = [...state.movies, ...payload.data]
 				} else {
 					state.movies = payload.data
 				}
-				state.pagination = payload.pagination
+
 			})
 			.addCase(getSearch.rejected, (state) => {
 				state.isLoading = false

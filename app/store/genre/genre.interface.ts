@@ -4,6 +4,7 @@ import { IParams } from '../../api/portal.service'
 export interface IState {
 	isLoading: boolean
 	movies: IMoviePortal[]
+	pagination:any
 	totalPages:number
 	genreId: string
 	page: string
@@ -19,5 +20,6 @@ export const initialState: IState = {
 	page: '',
 	movies: [],
 	sortAvailable: false,
-	totalPages:0
+	totalPages:0,
+	pagination:{}
 }

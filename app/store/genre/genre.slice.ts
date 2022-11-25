@@ -22,6 +22,7 @@ export const GenreSlice = createSlice({
 					state.genreId = payload.genreId
 					state.page = payload.page
 				}
+				state.pagination = payload.pagination
 				state.totalPages = payload.pagination.totalPages
 				//		state.sortAvailable = payload.movies.sortAvailable
 				state.isLoading = false
