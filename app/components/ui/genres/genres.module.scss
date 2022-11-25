@@ -17,9 +17,9 @@
 }
 
 .slider {
-  @apply mx-5 flex items-center pt-1 pb-10 gap-3 flex-nowrap;
+  @apply lg:mx-layout mx-5  flex items-center pt-1  gap-3 flex-nowrap;
   .slide {
-    @apply bg-none lg:w-40 flex flex-col sm:w-40 pl-4 pt-10  w-40 xl:w-64;
+    @apply bg-none lg:w-40 flex flex-col sm:w-40 pb-5  pl-4 pt-10  w-40 xl:w-64;
     background-color: transparent;
   }
 }
