@@ -23,6 +23,7 @@ import Vote from '../../ui/vote/Vote'
 import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
+import screenfull from 'screenfull'
 
 const Movie: FC = () => {
 	const { user } = useAuth()
@@ -35,7 +36,7 @@ const Movie: FC = () => {
 		isFavorite: isFavoriteMovie,
 	} = useMovie()
 
-	const { url, idFile, serial, title, isPlayed, playlist, seasons } = useVideo()
+	const { url, idFile, serial, title, isPlayed, playlist, seasons, fullScreen } = useVideo()
 	const {
 		getMovie,
 		favorites,
@@ -43,6 +44,7 @@ const Movie: FC = () => {
 		setIdFile,
 		setPlay,
 		setTitle,
+		setFullScreen,
 		getUrl,
 		resetVideo,
 		setPlaylist,
@@ -93,6 +95,7 @@ const Movie: FC = () => {
 			playlist[+nextIndex].seasonTitle,
 			playlist[+nextIndex].titleFile,
 		])
+
 		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
 	}
 
@@ -126,6 +129,7 @@ const Movie: FC = () => {
 						<div className={styles.main}>
 							<div className={styles.videoBox}>
 								<VideoPLayer
+									fullScreen={true}
 									url={url || ''}
 									play={isPlayed}
 									typeContent={movie.type_content}
@@ -138,51 +142,27 @@ const Movie: FC = () => {
 								<div className={styles.actions}>
 									<div className={styles.buttons}>
 										{movie.trailer && <button><MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер</button>}
-										<button
-											onClick={favoriteHandler}
-											className={cn(isFavorite && styles.active)}
-										>
-											<MaterialIcon
-												name={
-													isFavoriteMovie ? 'MdBookmark' : 'MdBookmarkBorder'
-												}
-											/>
+										<button onClick={favoriteHandler} className={cn(isFavorite && styles.active)}>
+											<MaterialIcon name={isFavoriteMovie ? 'MdBookmark' : 'MdBookmarkBorder'} />
 											<span>Избранное</span>
 										</button>
 										{isStartWatching && (
-											<button
-												className={styles.play}
-												onClick={() =>
-													handleMovie(seasons[0].items[0].file, '')
-												}
-											>
-												<MaterialIcon
-													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
-												/>
+											<button className={styles.play} onClick={() => handleMovie(seasons[0].items[0].file, '')}>
+												<MaterialIcon name={!isPlayed ? 'MdPlayArrow' : 'MdPause'} />
 												<span>Смотреть</span>
 											</button>
 										)}
 										{/*<Report />*/}
 										{isContinueWatching && (
-											<button
-												className={styles.play}
-												onClick={() => handleMovie(activeId, '')}
-											>
-												<MaterialIcon
-													name={!isPlayed ? 'MdPlayArrow' : 'MdPause'}
-												/>
+											<button className={styles.play} onClick={() => handleMovie(activeId, '')}>
+												<MaterialIcon name={!isPlayed ? 'MdPlayArrow' : 'MdPause'} />
 												<span>Продолжить</span>
 											</button>
 										)}
 									</div>
 
 									{movieId && (
-										<Vote
-											vote={vote}
-											my_vote={myVote}
-											onClick={(i) => voting(i)}
-											movieId={movieId}
-										/>
+										<Vote vote={vote} my_vote={myVote} onClick={(i) => voting(i)} movieId={movieId} />
 									)}
 								</div>
 							</div>
@@ -190,12 +170,7 @@ const Movie: FC = () => {
 						</div>
 						{seasons.length > 0 && seasons[0]?.items.length > 1 && (
 							<div className={styles.movieContainer}>
-								<Tabs
-									media={seasons}
-									fn={handleMovie}
-									logo={movie.logo}
-									activeId={activeId}
-								/>
+								<Tabs media={seasons} fn={handleMovie} logo={movie.logo} activeId={activeId} />
 							</div>
 						)}
 					</div>

@@ -32,6 +32,9 @@ export const videoSlice = createSlice({
 		setPlay(state, action: PayloadAction<boolean>) {
 			state.isPlayed = action.payload
 		},
+		setFullScreen(state, action: PayloadAction<boolean>) {
+			state.fullScreen = action.payload
+		},
 		setTitle(state, action: PayloadAction<string>) {
 			state.title = action.payload
 		},

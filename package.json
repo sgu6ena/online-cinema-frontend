@@ -40,6 +40,7 @@
     "react-redux": "^7.2.6",
     "react-select": "^5.2.2",
     "sass": "^1.49.0",
+    "screenfull": "^6.0.2",
     "sharp": "^0.30.4",
     "swiper": "^8.1.6"
   },

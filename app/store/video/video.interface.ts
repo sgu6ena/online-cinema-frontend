@@ -1,4 +1,4 @@
-import { IMedia } from '../../shared/types/movie.types'
+import { IMedia } from '@/shared/types/movie.types'
 
 export interface IPlaylist {
 	idFile: string
@@ -14,6 +14,7 @@ export interface IInitialState {
 	isPlayed: boolean
 	url: string | null
 	urlLoading: boolean
+	fullScreen:boolean
 	playlist: IPlaylist[]
 	seasons: IMedia[]
 }
@@ -25,6 +26,7 @@ export const initialState: IInitialState = {
 	title: '',
 	idFile: '',
 	isPlayed: false,
+	fullScreen:false,
 	playlist: [],
 	seasons: [],
 }
