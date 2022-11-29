@@ -88,6 +88,8 @@ const Movie: FC = () => {
 	}, [playlist])
 
 	const nextSeries = () => {
+		setFullScreen(screenfull.isFullscreen)
+
 		const playIndex = playlist.findIndex((item) => idFile === item.idFile)
 		const nextIndex = playlist.length > playIndex + 1 ? playIndex + 1 : 0
 		const nextIdFile = playlist[nextIndex].idFile
@@ -98,6 +100,14 @@ const Movie: FC = () => {
 
 		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
 	}
+
+
+	useEffect(() => {
+		console.log('useeff full')
+		console.log({ screenfull:screenfull.isFullscreen, fullScreen })
+
+	}, [fullScreen])
+
 
 	const favoriteHandler = () => {
 		if (movieId) {
@@ -129,7 +139,7 @@ const Movie: FC = () => {
 						<div className={styles.main}>
 							<div className={styles.videoBox}>
 								<VideoPLayer
-									fullScreen={true}
+									fullScreen={fullScreen}
 									url={url || ''}
 									play={isPlayed}
 									typeContent={movie.type_content}

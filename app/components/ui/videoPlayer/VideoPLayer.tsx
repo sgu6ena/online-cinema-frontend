@@ -7,6 +7,7 @@ import AuthPlaceholder from './Placeholder/AuthPlaceholder'
 import ProfilePlaceholder from './Placeholder/ProfilePlaceholder'
 import styles from './videoplayer.module.scss'
 import screenfull from 'screenfull'
+import { log } from 'util'
 
 interface IVideoPlayer {
 	url: string
@@ -31,20 +32,24 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 																			 }) => {
 	const videoRef = useRef(null)
 	const { user } = useAuth()
-	const onstart=()=> {
 
+	const onstart=()=> {
 		const player = document.querySelector('video') || null
-		if (screenfull.isEnabled && player) {
+		if (screenfull.isEnabled && !!player && screenfull && fullScreen) {
+			// console.log('фулскрин')
 			screenfull.request(player, {navigationUI: 'show'})
 		}
 	}
 
+	// const onprogress =({played}) =>{
+	// 	console.log(played)
+	// }
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.wrapper}>
 				<h5>{title}</h5>
-				{user && user.paid >= typeContent && play && (
+				{user && user.paid >= typeContent  && (
 					<ReactPlayer
 						url={url}
 						controls
@@ -53,18 +58,20 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 						width={'100%'}
 						height={'auto'}
 						pip
+
 						onEnded={nextSeries}
-						// onBuffer={console.log}
-						// onBufferEnd={console.log}
+						onBuffer={console.log}
+						onBufferEnd={console.log}
 						// onClickPreview={console.log}
 						// onDisablePIP={console.log}
-						// onDuration={console.log}
+						//  onDuration={console.log}
 						// onPause={console.log}
 						// onError={console.log}
-						// onPlay={console.log}
+						 onPlay={		()=>/*@ts-ignore*/
+							 console.log(videoRef.current.player.props.volume)}
 						onStart={onstart}
 						// onEnablePIP={console.log}
-						// onProgress={console.log}
+						// onProgress={onprogress}
 						// onReady={()=>console.log('ready')}
 						// onSeek={console.log}
 					/>
