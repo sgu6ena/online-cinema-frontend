@@ -60,15 +60,15 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 						pip
 
 						onEnded={nextSeries}
-						onBuffer={console.log}
-						onBufferEnd={console.log}
+						// onBuffer={console.log}
+						// onBufferEnd={console.log}
 						// onClickPreview={console.log}
 						// onDisablePIP={console.log}
 						//  onDuration={console.log}
 						// onPause={console.log}
 						// onError={console.log}
-						 onPlay={		()=>/*@ts-ignore*/
-							 console.log(videoRef.current.player.props.volume)}
+						//  onPlay={		()=>/*@ts-ignore*/
+							 // console.log(videoRef.current.player.props.volume)}
 						onStart={onstart}
 						// onEnablePIP={console.log}
 						// onProgress={onprogress}

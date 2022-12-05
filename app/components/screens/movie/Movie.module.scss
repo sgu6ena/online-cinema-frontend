@@ -171,12 +171,11 @@
     }
 
     .slider {
-      @apply justify-self-start mx-0;
+      @apply justify-self-start mx-0 ;
       .slide {
         @apply w-fit md:w-80 w-44;
         background-color: transparent;
       }
     }
   }
-
 }

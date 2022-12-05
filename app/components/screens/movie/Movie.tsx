@@ -2,21 +2,21 @@ import cn from 'classnames'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useState } from 'react'
 
-import { useActions } from '../../../hooks/useActions'
-import { useAuth } from '../../../hooks/useAuth'
-import { useFavoritesById } from '../../../hooks/useFavorites'
-import { useMovie } from '../../../hooks/useMovie'
-import { useVideo } from '../../../hooks/useVideo'
-import { getMovie } from '../../../store/movie/movie.actions'
-import { getMoviesBread } from '../../../utils/breadcrumb/movie'
-import Meta from '../../../utils/meta/Meta'
-import { getListDot } from '../../../utils/movie/getGenresList'
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+import { useFavoritesById } from '@/hooks/useFavorites'
+import { useMovie } from '@/hooks/useMovie'
+import { useVideo } from '@/hooks/useVideo'
+import { getMovie } from '@/store/movie/movie.actions'
+import { getMoviesBread } from '@/utils/breadcrumb/movie'
+import Meta from '@/utils/meta/Meta'
+import { getListDot } from '@/utils/movie/getGenresList'
 import MovieSkeleton from '../../loaders/MovieSkeleton'
 import MaterialIcon from '../../ui/MaterialIcon'
 import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
 import Collection from '../../ui/collections/Collection'
 import Heading from '../../ui/heading/Heading'
-import Report from '../../ui/report/report'
+
 import VideoPLayer from '../../ui/videoPlayer/VideoPLayer'
 import Vote from '../../ui/vote/Vote'
 
@@ -100,13 +100,6 @@ const Movie: FC = () => {
 
 		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
 	}
-
-
-	useEffect(() => {
-		console.log('useeff full')
-		console.log({ screenfull:screenfull.isFullscreen, fullScreen })
-
-	}, [fullScreen])
 
 
 	const favoriteHandler = () => {

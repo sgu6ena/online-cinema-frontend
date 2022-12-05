@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React, { FC } from 'react'
 
-import { getGenreUrl } from '../../../config/url.config'
+import { getGenreUrl } from '@/config/url.config'
 
 import MaterialIcon from '../MaterialIcon'
 import GallerySlider from '../gallery/GalerySlider'
@@ -9,7 +9,7 @@ import { IGalleryHome } from '../gallery/gallery.interface'
 import Heading from '../heading/Heading'
 
 import styles from './collection.module.scss'
-import { collectionsToItems } from '../../screens/home/Home'
+import { collectionsToItems } from '@/screens/home/Home'
 
 const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 	return (

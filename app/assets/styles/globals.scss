@@ -151,3 +151,24 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
+.swiper-button-prev{
+  left:0 !important;
+}
+.swiper-button-next{
+  right: 0 !important;
+}
+.swiper-button-next, .swiper-button-prev{
+  color: white !important;
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+  height: 100%;
+}
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+  opacity: 0 !important
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover{
+  color: red !important;
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+}
