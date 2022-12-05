@@ -1,6 +1,7 @@
 {
   "name": "portal-idc-md",
-  "version": "1.1.1",
+  "version": "1.2",
+  "date": "$(date +%s)",
   "author": {
     "email": "sgu6ena@gmail.com",
     "name": "Natalja Issar",

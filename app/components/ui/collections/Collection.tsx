@@ -21,14 +21,17 @@ const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 							<Heading title={collection.title} />
 						</a>
 					</Link>
-					<Link href={getGenreUrl(collection.cid.toString())}>
-						<a>
-							<button>
-								<span> Смотреть все</span>
-								<MaterialIcon name='MdChevronRight' />
-							</button>
-						</a>
-					</Link>
+					<div>
+						<Link href={getGenreUrl(collection.cid.toString())}>
+							<a>
+								<button>
+									<span> Смотреть все</span>
+									<MaterialIcon name='MdChevronRight' />
+								</button>
+							</a>
+						</Link>
+					</div>
+
 				</div>
 				<GallerySlider
 					items={collectionsToItems(collection.items.filter((i) => i.id))}
