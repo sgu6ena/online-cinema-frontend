@@ -17,7 +17,19 @@ export interface IAdminFileListData {
 	year: number
 }
 
-export interface IAdminFileList{
-	data:IAdminFileListData[]
-	pagination:IPagination
+export interface IAdminFileList {
+	data: IAdminFileListData[]
+	pagination: IPagination
+}
+
+export interface IAdminGenreListData {
+	color: null | string
+	created_at: string
+	description: string
+	id: number
+	name: string
+	show: number
+	sort: number
+	type: number
+	updated_at: string
 }

@@ -17,7 +17,7 @@ const Layout: FC = ({ children }) => {
 					<div className={'md:px-layout px-2 text-sm text-gray-600'}>
 						СЗАО “Интерднестрком”, 2017 - {new Date().getFullYear()}
 					</div>
-					<div>{version}/{date}</div>
+					<div>{version}</div>
 				</div>
 			</div>
 		</div>
