@@ -1,6 +1,6 @@
 {
   "name": "portal-idc-md",
-  "version": "1.2",
+  "version": "1.2.0",
   "date": "$(date +%s)",
   "author": {
     "email": "sgu6ena@gmail.com",
@@ -13,6 +13,8 @@
     "dev": "next dev",
     "build": "next build",
     "export": "npm run build && next export -o _static && next-nginx-routes",
+    "predeploy": "rm -rf ./_static &&  npm run build && next export -o _static ",
+    "deploy": "scp -r ./_static/* nissar@217.19.214.33:/var/www/portal.idc.md",
     "start": "next start",
     "lint": "next lint"
   },
