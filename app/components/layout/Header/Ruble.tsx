@@ -32,7 +32,7 @@ const Ruble: FC = () => {
 						</Modal>
 					)}
 					<Button onClick={() => setShowModal(!isShowModal)} className={styles.ruble}>
-						Попробовать за рубль
+						14 дней за 1 рубль
 					</Button>
 				</>
 			)}

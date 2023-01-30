@@ -7,7 +7,7 @@ const AuthPlaceholder: FC<{ slug: string }> = ({ slug }) => {
 	return (
 		<div className={styles.placeholder}>
 			<div>
-				<div>Для просмотра фильма вы должны войти</div>
+				<div>Первые 14 дней за 1 рубль</div>
 				<AuthButton slug={slug} />
 			</div>
 		</div>
