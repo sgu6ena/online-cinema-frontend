@@ -16,7 +16,7 @@ export const notUserMenu: IMenuItem[] =
 		{
 			icon: 'MdSearch',
 			link: LINKS.SEARCH,
-			title: 'Расширеный поиск',
+			title: 'Расширенный поиск',
 		},
 	]
 
@@ -26,7 +26,7 @@ export const userMenu: IMenuItem[] =
 		{
 			icon: 'MdSearch',
 			link: LINKS.SEARCH,
-			title: 'Расширеный поиск',
+			title: 'Расширенный поиск',
 		},
 		{
 			icon: 'MdBookmarkBorder',
