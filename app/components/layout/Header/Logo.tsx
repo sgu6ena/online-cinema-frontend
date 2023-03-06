@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { LINKS } from '../../../config/links'
+import { LINKS } from '@/config/links'
 import styles from './header.module.scss'
 
 const Logo: FC = () => {

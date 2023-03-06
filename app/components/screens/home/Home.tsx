@@ -32,7 +32,7 @@ const Home: FC<IHome> = () => {
 		getMainHome()
 	}, [])
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		if (user) {
 			getFavoritesIds()
 		}
