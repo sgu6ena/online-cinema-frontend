@@ -26,7 +26,7 @@ const Catalog: FC = () => {
 	}, [])
 	const { getSearchParameters, getGenreById, setSort } = useActions()
 	const {
-		year,
+
 		genre,
 		category,
 		country,

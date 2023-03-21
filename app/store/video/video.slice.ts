@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { IMedia } from '../../shared/types/movie.types'
 
@@ -19,6 +19,7 @@ export const videoSlice = createSlice({
 				.map((season) =>
 					season.items.map((item) => ({
 						titleFile: item.title,
+						chunk:item.chunk,
 						idFile: item.file.toString(),
 						seasonTitle: season.title,
 						isActive: item.isActive || false,
@@ -37,6 +38,9 @@ export const videoSlice = createSlice({
 		},
 		setTitle(state, action: PayloadAction<string>) {
 			state.title = action.payload
+		},
+		setPercent(state, action: PayloadAction<number>) {
+			state.percent = action.payload
 		},
 		resetVideo(state) {
 			state.serial = false

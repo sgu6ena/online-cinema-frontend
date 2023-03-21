@@ -42,6 +42,7 @@ export interface IMedia {
 	items: {
 		title: string
 		file: number
+		chunk:number
 		isActive?: boolean
 	}[]
 }

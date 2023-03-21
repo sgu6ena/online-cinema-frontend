@@ -5,6 +5,7 @@ export interface IPlaylist {
 	titleFile: string
 	seasonTitle: string
 	isActive: boolean
+	chunk:number
 }
 
 export interface IInitialState {
@@ -17,6 +18,7 @@ export interface IInitialState {
 	fullScreen:boolean
 	playlist: IPlaylist[]
 	seasons: IMedia[]
+	percent: number
 }
 
 export const initialState: IInitialState = {
@@ -29,4 +31,5 @@ export const initialState: IInitialState = {
 	fullScreen:false,
 	playlist: [],
 	seasons: [],
+	percent: 0,
 }

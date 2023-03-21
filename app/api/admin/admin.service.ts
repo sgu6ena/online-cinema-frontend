@@ -1,5 +1,5 @@
 import axios from '../interceptors'
-import { IAdminFileList } from '../../shared/types/admin.types'
+import { IAdminFileList } from '@/shared/types/admin.types'
 
 export const AdminService = {
 	async getGenreList() {

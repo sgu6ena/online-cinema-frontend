@@ -18,7 +18,7 @@ const Ruble: FC = () => {
 	return (
 		<div>
 			{isVisible && (
-				<>
+				<div>
 					{isShowModal && (
 						<Modal setIsShow={setShowModal}>
 							{!user ? (
@@ -34,7 +34,7 @@ const Ruble: FC = () => {
 					<Button onClick={() => setShowModal(!isShowModal)} className={styles.ruble}>
 						14 дней за 1 рубль
 					</Button>
-				</>
+				</div>
 			)}
 		</div>
 	)

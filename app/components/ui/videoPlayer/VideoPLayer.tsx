@@ -1,4 +1,4 @@
-import { FC,  useRef } from 'react'
+import { FC, useRef } from 'react'
 import ReactPlayer from 'react-player'
 
 import { useAuth } from '@/hooks/useAuth'
@@ -7,7 +7,6 @@ import AuthPlaceholder from './Placeholder/AuthPlaceholder'
 import ProfilePlaceholder from './Placeholder/ProfilePlaceholder'
 import styles from './videoplayer.module.scss'
 import screenfull from 'screenfull'
-import { log } from 'util'
 
 interface IVideoPlayer {
 	url: string
@@ -18,6 +17,7 @@ interface IVideoPlayer {
 	title?: string
 	nextSeries: () => void
 	fullScreen: boolean
+	percent: number
 }
 
 const VideoPLayer: FC<IVideoPlayer> = ({
@@ -29,19 +29,28 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 																				 poster = '',
 																				 title = '',
 																				 fullScreen,
+																				 percent = 0,
 																			 }) => {
 	const videoRef = useRef(null)
 	const { user } = useAuth()
 
-	const onstart=()=> {
+	const onstart = () => {
 		const player = document.querySelector('video') || null
 		if (screenfull.isEnabled && !!player && screenfull && fullScreen) {
 			// console.log('фулскрин')
-			screenfull.request(player, {navigationUI: 'show'})
+			screenfull.request(player, { navigationUI: 'show' })
 		}
 	}
 
-	// const onprogress =({played}) =>{
+	const duration = (time: number) => {
+		const timeStamp = (time * percent) / 100
+		if (videoRef.current)
+			//@ts-ignore
+			videoRef.current.seekTo(timeStamp)
+
+		// console.log(time, percent, timeStamp)
+	}
+	// const onprogress = ({ played }) => {
 	// 	console.log(played)
 	// }
 
@@ -49,7 +58,7 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 		<div className={styles.container}>
 			<div className={styles.wrapper}>
 				<h5>{title}</h5>
-				{user && user.paid >= typeContent  && (
+				{user && user.paid >= typeContent && (
 					<ReactPlayer
 						url={url}
 						controls
@@ -58,21 +67,29 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 						width={'100%'}
 						height={'auto'}
 						pip
-
+						config={{ file:{
+								forceHLS:true,
+								hlsOptions:{
+									maxBufferSize: 30 * 1000 * 1000,
+									maxBufferLength: 10,
+									highBufferWatchdogPeriod:10
+								}
+							} }}
 						onEnded={nextSeries}
 						// onBuffer={console.log}
 						// onBufferEnd={console.log}
 						// onClickPreview={console.log}
 						// onDisablePIP={console.log}
-						//  onDuration={console.log}
+						onDuration={duration}
 						// onPause={console.log}
 						// onError={console.log}
-						//  onPlay={		()=>/*@ts-ignore*/
-							 // console.log(videoRef.current.player.props.volume)}
+						// onPlay={() =>/*@ts-ignore*/
+						// 	console.log(videoRef.current.player.props.volume)}
 						onStart={onstart}
 						// onEnablePIP={console.log}
-						// onProgress={onprogress}
-						// onReady={()=>console.log('ready')}
+						// onProgress={()=>{
+						// 	console.log(videoRef.current.getSecondsLoaded())}}
+						// onReady={() => console.log('ready')}
 						// onSeek={console.log}
 					/>
 				)}

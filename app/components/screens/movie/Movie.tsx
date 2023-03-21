@@ -34,6 +34,7 @@ const Movie: FC = () => {
 		vote,
 		myVote,
 		isFavorite: isFavoriteMovie,
+
 	} = useMovie()
 
 	const { url, idFile, serial, title, isPlayed, playlist, seasons, fullScreen } = useVideo()
@@ -51,16 +52,19 @@ const Movie: FC = () => {
 		setSerial,
 		toggleFavorites,
 		getFavoritesIds,
+		// setPercent
 	} = useActions()
 	const { asPath, query } = useRouter()
 	const movieId = query.id && String(query.id)
 	const [activeId, setActiveId] = useState(0)
+	const [percent, setPercent] = useState(0)
 	const isFavorite = useFavoritesById(movieId || '')
-	const handleMovie = (id: number, title: string) => {
+	const handleMovie = (id: number, title: string, percent: number = 0) => {
 		setIdFile(`${id}`)
 		setPlay(true)
 		setTitle(getListDot([movie?.title || '', title]))
 		setActiveId(id)
+		setPercent(percent)
 	}
 
 	useEffect(() => {
@@ -85,6 +89,7 @@ const Movie: FC = () => {
 	useEffect(() => {
 		const active = playlist.find((item) => item?.isActive === true)
 		setActiveId(Number(active?.idFile) || 0)
+		setPercent(playlist.find((item) => item?.isActive === true)?.chunk || 0)
 	}, [playlist])
 
 	const nextSeries = () => {
@@ -98,7 +103,7 @@ const Movie: FC = () => {
 			playlist[+nextIndex].titleFile,
 		])
 
-		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle)
+		return nextIndex === 0 ? resetVideo() : handleMovie(+nextIdFile, nextTitle, 0)
 	}
 
 
@@ -114,7 +119,8 @@ const Movie: FC = () => {
 		}
 	}, [])
 
-	const isContinueWatching = serial && !isPlayed && movie?.media[0].items[0].file != activeId
+	// const isContinueWatching = serial && !isPlayed && movie?.media[0].items[0].file != activeId
+	const isContinueWatching = serial && !isPlayed || !serial && !isPlayed && movie?.media[0]?.items[0]?.chunk && (movie?.media[0]?.items[0]?.chunk > 0)
 	const isStartWatching = !isPlayed && !isContinueWatching
 
 	return (
@@ -140,6 +146,7 @@ const Movie: FC = () => {
 									poster={movie.logo}
 									title={title}
 									nextSeries={nextSeries}
+									percent={percent}
 								/>
 
 								<div className={styles.actions}>
@@ -150,14 +157,14 @@ const Movie: FC = () => {
 											<span>Избранное</span>
 										</button>
 										{isStartWatching && (
-											<button className={styles.play} onClick={() => handleMovie(seasons[0].items[0].file, '')}>
+											<button className={styles.play} onClick={() => handleMovie(seasons[0].items[0].file, '', 0)}>
 												<MaterialIcon name={!isPlayed ? 'MdPlayArrow' : 'MdPause'} />
 												<span>Смотреть</span>
 											</button>
 										)}
 										{/*<Report />*/}
 										{isContinueWatching && (
-											<button className={styles.play} onClick={() => handleMovie(activeId, '')}>
+											<button className={styles.play} onClick={() => handleMovie(activeId, '', percent)}>
 												<MaterialIcon name={!isPlayed ? 'MdPlayArrow' : 'MdPause'} />
 												<span>Продолжить</span>
 											</button>

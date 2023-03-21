@@ -7,11 +7,12 @@ import { getListDot } from '@/utils/movie/getGenresList'
 import styles from './Movie.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
+import ProgressBar from '@/ui/progressBar/progressBar'
 
 export interface ISeason extends IMedia {
 	activeId?: number
 	index: number
-	fn: (id: number, title: string) => void
+	fn: (id: number, title: string, percent:number) => void
 	logo: string
 }
 
@@ -27,15 +28,15 @@ const Season: FC<ISeason> = ({ isActive = false, items, fn, logo, title, activeI
 					centeredSlides={false}
 					spaceBetween={0}
 					navigation
-
 				>
-
 					{items.map((item) => (
 						<SwiperSlide className={cn(styles.slide)} key={item.file}>
 							<button
 								className={cn(styles.episode, (item.file === activeId) && styles.activeEpisode)}
+
 								onClick={() => {
-									return fn(item.file, getListDot([title, item.title]))
+									console.log(item)
+									return fn(item.file, getListDot([title, item.title]), item.chunk)
 								}}
 							>
 								<div className={styles.imageBox}>
@@ -48,14 +49,14 @@ const Season: FC<ISeason> = ({ isActive = false, items, fn, logo, title, activeI
 										alt={item.title}
 										className={styles.poster}
 									/>
+
 								</div>
+								<ProgressBar progress={item.chunk}/>
 								{/*{item.isActive && <div className={styles.progress}></div>}*/}
 								<span>{item.title}</span>
 							</button>
 						</SwiperSlide>
 					))}
-
-
 				</Swiper>
 			</div>
 		</div>

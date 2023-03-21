@@ -37,6 +37,7 @@ const Meta: FC<ISeo> = ({
 						<meta property="og:url" content={currentUrl}/>
 						<meta property="og:image" content={image || '/svg/logo/logo.svg'}/>
 						<meta property="og:site_name" content={siteName}/>
+						<meta name="yandex-verification" content="f6c9fa9dafb25c11" />
 						<meta
 							property="og:description"
 							content={onlyText(description, 197)}
