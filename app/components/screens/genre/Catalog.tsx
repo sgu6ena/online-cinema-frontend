@@ -119,7 +119,9 @@ const Catalog: FC = () => {
 				{!isLoading || (movies && movies.length) ? (
 					movies && <Gallery movies={movies} />
 				) : (
-					<CatalogLoader />
+					<div className='p-3 pb-0'>
+						<CatalogLoader />
+					</div>
 				)}
 
 				{!isLoading ? (
@@ -131,7 +133,7 @@ const Catalog: FC = () => {
 						/>
 					)
 				) : (
-					<CatalogLoader />
+					<div className='p-3 pt-0 pb-0'><CatalogLoader /></div>
 				)}
 			</div>
 		</Meta>

@@ -163,12 +163,12 @@ const Movie: FC = () => {
 											</button>
 										)}
 										{/*<Report />*/}
-										{isContinueWatching && (
+										{isContinueWatching ? (
 											<button className={styles.play} onClick={() => handleMovie(activeId, '', percent)}>
 												<MaterialIcon name={!isPlayed ? 'MdPlayArrow' : 'MdPause'} />
 												<span>Продолжить</span>
 											</button>
-										)}
+										):<></>}
 									</div>
 
 									{movieId && (
