@@ -120,9 +120,9 @@ const Movie: FC = () => {
 	}, [])
 
 	// const isContinueWatching = serial && !isPlayed && movie?.media[0].items[0].file != activeId
-	const isContinueWatching = serial && !isPlayed || !serial && !isPlayed && movie?.media[0]?.items[0]?.chunk && (movie?.media[0]?.items[0]?.chunk > 0)
+	const isContinueWatching = serial && !isPlayed && !!user && (movie?.media[0].items[0].file != activeId || movie?.media[0].items[0].chunk> 0) || !serial && !isPlayed && movie?.media[0]?.items[0]?.chunk && (movie?.media[0]?.items[0]?.chunk > 0) && !!user
 	const isStartWatching = !isPlayed && !isContinueWatching
-
+	console.log({isContinueWatching, isStartWatching, user})
 	return (
 		<Meta
 			title={movie?.title || 'PORTAL'}
