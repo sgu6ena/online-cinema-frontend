@@ -6,11 +6,8 @@ import { FC, useState } from 'react'
 import Link from 'next/link'
 import { LINKS } from '../../../config/links'
 import { useAuth, useRuble } from '../../../hooks/useAuth'
-import { getMoviesUrl } from '../../../config/api.config'
 
 const Ruble: FC = () => {
-
-
 	const { user } = useAuth()
 	const isRuble = useRuble()
 	const isVisible = isRuble || !user

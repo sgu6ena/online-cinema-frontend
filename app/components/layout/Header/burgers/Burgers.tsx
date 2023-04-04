@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 
 import { isAdminSelector, useAuth } from '../../../../hooks/useAuth'
 import MaterialIcon from '../../../ui/MaterialIcon'
@@ -18,22 +18,42 @@ const Burgers: FC = () => {
 	const [isShow, setIsShow] = useState(false)
 	const [isShowBurgerMenu, setShowBurgerMenu] = useState(false)
 
+	const avatarMenu = user ? [...userMenu] : [...notUserMenu]
+
+	const menuRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		setIsShow(false)
+		setShowBurgerMenu(false)
+
+		// Добавляем обработчик клика на документ
+		const handleClick = (event: MouseEvent) => {
+			if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+				setIsShow(false)
+				setShowBurgerMenu(false)
+			}
+		}
+
+		document.addEventListener('click', handleClick)
+
+		// Отписываемся от обработчика при размонтировании компонента
+		return () => {
+			document.removeEventListener('click', handleClick)
+		}
+	}, [asPath])
+
 	const toggleMenuAvatar = () => {
 		setIsShow(!isShow)
 		setShowBurgerMenu(false)
 	}
+
 	const toggleMenuBurger = () => {
 		setShowBurgerMenu(!isShowBurgerMenu)
 		setIsShow(false)
 	}
-	useEffect(() => {
-		setIsShow(false)
-		setShowBurgerMenu(false)
-	}, [asPath])
 
-	const avatarMenu = user ? [...userMenu] : [...notUserMenu]
 	return (
-		<>
+		< div  ref={menuRef}>
 			<div className={styles.menu}>
 				<div
 					className={cn(
@@ -68,7 +88,7 @@ const Burgers: FC = () => {
 					{user && <LogoutButton />}
 				</ul>
 			</div>
-			<div className={styles.menu}>
+			<div className={styles.menu} >
 				<div
 					className={cn(
 						styles.container,
@@ -81,7 +101,7 @@ const Burgers: FC = () => {
 					<div className={styles.bar3}></div>
 				</div>
 
-				<ul className={isShowBurgerMenu ? 'active' : 'hidden'}>
+				<ul className={isShowBurgerMenu ? 'active' : 'hidden'} >
 					{headerNavMenu.map((i) => (
 						<li key={i.link}>
 							<Link href={i.link}>
@@ -112,7 +132,7 @@ const Burgers: FC = () => {
 					{user && <LogoutButton />}
 				</ul>
 			</div>
-		</>
+		</div>
 	)
 }
 
