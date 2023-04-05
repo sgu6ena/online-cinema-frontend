@@ -60,11 +60,14 @@ const Movie: FC = () => {
 	const [percent, setPercent] = useState(0)
 	const isFavorite = useFavoritesById(movieId || '')
 	const handleMovie = (id: number, title: string, percent: number = 0) => {
-		setIdFile(`${id}`)
 		setPlay(true)
-		setTitle(getListDot([movie?.title || '', title]))
-		setActiveId(id)
-		setPercent(percent)
+		if ( !!user ){
+			setIdFile(`${id}`)
+			setTitle(getListDot([movie?.title || '', title]))
+			setActiveId(id)
+			setPercent(percent)
+		}
+
 	}
 
 	useEffect(() => {
