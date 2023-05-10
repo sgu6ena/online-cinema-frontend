@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 
 import { useAuth } from '@/hooks/useAuth'
@@ -7,6 +7,14 @@ import AuthPlaceholder from './Placeholder/AuthPlaceholder'
 import ProfilePlaceholder from './Placeholder/ProfilePlaceholder'
 import styles from './videoplayer.module.scss'
 import screenfull from 'screenfull'
+import { GetShooting } from '@/screens/movie/useShooting'
+import axios from 'axios'
+import { PortalService } from '../../../api/portal.service'
+import { useActions } from '@/hooks/useActions'
+import BaseReactPlayer from 'react-player/base'
+
+
+const SHOOTING_TIME = 30
 
 interface IVideoPlayer {
 	url: string
@@ -17,7 +25,9 @@ interface IVideoPlayer {
 	title?: string
 	nextSeries: () => void
 	fullScreen: boolean
+	idFile: string
 	percent: number
+
 }
 
 const VideoPLayer: FC<IVideoPlayer> = ({
@@ -29,15 +39,18 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 																				 poster = '',
 																				 title = '',
 																				 fullScreen,
+																				 idFile,
 																				 percent = 0,
-																			 }) => {
-	const videoRef = useRef(null)
-	const { user } = useAuth()
 
+
+																			 }) => {
+	const videoRef = useRef<ReactPlayer>(null)
+	const { user } = useAuth()
+	const [progress, setProgress] = useState(0)
+	const { setPercentChunk } = useActions()
 	const onstart = () => {
 		const player = document.querySelector('video') || null
 		if (screenfull.isEnabled && !!player && screenfull && fullScreen) {
-			// console.log('фулскрин')
 			screenfull.request(player, { navigationUI: 'show' })
 		}
 	}
@@ -45,14 +58,25 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 	const duration = (time: number) => {
 		const timeStamp = (time * percent) / 100
 		if (videoRef.current)
-			//@ts-ignore
 			videoRef.current.seekTo(timeStamp)
-
-		// console.log(time, percent, timeStamp)
 	}
-	// const onprogress = ({ played }) => {
-	// 	console.log(played)
-	// }
+	const onprogress = async () => {
+		if (videoRef.current) {
+			const currentTime = videoRef.current.getCurrentTime() || 0
+			const duration = videoRef.current.getDuration()
+			if (currentTime - progress > SHOOTING_TIME) {
+				const percent = currentTime / (duration / 100)
+				const response = await PortalService.sendShootingPercent(idFile, percent)
+				setPercentChunk({ id: idFile, percent: percent })
+				setProgress(currentTime)
+			}
+		}
+
+	}
+
+	useEffect(() => {
+		setProgress(0)
+	}, [idFile])
 
 	return (
 		<div className={styles.container}>
@@ -87,8 +111,7 @@ const VideoPLayer: FC<IVideoPlayer> = ({
 						// 	console.log(videoRef.current.player.props.volume)}
 						onStart={onstart}
 						// onEnablePIP={console.log}
-						// onProgress={()=>{
-						// 	console.log(videoRef.current.getSecondsLoaded())}}
+						onProgress={onprogress}
 						// onReady={() => console.log('ready')}
 						// onSeek={console.log}
 					/>

@@ -4,6 +4,7 @@ import { IMedia } from '../../shared/types/movie.types'
 
 import { getUrl } from './video.actions'
 import { initialState } from './video.interface'
+import season from '@/screens/movie/Season'
 
 export const videoSlice = createSlice({
 	name: 'video',
@@ -41,6 +42,12 @@ export const videoSlice = createSlice({
 		},
 		setPercent(state, action: PayloadAction<number>) {
 			state.percent = action.payload
+		},
+		setPercentChunk(state, action: PayloadAction<{ id: string, percent: number }>) {
+			const indexSeason = state.seasons.findIndex(season => season.items.find(item => item.file.toString() === action.payload.id))
+			const season = state.seasons[indexSeason]
+			const indexSerial = season.items.findIndex(item => item.file.toString() === action.payload.id)
+			state.seasons[indexSeason].items[indexSerial].chunk = action.payload.percent
 		},
 		resetVideo(state) {
 			state.serial = false
