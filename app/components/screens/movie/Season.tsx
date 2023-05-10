@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { FC, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 
 import { IMedia } from '@/shared/types/movie.types'
 import { getListDot } from '@/utils/movie/getGenresList'
@@ -8,6 +8,7 @@ import styles from './Movie.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
 import ProgressBar from '@/ui/progressBar/progressBar'
+import { chunk } from 'lodash'
 
 export interface ISeason extends IMedia {
 	activeId?: number
@@ -35,7 +36,6 @@ const Season: FC<ISeason> = ({ isActive = false, items, fn, logo, title, activeI
 								className={cn(styles.episode, (item.file === activeId) && styles.activeEpisode)}
 
 								onClick={() => {
-									console.log(item)
 									return fn(item.file, getListDot([title, item.title]), item.chunk)
 								}}
 							>

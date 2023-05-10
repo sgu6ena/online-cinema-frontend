@@ -1,6 +1,9 @@
+import * as process from 'process'
+
 export const API_URL = `${process.env.APP_URL}/api`
-export const APP_URL_PORTAL = `https://api.portal.idc.md/api`
-//export const APP_URL_PORTAL = `https://api-dev.portal.idc.md/api`
+//export const APP_URL_PORTAL = process.env.REACT_APP_URL_PORTAL
+//export const APP_URL_PORTAL = `https://api.portal.idc.md/api`
+export const APP_URL_PORTAL = `https://api-dev.portal.idc.md/api`
 export const getCategoryUrl = (string: string) => `/file/category/${string}`
 export const getMovieUrl = (string: string) => `/file/${string}`
 export const sendBookmarkUrl = (string: string) => `/bookmark/change/${string}`
@@ -21,3 +24,5 @@ export const smartTv = (code: string) => `/smartTV/active/${code}`
 export const activateRegister = (code: string) => `/activate?actkey=${code}`
 export const recoveryPassword = (code: string) => `/get_pass/${code}`
 export const activatePromoCode = (code: string) => `/promocode/${code}`
+export const percentageViewed = (link_id: string, percent: number) => `/file/timeshift/${link_id}/${percent}`
+

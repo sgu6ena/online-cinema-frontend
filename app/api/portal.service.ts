@@ -4,7 +4,7 @@ import {
 	APP_URL_PORTAL,
 	getCategoryUrl,
 	getMovieUrl,
-	getUserDataUrl,
+	getUserDataUrl, percentageViewed,
 	recoveryPassword,
 	sendBookmarkUrl,
 	sendVoteUrl,
@@ -224,6 +224,10 @@ export const PortalService = {
 		return data.data
 	},
 
+	async sendShootingPercent(idFile: string, percent:number) {
+		const data = await axios.get<any>(percentageViewed(idFile, percent))
+		return data.data
+	},
 	async sendVote(id: string, vote: number) {
 		const data = await axios.get<any>(sendVoteUrl(`${id}`, vote))
 		return data.data

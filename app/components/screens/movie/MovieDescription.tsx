@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { FC, Fragment } from 'react'
 
-import { getGenreUrl } from '../../../config/url.config'
-import { IMoviePortalFull } from '../../../shared/types/movie.types'
-import { minuteToHours } from '../../../utils/date/minuteToHours'
-import { getCountryList } from '../../../utils/movie/getCountryList'
-import { getGenresList } from '../../../utils/movie/getGenresList'
+import { getGenreUrl } from '@/config/url.config'
+import { IMoviePortalFull } from '@/shared/types/movie.types'
+import { minuteToHours } from '@/utils/date/minuteToHours'
+import { getCountryList } from '@/utils/movie/getCountryList'
+import { getGenresList } from '@/utils/movie/getGenresList'
 import Heading from '../../ui/heading/Heading'
 import Rating from '../../ui/rating/Rating'
 
@@ -37,23 +37,34 @@ const MovieDescription: FC<{ movie: IMoviePortalFull }> = ({ movie }) => {
 					</>
 				)}
 			</p>
-
-			<p>
-				<strong className={styles.subtitle}>Режиссер:</strong>
-				{getGenresList(movie.creator)}
-			</p>
-			<p>
-				<strong className={styles.subtitle}>Продюссер:</strong>
-				{getGenresList(movie.producer)}
-			</p>
-			<p>
-				<strong className={styles.subtitle}>В ролях:</strong>
-				{getGenresList(movie.in_the_roles)}
-			</p>
-			<p>
-				<strong className={styles.subtitle}>Страны:</strong>
-				{getCountryList(movie.country)}
-			</p>
+			{
+				movie.creator ?
+					<p>
+						<strong className={styles.subtitle}>Режиссер:</strong>
+						{getGenresList(movie.creator)}
+					</p> : <></>
+			}
+			{
+				movie.producer.length ?
+					<p>
+						<strong className={styles.subtitle}>Продюссер:</strong>
+						{getGenresList(movie.producer)}
+					</p>
+					: <></>
+			}
+			{
+				movie.in_the_roles ? <p>
+					<strong className={styles.subtitle}>В ролях:</strong>
+					{getGenresList(movie.in_the_roles)}
+				</p> : <></>
+			}
+			{
+				movie.country ?
+					<p>
+						<strong className={styles.subtitle}>Страны:</strong>
+						{getCountryList(movie.country)}
+					</p> : <></>
+			}
 			<h2>О фильме</h2>
 			<p>{movie.review}</p>
 		</div>

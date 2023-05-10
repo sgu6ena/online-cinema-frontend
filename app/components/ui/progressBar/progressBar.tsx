@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 
 const ProgressBar: FC<{ progress: number }> = ({ progress }) => {
 	const percent = Math.ceil(progress) + '%'
