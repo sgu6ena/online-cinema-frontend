@@ -26,6 +26,7 @@ const Movies: FC = () => {
 		year,
 	} = useMovies()
 	const movies = data?.data ? data.data : []
+
 	useEffect(() => {
 		query.page = '1'
 	}, [searchTerm, cid, year])

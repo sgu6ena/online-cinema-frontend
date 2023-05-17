@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
-import Admin from '../../app/components/screens/admin/admin'
-import Genres from '../../app/components/screens/admin/genres/genres'
+import Admin from '@/screens/admin/admin'
+import Genres from '@/screens/admin/genres/genres'
 
 const GenresPage: NextPage = () => {
 	return (

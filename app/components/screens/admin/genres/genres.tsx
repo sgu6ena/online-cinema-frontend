@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { useGenres } from './useGenres'
-import AdminTable from '@/ui/AdminTable/AdminTable'
 import AdminGenresTable from '@/ui/AdminTable/AdminTableGenres/AdminGenresTable'
 
 const Genres: FC = () => {
@@ -10,7 +9,7 @@ const Genres: FC = () => {
 	return (
 		<div>
 			{/*{ !isLoading && sortGenres.map((genre:any)=><p> {genre.id} {genre.name} {genre.sort}</p> )}*/}
-			<AdminGenresTable tableItems={sortGenres} removeHandler={(e)=>console.log(e)} headerItems={['d']} isLoading={isLoading}/>
+			<AdminGenresTable tableItems={sortGenres} removeHandler={(e)=>console.log(e)} headerItems={['сортировка','название', 'ID']} isLoading={isLoading}/>
 		</div>
 	)
 }

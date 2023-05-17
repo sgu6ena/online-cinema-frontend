@@ -8,7 +8,7 @@ export const useGenres = () => {
 		() => AdminService.getGenreList(),
 		{
 			onError(error) {
-				toastError('Ошибка получения списка юзеров')
+				toastError('Ошибка получения списка жанров/подборок')
 			},
 		},
 	)

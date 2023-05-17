@@ -4,12 +4,12 @@ import { toast } from 'react-hot-toast'
 import { useMutation, useQuery } from 'react-query'
 
 import { PortalService } from '../../../../api/portal.service'
-import { getAdminUrl } from '../../../../config/url.config'
-import { useDebounce } from '../../../../hooks/useDubounce'
+import { getAdminUrl } from '@/config/url.config'
+import { useDebounce } from '@/hooks/useDubounce'
 import { AdminService } from '../../../../api/admin/admin.service'
-import { toastError } from '../../../../utils/toast-error'
-import { useSearch } from '../../../../hooks/useSearchFilters'
-import { IList } from '../../../../shared/types/search.types'
+import { toastError } from '@/utils/toast-error'
+import { useSearch } from '@/hooks/useSearchFilters'
+import { IList } from '@/shared/types/search.types'
 
 export const useMovies = () => {
 	const [searchTerm, setSearchTerm] = useState('')
