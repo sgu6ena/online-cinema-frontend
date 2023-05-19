@@ -8,18 +8,19 @@ import styles from '../settings.module.scss'
 import Modal from './Modals/Modal'
 import ChangePass from './Modals/ChangePass'
 import Button from '../../../ui/form-elemets/Button'
+import ChangeEmail from '@/screens/settings/account/Modals/ChangeEmail'
 
 const Account: FC = () => {
 	const { user, isLoading } = useAuth()
-	const [isShowModal, setShowModal] = useState(false)
-
+	const [isShowModalPassword, setShowModalPassword] = useState(false)
+	const [isShowModalEmail, setShowModalEmail] = useState(false)
 	return (
 		<div>
 			<div className={'flex justify-between max-w-5xl '}>
 				<Heading title={'АККАУНТ'} className='mb-5' />
 
 			</div>
-<Button onClick={() => setShowModal(true)}>Изменить пароль</Button>
+
 			{isLoading && <SkeletonLoader />}
 			{user && (
 				<>
@@ -32,11 +33,12 @@ const Account: FC = () => {
 						<tr>
 							<td>Пароль</td>
 							<td>********</td>
-							<td align='right'></td>
+							<td align='right'><Button onClick={() => setShowModalPassword(true)}>Изменить пароль</Button></td>
 						</tr>
 						<tr>
 							<td>E-mail</td>
 							<td><span>{user.email}</span></td>
+							<td  align='right'><Button onClick={() => setShowModalEmail(true)}>Изменить e-mail</Button></td>
 						</tr>
 						{user.name && <tr>
 							<td>Имя</td>
@@ -64,7 +66,8 @@ const Account: FC = () => {
 					</table>
 				</>
 			)}
-			{isShowModal && <Modal setIsShow={setShowModal}><ChangePass setIsShow={setShowModal} /> </Modal>}
+			{isShowModalPassword && <Modal setIsShow={setShowModalPassword}><ChangePass setIsShow={setShowModalPassword} /> </Modal>}
+			{isShowModalEmail && <Modal setIsShow={setShowModalEmail}><ChangeEmail setIsShow={setShowModalEmail} /> </Modal>}
 		</div>
 	)
 }

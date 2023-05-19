@@ -29,3 +29,7 @@ export interface IChangePassword {
 	passwordOld: string
 	password: string
 }
+
+export interface IChangeEmail {
+	email: string
+}
