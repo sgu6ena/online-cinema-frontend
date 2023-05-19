@@ -11,9 +11,11 @@ import SkeletonLoader from '../../../ui/SkeletonLoader'
 import Button from '../../../ui/form-elemets/Button'
 import Heading from '../../../ui/heading/Heading'
 import styles from '../Auth.module.scss'
-import { IRegisterInput } from '../auth.interface'
+import { IRegisterInputEmail, IRegisterInputMobile } from '../auth.interface'
 
-import RegisterFields from './RegisterFields'
+import RegisterFieldsEmail from './RegisterFieldsEmail'
+import RegisterFieldsMobile from './RegisterFieldsMobile'
+import { registerByMail, registerByMobile } from '@/store/user/user.actions'
 
 
 const Register = () => {
@@ -21,26 +23,40 @@ const Register = () => {
 
 	const {
 		register: registerInput,
-		handleSubmit,
-		formState,
-	} = useForm<IRegisterInput>({ mode: 'onChange' })
+		handleSubmit:handleSubmitEmail,
+		formState:formStateEmail,
+	} = useForm<IRegisterInputEmail>({ mode: 'onChange' })
+	const {
+		register: registerInputMobile,
+		handleSubmit:handleSubmitMobile,
+		formState:formStateMobile,
+	} = useForm<IRegisterInputMobile>({ mode: 'onChange' })
 
-	const { register } = useActions()
+	const { registerByMail } = useActions()
 
 	const [isByMobile, setIsByMobile] = useState(true)
 
-	const onSubmit: SubmitHandler<IRegisterInput> = ({
+	const onSubmitEmail: SubmitHandler<IRegisterInputEmail> = ({
 																										 email,
 																										 login,
 																										 passwordRpt,
 																										 password,
 																									 }) => {
-		if (password === passwordRpt) register({ login, email, password })
+		if (password === passwordRpt) registerByMail({ login, email, password })
+		else toast.error('пароли не совпадают')
+	}
+
+	const onSubmitMobile: SubmitHandler<IRegisterInputMobile> = ({
+																															 login,
+																															 passwordRpt,
+																															 password,
+																														 }) => {
+		if (password === passwordRpt) registerByMobile({ login,  password })
 		else toast.error('пароли не совпадают')
 	}
 
 	useEffect(() => {
-	}, [formState.isSubmitted, isRegistered])
+	}, [formStateEmail.isSubmitted, isRegistered])
 
 	const changeRegister = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, state:boolean) => {
 		e.preventDefault()
@@ -51,9 +67,9 @@ const Register = () => {
 		<>
 			<Meta title='Регистрация' />
 			<section className={styles.wrapper}>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={isByMobile ? handleSubmitMobile(onSubmitMobile):handleSubmitEmail(onSubmitEmail)}>
 					{isLoading && <SkeletonLoader className='h-96' />}
-					{formState.isSubmitted && isRegistered && !isLoading && (
+					{formStateEmail.isSubmitted && isRegistered && !isLoading && (
 						<Heading
 							title='Проверьте вашу электронную почту для завершения регистрации'
 							className='text-gray-500 text-xl mb-8'
@@ -61,7 +77,7 @@ const Register = () => {
 					)}
 
 
-					{!formState.isSubmitted && !isLoading && (
+					{!formStateEmail.isSubmitted && !isLoading && (
 						<>
 							<Heading title={'Регистрация'} className='mb-3' />
 							<Heading
@@ -70,25 +86,26 @@ const Register = () => {
 							/>
 							<button
 								className={isByMobile ? styles.active : styles.change}
-								onClick={(e)=>changeRegister(e,true)}>
+								onClick={(e) => changeRegister(e, true)}>
 								по телефону
 							</button>
 							<button
 								className={!isByMobile ? styles.active : styles.change}
-								onClick={(e)=>changeRegister(e,false)}>
+								onClick={(e) => changeRegister(e, false)}>
 								по почте
 							</button>
-							<RegisterFields register={registerInput} formState={formState} />
+							{isByMobile ? <RegisterFieldsMobile  register={registerInputMobile} formState={formStateMobile} /> :
+								<RegisterFieldsEmail register={registerInput} formState={formStateEmail} />}
 
 							<div className={styles.buttons}>
-								<Button type='submit' disabled={!formState.isValid}>
+								<Button type='submit' disabled={!formStateEmail.isValid}>
 									Зарегистрироваться
 								</Button>
 							</div>
 							<p>
 								Уже зарегистрированы?{' '}
 								<Link href={LINKS.LOGIN}>
-									<a className="link text-primary">Войдите в аккаунт.</a>
+									<a className='link text-primary'>Войдите в аккаунт.</a>
 								</Link>
 							</p>
 						</>

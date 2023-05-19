@@ -10,7 +10,7 @@ import {
 import {
 	IAuthResponse,
 	IRecoveryResponse,
-	IRegister,
+  IRegisterByEmail, IRegisterByMobile,
 	ITokens,
 } from '@/store/user/user.interface'
 import axios, { axiosClassic } from '../interceptors'
@@ -18,12 +18,22 @@ import axios, { axiosClassic } from '../interceptors'
 import { removeTokensStorage, saveToStorage } from './auth.helper'
 
 export const AuthService = {
-	async register(email: string, password: string, login: string) {
-		const response = await axiosClassic.post<IRegister, IAuthResponse>(
+	async registerEmail(email: string, password: string, login: string) {
+		const response = await axiosClassic.post<IRegisterByEmail, IAuthResponse>(
 			getAuthUrl('register'),
 			{
 				login,
 				email,
+				password,
+			},
+		)
+		return response
+	},
+	async registerMobile( password: string, login: string) {
+		const response = await axiosClassic.post<IRegisterByMobile, IAuthResponse>(
+			getAuthUrl('register'),
+			{
+				login,
 				password,
 			},
 		)

@@ -30,9 +30,14 @@ export interface IAuthResponse {
 	promo: boolean
 }
 
-export interface IRegister {
+export interface IRegisterByEmail {
 	login: string
 	email: string
+	password: string
+}
+
+export interface IRegisterByMobile {
+	login: string
 	password: string
 }
 
