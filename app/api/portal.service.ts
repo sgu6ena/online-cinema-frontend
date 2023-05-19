@@ -1,7 +1,7 @@
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import {
-	APP_URL_PORTAL,
+	APP_URL_PORTAL, changeEmail,
 	getCategoryUrl,
 	getMovieUrl,
 	getUserDataUrl, percentageViewed,
@@ -27,6 +27,7 @@ import {
 } from '../shared/types/movie.types'
 import { IListFilter } from '../shared/types/search.types'
 import {
+	IChangeEmail,
 	IChangePassword,
 	ICheckSms,
 	ISendSms,
@@ -175,6 +176,12 @@ export const PortalService = {
 		const response = await axios.post<any, IChangePassword>(changePass(), {
 			passwordOld,
 			password,
+		})
+		return response
+	},
+	async changeEmail(email:string) {
+		const response = await axios.post<any, IChangeEmail>(changeEmail(), {
+			email,
 		})
 		return response
 	},
