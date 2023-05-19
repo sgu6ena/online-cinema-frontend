@@ -10,7 +10,7 @@ import { toast } from 'react-hot-toast'
 import AdminTableHeader from '../AdminTableHeader'
 import SkeletonLoader from '../../SkeletonLoader'
 import AdminTableMovieRow from './AdminTableMovieRow'
-import { IAdminFileListData } from '../../../../shared/types/admin.types'
+import { IAdminFileListData } from '@/shared/types/admin.types'
 
 interface IAdminMovieTable {
 	tableItems: IAdminFileListData[]

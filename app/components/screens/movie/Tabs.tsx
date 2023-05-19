@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { FC, useState } from 'react'
 
-import { IMedia } from '../../../shared/types/movie.types'
+import { IMedia } from '@/shared/types/movie.types'
 
 import styles from './Movie.module.scss'
 import Season from './Season'

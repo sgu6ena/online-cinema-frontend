@@ -1,6 +1,6 @@
-import { ISlide } from '../../components/ui/slider/slider.interface'
-import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
-import { IMainGenres } from '../../shared/types/movie.types'
+import { ISlide } from '@/ui/slider/slider.interface'
+import { IGalleryHome } from '@/ui/gallery/gallery.interface'
+import { IMainGenres } from '@/shared/types/movie.types'
 
 export interface IMainState{
 	isLoading: boolean

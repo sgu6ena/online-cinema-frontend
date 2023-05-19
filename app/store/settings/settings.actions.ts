@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-hot-toast'
 
 import { PortalService } from '../../api/portal.service'
-import { toastError } from '../../utils/toast-error'
+import { toastError } from '@/utils/toast-error'
 
 import { IChangePassword, ICheckSms, ISendSms } from './settings.interface'
 

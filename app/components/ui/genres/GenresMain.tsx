@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { IMainGenres } from '../../../shared/types/movie.types'
+import { IMainGenres } from '@/shared/types/movie.types'
 
 import GenreItem from './GenreItem'
 

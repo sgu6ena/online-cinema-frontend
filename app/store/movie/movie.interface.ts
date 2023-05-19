@@ -1,4 +1,4 @@
-import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
+import { IGalleryHome } from '@/ui/gallery/gallery.interface'
 import { IMoviePortalFull, IVotePortal } from '../../shared/types/movie.types'
 
 export interface IMovieState {

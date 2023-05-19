@@ -1,5 +1,5 @@
-import { IMoviePortal, IPagination } from '../../shared/types/movie.types'
-import { IFilter, IList } from '../../shared/types/search.types'
+import { IMoviePortal, IPagination } from '@/shared/types/movie.types'
+import { IFilter, IList } from '@/shared/types/search.types'
 
 
 export interface ISearchState extends IFilter {

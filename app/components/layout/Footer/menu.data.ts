@@ -1,5 +1,5 @@
 
-import { LINKS } from '../../../config/links'
+import { LINKS } from '@/config/links'
 import { IMenuItem } from '../Header/menu.interface'
 
 export const aboutUs: IMenuItem[] =

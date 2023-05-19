@@ -1,11 +1,9 @@
 import { useMutation, useQuery } from 'react-query'
 import { AdminService, updateGenre } from '../../../../api/admin/admin.service'
 import { toastError } from '@/utils/toast-error'
-import { PortalService } from '../../../../api/portal.service'
 import { toast } from 'react-hot-toast'
 import { getAdminUrl } from '@/config/url.config'
 import { useRouter } from 'next/router'
-import { LINKS } from '@/config/links'
 
 
 export const useGenre = (id: string, data?: any) => {

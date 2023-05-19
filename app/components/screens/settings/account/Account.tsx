@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 
-import { useAuth } from '../../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 import SkeletonLoader from '../../../ui/SkeletonLoader'
 import Heading from '../../../ui/heading/Heading'
 import styles from '../settings.module.scss'

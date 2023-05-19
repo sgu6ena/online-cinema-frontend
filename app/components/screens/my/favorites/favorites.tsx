@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react'
 
-import { useActions } from '../../../../hooks/useActions'
-import { useAuth } from '../../../../hooks/useAuth'
-import { useFavorites } from '../../../../hooks/useFavorites'
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+import { useFavorites } from '@/hooks/useFavorites'
 import CatalogLoader from '../../../loaders/CatalogLoader'
 import Gallery from '../../../ui/gallery/Gallery'
 import ShowMore from '../../../ui/showMore/showMore'

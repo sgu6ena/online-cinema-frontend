@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { IMainGenres } from '../../../shared/types/movie.types'
+import { IMainGenres } from '@/shared/types/movie.types'
 import Heading from '../heading/Heading'
 
 import GenreItem from './GenreItem'

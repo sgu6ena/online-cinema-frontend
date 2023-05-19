@@ -1,10 +1,10 @@
 import { FC, MouseEvent, useEffect } from 'react'
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs'
 
-import { useActions } from '../../../hooks/useActions'
-import { useFavoritesById } from '../../../hooks/useFavorites'
+import { useActions } from '@/hooks/useActions'
+import { useFavoritesById } from '@/hooks/useFavorites'
 import styles from '../gallery/Galery.module.scss'
-import { useAuth } from '../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 const FavoriteButton: FC<{ id: string }> = ({ id }) => {
 

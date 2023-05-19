@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { RiListCheck2 } from 'react-icons/ri'
 
-import { useAuth } from '../../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 import MaterialIcon from '../../../ui/MaterialIcon'
 import Button from '../../../ui/form-elemets/Button'
 import Heading from '../../../ui/heading/Heading'
@@ -11,9 +11,7 @@ import styles from '../settings.module.scss'
 import Modal from './ModalPay/Modal'
 import Pay from './ModalPay/Pay'
 import Unsubscribe from './ModalPay/Unsubscribe'
-import Breadcrumbs from '../../../ui/breadcrumbs/breadcrumbs'
-import { getSettingsBread } from '../../../../utils/breadcrumb/settings'
-import { LINKS } from '../../../../config/links'
+
 
 const Subscriptions: FC = () => {
 	const { user } = useAuth()

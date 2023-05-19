@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { LINKS } from '../../../../config/links'
-import { useActions } from '../../../../hooks/useActions'
-import { useAuth } from '../../../../hooks/useAuth'
+import { LINKS } from '@/config/links'
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
 import Meta from '../../../../utils/meta/Meta'
 
 import Button from '../../../ui/form-elemets/Button'

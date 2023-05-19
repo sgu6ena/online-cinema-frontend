@@ -2,16 +2,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect } from 'react'
 
-import { LINKS } from '../../../config/links'
-import { useActions } from '../../../hooks/useActions'
-import { useAuth } from '../../../hooks/useAuth'
+import { LINKS } from '@/config/links'
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
 import Heading from '../../ui/heading/Heading'
 
 import { settingsMenu } from './menu.data'
 import styles from './settings.module.scss'
-import Breadcrumbs from '../../ui/breadcrumbs/breadcrumbs'
-import { getMoviesBread } from '../../../utils/breadcrumb/movie'
-import { getSettingsBread } from '../../../utils/breadcrumb/settings'
 
 const Settings: FC = ({ children }) => {
 	const { push, asPath } = useRouter()

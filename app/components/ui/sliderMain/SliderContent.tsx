@@ -6,7 +6,7 @@ import MaterialIcon from '../MaterialIcon'
 import { ISlide } from '../slider/slider.interface'
 
 import styles from './slider.module.scss'
-import { getGenreUrl } from '../../../config/url.config'
+import { getGenreUrl } from '@/config/url.config'
 import FavoriteButton from '../FavoriteButton/favoriteButton'
 
 const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {

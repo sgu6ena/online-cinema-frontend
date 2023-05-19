@@ -1,6 +1,6 @@
 import { FC, MouseEvent } from 'react'
 
-import { useActions } from '../../../../hooks/useActions'
+import { useActions } from '@/hooks/useActions'
 import MaterialIcon from '../../../ui/MaterialIcon'
 
 const LogoutButton: FC = () => {

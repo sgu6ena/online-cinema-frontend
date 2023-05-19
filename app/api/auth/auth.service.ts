@@ -1,18 +1,18 @@
 import Cookies from 'js-cookie'
 
-import { IRecoveryInput } from '../../components/screens/auth/auth.interface'
+import { IRecoveryInput } from '@/screens/auth/auth.interface'
 import {
 	getAuthUrl,
 	getUserProfile,
 	logout,
 	recovery,
-} from '../../config/api.config'
+} from '@/config/api.config'
 import {
 	IAuthResponse,
 	IRecoveryResponse,
 	IRegister,
 	ITokens,
-} from '../../store/user/user.interface'
+} from '@/store/user/user.interface'
 import axios, { axiosClassic } from '../interceptors'
 
 import { removeTokensStorage, saveToStorage } from './auth.helper'

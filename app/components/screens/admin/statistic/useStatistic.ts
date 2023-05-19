@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 
-import { toastError } from '../../../../utils/toast-error'
+import { toastError } from '@/utils/toast-error'
 import { PortalService } from '../../../../api/portal.service'
 
 export const useStatistic = (id:string)=>{

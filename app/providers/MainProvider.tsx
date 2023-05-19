@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
 
 import Layout from '../components/layout/Layout'
-import { store } from '../store/store'
+import { store } from '@/store/store'
 
 import HeadProvider from './HeadProvider/HeadProvider'
 import AuthProvider from './authProvider/AuthProvider'

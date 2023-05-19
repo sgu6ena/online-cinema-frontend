@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import styles from './statisticCollectiom.module.scss'
 
-import { IMoviePortal } from '../../../shared/types/movie.types'
+import { IMoviePortal } from '@/shared/types/movie.types'
 import StatisticItem from './statisticItem'
 const StatisticSlider:FC<{ items: IMoviePortal[] }> = ({ items })  => {
 	return (

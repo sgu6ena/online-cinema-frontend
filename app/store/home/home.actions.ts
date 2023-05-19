@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { toastError } from '../../utils/toast-error'
+import { toastError } from '@/utils/toast-error'
 import { PortalService } from '../../api/portal.service'
-import { ISlide } from '../../components/ui/slider/slider.interface'
-import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
-import {  IMainGenres } from '../../shared/types/movie.types'
+import { ISlide } from '@/ui/slider/slider.interface'
+import { IGalleryHome } from '@/ui/gallery/gallery.interface'
+import {  IMainGenres } from '@/shared/types/movie.types'
 import { TypeRootState } from '../store'
 
 export const getMainHome = createAsyncThunk<

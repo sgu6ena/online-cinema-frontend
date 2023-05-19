@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import AdminNavigation from '../../ui/admin-navigation/AdminNavigation'
 import Heading from '../../ui/heading/Heading'
-import { isAdminSelector } from '../../../hooks/useAuth'
+import { isAdminSelector } from '@/hooks/useAuth'
 
 const Admin: FC = ({ children }) => {
 	const isAdmin = isAdminSelector()

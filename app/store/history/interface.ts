@@ -1,4 +1,4 @@
-import { IMoviePortal, IPagination } from '../../shared/types/movie.types'
+import { IMoviePortal, IPagination } from '@/shared/types/movie.types'
 
 export interface IState {
 	isLoading: boolean

@@ -1,4 +1,4 @@
-import { IMoviePortal } from '../../shared/types/movie.types'
+import { IMoviePortal } from '@/shared/types/movie.types'
 import { IParams } from '../../api/portal.service'
 
 export interface IState {

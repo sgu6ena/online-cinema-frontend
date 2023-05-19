@@ -3,10 +3,10 @@ import styles from './modal.module.scss'
 import Heading from '../../../../ui/heading/Heading'
 import Field from '../../../../ui/form-elemets/Field'
 import Button from '../../../../ui/form-elemets/Button'
-import { useActions } from '../../../../../hooks/useActions'
+import { useActions } from '@/hooks/useActions'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { IChangePassword } from '../../../../../store/settings/settings.interface'
-import { useSettings } from '../../../../../hooks/useSettings'
+import { IChangePassword } from '@/store/settings/settings.interface'
+import { useSettings } from '@/hooks/useSettings'
 
 interface IChangePass {
 	setIsShow: (isShow: boolean) => void

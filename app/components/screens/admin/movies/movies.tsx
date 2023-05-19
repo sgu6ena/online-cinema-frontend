@@ -7,7 +7,7 @@ import Pagination from '../../../ui/pagination/pagination'
 import { useRouter } from 'next/router'
 import SortBy from '../../../ui/sortMenu/sortBy'
 
-import { useActions } from '../../../../hooks/useActions'
+import { useActions } from '@/hooks/useActions'
 
 const Movies: FC = () => {
 	const { query } = useRouter()
