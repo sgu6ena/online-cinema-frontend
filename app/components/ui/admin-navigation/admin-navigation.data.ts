@@ -15,9 +15,10 @@ export const navItems: INavItem[] = [
 		title: 'Пользователи',
 	},
 	{
-		link: getAdminUrl('movies'),
-		title: 'Фильмы',
+		link: getAdminUrl('promo'),
+		title: 'Промокоды',
 	},
+
 	// {
 	// 	link: getAdminUrl('actors'),
 	// 	title: 'Актеры',
@@ -27,7 +28,11 @@ export const navItems: INavItem[] = [
 		title: 'Подборки',
 	},
 	{
-		link: getAdminUrl('banners'),
-		title: 'Баннеры',
+		link: getAdminUrl('movies'),
+		title: 'Фильмы',
 	},
+	// {
+	// 	link: getAdminUrl('banners'),
+	// 	title: 'Баннеры',
+	// },
 ]

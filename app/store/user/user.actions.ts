@@ -9,17 +9,30 @@ import { toastError } from '../../utils/toast-error'
 import {
 	IAuthResponse,
 	ILoginPassword,
-	IRegister,
+	IRegisterByEmail, IRegisterByMobile,
 	ITokens,
 } from './user.interface'
 import { PortalService } from '../../api/portal.service'
 import { saveToStorage } from '../../api/auth/auth.helper'
 
-export const register = createAsyncThunk<IAuthResponse, IRegister>(
-	'register',
+export const registerByMail = createAsyncThunk<IAuthResponse, IRegisterByEmail>(
+	'register by email',
 	async ({ email, password, login }, thunkApi) => {
 		try {
-			const response = await AuthService.register(email, password, login)
+			const response = await AuthService.registerEmail(email, password, login)
+			toast.success('Регистрация прошла успешно')
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	},
+)
+export const registerByMobile = createAsyncThunk<IAuthResponse, IRegisterByMobile>(
+	'register by mobile',
+	async ({  password, login }, thunkApi) => {
+		try {
+			const response = await AuthService.registerMobile( password, login)
 			toast.success('Регистрация прошла успешно')
 			return response
 		} catch (error) {

@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 import { getStoreLocalStorage } from '../../utils/local-storage'
 
-import { getUserData, login, logout, recovery, register } from './user.actions'
+import { getUserData, login, logout, recovery, registerByMail, registerByMobile } from './user.actions'
 import { IInitialState } from './user.interface'
 
 const initialState: IInitialState = {
@@ -19,16 +19,30 @@ export const userSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(register.pending, (state) => {
+			.addCase(registerByMail.pending, (state) => {
 				state.isLoading = true
 				state.isRegistered = false
 			})
-			.addCase(register.fulfilled, (state) => {
+			.addCase(registerByMail.fulfilled, (state) => {
 				state.isLoading = false
 				state.user = null
 				state.isRegistered = true
 			})
-			.addCase(register.rejected, (state) => {
+			.addCase(registerByMail.rejected, (state) => {
+				state.isLoading = false
+				state.user = null
+				state.isRegistered = false
+			})
+			.addCase(registerByMobile.pending, (state) => {
+				state.isLoading = true
+				state.isRegistered = false
+			})
+			.addCase(registerByMobile.fulfilled, (state) => {
+				state.isLoading = false
+				state.user = null
+				state.isRegistered = true
+			})
+			.addCase(registerByMobile.rejected, (state) => {
 				state.isLoading = false
 				state.user = null
 				state.isRegistered = false
