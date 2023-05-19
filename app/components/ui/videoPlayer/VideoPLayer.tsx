@@ -7,11 +7,10 @@ import AuthPlaceholder from './Placeholder/AuthPlaceholder'
 import ProfilePlaceholder from './Placeholder/ProfilePlaceholder'
 import styles from './videoplayer.module.scss'
 import screenfull from 'screenfull'
-import { GetShooting } from '@/screens/movie/useShooting'
-import axios from 'axios'
+
 import { PortalService } from '../../../api/portal.service'
 import { useActions } from '@/hooks/useActions'
-import BaseReactPlayer from 'react-player/base'
+
 
 
 const SHOOTING_TIME = 30

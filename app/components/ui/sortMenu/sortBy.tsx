@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { FC, useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
-import { IList } from '../../../shared/types/search.types'
+import { IList } from '@/shared/types/search.types'
 import Select from '../form-elemets/select/Select'
 
 

@@ -1,4 +1,4 @@
-import { LINKS } from '../../../config/links'
+import { LINKS } from '@/config/links'
 import { IMenuItem } from '../../layout/Header/menu.interface'
 
 

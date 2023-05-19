@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IMoviePortal } from '../../../shared/types/movie.types'
+import { IMoviePortal } from '@/shared/types/movie.types'
 
 import styles from './Galery.module.scss'
 import GalleryItemAlt from './GalleryItemAlt'

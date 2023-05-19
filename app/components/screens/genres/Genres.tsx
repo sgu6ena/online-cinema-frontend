@@ -1,7 +1,7 @@
 import { useGenres } from './useGenres'
-import { IGenrePortal } from '../../../shared/types/movie.types'
+import { IGenrePortal } from '@/shared/types/movie.types'
 import Link from 'next/link'
-import { getGenreUrl } from '../../../config/url.config'
+import { getGenreUrl } from '@/config/url.config'
 
 
 const Genres = () => {

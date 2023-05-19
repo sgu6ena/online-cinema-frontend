@@ -2,11 +2,11 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { getGenresList } from '../../../utils/movie/getGenresList'
+import { getGenresList } from '@/utils/movie/getGenresList'
 
 import styles from './Galery.module.scss'
 import { IGalleryItemProps } from './gallery.interface'
-import { getMoviesUrl } from '../../../config/api.config'
+import { getMoviesUrl } from '@/config/api.config'
 
 const GalleryItem: FC<IGalleryItemProps> = ({ item, variant }) => {
 	return (

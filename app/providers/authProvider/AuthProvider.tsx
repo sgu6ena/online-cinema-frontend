@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react'
-import { useAuth } from '../../hooks/useAuth'
-import { useActions } from '../../hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
+import { useActions } from '@/hooks/useActions'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
 

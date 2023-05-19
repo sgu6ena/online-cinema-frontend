@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useRef, useState } from 'react'
 
-import { isAdminSelector, useAuth } from '../../../../hooks/useAuth'
+import { isAdminSelector, useAuth } from '@/hooks/useAuth'
 import MaterialIcon from '../../../ui/MaterialIcon'
 import styles from './burgers.module.scss'
 import { headerNavMenu, notUserMenu, userMenu } from '../menu.data'
 
 import LogoutButton from './LogoutButton'
-import { LINKS } from '../../../../config/links'
+import { LINKS } from '@/config/links'
 
 const Burgers: FC = () => {
 	const isAdmin = isAdminSelector()

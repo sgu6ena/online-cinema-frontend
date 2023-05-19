@@ -1,4 +1,4 @@
-import { getAdminHomeUrl, getAdminUrl } from '../../../config/url.config'
+import { getAdminHomeUrl, getAdminUrl } from '@/config/url.config'
 
 export interface INavItem {
 	title: string

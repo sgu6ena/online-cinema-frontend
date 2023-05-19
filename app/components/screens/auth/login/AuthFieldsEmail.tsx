@@ -3,17 +3,17 @@ import {FormState, UseFormRegister} from 'react-hook-form'
 
 import Field from '../../../ui/form-elemets/Field'
 
-interface IAuthFields {
+interface AuthFieldsEmail {
   register: UseFormRegister<any>
   formState: FormState<any>
   isPasswordRequired?: boolean
 }
 
-const AuthFields: FC<IAuthFields> = ({
-                                       register,
-                                       formState: {errors},
-                                       isPasswordRequired,
-                                     }) => {
+const AuthFieldsEmail: FC<AuthFieldsEmail> = ({
+                                                register,
+                                                formState: { errors },
+                                                isPasswordRequired,
+                                              }) => {
   return (
     <>
       <Field
@@ -28,7 +28,7 @@ const AuthFields: FC<IAuthFields> = ({
             message: 'Логин должен содержать не более 50 символов ',
           },
         })}
-        placeholder="e-mail или  логин"
+        placeholder="e-mail"
         //@ts-ignore
         error={errors && errors.login}
       />
@@ -54,4 +54,4 @@ const AuthFields: FC<IAuthFields> = ({
   )
 }
 
-export default AuthFields
+export default AuthFieldsEmail

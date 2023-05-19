@@ -1,4 +1,4 @@
-import { IMoviePortal} from '../../../shared/types/movie.types'
+import { IMoviePortal} from '@/shared/types/movie.types'
 
 export interface IGalleryItemProps {
   item: IMoviePortal

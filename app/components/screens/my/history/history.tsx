@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 
-import { useActions } from '../../../../hooks/useActions'
-import { useHistory } from '../../../../hooks/useHistory'
+import { useActions } from '@/hooks/useActions'
+import { useHistory } from '@/hooks/useHistory'
 import CatalogLoader from '../../../loaders/CatalogLoader'
 import Gallery from '../../../ui/gallery/Gallery'
 import ShowMore from '../../../ui/showMore/showMore'

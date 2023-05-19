@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { IParams, PortalService } from '../../api/portal.service'
-import { toastError } from '../../utils/toast-error'
+import { toastError } from '@/utils/toast-error'
 
 
 export const getGenreById = createAsyncThunk<any, { genreId: string, params: IParams }>(

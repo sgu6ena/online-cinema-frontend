@@ -3,8 +3,8 @@ import Cookies from 'js-cookie'
 import { toast } from 'react-hot-toast'
 
 import { AuthService } from '../../api/auth/auth.service'
-import { IRecoveryInput } from '../../components/screens/auth/auth.interface'
-import { toastError } from '../../utils/toast-error'
+import { IRecoveryInput } from '@/screens/auth/auth.interface'
+import { toastError } from '@/utils/toast-error'
 
 import {
 	IAuthResponse,

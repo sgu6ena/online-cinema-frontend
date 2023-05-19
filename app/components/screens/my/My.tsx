@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC, useEffect } from 'react'
 
-import { useAuth } from '../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 import Heading from '../../ui/heading/Heading'
 
 import AuthButton from './AuthButton'
 import { myMenu } from './menu.data'
-import { useActions } from '../../../hooks/useActions'
-import { getFavoritesIds } from '../../../store/favorites/actions'
+import { useActions } from '@/hooks/useActions'
+import { getFavoritesIds } from '@/store/favorites/actions'
 
 const My: FC = ({ children }) => {
 

@@ -2,8 +2,8 @@ import cn from 'classnames'
 import { FC } from 'react'
 import { toast } from 'react-hot-toast'
 
-import { useAuth } from '../../../hooks/useAuth'
-import { IVotePortal } from '../../../shared/types/movie.types'
+import { useAuth } from '@/hooks/useAuth'
+import { IVotePortal } from '@/shared/types/movie.types'
 import MaterialIcon from '../MaterialIcon'
 
 import styles from './Vote.module.scss'

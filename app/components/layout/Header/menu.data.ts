@@ -102,4 +102,9 @@ export const headerNavMenu: IMenuItem[] = [
 		link: LINKS.MULTFILMS,
 		title: 'Мультфильмы',
 	},
+	{
+		icon: 'MdChildCare',
+		link: LINKS.SHOW,
+		title: 'Шоу',
+	},
 ]

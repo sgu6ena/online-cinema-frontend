@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IMedia } from '../../shared/types/movie.types'
+import { IMedia } from '@/shared/types/movie.types'
 
 import { getUrl } from './video.actions'
 import { initialState } from './video.interface'
-import season from '@/screens/movie/Season'
+
 
 export const videoSlice = createSlice({
 	name: 'video',

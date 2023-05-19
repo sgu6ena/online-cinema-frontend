@@ -1,6 +1,6 @@
-import { getGenreUrl } from '../../config/url.config'
-import { IMoviePortalFull } from '../../shared/types/movie.types'
-import { getMoviesUrl } from '../../config/api.config'
+import { getGenreUrl } from '@/config/url.config'
+import { IMoviePortalFull } from '@/shared/types/movie.types'
+import { getMoviesUrl } from '@/config/api.config'
 
 export const getMoviesBread = (movie: IMoviePortalFull) => {
 	let title = 'Фильмы'

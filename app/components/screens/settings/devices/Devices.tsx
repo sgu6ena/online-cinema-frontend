@@ -4,7 +4,7 @@ import Heading from '../../../ui/heading/Heading'
 import Field from '../../../ui/form-elemets/Field'
 import Button from '../../../ui/form-elemets/Button'
 import styles from '../settings.module.scss'
-import { useActions } from '../../../../hooks/useActions'
+import { useActions } from '@/hooks/useActions'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 const Devices: FC = () => {

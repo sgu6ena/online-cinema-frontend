@@ -5,7 +5,7 @@ import ReactSelect from 'react-select'
 import {
     IOptions,
     ISelect,
-} from '../../../ui/form-elemets/select/select.interface'
+} from '@/ui/form-elemets/select/select.interface'
 
 import styles from './Select.module.scss'
 import formStyles from '../form.module.scss'

@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import { AdminService } from '../../../../api/admin/admin.service'
-import { toastError } from '../../../../utils/toast-error'
+import { toastError } from '@/utils/toast-error'
 
 export const useUsers=()=>{
 	const users = useQuery(

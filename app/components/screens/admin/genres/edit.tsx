@@ -1,9 +1,6 @@
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import { useRouter } from 'next/router'
-import { useActions } from '../../../../hooks/useActions'
-import { useFavoritesById } from '../../../../hooks/useFavorites'
-import { getListDot } from '../../../../utils/movie/getGenresList'
-import { useMovie } from '../../../../hooks/useMovie'
+
 import Field from '../../../ui/form-elemets/Field'
 import Heading from '../../../ui/heading/Heading'
 import Subheading from '../../../ui/heading/Subheading'

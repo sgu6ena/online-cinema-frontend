@@ -1,5 +1,4 @@
-import { getSettingsUrl } from '../../config/url.config'
-import { LINKS } from '../../config/links'
+import { LINKS } from '@/config/links'
 
 export const getSettingsBread = (title?:string, link?:string) =>{
 	if(!title)

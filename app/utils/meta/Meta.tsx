@@ -2,7 +2,7 @@ import Head from 'next/head'
 import {useRouter} from 'next/router'
 import {FC} from 'react'
 
-import {siteName, titleMerge} from '../../config/seo.config'
+import {siteName, titleMerge} from '@/config/seo.config'
 import {onlyText} from '../string/clearText'
 
 import {ISeo} from './meta.interface'

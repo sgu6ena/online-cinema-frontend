@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IMoviePortal } from '../../../shared/types/movie.types'
+import { IMoviePortal } from '@/shared/types/movie.types'
 import styles from './statisticCollectiom.module.scss'
 
 const StatisticItem: FC<{item:IMoviePortal, index?:number}> = ({ item, index }) => {

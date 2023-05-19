@@ -1,4 +1,4 @@
-import { IGenre } from '../../../shared/types/movie.types'
+import { IGenre } from '@/shared/types/movie.types'
 
 
 export interface ISlide{

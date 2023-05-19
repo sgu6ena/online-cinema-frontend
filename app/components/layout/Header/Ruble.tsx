@@ -4,8 +4,8 @@ import Button from '../../ui/form-elemets/Button'
 import styles from './header.module.scss'
 import { FC, useState } from 'react'
 import Link from 'next/link'
-import { LINKS } from '../../../config/links'
-import { useAuth, useRuble } from '../../../hooks/useAuth'
+import { LINKS } from '@/config/links'
+import { useAuth, useRuble } from '@/hooks/useAuth'
 
 const Ruble: FC = () => {
 	const { user } = useAuth()

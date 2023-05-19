@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-hot-toast'
 
 import { PortalService } from '../../api/portal.service'
-import { IMoviePortal } from '../../shared/types/movie.types'
-import { toastError } from '../../utils/toast-error'
+import { IMoviePortal } from '@/shared/types/movie.types'
+import { toastError } from '@/utils/toast-error'
 import { TypeRootState } from '../store'
 
 export const favorites = createAsyncThunk<any, any>(

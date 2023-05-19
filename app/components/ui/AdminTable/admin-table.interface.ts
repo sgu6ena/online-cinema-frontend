@@ -1,4 +1,4 @@
-import { IAdminFileListData } from '../../../shared/types/admin.types'
+import { IAdminFileListData } from '@/shared/types/admin.types'
 
 export interface ITableItem {
 	_id: string

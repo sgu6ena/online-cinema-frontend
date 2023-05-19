@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
 
-import { getStoreLocalStorage } from '../../utils/local-storage'
+import { getStoreLocalStorage } from '@/utils/local-storage'
 
 import { getUserData, login, logout, recovery, register } from './user.actions'
 import { IInitialState } from './user.interface'

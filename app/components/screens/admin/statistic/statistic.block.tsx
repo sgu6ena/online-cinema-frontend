@@ -4,7 +4,7 @@ import { useStatistic } from './useStatistic'
 
 import styles from './statistic.module.scss'
 import Link from 'next/link'
-import { getGenreUrl } from '../../../../config/url.config'
+import { getGenreUrl } from '@/config/url.config'
 import Heading from '../../../ui/heading/Heading'
 import { GENRES_ALT } from '../../genre/data.genres'
 import StatisticSlider from '../../../ui/statisticSlider/statisticSlider'

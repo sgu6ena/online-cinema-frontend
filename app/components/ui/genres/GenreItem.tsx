@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { getGenreUrl } from '../../../config/url.config'
-import { IMainGenreItem } from '../../../shared/types/movie.types'
+import { getGenreUrl } from '@/config/url.config'
+import { IMainGenreItem } from '@/shared/types/movie.types'
 
 import { genreIcons } from './genreIcons'
 import styles from './genres.module.scss'

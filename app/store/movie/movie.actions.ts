@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-hot-toast'
 
 import { PortalService } from '../../api/portal.service'
-import { IGalleryHome } from '../../components/ui/gallery/gallery.interface'
-import { IMoviePortalFull, IVotePortal } from '../../shared/types/movie.types'
-import { toastError } from '../../utils/toast-error'
+import { IGalleryHome } from '@/ui/gallery/gallery.interface'
+import { IMoviePortalFull, IVotePortal } from '@/shared/types/movie.types'
+import { toastError } from '@/utils/toast-error'
 
 export const getMovie = createAsyncThunk<
 	{

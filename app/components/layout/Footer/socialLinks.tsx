@@ -10,7 +10,7 @@ import {
 	FaVk,
 } from 'react-icons/fa'
 
-import { LINKS } from '../../../config/links'
+import { LINKS } from '@/config/links'
 import Subheading from '../../ui/heading/Subheading'
 
 import styles from './footer.module.scss'

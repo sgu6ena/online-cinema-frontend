@@ -2,12 +2,9 @@ import { useRouter } from 'next/router'
 import React, { FC, useState } from 'react'
 import { toast } from 'react-hot-toast'
 
-import { useAuth } from '../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 import MaterialIcon from '../MaterialIcon'
-import Button from '../form-elemets/Button'
 import Heading from '../heading/Heading'
-import Subheading from '../heading/Subheading'
-
 import styles from './report.module.scss'
 
 const Report: FC = () => {
