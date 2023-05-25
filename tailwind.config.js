@@ -102,11 +102,12 @@ module.exports = {
 			addComponents({
 				'.btn-primary': {
 					backgroundColor: primary,
+					background:"linear-gradient(90deg, #7B4397 0%, #DC2430 100%)",
 					color: '#fff',
 					borderRadius: '0.2rem',
 					transition: 'background-color .3s ease-in-out',
 					'&:hover': {
-						backgroundColor: '#ff0009',
+						backgroundColor: '#7B4397',
 					},
 					'&:disabled': {
 						backgroundColor: '#39393f',
