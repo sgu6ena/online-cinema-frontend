@@ -6,7 +6,7 @@
     max-width: 450px;
 
     .change, .active{
-      @apply text-gray-500 m-5 mt-0 pb-1 transition-all;
+      @apply text-gray-500 m-5 mb-8 mt-0 pb-1 transition-all;
       border-bottom: 2px solid transparent;
     }
     .active{

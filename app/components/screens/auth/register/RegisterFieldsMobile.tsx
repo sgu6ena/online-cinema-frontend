@@ -7,7 +7,7 @@ import {FormState, UseFormRegister} from 'react-hook-form'
 
 interface IAuthFieldsMobile {
 	register: UseFormRegister<any>
-	formState: FormState<any>
+	formState: FormState<{phone:string}>
 }
 
 const RegisterFieldsMobile: FC<IAuthFieldsMobile> = ({
@@ -17,7 +17,7 @@ const RegisterFieldsMobile: FC<IAuthFieldsMobile> = ({
 	return (
 		<>
 			<Field
-				{...register('login', {
+				{...register('phone', {
 					required: 'Номер телефона обязательное поле',
 					maxLength: {
 						value: 8,
@@ -29,47 +29,20 @@ const RegisterFieldsMobile: FC<IAuthFieldsMobile> = ({
 					}
 				})}
 				placeholder="номер телефона"
-				//@ts-ignore
-				error={errors?.login}
+				error={errors?.phone}
 			/>
-			<Field
-				{...register('password', {
-					required: 'Пароль обязательное поле',
-					minLength: {
-						value: 6,
-						message: 'Минимальная длина пароля - 6 символов',
-					},
-				})}
-				placeholder="Пароль"
-				type="password"
-				//@ts-ignore
-				error={errors?.password}
-			/>
-			<Field
-				{...register('passwordRpt', {
-					required: 'Пароль обязательное поле',
-					minLength: {
-						value: 6,
-						message: 'Минимальная длина пароля - 6 символов',
-					},
-				})}
-				placeholder="Повторите пароль"
-				type="password"
-				//@ts-ignore
-				error={errors?.passwordRpt}
-			/>
-			<label className="flex justify-start items-start">
+
+			<label className="flex justify-start items-center">
 				<input
 					{...register('agree', {
 						required: 'Вы должны согласиться с условиями',
 					})}
 					type="checkbox"
 				/>
-				<span className="mx-3 -mt-1 text-gray-600 text-left">
-					Я согласен с условиями{' '}
+				<span className="mx-3  text-gray-600 text-sm text-left">
+					Я согласен с {' '}
 					<a href={LINKS.AGREEMENT} target="_blank" className="link" rel="noreferrer">
-						{' '}
-						пользовательского соглашения
+						{' '} публичными условиями
 					</a>
 				</span>
 			</label>

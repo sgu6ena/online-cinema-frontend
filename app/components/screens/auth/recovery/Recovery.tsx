@@ -14,6 +14,7 @@ import { IRecoveryInput } from '../auth.interface'
 
 
 import RecoveryFields from './RecoveryFields'
+import { validEmail, validMobile } from '@/shared/regex'
 
 const Recovery: FC = () => {
 	const {
@@ -22,9 +23,13 @@ const Recovery: FC = () => {
 		formState,
 	} = useForm<any>({ mode: 'onChange' })
 	const { isLoading } = useAuth()
-	const { recovery } = useActions()
+	const { recovery, recoveryByPhone } = useActions()
 	const onSubmit: SubmitHandler<IRecoveryInput> = (data) => {
-		recovery(data)
+		console.log({phone:data.login})
+		if (data.login?.match(validMobile))
+			recoveryByPhone(data.login)
+		else if (data.login?.match(validEmail))
+			recovery(data.login)
 	}
 
 	return (
@@ -36,14 +41,14 @@ const Recovery: FC = () => {
 						<>
 							<Heading title={'Забыли пароль?'} className="mb-3" />
 							<Heading
-								title="Инструкция по восстановлению пароля будет отправлена на Ваш адрес электронной почты"
-								className="text-gray-500  text-xl mb-8"
+								title="Для восстановления пароля введите e-mail или номер телефона вашего аккаунта, на который мы отправим новый пароль"
+								className="text-gray-500  text-sm mb-8"
 							/>
 							<RecoveryFields register={registerInput} formState={formState} />
 
 							<div className={styles.buttons}>
 								<Button type="submit" disabled={!formState.isValid}>
-									Восстановить
+									Отправить новый пароль
 								</Button>
 							</div>
 							<p>

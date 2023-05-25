@@ -2,7 +2,7 @@ import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
 import React, { FC } from 'react'
 
-import { accentColor } from '@/config/constants'
+import { accentColor, gradient } from '@/config/constants'
 
 import Favicons from './Favicons'
 
@@ -10,7 +10,7 @@ const HeadProvider: FC = ({ children }) => {
 	return (
 		<>
 			<NextNProgress
-				color={accentColor}
+				color={gradient}
 				startPosition={0.3}
 				stopDelayMs={200}
 				height={4}

@@ -31,14 +31,14 @@ export interface IAuthResponse {
 }
 
 export interface IRegisterByEmail {
-	login: string
+	// login: string
 	email: string
-	password: string
+	// password: string
 }
 
 export interface IRegisterByMobile {
-	login: string
-	password: string
+	phone: string
+	// password: string
 }
 
 export interface IRecoveryResponse {

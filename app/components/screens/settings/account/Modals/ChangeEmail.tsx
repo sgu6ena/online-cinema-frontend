@@ -8,6 +8,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { IChangeEmail, IChangePassword } from '@/store/settings/settings.interface'
 import { useSettings } from '@/hooks/useSettings'
 import { changeEmail } from '@/store/settings/settings.actions'
+import { validEmail } from '@/shared/regex'
 
 interface ChangeEmail {
 	setIsShow: (isShow: boolean) => void
@@ -38,15 +39,15 @@ const ChangeEmail: FC<ChangeEmail> = ({ setIsShow }) => {
 				{isLoading ?
 					<div>меняю пароль</div>
 					: <>
-						<Field type='password'
+						<Field type='text'
 									 {...register('email', {
 										 required: 'Обязательное поле',
-										 minLength: {
-											 value: 6,
-											 message: 'Минимум 6 символов',
+										 pattern:{
+											 value:validEmail,
+											 message:'введите корректный e-mail'
 										 },
 									 })}
-									 placeholder='Email'
+									 placeholder='Новый E-mail'
 									 error={formState.errors && formState.errors.email}
 									 autoComplete={'off'}
 						/></>}

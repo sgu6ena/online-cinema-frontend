@@ -12,7 +12,7 @@ import Heading from '../../../ui/heading/Heading'
 import styles from '../Auth.module.scss'
 import { IAuthInput } from '../auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
-import AuthFieldsEmail from '@/screens/auth/login/AuthFieldsEmail'
+import AuthFieldsMobile from '@/screens/auth/login/AuthFieldsMobile'
 
 const Auth: FC = () => {
 useAuthRedirect()
@@ -44,16 +44,15 @@ useAuthRedirect()
 								title='Войдите для доступа к подписке и списку избранного'
 								className='text-gray-500 text-sm mb-8'
 							/>
-							<AuthFieldsEmail
+							<AuthFieldsMobile
 								register={registerInput}
 								formState={formState}
-								isPasswordRequired
 							/>
 
-							<div className={styles.buttons}>
-								<p>
+							<div className={styles.buttons} >
+								<p >
 									<Link href={LINKS.FORGOT}>
-										<a>Забыли пароль?</a>
+										<a className='font-bold text-md '>Забыли пароль?</a>
 									</Link>
 								</p>
 								<Button type='submit' disabled={!formState.isValid}>

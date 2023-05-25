@@ -4,17 +4,18 @@ export interface IAuthInput {
 }
 
 export interface IRegisterInputEmail {
-	login: string
+	// login: string
 	email: string
-	password: string
-	passwordRpt: string
+	// password: string
+	// passwordRpt: string
 }
 
 export interface IRegisterInputMobile {
-	login: string
-	password: string
-	passwordRpt: string
+	phone: string
+	// password: string
+	// passwordRpt: string
 }
 export interface IRecoveryInput {
-	email: string
+	email?: string
+	login?:string
 }
