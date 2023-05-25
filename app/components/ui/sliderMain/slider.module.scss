@@ -67,7 +67,11 @@
       @apply flex mb-3 md:gap-4 gap-0;
 
       .show {
-        @apply btn-primary gap-2 flex-center-between md:pl-6 md:pr-8 px-1 w-min md:py-2 py-1 shadow-2xl;
+        @apply btn-primary gap-2 flex-center-between md:pl-6 md:pr-8 px-1 w-min md:py-2 py-1 transition-all shadow-2xl;
+        background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
+        &:hover{
+          background: linear-gradient(90deg, #7B4397 40%, #DC2430 100%);
+        }
         svg{
           @apply md:h-8 md:w-8 h-5 w-5;
         }

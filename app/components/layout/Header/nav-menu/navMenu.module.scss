@@ -36,7 +36,8 @@
     }
 
     li.active > a:before {
-      @apply bg-primary;
+      //@apply bg-primary;
+      background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
     }
   }
 }
