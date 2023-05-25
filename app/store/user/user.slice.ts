@@ -49,17 +49,17 @@ export const userSlice = createSlice({
 			})
 			.addCase(login.pending, (state) => {
 				state.isLoading = true
-				state.isRegistered = false
+				// state.isRegistered = true
 			})
 			.addCase(login.fulfilled, (state, { payload }) => {
 				state.isLoading = false
 				state.user = payload.user
-				state.isRegistered = false
+				state.isRegistered = true
 			})
 			.addCase(login.rejected, (state, { payload }) => {
 				state.isLoading = false
 				state.user = null
-				state.isRegistered = false
+				// state.isRegistered = false
 			})
 			.addCase(recovery.pending, (state) => {
 				state.isLoading = true
