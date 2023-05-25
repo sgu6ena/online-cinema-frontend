@@ -10,6 +10,7 @@ import Heading from '../heading/Heading'
 
 import styles from './collection.module.scss'
 import { collectionsToItems } from '@/screens/home/Home'
+import Button from '@/ui/form-elemets/Button'
 
 const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 	return (
@@ -24,10 +25,10 @@ const Collection: FC<{ collection: IGalleryHome }> = ({ collection }) => {
 					<div>
 						<Link href={getGenreUrl(collection.cid.toString())}>
 							<a>
-								<button>
+								<Button>
 									<span> Смотреть все</span>
 									<MaterialIcon name='MdChevronRight' />
-								</button>
+								</Button>
 							</a>
 						</Link>
 					</div>

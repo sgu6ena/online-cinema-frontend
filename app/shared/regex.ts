@@ -1,2 +1,4 @@
-export const validEmail = /^\S+@\S+\.\S+$/
+export const validEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+
+export const validMobile = /^77[456789][0-9]{5}$/
 

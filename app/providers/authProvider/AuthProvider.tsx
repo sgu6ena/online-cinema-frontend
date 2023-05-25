@@ -11,7 +11,7 @@ const AuthProvider: FC = ({ children }) => {
 	const { pathname } = useRouter()
 	useEffect(() => {
 		const token = Cookies.get('atp')
-		if (!token && user) logout()
+		// if (!token && user) logout()
 	}, [pathname])
 	return (
 		<>

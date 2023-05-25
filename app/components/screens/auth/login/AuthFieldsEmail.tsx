@@ -5,20 +5,18 @@ import Field from '../../../ui/form-elemets/Field'
 
 interface AuthFieldsEmail {
   register: UseFormRegister<any>
-  formState: FormState<any>
-  isPasswordRequired?: boolean
+  formState: FormState<{login:string, password:string}>
 }
 
 const AuthFieldsEmail: FC<AuthFieldsEmail> = ({
                                                 register,
                                                 formState: { errors },
-                                                isPasswordRequired,
                                               }) => {
   return (
     <>
       <Field
         {...register('login', {
-          required: 'Логин обязательное поле',
+          required: 'Обязательное поле',
           minLength: {
             value: 4,
             message: 'Логин должен содержать не менее 4-х символов ',
@@ -28,27 +26,24 @@ const AuthFieldsEmail: FC<AuthFieldsEmail> = ({
             message: 'Логин должен содержать не более 50 символов ',
           },
         })}
-        placeholder="e-mail"
-        //@ts-ignore
+        placeholder="номер телефона или e-mail"
         error={errors && errors.login}
       />
       <Field
         {...register(
           'password',
-          isPasswordRequired
-            ? {
+           {
               required: 'Пароль обязательное поле',
               minLength: {
                 value: 6,
                 message: 'Минимальная длина пароля - 6 символов',
               },
             }
-            : {}
+
         )}
-        placeholder="password"
+        placeholder="пароль"
         type="password"
-        //@ts-ignore
-        error={errors && errors.password}
+        error={errors && errors?.password}
       />
     </>
   )

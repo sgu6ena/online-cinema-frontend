@@ -7,7 +7,7 @@ import Field from '../../../ui/form-elemets/Field'
 
 interface IAuthFields {
   register: UseFormRegister<any>
-  formState: FormState<any>
+  formState: FormState<{ login:string, email:string }>
 }
 
 const RegisterFieldsEmail: FC<IAuthFields> = ({
@@ -29,7 +29,6 @@ const RegisterFieldsEmail: FC<IAuthFields> = ({
           },
         })}
         placeholder="Логин"
-        //@ts-ignore
         error={errors?.login}
       />
       <Field
@@ -49,47 +48,20 @@ const RegisterFieldsEmail: FC<IAuthFields> = ({
           },
         })}
         placeholder="e-mail "
-        //@ts-ignore
         error={errors?.email}
       />
-      <Field
-        {...register('password', {
-          required: 'Пароль обязательное поле',
-          minLength: {
-            value: 6,
-            message: 'Минимальная длина пароля - 6 символов',
-          },
-        })}
-        placeholder="Пароль"
-        type="password"
-        //@ts-ignore
-        error={errors?.password}
-      />
-      <Field
-        {...register('passwordRpt', {
-          required: 'Пароль обязательное поле',
-          minLength: {
-            value: 6,
-            message: 'Минимальная длина пароля - 6 символов',
-          },
-        })}
-        placeholder="Повторите пароль"
-        type="password"
-        //@ts-ignore
-        error={errors?.passwordRpt}
-      />
-      <label className="flex justify-start items-start">
+
+      <label className="flex justify-start items-center">
         <input
           {...register('agree', {
             required: 'Вы должны согласиться с условиями',
           })}
           type="checkbox"
         />
-        <span className="mx-3 -mt-1 text-gray-600 text-left">
-					Я согласен с условиями{' '}
+        <span className="mx-3  text-gray-600 text-sm text-left">
+					Я согласен с {' '}
           <a href={LINKS.AGREEMENT} target="_blank" className="link" rel="noreferrer">
-						{' '}
-            пользовательского соглашения
+						{' '} публичными условиями
 					</a>
 				</span>
       </label>
