@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
 
 import { LINKS } from '@/config/links'
@@ -18,6 +18,7 @@ import RegisterFieldsMobile from './RegisterFieldsMobile'
 import { useRouter } from 'next/router'
 import Login from '@/screens/auth/register/Login'
 import Field from '@/ui/form-elemets/Field'
+import { useUsers } from '@/screens/admin/users/useUsers'
 
 
 const Register = () => {
@@ -44,24 +45,31 @@ const Register = () => {
 	} = useForm<IRegisterInputMobile>({ mode: 'onChange' })
 
 	const { registerByMail, registerByMobile } = useActions()
-
-
+	const [username, setUsername] = useState<string>('')
+	const { login } = useActions()
+	const {user} = useAuth()
 	const onSubmitEmail: SubmitHandler<IRegisterInputEmail> = ({ email }) => {
 		registerByMail({ email })
+		setUsername(email)
 	}
 
 	const onSubmitMobile: SubmitHandler<IRegisterInputMobile> = ({ phone }) => {
 		registerByMobile({ phone })
+		setUsername(phone)
 	}
 	//
-	// useEffect(() => {
-	// 	if (isRegistered)
-	// 		push(LINKS.LOGIN)
-	// }, [isRegistered])
+	useEffect(() => {
+		if (user?.avatar)
+			push(LINKS.MAIN)
+	}, [user])
 
 	const changeRegister = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, state: boolean) => {
 		e.preventDefault()
 		setIsByMobile(state)
+	}
+
+	const getLogin: SubmitHandler<FieldValues> = (data)=>{
+		login({ login:username, password:data.password })
 	}
 
 	return (
@@ -70,8 +78,8 @@ const Register = () => {
 			<Meta title='Регистрация' />
 			<section className={styles.wrapper}>
 
-				{ !isRegistered  ?(
-					<form onSubmit={handleSubmit(data=>console.log(data))}>
+				{ isRegistered  ?(
+					<form onSubmit={handleSubmit(getLogin)}>
 						<Heading
 							title="Вход"
 							className=' text-md mb-5'
