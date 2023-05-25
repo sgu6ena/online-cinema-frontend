@@ -1,10 +1,18 @@
 .wrapper {
   @apply mt-32 mb-16;
-  > form {
+  > form, .form {
     @apply mx-auto  air-block bg-opacity-80 p-7 text-center;
     min-width: 300px;
     max-width: 450px;
 
+    .change, .active{
+      @apply text-gray-500 m-5 mb-8 mt-0 pb-1 transition-all;
+      border-bottom: 2px solid transparent;
+    }
+    .active{
+      @apply text-white;
+      border-bottom: 2px solid red;
+    }
     p {
       @apply text-gray-500 text-sm my-6;
     }

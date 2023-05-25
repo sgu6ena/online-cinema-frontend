@@ -19,6 +19,7 @@
           @apply flex gap-4 items-center;
           button {
             @apply text-white flex-center-between lg:pr-6 gap-2 bg-transparent px-4 py-3 rounded  border border-gray-600;
+
             svg {
               @apply text-2xl;
             }
@@ -28,13 +29,19 @@
           }
 
           .active {
+
             svg {
               @apply text-primary;
             }
           }
 
           .play {
-            @apply bg-primary border-none;
+            @apply  border-none;
+            transition: all 3s;
+            background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
+            &:hover{
+              background: linear-gradient(90deg, #7B4397 40%, #DC2430 100%);
+            }
             span{
               @apply hidden md:block
             }
@@ -112,7 +119,8 @@
       min-width: 42px;
 
       &.active {
-        @apply text-white bg-primary border-primary opacity-100;
+        @apply text-white opacity-100;
+        background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
       }
     }
   }
@@ -120,6 +128,7 @@
   .season {
     .active {
       @apply flex  animate-fade flex-nowrap justify-items-start overflow-x-auto;
+
       .episode {
         @apply text-center rounded-layout hover:opacity-100 relative block rounded grow-0 z-10 shrink-0 transition m-2;
         min-width: 100px;
@@ -155,7 +164,11 @@
 
       .activeEpisode {
         .imageBox {
-          @apply border border-2 bg-primary text-primary border-primary;
+          @apply  text-primary ;
+          background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
+          img{
+            transform: scale(0.95);
+          }
         }
 
         .progress {

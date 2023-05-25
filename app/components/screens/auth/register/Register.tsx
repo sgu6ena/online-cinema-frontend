@@ -15,69 +15,96 @@ import { IRegisterInputEmail, IRegisterInputMobile } from '../auth.interface'
 
 import RegisterFieldsEmail from './RegisterFieldsEmail'
 import RegisterFieldsMobile from './RegisterFieldsMobile'
-import { registerByMail, registerByMobile } from '@/store/user/user.actions'
+import { useRouter } from 'next/router'
+import Login from '@/screens/auth/register/Login'
+import Field from '@/ui/form-elemets/Field'
 
 
 const Register = () => {
 	const { isLoading, isRegistered } = useAuth()
+	const { push } = useRouter()
+	const [isByMobile, setIsByMobile] = useState(true)
+
+	const {
+		register,
+		formState,
+		handleSubmit
+	} = useForm({ mode: 'onChange' })
 
 	const {
 		register: registerInput,
-		handleSubmit:handleSubmitEmail,
-		formState:formStateEmail,
+		handleSubmit: handleSubmitEmail,
+		formState: formStateEmail,
 	} = useForm<IRegisterInputEmail>({ mode: 'onChange' })
+
 	const {
 		register: registerInputMobile,
-		handleSubmit:handleSubmitMobile,
-		formState:formStateMobile,
+		handleSubmit: handleSubmitMobile,
+		formState: formStateMobile,
 	} = useForm<IRegisterInputMobile>({ mode: 'onChange' })
 
-	const { registerByMail } = useActions()
+	const { registerByMail, registerByMobile } = useActions()
 
-	const [isByMobile, setIsByMobile] = useState(true)
 
-	const onSubmitEmail: SubmitHandler<IRegisterInputEmail> = ({
-																										 email,
-																										 login,
-																										 passwordRpt,
-																										 password,
-																									 }) => {
-		if (password === passwordRpt) registerByMail({ login, email, password })
-		else toast.error('пароли не совпадают')
+	const onSubmitEmail: SubmitHandler<IRegisterInputEmail> = ({ email }) => {
+		registerByMail({ email })
 	}
 
-	const onSubmitMobile: SubmitHandler<IRegisterInputMobile> = ({
-																															 login,
-																															 passwordRpt,
-																															 password,
-																														 }) => {
-		if (password === passwordRpt) registerByMobile({ login,  password })
-		else toast.error('пароли не совпадают')
+	const onSubmitMobile: SubmitHandler<IRegisterInputMobile> = ({ phone }) => {
+		registerByMobile({ phone })
 	}
+	//
+	// useEffect(() => {
+	// 	if (isRegistered)
+	// 		push(LINKS.LOGIN)
+	// }, [isRegistered])
 
-	useEffect(() => {
-	}, [formStateEmail.isSubmitted, isRegistered])
-
-	const changeRegister = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, state:boolean) => {
+	const changeRegister = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, state: boolean) => {
 		e.preventDefault()
 		setIsByMobile(state)
 	}
 
 	return (
 		<>
+
 			<Meta title='Регистрация' />
 			<section className={styles.wrapper}>
+
+				{ !isRegistered  ?(
+					<form onSubmit={handleSubmit(data=>console.log(data))}>
+						<Heading
+							title="Вход"
+							className=' text-md mb-5'
+						/>
+					<Heading
+						title={isByMobile?"Проверьте ваш телефон":"Проверьте электронную почту"}
+						className='text-gray-500 text-sm mb-8'
+					/>
+						<Field type={'password'}
+							{...register('password', {
+								required: 'Пароль обязательное поле',
+								minLength: {
+									value: 6,
+									message: 'Пароль должен содержать не менее 6-х символов ',
+								},
+								maxLength: {
+									value: 6,
+									message: 'Пароль должен содержать не более 6 символов ',
+								},
+							})}
+							placeholder={isByMobile?'Пароль из смс':"Пароль из письма"}
+							//error={errors?.login}
+						/>
+						<div className={styles.buttons}>
+							<Button type='submit' disabled={!formState.isValid}>
+								Войти
+							</Button>
+						</div>
+					</form>
+				):(
 				<form onSubmit={isByMobile ? handleSubmitMobile(onSubmitMobile):handleSubmitEmail(onSubmitEmail)}>
 					{isLoading && <SkeletonLoader className='h-96' />}
-					{formStateEmail.isSubmitted && isRegistered && !isLoading && (
-						<Heading
-							title='Проверьте вашу электронную почту для завершения регистрации'
-							className='text-gray-500 text-xl mb-8'
-						/>
-					)}
-
-
-					{!formStateEmail.isSubmitted && !isLoading && (
+					{(!formStateEmail.isSubmitted || !formStateMobile.isSubmitted) && !isLoading && (
 						<>
 							<Heading title={'Регистрация'} className='mb-3' />
 							<Heading
@@ -94,24 +121,26 @@ const Register = () => {
 								onClick={(e) => changeRegister(e, false)}>
 								по почте
 							</button>
-							{isByMobile ? <RegisterFieldsMobile  register={registerInputMobile} formState={formStateMobile} /> :
+							{isByMobile ?
+								<RegisterFieldsMobile register={registerInputMobile} formState={formStateMobile} /> :
 								<RegisterFieldsEmail register={registerInput} formState={formStateEmail} />}
 
 							<div className={styles.buttons}>
-								<Button type='submit' disabled={!formStateEmail.isValid}>
-									Зарегистрироваться
+								<Button type='submit' disabled={isByMobile ? !formStateMobile.isValid : !formStateEmail.isValid}>
+									Получить код
 								</Button>
 							</div>
 							<p>
 								Уже зарегистрированы?{' '}
 								<Link href={LINKS.LOGIN}>
-									<a className='link text-primary'>Войдите в аккаунт.</a>
+									<a className='text-primary'>Войдите в аккаунт</a>
 								</Link>
 							</p>
 						</>
 					)}
 				</form>
-			</section>
+					)}
+				</section>
 		</>
 	)
 }

@@ -1,47 +1,45 @@
 import Cookies from 'js-cookie'
 
-import { IRecoveryInput } from '../../components/screens/auth/auth.interface'
+import { IRecoveryInput } from '@/screens/auth/auth.interface'
 import {
 	getAuthUrl,
 	getUserProfile,
 	logout,
-	recovery,
-} from '../../config/api.config'
+	recoveryEmail, recoveryPhone,
+} from '@/config/api.config'
 import {
 	IAuthResponse,
 	IRecoveryResponse,
   IRegisterByEmail, IRegisterByMobile,
 	ITokens,
-} from '../../store/user/user.interface'
+} from '@/store/user/user.interface'
 import axios, { axiosClassic } from '../interceptors'
 
 import { removeTokensStorage, saveToStorage } from './auth.helper'
 
 export const AuthService = {
-	async registerEmail(email: string, password: string, login: string) {
+	async registerEmail(email: string) {
 		const response = await axiosClassic.post<IRegisterByEmail, IAuthResponse>(
-			getAuthUrl('register'),
+			getAuthUrl('v2/register/mail'),
 			{
-				login,
 				email,
-				password,
 			},
 		)
 		return response
 	},
-	async registerMobile( password: string, login: string) {
+
+	async registerMobile(phone: string) {
 		const response = await axiosClassic.post<IRegisterByMobile, IAuthResponse>(
-			getAuthUrl('register'),
+			getAuthUrl('v2/register/phone'),
 			{
-				login,
-				password,
+				phone,
 			},
 		)
 		return response
 	},
 
 	async login(login: string, password: string) {
-		const response = await axiosClassic.post<ITokens>(getAuthUrl('get_token'), {
+		const response = await axiosClassic.post<ITokens>('/v2/get_token', {
 			login,
 			password,
 		}) // @ts-ignore
@@ -61,11 +59,22 @@ export const AuthService = {
 
 	async recovery(email: string) {
 		const response = await axiosClassic.post<IRecoveryInput, IRecoveryResponse>(
-			recovery(),
+			recoveryEmail(),
 			{
 				email,
 			},
 		)
 		return response
 	},
+
+	async recoveryByPhone(phone: string) {
+		const response = await axiosClassic.post<IRecoveryInput, IRecoveryResponse>(
+			recoveryPhone(),
+			{
+				phone,
+			},
+		)
+		return response
+	},
+
 }

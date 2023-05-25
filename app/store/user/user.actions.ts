@@ -16,11 +16,11 @@ import { PortalService } from '../../api/portal.service'
 import { saveToStorage } from '../../api/auth/auth.helper'
 
 export const registerByMail = createAsyncThunk<IAuthResponse, IRegisterByEmail>(
-	'register by email',
-	async ({ email, password, login }, thunkApi) => {
+	'register_by_email',
+	async ({ email }, thunkApi) => {
 		try {
-			const response = await AuthService.registerEmail(email, password, login)
-			toast.success('Регистрация прошла успешно')
+			const response = await AuthService.registerEmail(email)
+			toast.success('Пароль для входа выслан в письме')
 			return response
 		} catch (error) {
 			toastError(error)
@@ -29,11 +29,11 @@ export const registerByMail = createAsyncThunk<IAuthResponse, IRegisterByEmail>(
 	},
 )
 export const registerByMobile = createAsyncThunk<IAuthResponse, IRegisterByMobile>(
-	'register by mobile',
-	async ({  password, login }, thunkApi) => {
+	'register_by_mobile',
+	async ({ phone }, thunkApi) => {
 		try {
-			const response = await AuthService.registerMobile( password, login)
-			toast.success('Регистрация прошла успешно')
+			const response = await AuthService.registerMobile(phone)
+			toast.success('Пароль для входа выслан в смс')
 			return response
 		} catch (error) {
 			toastError(error)
@@ -57,12 +57,26 @@ export const login = createAsyncThunk<ITokens, ILoginPassword>(
 	},
 )
 
-export const recovery = createAsyncThunk<any, IRecoveryInput>(
+export const recovery = createAsyncThunk<any, string>(
 	'recovery',
-	async ({ email }, thunkApi) => {
+	async (email, thunkApi) => {
 		try {
 			const response = await AuthService.recovery(email)
 			toast.success('Проверьте вашу электронную почту')
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	},
+)
+
+export const recoveryByPhone = createAsyncThunk<any, string>(
+	'recovery',
+	async (phone, thunkApi) => {
+		try {
+			const response = await AuthService.recoveryByPhone(phone)
+			toast.success('Проверьте смс')
 			return response
 		} catch (error) {
 			toastError(error)

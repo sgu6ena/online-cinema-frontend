@@ -11,7 +11,8 @@ export const sendVoteUrl = (id: string, vote: number) => `/like/${id}/${vote}`
 export const getUserDataUrl = () => `/getUserProfile`
 
 export const getAuthUrl = (string: string) => `/${string}`
-export const recovery = () => '/recovery'
+export const recoveryEmail = () => '/v2/recovery/email'
+export const recoveryPhone = () => '/v2/recovery/phone'
 export const logout = () => `/logout`
 export const getUserProfile = () => '/getUserProfile'
 export const getGenresUrl = (string: string | number) => `/genres/${string}`

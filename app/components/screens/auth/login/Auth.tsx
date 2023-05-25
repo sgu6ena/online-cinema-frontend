@@ -2,18 +2,17 @@ import Link from 'next/link'
 import React, { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { LINKS } from '../../../../config/links'
-import { useActions } from '../../../../hooks/useActions'
-import { useAuth } from '../../../../hooks/useAuth'
+import { LINKS } from '@/config/links'
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
 import Meta from '../../../../utils/meta/Meta'
 import SkeletonLoader from '../../../ui/SkeletonLoader'
 import Button from '../../../ui/form-elemets/Button'
 import Heading from '../../../ui/heading/Heading'
 import styles from '../Auth.module.scss'
 import { IAuthInput } from '../auth.interface'
-
-import AuthFields from './AuthFields'
 import { useAuthRedirect } from './useAuthRedirect'
+import AuthFieldsMobile from '@/screens/auth/login/AuthFieldsMobile'
 
 const Auth: FC = () => {
 useAuthRedirect()
@@ -43,18 +42,17 @@ useAuthRedirect()
 							<Heading title={'Вход в аккаунт'} className='mb-3' />
 							<Heading
 								title='Войдите для доступа к подписке и списку избранного'
-								className='text-gray-500  text-xl mb-8'
+								className='text-gray-500 text-sm mb-8'
 							/>
-							<AuthFields
+							<AuthFieldsMobile
 								register={registerInput}
 								formState={formState}
-								isPasswordRequired
 							/>
 
-							<div className={styles.buttons}>
-								<p>
+							<div className={styles.buttons} >
+								<p >
 									<Link href={LINKS.FORGOT}>
-										<a>Забыли пароль?</a>
+										<a className='font-bold text-md '>Забыли пароль?</a>
 									</Link>
 								</p>
 								<Button type='submit' disabled={!formState.isValid}>
