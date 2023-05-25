@@ -10,14 +10,14 @@ const Logo: FC = () => {
 			<a className={styles.logo}>
 				<div className={styles.img}>
 					<img
-						src={'/svg/logo/logo.svg'}
-						height={30}
-						width={30}
+						src={'/svg/logo/logo1.svg'}
+
+						width={140}
 						alt='PORTAL'
 						draggable={false}
 					/>
 				</div>
-				<span className={styles.text}>PORTAL</span>
+				{/*<span className={styles.text}>PORTAL</span>*/}
 			</a>
 		</Link>
 	)
