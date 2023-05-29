@@ -6,20 +6,30 @@ import {
 	sendSMS,
 	smartActive,
 	unsubscribe,
+	changePhone, changeEmail,
 } from './settings.actions'
 import { initialState } from './settings.interface'
+
 
 export const settingsSlice = createSlice({
 	name: 'settings',
 	initialState,
 	reducers: {
+		resetIsCodeChangeEmailSend(state) {
+			state.isError = false
+			state.isCodeChangeEmailSend = false
+		},
+		resetIsCodeChangePhoneSend(state) {
+			state.isError = false
+			state.isCodeChangePhoneSend = false
+		},
 		resetIsSendSms(state) {
-			state.isError=false
+			state.isError = false
 			state.isSmsSend = false
 		},
-		resetIsPromoAvailable(state){
+		resetIsPromoAvailable(state) {
 			state.isPromoAvailable = false
-		}
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -71,15 +81,35 @@ export const settingsSlice = createSlice({
 			})
 			.addCase(checkSMS.fulfilled, (state) => {
 				state.isLoading = false
-				state.isError=false
+				state.isError = false
 				state.isPayed = true
 			})
 			.addCase(checkSMS.rejected, (state, payload) => {
 				state.error = payload.payload as string
-				state.isError=true
+				state.isError = true
 				state.isLoading = false
 				if (payload.payload === 'промо недоступен')
 					state.isPromoAvailable = false
+			})
+			.addCase(changePhone.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(changePhone.fulfilled, (state) => {
+				state.isLoading = false
+				state.isCodeChangePhoneSend = true
+			})
+			.addCase(changePhone.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(changeEmail.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(changeEmail.fulfilled, (state) => {
+				state.isLoading = false
+				state.isCodeChangeEmailSend = true
+			})
+			.addCase(changeEmail.rejected, (state) => {
+				state.isLoading = false
 			})
 			.addCase(promoCode.pending, (state) => {
 				state.isLoading = true

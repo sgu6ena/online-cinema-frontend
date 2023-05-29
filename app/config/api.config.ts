@@ -20,6 +20,11 @@ export const getMoviesUrl = (string: string) => `/movies/${string}`
 export const sendSMS = () => '/sendSMS'
 export const checkSMS = () => '/checkSMS'
 export const changePass = () => '/updatePassword'
+export const changePhoneV2 = () => '/v2/update/phone'
+export const changePhoneV2Conf = () => '/v2/update/phone/conf'
+export const changeEmailV2 = () => '/v2/update/email'
+export const changeEmailV2Conf = () => '/v2/update/email/conf'
+
 export const changeEmail = () => '/updateEmail'
 export const unsubscribe = () => '/unsubscription'
 export const smartTv = (code: string) => `/smartTV/active/${code}`

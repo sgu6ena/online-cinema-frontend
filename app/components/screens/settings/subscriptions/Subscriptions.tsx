@@ -52,17 +52,6 @@ const Subscriptions: FC = () => {
 						</div>
 					</div>
 				</div>
-				{/*<div className={styles.line}>*/}
-				{/*	<div className={styles.icon}>*/}
-				{/*		<MaterialIcon name={'MdDoDisturb'} />*/}
-				{/*	</div>*/}
-				{/*	<div>*/}
-				{/*		<div className={styles.title}>Без рекламы</div>*/}
-				{/*		<div className={styles.subtitle}>*/}
-				{/*			Видео не прервется на самом интересном месте*/}
-				{/*		</div>*/}
-				{/*	</div>*/}
-				{/*</div>*/}
 				{isSubscribed && (
 					<div>
 						<div className={'text-green-500 font-bold'}>Подписка оформлена</div>

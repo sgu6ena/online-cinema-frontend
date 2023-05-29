@@ -45,8 +45,8 @@ const Settings: FC = ({ children }) => {
 						</ul>
 					</div>
 					<div className={styles.right}>
-
-						{children}</div>
+						{children}
+					</div>
 				</>
 			)}
 		</div>

@@ -8,7 +8,7 @@
 
     @apply flex-shrink-0 lg:ml-5  ml-3 text-3xl text-white gap-3 flex items-center;
     .text {
-      @apply md:block text-primary mt-2 hidden;
+      @apply md:block text-primary  mt-2 hidden;
       font-family: 'Inter', sans-serif;
       font-weight: 900;
       font-size: 48px;
@@ -32,10 +32,10 @@
 
 
   .end {
-    @apply flex items-center gap-2 ;
+    @apply flex flex-shrink-0 items-center gap-2 ;
 
     .ruble{
-      @apply xl:px-layout lg:px-5 md:px-2 px-1.5 md:block hidden;
+      @apply xl:px-6  lg:px-3 md:px-2 text-sm font-bold px-1.5 md:block hidden;
     }
     a {
       @apply flex-shrink-0;
