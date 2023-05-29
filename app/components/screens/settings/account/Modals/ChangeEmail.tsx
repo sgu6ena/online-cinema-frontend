@@ -1,11 +1,11 @@
-import React, { FC, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import styles from './modal.module.scss'
 import Heading from '../../../../ui/heading/Heading'
 import Field from '../../../../ui/form-elemets/Field'
 import Button from '../../../../ui/form-elemets/Button'
 import { useActions } from '@/hooks/useActions'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { IChangeEmail, IChangePassword } from '@/store/settings/settings.interface'
+import { IChangeConf, IChangeEmail, IChangePassword, IChangePhone } from '@/store/settings/settings.interface'
 import { useSettings } from '@/hooks/useSettings'
 import { changeEmail } from '@/store/settings/settings.actions'
 import { validEmail } from '@/shared/regex'
@@ -15,46 +15,63 @@ interface ChangeEmail {
 }
 
 const ChangeEmail: FC<ChangeEmail> = ({ setIsShow }) => {
-	const { changeEmail } = useActions()
-	const { isLoading, isError } = useSettings()
+	const { changeEmail, resetIsCodeChangeEmailSend, changeEmailConf } = useActions()
+	const { isLoading, isCodeChangeEmailSend, isError } = useSettings()
 	const { register, handleSubmit, formState } = useForm<IChangeEmail>({
-		mode: 'onChange',
+		mode: 'onSubmit',
 	})
 
-
-	const onSubmit: SubmitHandler<IChangeEmail> = (data) => {
+	const { register: registerCode, handleSubmit: handleSubmitCode, formState: formStateCode } = useForm<IChangeConf>({
+		mode: 'onSubmit',
+	})
+	const onSubmitEmail: SubmitHandler<IChangeEmail> = (data) => {
 		changeEmail(data)
 	}
 
-	useEffect(() => {
-		isError ? setIsShow(true) : setIsShow(false)
-	}, [isLoading])
+	const onSubmitCode: SubmitHandler<IChangeConf> = (data) => {
+		changeEmailConf(data)
+		setIsShow(false)
+		resetIsCodeChangeEmailSend()
+	}
+	const onCancel = () => {
+		setIsShow(false)
+		resetIsCodeChangeEmailSend()
+	}
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={isCodeChangeEmailSend ? handleSubmitCode(onSubmitCode) : handleSubmit(onSubmitEmail)}>
 				<div className={styles.head}>
 					<Heading title='Изменить e-mail' />
 				</div>
 				{isLoading ?
-					<div>меняю пароль</div>
-					: <>
+					<div>загрузка...</div>
+					: isCodeChangeEmailSend ?
+						<Field type='text'
+									 {...registerCode('code', {
+										 required: 'Обязательное поле',
+									 })}
+									 placeholder='Код из письма'
+									 error={formStateCode.errors && formStateCode.errors.code}
+									 autoComplete={'off'}
+						/> :
 						<Field type='text'
 									 {...register('email', {
 										 required: 'Обязательное поле',
-										 pattern:{
-											 value:validEmail,
-											 message:'введите корректный e-mail'
+										 pattern: {
+											 value: validEmail,
+											 message: 'введите верный e-mail',
 										 },
 									 })}
-									 placeholder='Новый E-mail'
+									 placeholder='E-mail'
 									 error={formState.errors && formState.errors.email}
 									 autoComplete={'off'}
-						/></>}
+						/>
+				}
 				<div className={styles.footer}>
 
-					<Button type='submit' disabled={!formState.isValid}>
-						Сменить email
+					<Button type='submit'>
+						Сменить e-mail
 					</Button>
 
 					<Button type={'reset'} className={styles.cancel} onClick={() => setIsShow(false)}>
