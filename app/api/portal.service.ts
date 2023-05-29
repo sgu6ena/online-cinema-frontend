@@ -1,7 +1,7 @@
 import { IGalleryHome } from '../components/ui/gallery/gallery.interface'
 import { ISlide } from '../components/ui/slider/slider.interface'
 import {
-	APP_URL_PORTAL, changeEmail,
+	APP_URL_PORTAL, changeEmail, changeEmailV2, changeEmailV2Conf, changePhoneV2, changePhoneV2Conf,
 	getCategoryUrl,
 	getMovieUrl,
 	getUserDataUrl, percentageViewed,
@@ -28,7 +28,7 @@ import {
 import { IListFilter } from '../shared/types/search.types'
 import {
 	IChangeEmail,
-	IChangePassword,
+	IChangePassword, IChangePhone,
 	ICheckSms,
 	ISendSms,
 } from '../store/settings/settings.interface'
@@ -179,12 +179,34 @@ export const PortalService = {
 		})
 		return response
 	},
+
+	async changePhone(phone: string) {
+		const response = await axios.post<any, IChangePhone>(changePhoneV2(), {
+			phone
+		})
+		return response
+	},
 	async changeEmail(email:string) {
-		const response = await axios.post<any, IChangeEmail>(changeEmail(), {
+		const response = await axios.post<any, IChangeEmail>(changeEmailV2(), {
 			email,
 		})
 		return response
 	},
+
+	async changePhoneConf(code: string) {
+		const response = await axios.post<any, IChangePhone>(changePhoneV2Conf(), {
+			code
+		})
+		return response
+	},
+	async changeEmailConf(code:string) {
+		const response = await axios.post<any, IChangeEmail>(changeEmailV2Conf(), {
+			code,
+		})
+		return response
+	},
+
+
 	async recoveryPassword(code: string) {
 		const response = await axios.get<any, any>(recoveryPassword(code))
 		return response

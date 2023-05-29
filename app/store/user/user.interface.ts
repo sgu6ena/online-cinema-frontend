@@ -19,6 +19,7 @@ export interface IAuthResponse {
 	id: string
 	login: string
 	name: string
+	phone:string
 	email: string
 	subscription: 0 | 1 | 2
 	paid: 0 | 1 | 2

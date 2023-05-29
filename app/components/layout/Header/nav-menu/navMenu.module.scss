@@ -1,9 +1,9 @@
 .navMenu {
   @apply xl:text-2xl text-xl ml-4 truncate;
   ul {
-    @apply hidden lg:flex gap-3 px-2;
+    @apply hidden lg:flex gap-5;
     li {
-      @apply relative rounded px-1;
+      @apply relative rounded px-0;
     }
 
     li > a {
@@ -37,6 +37,8 @@
 
     li.active > a:before {
       //@apply bg-primary;
+
+      animation-fill-mode: forwards;
       background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
     }
   }

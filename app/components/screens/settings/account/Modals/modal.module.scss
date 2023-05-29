@@ -38,7 +38,9 @@
         }
 
         .cancel {
-          @apply bg-gray-800 text-gray-300;
+          @apply bg-none   text-white;
+          border: 1px solid gray;
+          //filter: grayscale(60%);
         }
 
         p {

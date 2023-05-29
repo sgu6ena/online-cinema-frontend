@@ -34,6 +34,8 @@ const ChangePass: FC<IChangePass> = ({ setIsShow }) => {
 				<div className={styles.head}>
 					<Heading title='Изменить пароль' />
 				</div>
+
+
 				{isLoading ?
 					<div>меняю пароль</div>
 					: <><Field type='password'
