@@ -22,7 +22,7 @@ export interface updateGenre {
 }
 
 export const AdminService = {
-	async getGenreList() {
+	async getGenreList():Promise<{ data:iAdminGenre[] }> {
 		const data = await axios.get(`adm/genreList`)
 		return data.data
 	},
@@ -31,13 +31,13 @@ export const AdminService = {
 		return data.data.data
 	},
 
-	async postGenre(genre:updateGenre){
-		const data = await axios.post(`adm/genreAdd`, genre)
-		return data.data.data
+	async postGenre(genre: FormData) {
+		const response = await axios.post(`adm/genreAdd`, genre);
+		return response.data.data;
 	},
 
 	async getFileList(page: string, search: string = '', cid: string = '', year: string = '', hidden: string = '') {
-		const data = await axios.get<IAdminFileList>(`adm/fileList?page=${page}&query=${search}&cid=${cid}&year=${year}&hidden=undefined&accessChange=undefined`)
+		const data = await axios.get<IAdminFileList>(`adm/fileList?page=${page}&hidden=${hidden}&query=${search}&cid=${cid}&year=${year}&accessChange=undefined`)
 		return data.data
 	},
 

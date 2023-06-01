@@ -15,7 +15,7 @@ export const useMovies = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [cid, setCid] = useState('')
 	const [year, setYear] = useState('')
-
+	const [hidden, setHidden] = useState(false)
 	const debouncedSearch = useDebounce(searchTerm, 500)
 	const { genre } = useSearch()
 	const years: IList[] = [...Array(94)].map((x, y) => ({ id: y + 1930, name: (y + 1930).toString() })).reverse()
@@ -23,8 +23,8 @@ export const useMovies = () => {
 	const page = query.page || '1'
 
 	const queryData = useQuery(
-		['movie list', debouncedSearch, page, cid, year],
-		() => AdminService.getFileList(page as string || '1', debouncedSearch, cid, year),
+		['movie list', debouncedSearch, page, cid, year, hidden],
+		() => AdminService.getFileList(page as string || '1', debouncedSearch, cid, year, hidden ?'1':""),
 		{
 			onError(error) {
 				toastError('Ошибка получения списка фильмов')
@@ -41,6 +41,10 @@ export const useMovies = () => {
 	}
 	const handleYear = (value: string) => {
 		setYear(value)
+	}
+
+	const handleHidden = () => {
+		setHidden(!hidden)
 	}
 
 	const { mutateAsync: createAsync } = useMutation(
@@ -77,13 +81,14 @@ export const useMovies = () => {
 			handleCid,
 			handleYear,
 			handleSearch,
+			handleHidden,
 			...queryData,
 			searchTerm,
 			deleteAsync,
 			createAsync,
 			genre,
 			years,
-			cid, year,
+			cid, year, hidden,
 		}),
 		[queryData, searchTerm, deleteAsync, createAsync],
 	)
