@@ -13,6 +13,8 @@ const Users: FC = () => {
 	const { data, isLoading } = useUsers()
 	const [users, setUsers] = useState([])
 	const [isDescribe, setIsDescribe] = useState(false)
+	const [isSortById, setIsSortById]=useState(false)
+
 	useEffect(() => {
 		const allUsers = isDescribe ? [...data].sort((a, b) => {
 			const a1 = new Date(a.date_flow)
@@ -30,9 +32,21 @@ const Users: FC = () => {
 		}
 	}, [isActive, data, isDescribe])
 
+
+	useEffect(()=>{
+		const usersSort = isSortById?[...data].sort((a,b)=>Number(b.id)-Number(a.id)):data
+		setUsers(usersSort)
+
+	}, [isSortById])
+
 	const headerItems = ['N', 'id', 'логин', 'почта', 'подписка', 'оплата', 'ДАТА ОКОНЧАНИЯ ПОДПИСКИ', 'ДАТА ОТКАЗА']
 	return <div>
 		<div className={'pl-3 flex  gap-8'}>
+			<label className={'flex  gap-2 items-center'}>
+				<input type='checkbox' checked={isSortById} onChange={() => {
+					setIsSortById(!isSortById)
+				}} /> <span>сортировать по ид</span>
+			</label>
 			<label className={'flex  gap-2 items-center'}>
 				<input type='checkbox' checked={isActive} onChange={() => {
 					setActive(!isActive)
