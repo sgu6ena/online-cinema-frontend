@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import AdminHeader from '../../../ui/AdminHeader/AdminHeader'
 import { useMovies } from './useMovie'
@@ -7,7 +7,9 @@ import Pagination from '../../../ui/pagination/pagination'
 import { useRouter } from 'next/router'
 import SortBy from '../../../ui/sortMenu/sortBy'
 
-import { useActions } from '../../../../hooks/useActions'
+import { useActions } from '@/hooks/useActions'
+import { useGenre } from '@/screens/admin/genres/useGenre'
+import { useGenres } from '@/screens/admin/genres/useGenres'
 
 const Movies: FC = () => {
 	const { query } = useRouter()
@@ -20,25 +22,31 @@ const Movies: FC = () => {
 		handleYear,
 		handleCid,
 		handleSearch,
+		handleHidden,
 		genre,
 		years,
 		cid,
 		year,
+		hidden,
 	} = useMovies()
 	const movies = data?.data ? data.data : []
-
-	useEffect(() => {
-		query.page = '1'
-	}, [searchTerm, cid, year])
 	const { getSearchParameters } = useActions()
 
 	useEffect(() => {
 		getSearchParameters()
 	}, [])
+
+	useEffect(() => {
+		query.page = '1'
+	}, [searchTerm, cid, year, hidden])
+
 	return (
 		<div>
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} onClick={createAsync}>
-				<SortBy onChange={handleCid} options={genre} sortId={''} title={'жанр'} />
+				<label className={'flex  gap-2 items-center'}>
+					<input type='checkbox' checked={hidden} onChange={handleHidden} /> <span>показать только скрытые</span>
+				</label>
+				<SortBy onChange={handleCid}  options={genre} sortId={''} title={'жанр'} />
 				<SortBy onChange={handleYear} options={years} sortId={''} title={'год'} />
 			</AdminHeader>
 			<AdminMovieTable

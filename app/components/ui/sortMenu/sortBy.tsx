@@ -48,6 +48,7 @@ const SortBy: FC<{ sortId: string; onChange: any; options: IList[]; title?: stri
 							field={field}
 							placeholder={title ? title : ' '}
 							options={sort}
+
 						/>
 					)}
 				/>
