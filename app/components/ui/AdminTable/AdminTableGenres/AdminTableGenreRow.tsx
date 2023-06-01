@@ -7,8 +7,10 @@ import AdminActions from '../AdminActions/AdminActions'
 const AdminTableGenreRow: FC<{ item:IAdminGenreListData, removeHandler: (id: string) => void }> = ({ item:genre, removeHandler}) => {
 	return (
 		<tr>
+			<td><img src={`//portal.idc.md/img/mov-selec/${genre.id}.jpg`} alt={genre.name} />{genre.name}</td>
 			<td>{genre.sort}</td>
-			<td>{genre.name}</td>
+
+
 			<td>{genre.id}</td>
 			<td>
 				<AdminActions
