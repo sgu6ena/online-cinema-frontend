@@ -23,7 +23,7 @@ useAuthRedirect()
 		register: registerInput,
 		handleSubmit,
 		formState,
-	} = useForm<IAuthInput>({ mode: 'onChange' })
+	} = useForm<IAuthInput>({ mode: 'onSubmit' })
 
 	const { login } = useActions()
 
@@ -55,7 +55,7 @@ useAuthRedirect()
 										<a className='font-bold text-md '>Забыли пароль?</a>
 									</Link>
 								</p>
-								<Button type='submit' disabled={!formState.isValid}>
+								<Button type='submit' >
 									Войти
 								</Button>
 							</div>
