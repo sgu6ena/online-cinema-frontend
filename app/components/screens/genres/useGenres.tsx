@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query'
 
 import { PortalService } from '../../../api/portal.service'
+import { IGenrePortal } from '@/shared/types/movie.types'
 
 
 export const useGenres = () => {
@@ -15,6 +16,7 @@ export const useGenres = () => {
 
 	const genres = data?.data.filter(i => i.type === 1) || []
 	const collections = data?.data.filter(i => i.type === 3) || []
-	return { genres, collections, isLoading }
+	const banner:IGenrePortal = {title:'БАННЕР', cid:'103', type:3}
+	return { genres, collections, isLoading, banner }
 
 }
