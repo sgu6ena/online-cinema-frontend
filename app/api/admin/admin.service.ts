@@ -54,4 +54,8 @@ export const AdminService = {
 	async showSubs() {
 		return axios.get(`adm/showSubs/1`)
 	},
+
+	async setGenreForFilm(movieId:string, genreId:string, isActive:boolean){
+		return axios.get(`adm/filmGenreChange/${movieId}/${genreId}/${isActive?'1':"0"}`)
+	}
 }
