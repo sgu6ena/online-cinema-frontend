@@ -17,6 +17,9 @@ const Header: FC = () => {
 		<div className={styles.header}>
 			<div className={styles.start}>
 				<Logo />
+
+			</div>
+			<div>
 				<NavMenu />
 			</div>
 			<div className={styles.end}>
