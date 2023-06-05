@@ -11,7 +11,6 @@ const Logo: FC = () => {
 				<div className={styles.img}>
 					<img
 						src={'/svg/logo/logo1.svg'}
-
 						width={140}
 						alt='PORTAL'
 						draggable={false}

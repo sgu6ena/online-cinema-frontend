@@ -85,7 +85,7 @@ export const headerNavMenu: IMenuItem[] = [
 	{
 		icon: 'MdLocalMovies',
 		link: LINKS.FAVORITES ,
-		title: 'Мой PORTAL',
+		title: 'Я смотрю',
 	},
 	{
 		icon: 'MdMovieCreation',

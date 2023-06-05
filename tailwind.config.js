@@ -101,16 +101,15 @@ module.exports = {
 		plugin(({ addComponents, theme, addUtilities }) => {
 			addComponents({
 				'.btn-primary': {
-					backgroundColor: primary,
 					background:"linear-gradient(90deg, #7B4397 0%, #DC2430 100%)",
 					color: '#fff',
 					borderRadius: '0.2rem',
-					transition: 'background-color .3s ease-in-out',
+					transition: 'all .3s ease-in-out',
 					'&:hover': {
-						backgroundColor: '#7B4397',
+						background:"linear-gradient(100deg, #7B4397 0%, #DC2430 100%)",
 					},
 					'&:disabled': {
-						backgroundColor: '#39393f',
+						background: '#39393f',
 					},
 				},
 

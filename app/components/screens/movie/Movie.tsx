@@ -175,9 +175,9 @@ const Movie: FC = () => {
 										):<></>}
 									</div>
 
-									{movieId && (
-										<Vote vote={vote} my_vote={myVote} onClick={(i) => voting(i)} movieId={movieId} />
-									)}
+									{/*{movieId && (*/}
+									{/*	<Vote vote={vote} my_vote={myVote} onClick={(i) => voting(i)} movieId={movieId} />*/}
+									{/*)}*/}
 								</div>
 							</div>
 							<MovieDescription movie={movie} />
