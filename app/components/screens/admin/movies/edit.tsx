@@ -42,7 +42,7 @@ const MovieEdit: FC = () => {
 						<img className={'h-60 w-44 rounded-image'} src={movie?.logo} alt={movie?.title} />
 						<div>
 							<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />
-							<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />
+							{/*<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />*/}
 							<Field placeholder={'описание'} type={'textarea'} defaultValue={movie?.review} />
 							<div className={'flex gap-4'}>
 								<Field placeholder={'год'} type={'text'} defaultValue={movie?.year} />
