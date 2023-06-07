@@ -5,6 +5,7 @@ import { useMovie } from '@/hooks/useMovie'
 import Field from '../../../ui/form-elemets/Field'
 import Heading from '../../../ui/heading/Heading'
 import GenreList from '@/screens/admin/movies/genreList'
+import BannersAdd from '@/screens/admin/movies/bannersAdd'
 
 
 
@@ -27,6 +28,7 @@ const MovieEdit: FC = () => {
 	}, [movieId])
 
 
+
 	return (
 		<div className={'p-layout'}>
 			<div className={'flex justify-between gap-4 mb-2'}>
@@ -38,21 +40,25 @@ const MovieEdit: FC = () => {
 			</div>
 			{isLoading?<>...</>:
 				<div>
-					<div className='flex gap-4'>
+					<div className='flex items-center gap-4'>
 						<img className={'h-60 w-44 rounded-image'} src={movie?.logo} alt={movie?.title} />
-						<div>
-							<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />
-							{/*<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />*/}
-							<Field placeholder={'описание'} type={'textarea'} defaultValue={movie?.review} />
-							<div className={'flex gap-4'}>
-								<Field placeholder={'год'} type={'text'} defaultValue={movie?.year} />
-								<Field placeholder={'сериал?'} type={'text'} defaultValue={movie?.serial ? 'да' : 'нет'} />
-								<Field placeholder={'возрастное ограничение'} type={'text'} defaultValue={movie?.rate_age} />
-								<Field placeholder={'длительность'} type={'text'} defaultValue={movie?.length} />
-								<Field placeholder={'доступ'} type={'text'} defaultValue={movie?.access ? 'платно' : 'бесплатно'} />
-							</div>
+
+						<BannersAdd/>
+
+					</div>
+					<div className={'w-full'}>
+						<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />
+						{/*<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />*/}
+						<Field placeholder={'описание'} type={'textarea'} defaultValue={movie?.review} />
+						<div className={'flex w-full gap-4'}>
+							<Field placeholder={'год'} type={'text'} defaultValue={movie?.year} />
+							<Field placeholder={'сериал?'} type={'text'} defaultValue={movie?.serial ? 'да' : 'нет'} />
+							<Field placeholder={'возрастное ограничение'} type={'text'} defaultValue={movie?.rate_age} />
+							<Field placeholder={'длительность'} type={'text'} defaultValue={movie?.length} />
+							<Field placeholder={'доступ'} type={'text'} defaultValue={movie?.access ? 'платно' : 'бесплатно'} />
 						</div>
-					</div>			<GenreList id={movieId as string} activeGenres={movie?.genre|| []}/>
+					</div>
+					<GenreList id={movieId as string} activeGenres={movie?.genre|| []}/>
 				</div>
 
 
