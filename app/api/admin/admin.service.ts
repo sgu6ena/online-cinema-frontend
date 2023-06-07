@@ -36,6 +36,11 @@ export const AdminService = {
 		return response.data.data;
 	},
 
+	async postPicture (img:FormData){
+		const response = await axios.post(`adm/file/slide`,img );
+		return response.data.data;
+	},
+
 	async getFileList(page: string, search: string = '', cid: string = '', year: string = '', hidden: string = '') {
 		const data = await axios.get<IAdminFileList>(`adm/fileList?page=${page}&hidden=${hidden}&query=${search}&cid=${cid}&year=${year}&accessChange=undefined`)
 		return data.data

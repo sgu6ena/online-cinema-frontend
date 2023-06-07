@@ -16,8 +16,6 @@ export interface IAdminGenresTable {
 	removeHandler: (id: string) => void
 }
 
-
-
 const AdminGenresTable: FC<IAdminGenresTable> = ({
 	tableItems,
 	isLoading,
