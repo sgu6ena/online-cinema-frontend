@@ -104,9 +104,14 @@ module.exports = {
 					background:"linear-gradient(90deg, #7B4397 0%, #DC2430 100%)",
 					color: '#fff',
 					borderRadius: '0.2rem',
-					transition: 'all .3s ease-in-out',
+					transition: 'all .1s ease-in-out',
 					'&:hover': {
-						background:"linear-gradient(100deg, #7B4397 0%, #DC2430 100%)",
+						background:"linear-gradient(90deg, #7B4397 30%, #DC2430 100%)",
+						// boxShadow:'0px 0px 20px  3px rgba(123,67,151,0.59);',
+						// outline:'1px solid rgba(123,67,151,1)'
+					},
+					'&:active':{
+						boxShadow:'0px 0px 20px  3px rgba(123,67,151,0.59);',
 					},
 					'&:disabled': {
 						background: '#39393f',
