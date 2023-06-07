@@ -31,6 +31,10 @@ const AdminMovieTable: FC<IAdminMovieTable> = ({
 			: toast.error('Удаление элемента отменено')
 	}
 
+	const removeAlt = () =>{
+		toast.error('Удаление недоступно')
+	}
+
 	return (
 		<table className={styles.table}>
 			<AdminTableHeader headerItems={headerItems || []} />
@@ -39,7 +43,7 @@ const AdminMovieTable: FC<IAdminMovieTable> = ({
 				? tableItems.map((item) => (
 						<AdminTableMovieRow
 							tableItem={item}
-							removeHandler={() => remove(String(item.id))}
+							removeHandler={removeAlt}
 							key={item.id}
 						/>
 				  ))

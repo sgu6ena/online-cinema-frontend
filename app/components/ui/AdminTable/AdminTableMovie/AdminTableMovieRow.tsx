@@ -1,12 +1,13 @@
 import { FC } from 'react'
 import AdminActions from '../AdminActions/AdminActions'
 import { IAdminMovieTable } from '../admin-table.interface'
+import Link from 'next/link'
 
 
 const AdminTableMovieRow: FC<IAdminMovieTable> = ({ tableItem:movie, removeHandler }) => {
 	return (
 		<tr>
-			<td><img src={movie.logo} alt={movie.title} />{movie.title}</td>
+			<td><Link href={`movies/${String(movie.id)}`}><a className={'flex gap-1 w-full'}><img src={movie.logo} alt={movie.title} />{movie.title}</a></Link></td>
 			<td>{movie.year}</td>
       <td>{movie.history}</td>
       <td>{movie.rate_kp}</td>
