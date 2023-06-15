@@ -3,17 +3,30 @@
 
   .collection {
     @apply flex-center-between;
-    h1{
+    h1 {
       @apply md:pl-5 pl-2;
     }
+    &:hover {
+
+      button {
+        background-size:100% 100%;
+
+      }
+    }
+
+    button {
+      @apply flex-center-between gap-2 rounded   lg:px-5 md:px-2 my-0 md:py-2 px-1 py-1;
+      background: transparent linear-gradient(90deg, #7B4397 0%, #DC2430 100%)no-repeat left;
+      transition:0.3s;
+      background-size:0% 100%;
+      span {
+        @apply hidden lg:inline;
+      }
+    }
+
     a {
       @apply flex-center-between;
-      button {
-        @apply btn-primary flex-center-between  lg:px-5 md:px-2 my-0 md:py-2 px-1 py-1;
-        span {
-          @apply hidden lg:inline;
-        }
-      }
+
     }
   }
 }

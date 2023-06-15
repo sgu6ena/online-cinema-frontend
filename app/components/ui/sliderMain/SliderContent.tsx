@@ -8,10 +8,11 @@ import { ISlide } from '../slider/slider.interface'
 import styles from './slider.module.scss'
 import { getGenreUrl } from '@/config/url.config'
 import FavoriteButton from '../FavoriteButton/favoriteButton'
+import { gradient } from '@/config/constants'
 
 const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 	return (
-		<div className={styles.slide}>
+		<div className={cn(styles.slide, i.url?'':styles.gradient)}>
 			<img
 				data-src={i.bigPoster + ''}
 				src={i.bigPoster + ''}
@@ -20,6 +21,7 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 				width={1300}
 				height={600}
 			/>
+			{i.url?<></>:
 			<div className={styles.content}>
 				<Link href={i.link}>
 					<a><h3 className={cn(styles.title)}>
@@ -57,6 +59,7 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 				</div>
 
 			</div>
+			}
 		</div>
 	)
 }
