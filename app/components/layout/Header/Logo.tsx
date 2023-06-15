@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { LINKS } from '@/config/links'
 import styles from './header.module.scss'
 
-const Logo: FC = () => {
+const Logo=()=> {
 	return (
 		<Link href={LINKS.MAIN}>
 			<a className={styles.logo}>

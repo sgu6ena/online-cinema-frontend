@@ -30,7 +30,7 @@ export const LINKS = {
 	FILMS: '/genres/100',
 	SERIALS: '/genres/39',
 	MULTFILMS: '/genres/20',
-	SHOW: '/genres/77',
+	SHOW: '/genres/45',
 
 	FEEDBACK: '/feedback',//Сообщить об ошибке
 	FAQ: '/faq',
