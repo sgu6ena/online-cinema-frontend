@@ -23,7 +23,7 @@ useAuthRedirect()
 		register: registerInput,
 		handleSubmit,
 		formState,
-	} = useForm<IAuthInput>({ mode: 'onSubmit' })
+	} = useForm<IAuthInput>({ mode: 'onBlur' })
 
 	const { login } = useActions()
 

@@ -30,19 +30,19 @@ const Register = () => {
 		register,
 		formState,
 		handleSubmit
-	} = useForm({ mode: 'onChange' })
+	} = useForm({ mode: 'onBlur' })
 
 	const {
 		register: registerInput,
 		handleSubmit: handleSubmitEmail,
 		formState: formStateEmail,
-	} = useForm<IRegisterInputEmail>({ mode: 'onChange' })
+	} = useForm<IRegisterInputEmail>({ mode: 'onBlur' })
 
 	const {
 		register: registerInputMobile,
 		handleSubmit: handleSubmitMobile,
 		formState: formStateMobile,
-	} = useForm<IRegisterInputMobile>({ mode: 'onChange' })
+	} = useForm<IRegisterInputMobile>({ mode: 'onBlur' })
 
 	const { registerByMail, registerByMobile } = useActions()
 	const [username, setUsername] = useState<string>('')
@@ -134,7 +134,9 @@ const Register = () => {
 								<RegisterFieldsEmail register={registerInput} formState={formStateEmail} />}
 
 							<div className={styles.buttons}>
-								<Button type='submit' disabled={isByMobile ? !formStateMobile.isValid : !formStateEmail.isValid}>
+								<Button type='submit'
+												// disabled={isByMobile ? !formStateMobile.isValid : !formStateEmail.isValid}
+								>
 									Получить код
 								</Button>
 							</div>

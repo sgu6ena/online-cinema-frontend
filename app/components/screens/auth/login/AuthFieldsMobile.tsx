@@ -26,7 +26,7 @@ const AuthFieldsMobile: FC<AuthFieldsMobile> = ({
 						);
 					},
 				})}
-				placeholder="Мобильный телефон / email"
+				placeholder="Мобильный телефон / email / логин"
 				error={errors && errors.login}
 			/>
 			<Field

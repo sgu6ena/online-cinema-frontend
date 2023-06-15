@@ -21,11 +21,10 @@ const Recovery: FC = () => {
 		register: registerInput,
 		handleSubmit,
 		formState,
-	} = useForm<any>({ mode: 'onChange' })
+	} = useForm<any>({ mode: 'onBlur' })
 	const { isLoading } = useAuth()
 	const { recovery, recoveryByPhone } = useActions()
 	const onSubmit: SubmitHandler<IRecoveryInput> = (data) => {
-		console.log({phone:data.login})
 		if (data.login?.match(validMobile))
 			recoveryByPhone(data.login)
 		else if (data.login?.match(validEmail))
@@ -47,7 +46,7 @@ const Recovery: FC = () => {
 							<RecoveryFields register={registerInput} formState={formState} />
 
 							<div className={styles.buttons}>
-								<Button type="submit" disabled={!formState.isValid}>
+								<Button type="submit" >
 									Отправить новый пароль
 								</Button>
 							</div>

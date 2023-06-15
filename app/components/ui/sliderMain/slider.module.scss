@@ -2,7 +2,7 @@
 
 .slide {
   @apply text-white  md:rounded-2xl overflow-hidden;
-  @include fade-bg-gradient(0deg);
+  &.gradient{@include fade-bg-gradient(0deg);}
 
   .img {
     @apply  md:rounded-2xl ;

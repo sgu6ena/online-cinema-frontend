@@ -10,5 +10,5 @@ export interface ISlide{
 	year?: string
 	genres?: IGenre[]
 	rate_age?:string
-
+	url:string|null
 }
