@@ -20,7 +20,7 @@ import { removeTokensStorage, saveToStorage } from './auth.helper'
 export const AuthService = {
 	async registerEmail(email: string) {
 		const response = await axiosClassic.post<IRegisterByEmail, IAuthResponse>(
-			getAuthUrl('v2/register/mail'),
+			getAuthUrl('v2/register/email'),
 			{
 				email,
 			},

@@ -48,8 +48,8 @@ export const useGenre = (id: string, data?: any) => {
 			},
 		},
 	)
-	const { mutateAsync: createAsync } = useMutation(
-		'update genre',
+	const { mutateAsync: createAsync, isLoading:isLoadingCreate } = useMutation(
+		'create genre',
 		(data: GenreFormData) => {
 			const formData = new FormData()
 			formData.append('file', data.file[0])
@@ -71,5 +71,5 @@ export const useGenre = (id: string, data?: any) => {
 	)
 
 
-	return { genre: genre.data, isLoading: genre.isLoading, updateAsync, createAsync }
+	return { genre: genre.data, isLoading: genre.isLoading, updateAsync, createAsync, isLoadingCreate }
 }

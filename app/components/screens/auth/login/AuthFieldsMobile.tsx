@@ -18,13 +18,6 @@ const AuthFieldsMobile: FC<AuthFieldsMobile> = ({
 			<Field
 				{...register('login', {
 					required: 'Логин обязательное поле',
-					validate: (value) => {
-						return (
-							[validMobile, validEmail].some((pattern) =>
-								pattern.test(value),
-							) || 'введите телефон в формате 77ХХХХХХ или email'
-						);
-					},
 				})}
 				placeholder="Мобильный телефон / email / логин"
 				error={errors && errors.login}

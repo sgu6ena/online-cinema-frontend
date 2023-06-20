@@ -18,8 +18,9 @@ const GenreEdit: FC = () => {
 		mode: 'onChange',
 	})
 
+	const isNew = genreId === 'new'
 	const onSave = async (data: any) => {
-		await updateAsync(data as GenreFormData)
+			await updateAsync(data as GenreFormData)
 	}
 	useEffect(() => {
 	}, [genre])
@@ -33,7 +34,7 @@ const GenreEdit: FC = () => {
 				</div>
 			</div>
 
-			{isLoading ? <p>загрузка...</p> :
+			{isLoading  ? <p>загрузка...</p> :
 				<form onSubmit={handleSubmit(onSave)}>
 					<div className={'flex mb-8 gap-4'}>
 						<img src={`//portal.idc.md/img/mov-selec/${genreId}.jpg`} alt='' height={300} width={300} />
@@ -56,6 +57,8 @@ const GenreEdit: FC = () => {
 					</div>
 				</form>
 			}
+
+
 		</div>
 	)
 }
