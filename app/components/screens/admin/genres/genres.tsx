@@ -1,17 +1,31 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useGenres } from './useGenres'
 import AdminGenresTable from '@/ui/AdminTable/AdminTableGenres/AdminGenresTable'
 import AdminHeader from '@/ui/AdminHeader/AdminHeader'
+import { useRouter } from 'next/router'
 
 const Genres: FC = () => {
-	const {genres, isLoading}=useGenres()
+	const { genres, isLoading } = useGenres()
+	const { push } = useRouter()
+	const [term, setTerm] = useState('')
+	const [sortGenres, setSortGenres] = useState(genres)
 
-	const sortGenres = genres.sort((a: { sort: number }, b: { sort: number })=>Number(b.sort)-Number(a.sort))
+	// const sortGenres = genres.sort((a: { sort: number }, b: { sort: number }) => Number(b.sort) - Number(a.sort))
+
+
+	useEffect(() => {
+		setSortGenres(genres.filter(genre => genre.name.match(term)).sort((a: { sort: number }, b: {
+			sort: number
+		}) => Number(b.sort) - Number(a.sort)))
+	}, [term])
+
 	return (
 		<div>
-			{/*<AdminHeader searchTerm={'жанр'} handleSearch={(e)=>console.log(e.target.value)} onClick={()=>console.log('d')} />*/}
-			{/*{ !isLoading && sortGenres.map((genre:any)=><p> {genre.id} {genre.name} {genre.sort}</p> )}*/}
-			<AdminGenresTable tableItems={sortGenres} removeHandler={(e)=>console.log(e)} headerItems={['сортировка','название', 'ID']} isLoading={isLoading}/>
+			<AdminHeader searchTerm={term} handleSearch={(e) => setTerm(e.target.value)}
+									 onClick={() => push('genres/new')} />
+
+			<AdminGenresTable tableItems={sortGenres} removeHandler={(e) => console.log(e)}
+												headerItems={['сортировка', 'название', 'ID']} isLoading={isLoading} />
 		</div>
 	)
 }
