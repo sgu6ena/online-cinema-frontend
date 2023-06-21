@@ -6,6 +6,8 @@ import Field from '../../../ui/form-elemets/Field'
 import Heading from '../../../ui/heading/Heading'
 import GenreList from '@/screens/admin/movies/genreList'
 import BannersAdd from '@/screens/admin/movies/bannersAdd'
+import PayToggleButton from '@/screens/admin/movies/payToggleButton'
+import VisibleToggleButton from '@/screens/admin/movies/visibleToggleButton'
 
 
 
@@ -40,13 +42,17 @@ const MovieEdit: FC = () => {
 			</div>
 			{isLoading?<>...</>:
 				<div>
+
+
 					<div className='flex items-center gap-4'>
 						<img className={'h-60 w-44 rounded-image'} src={movie?.logo} alt={movie?.title} />
 
 						<BannersAdd/>
 
 					</div>
+
 					<div className={'w-full'}>
+
 						<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />
 						{/*<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />*/}
 						<Field placeholder={'описание'} type={'textarea'} defaultValue={movie?.review} />
