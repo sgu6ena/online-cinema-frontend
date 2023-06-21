@@ -60,7 +60,15 @@ export const AdminService = {
 		return axios.get(`adm/showSubs/1`)
 	},
 
-	async setGenreForFilm(movieId:string, genreId:string, isActive:boolean){
-		return axios.get(`adm/filmGenreChange/${movieId}/${genreId}/${isActive?'1':"0"}`)
-	}
+	async setGenreForFilm(movieId: string, genreId: string, isActive: boolean) {
+		return axios.get(`adm/filmGenreChange/${movieId}/${genreId}/${isActive ? '1' : '0'}`)
+	},
+
+	async setPayForFilm(movieId: string, isPayed: boolean) {
+		return axios.get(`adm/fileChangeAccess/${movieId}/${isPayed ? '1' : '0'}`)
+	},
+
+	async setVisibleForFilm(movieId: string, isVisible: boolean) {
+		return axios.get(`adm/fileChangeHidden/${movieId}/${isVisible ? '1' : '0'}`)
+	},
 }
