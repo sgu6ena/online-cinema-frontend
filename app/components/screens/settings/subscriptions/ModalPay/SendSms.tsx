@@ -2,14 +2,14 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { LINKS } from '../../../../../config/links';
-import { useActions } from '../../../../../hooks/useActions';
+import { LINKS } from '@/config/links';
+import { useActions } from '@/hooks/useActions';
 import Button from '../../../../ui/form-elemets/Button';
 import Field from '../../../../ui/form-elemets/Field';
 import Heading from '../../../../ui/heading/Heading';
 
 import styles from './modalPay.module.scss';
-import { useAuth } from '../../../../../hooks/useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 
 interface ISendSms {
@@ -23,7 +23,8 @@ const SendSms:FC = () => {
 		mode: 'onChange',
 	})
 	const onSubmit: SubmitHandler<ISendSms> = (data) => {
-		sendSMS({ mobile: data.phone })
+		//TODO: FIX IIIIIT
+		sendSMS({ mobile: data.phone, service:2 })
 	}
 	const { user } = useAuth()
 	return (

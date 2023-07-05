@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { RiListCheck2 } from 'react-icons/ri'
 
 import { useAuth } from '@/hooks/useAuth'
@@ -6,11 +6,15 @@ import MaterialIcon from '../../../ui/MaterialIcon'
 import Button from '../../../ui/form-elemets/Button'
 import Heading from '../../../ui/heading/Heading'
 import Subheading from '../../../ui/heading/Subheading'
-import styles from '../settings.module.scss'
-
+// import styles from '../settings.module.scss'
+import styles from './subscriptions.module.scss'
 import Modal from './ModalPay/Modal'
 import Pay from './ModalPay/Pay'
 import Unsubscribe from './ModalPay/Unsubscribe'
+import { useActions } from '@/hooks/useActions'
+import { useSubscriptions } from '@/hooks/useSubscriptions'
+import Sub from '@/screens/settings/subscriptions/sub'
+import { PortalService } from '../../../../api/portal.service'
 
 
 const Subscriptions: FC = () => {
@@ -21,65 +25,29 @@ const Subscriptions: FC = () => {
 
 	const [isShowModal, setShowModal] = useState(false)
 
+	const subs = useSubscriptions()
+  const {unsubscription, unflow, sendSms} = PortalService
+
+	const { getSubscriptions } = useActions()
+	useEffect(() => {
+		getSubscriptions()
+	}, [])
 	return (
-		<div>
+		<div className={styles.subscriptions}>
 			{/*<Breadcrumbs breadcrumbs={getSettingsBread('ПОДПИСКА', LINKS.SUBSCRIPTIONS)} />*/}
-			<Heading title={'ПОДПИСКА'} className='mb-5' />
-			<div className={styles.card}>
-				<img src='/images/settings/subs.png' alt='' className={'w-full'} />
-				<Subheading title='Смотреть в удовольствие' />
-				<div className={styles.line}>
-					<div className={styles.icon}>
-						<RiListCheck2 />
-					</div>
-					<div>
-						<div className={styles.title}>Большая коллекция</div>
-						<div className={styles.subtitle}>
-							Известные топовые фильмы и новинки
-						</div>
-					</div>
-				</div>
-				<div className={styles.line}>
-					<div className={styles.icon}>
-						<MaterialIcon name={'MdTv'} />
-					</div>
-					<div>
-						<div className={styles.title}>На любом устройстве</div>
-						<div className={styles.subtitle}>
-							Смотрите на смартфоне, ноутбуке, телевизоре
-						</div>
-					</div>
-				</div>
-				{isSubscribed && (
-					<div>
-						<div className={'text-green-500 font-bold'}>Подписка оформлена</div>
-						<div className={styles.subtitle}>{date} </div>
-					</div>
-				)}
-				{isSubscribed ? (
-					<>
-						{!flow && (
-							<button
-								className='bg-gray-600 p-2 rounded-layout'
-								onClick={() => setShowModal(!isShowModal)}
-							>
-								Отменить подписку
-							</button>
-						)}
-						<div className={styles.subtitle}>
-							{flow
-								? 'Вы отменили автоматическое продление '
-								: 'Подписка продлится автоматически'}
-						</div>
-					</>
-				) : (
-					<Button onClick={() => setShowModal(!isShowModal)}>
-						{user?.promo
-							? 'Оформить подписку за 1 RUP'
-							: 'Оформить подписку за 32 RUP'}
-					</Button>
-				)}
+			<Heading title={'Мои подписки'} className='mb-5' />
+			{/*<button onClick={()=>sendSms('77814920',2)}>test</button>*/}
+
+			<Heading title={'Все подписки'} className='mb-5' />
+
+			<div className='wrapper'>
+
+
 			</div>
+			<div className={'flex flex-col  mt-5 flex-wrap gap-2'}>
+				{subs.length > 0 ? subs.map(sub => <Sub sub={sub}
+																								key={sub.packet_id} />) : 'загрузка доступных подписок'}</div>
+
 
 			{isShowModal && (
 				<Modal setIsShow={setShowModal}>

@@ -4,13 +4,21 @@ import { toast } from 'react-hot-toast'
 import { PortalService } from '../../api/portal.service'
 import { toastError } from '@/utils/toast-error'
 
-import { IChangeConf, IChangeEmail, IChangePassword, IChangePhone, ICheckSms, ISendSms } from './settings.interface'
+import {
+	IChangeConf,
+	IChangeEmail,
+	IChangePassword,
+	IChangePhone,
+	ICheckSms,
+	ISendSms,
+	ISubscpition,
+} from './settings.interface'
 
 export const sendSMS = createAsyncThunk<any, ISendSms>(
 	'sendSMS',
-	async ({ mobile }, thunkApi) => {
+	async ({ mobile, service }, thunkApi) => {
 		try {
-			const response = await PortalService.sendSms(mobile)
+			const response = await PortalService.sendSms(mobile, service)
 			toast.success('Смс было отправлено')
 			return response
 		} catch (error) {
@@ -22,9 +30,9 @@ export const sendSMS = createAsyncThunk<any, ISendSms>(
 
 export const checkSMS = createAsyncThunk<any, ICheckSms>(
 	'checkSMS',
-	async ({ sms, promo }, thunkApi) => {
+	async ({ sms, service }, thunkApi) => {
 		try {
-			const response = await PortalService.checkSms(sms, promo)
+			const response = await PortalService.checkSms(sms, service)
 			toast.success('Успешно активировано')
 			return response
 		} catch (error) {
@@ -139,4 +147,17 @@ export const promoCode = createAsyncThunk<any, { code: string }>(
 			toastError('Произошла ошибка')
 		}
 	}
+)
+
+export const getSubscriptions = createAsyncThunk<ISubscpition[], void>(
+	'getSubscriptions',
+	async (_, thunkApi) => {
+		try {
+			const response = await PortalService.getSubscriptions()
+			return response
+		} catch (error) {
+			toastError('ошибка получения подписки')
+			return thunkApi.rejectWithValue(error)
+		}
+	},
 )
