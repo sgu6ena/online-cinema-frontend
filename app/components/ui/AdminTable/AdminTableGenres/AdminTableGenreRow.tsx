@@ -8,7 +8,11 @@ import Link from 'next/link'
 const AdminTableGenreRow: FC<{ item:IAdminGenreListData, removeHandler: (id: string) => void }> = ({ item:genre, removeHandler}) => {
 	return (
 		<tr>
-			<td><Link href={`genres/${String(genre.id)}`}><a className={'flex gap-1'}><img src={`//portal.idc.md/img/mov-selec/${genre.id}.jpg`} alt={genre.name} />{genre.name}</a></Link></td>
+			<td>
+				<Link href={`genres/${String(genre.id)}`}>
+					<a className={'flex gap-4 items-center'}><img className={''} src={`//portal.idc.md/img/mov-selec/${genre.id}.jpg`} alt={genre.name} />{genre.name}</a>
+				</Link>
+			</td>
 			<td>{genre.sort}</td>
 
 

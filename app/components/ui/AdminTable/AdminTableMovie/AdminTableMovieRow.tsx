@@ -8,10 +8,11 @@ import VisibleToggleButton from '@/screens/admin/movies/visibleToggleButton'
 
 const AdminTableMovieRow: FC<IAdminMovieTable> = ({ tableItem: movie, removeHandler }) => {
 	return (
-		<tr>
-			<td><Link href={`movies/${String(movie.id)}`}><a className={'flex gap-1 w-full'}><img src={movie.logo}
-																																														alt={movie.title} />{movie.title}
-			</a></Link></td>
+		<tr className={'m-0'}>
+			<td><Link href={`movies/${String(movie.id)}`}><a className={'flex gap-4  items-center w-full'}>
+				<img className={''} src={movie.logo} alt={movie.title} />{movie.title}
+			</a></Link>
+			</td>
 			<td>{movie.year}</td>
 			<td>{movie.history}</td>
 			<td>{movie.rate_kp}</td>

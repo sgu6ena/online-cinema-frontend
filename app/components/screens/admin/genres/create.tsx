@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
 import Field from '@/ui/form-elemets/Field'
 import Button from '@/ui/form-elemets/Button'
-import { GenreFormData, useGenre } from '@/screens/admin/genres/useGenre'
+import {  useGenre } from '@/screens/admin/genres/useGenre'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import Heading from '@/ui/heading/Heading'
-import Subheading from '@/ui/heading/Subheading'
 
 const Create = () => {
 	const { query } = useRouter()
