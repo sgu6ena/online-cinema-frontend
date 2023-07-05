@@ -3,7 +3,14 @@ import Cookies from 'js-cookie'
 
 import { getStoreLocalStorage } from '../../utils/local-storage'
 
-import { getUserData, login, logout, recovery, registerByMail, registerByMobile } from './user.actions'
+import {
+	getUserData,
+	login,
+	logout,
+	recovery,
+	registerByMail,
+	registerByMobile,
+} from './user.actions'
 import { IInitialState } from './user.interface'
 
 const initialState: IInitialState = {

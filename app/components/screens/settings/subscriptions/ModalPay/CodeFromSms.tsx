@@ -23,7 +23,7 @@ const CodeFromSms: FC = () => {
 	const isPromo = isPromoAvailable && user?.promo === true
 	const inNoRubble = !isPromoAvailable && user?.promo === true
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		checkSMS({ sms: data.sms, promo: isPromo ? 'true' : 'false' })
+		checkSMS({ sms: data.sms, service: data.service })
 	}
 
 	return (!isPayed ?

@@ -6,9 +6,10 @@ import {
 	sendSMS,
 	smartActive,
 	unsubscribe,
-	changePhone, changeEmail,
+	changePhone, changeEmail, getSubscriptions,
 } from './settings.actions'
 import { initialState } from './settings.interface'
+
 
 
 export const settingsSlice = createSlice({
@@ -119,6 +120,17 @@ export const settingsSlice = createSlice({
 			})
 			.addCase(promoCode.rejected, (state) => {
 				state.isLoading = false
+			})
+
+			.addCase(getSubscriptions.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(getSubscriptions.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(getSubscriptions.fulfilled, (state, { payload } ) => {
+				state.isLoading = false
+				state.subscriptions = payload
 			})
 	},
 })

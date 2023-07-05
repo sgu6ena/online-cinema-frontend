@@ -25,8 +25,16 @@ export const changePhoneV2Conf = () => '/v2/update/phone/conf'
 export const changeEmailV2 = () => '/v2/update/email'
 export const changeEmailV2Conf = () => '/v2/update/email/conf'
 
+export const getSubscription = () => '/v2/subscriptions'
+export const sendSMSV2 = () => '/v2/sendSMS'
+export const checkInternetV2 = () => '/v2/checkinternet'
+export const checkSMSV2 = () => '/v2/checkSMS'
+
 export const changeEmail = () => '/updateEmail'
 export const unsubscribe = () => '/unsubscription'
+export const unsubscription = () => '/v2/unsubscription'
+
+export const unflow = () => '/v2/unflow'
 export const smartTv = (code: string) => `/smartTV/active/${code}`
 export const activateRegister = (code: string) => `/activate?actkey=${code}`
 export const recoveryPassword = (code: string) => `/get_pass/${code}`
