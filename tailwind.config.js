@@ -135,6 +135,21 @@ module.exports = {
 					color: theme('colors.white'),
 					boxShadow: theme('boxShadow.lg'),
 				},
+				'.gradient-text': {
+					background: 'linear-gradient(90deg, #7B4397 0%, #DC2430 100%)',
+					'-webkit-background-clip': 'text',
+					'-webkit-text-fill-color': 'transparent',
+					'-moz-background-clip': 'text',
+					'-moz-text-fill-color': 'transparent',
+					// 'border-radius': '10px !important',
+					display: 'inline-block',
+					// padding: '0.3em 0.6em',
+					// border: '3px solid transparent',
+					// 'border-image': 'linear-gradient(90deg, #7B4397 0%, #DC2430 100%)',
+					// '-webkit-border-image': 'linear-gradient(90deg, #7B4397 0%, #DC2430 100%)',
+					// 'border-image-slice': '1',
+					// '-webkit-border-image-slice': '1',
+				}
 			}),
 				addUtilities({
 					'.text-shadow': {
@@ -157,6 +172,7 @@ module.exports = {
 						objectFit: 'cover',
 						pointerEvents: 'none',
 					},
+
 				})
 		}),
 	],
