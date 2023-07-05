@@ -9,9 +9,9 @@ import Field from '../../../../ui/form-elemets/Field'
 import Heading from '../../../../ui/heading/Heading'
 
 import styles from './modalPay.module.scss'
-import { useSettings } from '../../../../../hooks/useSettings'
+import { useSettings } from '@/hooks/useSettings'
 
-const CodeFromSms: FC = () => {
+const CodeFromSms: FC<{ id: number, text: string }> = ({text, id}) => {
 	const { checkSMS } = useActions()
 	const { register, handleSubmit, formState } = useForm<ICheckSms>({
 		mode: 'onChange',
@@ -20,10 +20,8 @@ const CodeFromSms: FC = () => {
 	const { user } = useAuth()
 	const { isPromoAvailable, error, isError, isPayed } = useSettings()
 
-	const isPromo = isPromoAvailable && user?.promo === true
-	const inNoRubble = !isPromoAvailable && user?.promo === true
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		checkSMS({ sms: data.sms, service: data.service })
+		checkSMS({ sms: data.sms, service: id })
 	}
 
 	return (!isPayed ?
@@ -44,8 +42,9 @@ const CodeFromSms: FC = () => {
 				error={formState.errors && formState.errors.sms}
 			/>
 			<div className={styles.footer}>
-				<Button type='submit' disabled={!formState.isValid}>
-					{isPromoAvailable ? 'Подтвердить подписку' : 'Купить подписку за 32 RUP'}
+				<strong>{text}</strong>
+				<Button type='submit'>
+				 Подтвердить подписку
 				</Button>
 				<p>Отказаться можно в любой момент </p>
 			</div>

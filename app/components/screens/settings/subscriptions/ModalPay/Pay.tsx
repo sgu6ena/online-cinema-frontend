@@ -5,7 +5,7 @@ import CodeFromSms from './CodeFromSms'
 import SendSms from './SendSms'
 import styles from './modalPay.module.scss'
 
-const Pay: FC = () => {
+const Pay: FC<{ id: number, text: string }> = ({ id, text }) => {
 	const { isLoading, isSmsSend } = useSettings()
 
 	return (
@@ -13,8 +13,8 @@ const Pay: FC = () => {
 			{isLoading
 				? <p className={styles.modalText}>Загрузка...</p>
 				: !isSmsSend
-					? <SendSms />
-					: <CodeFromSms />}
+					? <SendSms id={id} text={text}/>
+					: <CodeFromSms  id={id} text={text} />}
 		</>
 	)
 }

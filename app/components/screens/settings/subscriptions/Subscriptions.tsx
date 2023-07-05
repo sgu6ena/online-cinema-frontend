@@ -18,15 +18,14 @@ import { PortalService } from '../../../../api/portal.service'
 
 
 const Subscriptions: FC = () => {
-	const { user } = useAuth()
-	const isSubscribed = !!user?.paid
-	const date = user?.dtEnd
-	const flow = user?.dtFlow
+	// const { user } = useAuth()
+	// const isSubscribed = !!user?.paid
+	// const date = user?.dtEnd
+	// const flow = user?.dtFlow
 
-	const [isShowModal, setShowModal] = useState(false)
 
 	const subs = useSubscriptions()
-  const {unsubscription, unflow, sendSms} = PortalService
+	const { unsubscription, unflow, sendSms } = PortalService
 
 	const { getSubscriptions } = useActions()
 	useEffect(() => {
@@ -36,24 +35,12 @@ const Subscriptions: FC = () => {
 		<div className={styles.subscriptions}>
 			{/*<Breadcrumbs breadcrumbs={getSettingsBread('ПОДПИСКА', LINKS.SUBSCRIPTIONS)} />*/}
 			<Heading title={'Мои подписки'} className='mb-5' />
-			{/*<button onClick={()=>sendSms('77814920',2)}>test</button>*/}
-
 			<Heading title={'Все подписки'} className='mb-5' />
 
-			<div className='wrapper'>
-
-
-			</div>
 			<div className={'flex flex-col  mt-5 flex-wrap gap-2'}>
 				{subs.length > 0 ? subs.map(sub => <Sub sub={sub}
 																								key={sub.packet_id} />) : 'загрузка доступных подписок'}</div>
 
-
-			{isShowModal && (
-				<Modal setIsShow={setShowModal}>
-					{isSubscribed ? <Unsubscribe setIsShow={setShowModal} /> : <Pay />}
-				</Modal>
-			)}
 		</div>
 	)
 }
