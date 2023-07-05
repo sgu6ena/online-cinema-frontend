@@ -32,6 +32,9 @@
       }
 
       .footer {
+        strong{
+          @apply block text-center;
+        }
         button {
           @apply w-full;
         }

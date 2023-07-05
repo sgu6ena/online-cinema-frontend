@@ -17,14 +17,14 @@ interface ISendSms {
 	acceptTerms: boolean
 }
 
-const SendSms:FC = () => {
+const SendSms:FC<{ id: number, text: string }> = ({text, id}) => {
 	const { sendSMS } = useActions()
 	const { register, handleSubmit, formState } = useForm<ISendSms>({
 		mode: 'onChange',
 	})
 	const onSubmit: SubmitHandler<ISendSms> = (data) => {
-		//TODO: FIX IIIIIT
-		sendSMS({ mobile: data.phone, service:2 })
+
+		sendSMS({ mobile: data.phone, service:id })
 	}
 	const { user } = useAuth()
 	return (
@@ -32,7 +32,7 @@ const SendSms:FC = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className={styles.head}>
 					<Heading title="Подписка" />
-					<p>{user?.promo? '14 дней за 1 RUP, далее 32 RUP':'32 RUP в месяц'}</p>
+					<p>{text}</p>
 				</div>
 				<div>
 					<Field
