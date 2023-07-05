@@ -1,5 +1,6 @@
 import axios from '../interceptors'
 import { IAdminFileList } from '@/shared/types/admin.types'
+import { IPromoTable } from '@/screens/admin/promo/promos'
 
 
 export interface iAdminGenre {
@@ -21,10 +22,21 @@ export interface updateGenre {
 	sort: number
 }
 
+export interface iPromocode{
+	count:number
+	tariff_id:number
+	time_expired:string
+}
+
 export const AdminService = {
 	async getGenreList():Promise<{ data:iAdminGenre[] }> {
 		const data = await axios.get(`adm/genreList`)
 		return data.data
+	},
+
+	async getTariffList():Promise<any[]> {
+		const data = await axios.get(`adm/promo/getTariffList`)
+		return data.data.data
 	},
 	async getGenre(id: string): Promise< iAdminGenre > {
 		const data = await axios.get(`adm/genre/${id}`)
@@ -70,5 +82,17 @@ export const AdminService = {
 
 	async setVisibleForFilm(movieId: string, isVisible: boolean) {
 		return axios.get(`adm/fileChangeHidden/${movieId}/${isVisible ? '1' : '0'}`)
+	},
+
+
+	async getPromocodesList():Promise<IPromoTable[]> {
+		const data = await axios.get(`adm/promo/report`)
+		return data.data.data
+	},
+
+
+	async generatePromocode (data:iPromocode){
+		const response = await axios.post(`adm/promo/generate`,data );
+		return response.data.data;
 	},
 }
