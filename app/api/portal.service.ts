@@ -1,13 +1,25 @@
 import { IGalleryHome } from '@/ui/gallery/gallery.interface'
 import { ISlide } from '@/ui/slider/slider.interface'
 import {
-	APP_URL_PORTAL, changeEmail, changeEmailV2, changeEmailV2Conf, changePhoneV2, changePhoneV2Conf, checkSMSV2,
+	APP_URL_PORTAL,
+	changeEmail,
+	changeEmailV2,
+	changeEmailV2Conf,
+	changePhoneV2,
+	changePhoneV2Conf,
+	changeService,
+	checkSMSV2,
 	getCategoryUrl,
-	getMovieUrl, getSubscription,
-	getUserDataUrl, percentageViewed,
+	getMovieUrl,
+	getSubscription,
+	getUserDataUrl,
+	percentageViewed,
 	recoveryPassword,
-	sendBookmarkUrl, sendSMSV2,
-	sendVoteUrl, unflow, unsubscription,
+	sendBookmarkUrl,
+	sendSMSV2,
+	sendVoteUrl,
+	unflow,
+	unsubscription,
 } from '@/config/api.config'
 import {
 	activatePromoCode,
@@ -30,7 +42,7 @@ import {
 	IChangeEmail,
 	IChangePassword, IChangePhone,
 	ICheckSms,
-	ISendSms, ISubscpition,
+	ISendSms, ISendSmsPromo, ISubscpition,
 } from '@/store/settings/settings.interface'
 
 import axios, { axiosClassicPortal } from './interceptors'
@@ -159,13 +171,24 @@ export const PortalService = {
 		return data.data
 	},
 
+	async changeSubscriptions(mobile: string, service: number) {
+		const response = await axios.post<any, ISendSms>(changeService(), {
+			mobile, service,
+		})
+		return response
+	},
 	async sendSms(mobile: string, service: number) {
 		const response = await axios.post<any, ISendSms>(sendSMSV2(), {
 			mobile, service,
 		})
 		return response
 	},
-
+	async sendSmsPromo(mobile: string, code: string) {
+		const response = await axios.post<any, ISendSmsPromo>(sendSMSV2(), {
+			mobile, code,
+		})
+		return response
+	},
 	async checkSms(sms: string, service: number) {
 		const response = await axios.post<any, ICheckSms>(checkSMSV2(), {
 			sms,
@@ -239,9 +262,9 @@ export const PortalService = {
 		const response = await axios.get<any, any>(activateRegister(code))
 		return response
 	},
-	async activatePromocode(code: string) {
-		const response = await axios.get<any, any>(activatePromoCode(code))
-		return response
+	async infoPromocode(code: string) {
+		const response = await axios.post<any, any>(activatePromoCode(),{ code })
+		return response.data.data
 	},
 	async getById(id: string) {
 		const data = await axios.get<IMoviePortalPage>(getMovieUrl(`${id}`))

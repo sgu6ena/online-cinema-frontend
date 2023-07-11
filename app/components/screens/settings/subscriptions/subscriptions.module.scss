@@ -1,7 +1,7 @@
 .subscriptions {
   .sub {
 
-    @apply  w-96 ;
+    @apply  cursor-pointer w-96 ;
     padding: 2px;
     background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%);
     border-radius: 16px;
@@ -11,7 +11,7 @@
       background:  linear-gradient(90deg, #0C0C0C 0%, rgba(28, 28, 30, 0.00) 100%),  url("/images/settings/back_sub.jpg") ;
       border-radius: 15px;
       .period{
-        @apply font-bold text-5xl gradient-text mb-2 transition-all
+        @apply font-bold text-3xl gradient-text mb-2 transition-all
       }
 
       &:hover{
@@ -21,5 +21,29 @@
         }
       }
     }
-  }
+
+  } .subActive {
+
+      @apply cursor-pointer w-96 ;
+      padding: 2px;
+      background: grey;
+      border-radius: 16px;
+
+      .cardActive {
+        @apply transition-all px-4 pt-4 pb-1 bg-cover ;
+        background: linear-gradient(90deg, #0C0C0C 0%, rgba(28, 28, 30, 0.00) 100%), url("/images/settings/back_sub.jpg");
+        border-radius: 15px;
+
+        .period {
+          @apply font-bold text-xl  mb-2 transition-all
+        }
+
+        &:hover {
+          @apply  shadow;
+          .period {
+            @apply pl-2 text-white
+          }
+        }
+      }
+    }
 }

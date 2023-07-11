@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { useActions } from '../../../../../hooks/useActions'
-import { useAuth, useRuble } from '../../../../../hooks/useAuth'
-import { ICheckSms } from '../../../../../store/settings/settings.interface'
+import { useActions } from '@/hooks/useActions'
+import { useAuth, useRuble } from '@/hooks/useAuth'
+import { ICheckSms } from '@/store/settings/settings.interface'
 import Button from '../../../../ui/form-elemets/Button'
 import Field from '../../../../ui/form-elemets/Field'
 import Heading from '../../../../ui/heading/Heading'
@@ -11,7 +11,8 @@ import Heading from '../../../../ui/heading/Heading'
 import styles from './modalPay.module.scss'
 import { useSettings } from '@/hooks/useSettings'
 
-const CodeFromSms: FC<{ id: number, text: string }> = ({text, id}) => {
+
+const CodeFromSms: FC<{ id: number|string, text: string,  isPromo?:boolean, isSubscribed:boolean}> = ({text, id, isPromo, isSubscribed}) => {
 	const { checkSMS } = useActions()
 	const { register, handleSubmit, formState } = useForm<ICheckSms>({
 		mode: 'onChange',
@@ -21,7 +22,7 @@ const CodeFromSms: FC<{ id: number, text: string }> = ({text, id}) => {
 	const { isPromoAvailable, error, isError, isPayed } = useSettings()
 
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		checkSMS({ sms: data.sms, service: id })
+		isSubscribed?console.log('смена подписки'):checkSMS({ sms: data.sms, service: id })
 	}
 
 	return (!isPayed ?
