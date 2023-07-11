@@ -51,8 +51,7 @@ const Catalog: FC = () => {
 	const [titleGenre, setTitleGenre] = useState('')
 	const isLoading = isLoadingGenre
 
-	useEffect(()=>{
-		console.log({ totalPages, pagination })},[totalPages, pagination])
+
 	useEffect(() => {
 		getSearchParameters()
 	}, [])
