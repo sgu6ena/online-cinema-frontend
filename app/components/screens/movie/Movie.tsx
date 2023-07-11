@@ -97,7 +97,6 @@ const Movie: FC = () => {
 
 	const nextSeries = () => {
 		setFullScreen(screenfull.isFullscreen)
-
 		const playIndex = playlist.findIndex((item) => idFile === item.idFile)
 		const nextIndex = playlist.length > playIndex + 1 ? playIndex + 1 : 0
 		const nextIdFile = playlist[nextIndex].idFile
@@ -122,7 +121,6 @@ const Movie: FC = () => {
 		}
 	}, [])
 
-	// const isContinueWatching = serial && !isPlayed && movie?.media[0].items[0].file != activeId
 	const isContinueWatching = serial && !isPlayed && !!user && (movie?.media[0].items[0].file != activeId || movie?.media[0].items[0].chunk> 0) || !serial && !isPlayed && movie?.media[0]?.items[0]?.chunk && (movie?.media[0]?.items[0]?.chunk > 0) && !!user
 	const isStartWatching = !isPlayed && !isContinueWatching
 

@@ -31,7 +31,7 @@ export const sendSMS = createAsyncThunk<any, ISendSms>(
 
 
 export const sendSMSPromo = createAsyncThunk<any, ISendSmsPromo>(
-	'sendSMS',
+	'sendSMSPromo',
 	async ({ mobile, code }, thunkApi) => {
 		try {
 			const response = await PortalService.sendSmsPromo(mobile, code)
@@ -58,9 +58,9 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 
 export const changeSubscriptions = createAsyncThunk<any, any>(
 	'changeSubscriptions',
-	async ({ sms, service }, thunkApi) => {
+	async ({ mobile, service }, thunkApi) => {
 		try {
-			const response = await PortalService.checkSms(sms, service as number)
+			const response = await PortalService.changeSubscriptions({mobile, service})
 			toast.success('Успешно')
 			return response
 		} catch (error) {
@@ -68,6 +68,32 @@ export const changeSubscriptions = createAsyncThunk<any, any>(
 		}
 	}
 )
+
+export const changeSubscriptionsPromo = createAsyncThunk<any, any>(
+	'changeSubscriptionsPromo',
+	async ({ mobile, code }, thunkApi) => {
+		try {
+			const response = await PortalService.changeSubscriptions({ mobile, code })
+			toast.success('Успешно')
+			return response
+		} catch (error) {
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+);
+//
+// export const changeSubscriptionsPromo = createAsyncThunk<any, any>(
+// 	'changeSubscriptions',
+// 	async ({ sms, code }, thunkApi) => {
+// 		try {
+// 			const response = await PortalService.changeSubscriptions(sms, code )
+// 			toast.success('Успешно')
+// 			return response
+// 		} catch (error) {
+// 			return thunkApi.rejectWithValue(error)
+// 		}
+// 	}
+// )
 
 export const changePassword = createAsyncThunk<any, IChangePassword>(
 	'changePassword',

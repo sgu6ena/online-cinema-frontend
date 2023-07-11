@@ -18,7 +18,10 @@ export const navItems: INavItem[] = [
 		link: getAdminUrl('promo'),
 		title: 'Промокоды',
 	},
-
+	{
+		link: getAdminUrl('faq'),
+		title: 'FAQ',
+	},
 	// {
 	// 	link: getAdminUrl('actors'),
 	// 	title: 'Актеры',

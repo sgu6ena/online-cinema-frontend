@@ -10,6 +10,7 @@ import Heading from '../../../../ui/heading/Heading';
 
 import styles from './modalPay.module.scss';
 import { useAuth } from '@/hooks/useAuth'
+import { changeSubscriptions } from '@/store/settings/settings.actions'
 
 
 interface ISendSms {
@@ -23,15 +24,31 @@ const SendSms: FC<{ id: number | string, text: string, isPromo?: boolean, isSubs
 																																																				isPromo,
 																																																				isSubscribed,
 																																																			}) => {
-	const { sendSMS, sendSMSPromo } = useActions()
+	const { sendSMS, sendSMSPromo, changeSubscriptions, changeSubscriptionsPromo } = useActions()
 	const { register, handleSubmit, formState } = useForm<ISendSms>({
 		mode: 'onChange',
 	})
 	const onSubmit: SubmitHandler<ISendSms> = (data) => {
 		if (isPromo) {
-			isSubscribed ? console.log('смена подписки'): sendSMSPromo({ mobile: data.phone, code: id as string })
+			isSubscribed ?
+				changeSubscriptionsPromo({
+					mobile: data.phone,
+					code: id as string,
+				}) :
+				sendSMSPromo({
+					mobile: data.phone,
+					code: id as string,
+				})
 		} else {
-			isSubscribed ? console.log('смена подписки') : sendSMS({ mobile: data.phone, service: id })
+			isSubscribed ?
+				changeSubscriptions({
+					mobile: data.phone,
+					service: id as string,
+				}) :
+				sendSMS({
+					mobile: data.phone,
+					service: id,
+				})
 		}
 	}
 	const { user } = useAuth()

@@ -68,6 +68,21 @@ export const AdminService = {
 		return data
 	},
 
+	async getFaqList() {
+		const data = await axios.get(`v2/faq/getList`)
+		return data
+	},
+
+	async addFaq(faq:{title:string, text:string}) {
+		const data = await axios.post(`adm/faq/add`, faq)
+		return data
+	},
+
+	async updateFaq(faq:{title:string, text:string, id:string}) {
+		const data = await axios.post(`adm/faq/update`, faq)
+		return data
+	},
+
 	async showSubs() {
 		return axios.get(`adm/showSubs/1`)
 	},

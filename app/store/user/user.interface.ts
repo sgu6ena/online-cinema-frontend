@@ -38,6 +38,15 @@ export interface IAuthResponse {
 	packet_active_text1?: string
 	packet_active_text2?: string
 
+
+
+	packet_next_start?: string
+	packet_next_id?: number
+	packet_next_price?: number
+	packet_next_promo?: boolean
+	packet_next_text1?: string
+	packet_next_text2?: string
+
 }
 
 export interface IRegisterByEmail {
