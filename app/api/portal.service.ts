@@ -171,9 +171,9 @@ export const PortalService = {
 		return data.data
 	},
 
-	async changeSubscriptions(mobile: string, service: number) {
+	async changeSubscriptions({		mobile, service, code}: { mobile: string, service?: number, code?: string }) {
 		const response = await axios.post<any, ISendSms>(changeService(), {
-			mobile, service,
+			mobile, service, code,
 		})
 		return response
 	},

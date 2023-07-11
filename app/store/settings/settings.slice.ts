@@ -6,7 +6,7 @@ import {
 	sendSMS,
 	smartActive,
 	unsubscribe,
-	changePhone, changeEmail, getSubscriptions,
+	changePhone, changeEmail, getSubscriptions, sendSMSPromo, changeSubscriptions, changeSubscriptionsPromo,
 } from './settings.actions'
 import { initialState } from './settings.interface'
 
@@ -44,6 +44,42 @@ export const settingsSlice = createSlice({
 			.addCase(sendSMS.rejected, (state) => {
 				state.isLoading = false
 			})
+			.addCase(sendSMSPromo.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(sendSMSPromo.fulfilled, (state) => {
+				state.isLoading = false
+				state.isSmsSend = true
+			})
+			.addCase(sendSMSPromo.rejected, (state) => {
+				state.isLoading = false
+			})
+
+			.addCase(changeSubscriptions.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(changeSubscriptions.fulfilled, (state) => {
+				state.isLoading = false
+				state.isSmsSend = true
+			})
+			.addCase(changeSubscriptions.rejected, (state) => {
+				state.isLoading = false
+			})
+
+
+			.addCase(changeSubscriptionsPromo.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(changeSubscriptionsPromo.fulfilled, (state) => {
+				state.isLoading = false
+				state.isSmsSend = true
+			})
+			.addCase(changeSubscriptionsPromo.rejected, (state) => {
+				state.isLoading = false
+			})
+
+
+
 			.addCase(changePassword.pending, (state) => {
 				state.isLoading = true
 				state.isError = false
