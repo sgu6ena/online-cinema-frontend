@@ -33,12 +33,17 @@ export const initialState: IState = {
 
 export interface ISendSms {
 	mobile: string
-	service:number
+	service: number | string
+}
+
+export interface ISendSmsPromo {
+	mobile: string
+	code: string
 }
 
 export interface ICheckSms {
 	sms: string
-	service:number
+	service: number | string
 }
 
 export interface IChangePassword {

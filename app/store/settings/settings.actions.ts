@@ -10,15 +10,16 @@ import {
 	IChangePassword,
 	IChangePhone,
 	ICheckSms,
-	ISendSms,
+	ISendSms, ISendSmsPromo,
 	ISubscpition,
 } from './settings.interface'
+import { activatePromoCode } from '@/config/api.config'
 
 export const sendSMS = createAsyncThunk<any, ISendSms>(
 	'sendSMS',
 	async ({ mobile, service }, thunkApi) => {
 		try {
-			const response = await PortalService.sendSms(mobile, service)
+			const response = await PortalService.sendSms(mobile, service as number)
 			toast.success('Смс было отправлено')
 			return response
 		} catch (error) {
@@ -28,12 +29,39 @@ export const sendSMS = createAsyncThunk<any, ISendSms>(
 	}
 )
 
+
+export const sendSMSPromo = createAsyncThunk<any, ISendSmsPromo>(
+	'sendSMS',
+	async ({ mobile, code }, thunkApi) => {
+		try {
+			const response = await PortalService.sendSmsPromo(mobile, code)
+			toast.success('Смс было отправлено')
+			return response
+		} catch (error) {
+			toastError(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+)
 export const checkSMS = createAsyncThunk<any, ICheckSms>(
 	'checkSMS',
 	async ({ sms, service }, thunkApi) => {
 		try {
-			const response = await PortalService.checkSms(sms, service)
+			const response = await PortalService.checkSms(sms, service as number)
 			toast.success('Успешно активировано')
+			return response
+		} catch (error) {
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+)
+
+export const changeSubscriptions = createAsyncThunk<any, any>(
+	'changeSubscriptions',
+	async ({ sms, service }, thunkApi) => {
+		try {
+			const response = await PortalService.checkSms(sms, service as number)
+			toast.success('Успешно')
 			return response
 		} catch (error) {
 			return thunkApi.rejectWithValue(error)
@@ -114,7 +142,7 @@ export const unsubscribe = createAsyncThunk<any, void>(
 	'unsubscribe',
 	async (_, thunkApi) => {
 		try {
-			const response = await PortalService.unsubscribe()
+			const response = await PortalService.unsubscription()
 			toast.success('Подписка была отменена')
 			return response
 		} catch (error) {
@@ -140,11 +168,11 @@ export const promoCode = createAsyncThunk<any, { code: string }>(
 	'promoCode',
 	async ({ code }, thunkApi) => {
 		try {
-			const response = await PortalService.activatePromocode(code)
+			const response = await PortalService.infoPromocode(code)
 			toast.success('Промокод успешно активирован')
 			return response
 		} catch (error) {
-			toastError('Произошла ошибка')
+			toastError(error)
 		}
 	}
 )

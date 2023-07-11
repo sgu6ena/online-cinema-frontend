@@ -1,14 +1,17 @@
 .vote {
   @apply flex  gap-3 ;
   button {
-    @apply border-white border-opacity-20 border px-4 py-1  opacity-50 rounded border;
+    @apply border-white border-opacity-20 border px-1 py-1  opacity-30 rounded border;
+    svg{
+      @apply w-8 h-8
+    }
   }
 
-  .like {
+  .myVote.like {
     color: green;
   }
 
-  .dislike {
+  .myVote.dislike {
     @apply text-primary;
   }
 

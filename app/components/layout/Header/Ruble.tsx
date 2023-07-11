@@ -25,7 +25,14 @@ const Ruble: FC = () => {
 										<a><Button className={'mt-5'} onClick={() => setShowModal(false)}>Войти</Button></a>
 									</Link>
 								</div>
-							) : <Pay />}
+							) :
+								<div className={'p-8 text-center'}>
+									<div>Купить портал за 1 рубль?</div>
+									<Link href={`/${LINKS.SUBSCRIPTIONS}`}>
+										<a><Button className={'mt-5'} onClick={() => setShowModal(false)}>Купить</Button></a>
+									</Link>
+								</div>
+							}
 						</Modal>
 					)}
 					<Button onClick={() => setShowModal(!isShowModal)} className={styles.ruble}>

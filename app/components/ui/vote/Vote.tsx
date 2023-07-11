@@ -37,7 +37,7 @@ const Vote: FC<IVote> = ({
 				title="Понравился фильм"
 			>
 				<MaterialIcon name={'MdThumbUp'} />
-				{like}
+				{/*{like}*/}
 			</button>
 
 			<button
@@ -50,7 +50,7 @@ const Vote: FC<IVote> = ({
 				title="Не понравился фильм"
 			>
 				<MaterialIcon name={'MdThumbDown'} />
-				{dislike}
+				{/*{dislike}*/}
 			</button>
 		</div>
 	)

@@ -33,11 +33,11 @@ export const checkSMSV2 = () => '/v2/checkSMS'
 export const changeEmail = () => '/updateEmail'
 export const unsubscribe = () => '/unsubscription'
 export const unsubscription = () => '/v2/unsubscription'
-
+export const changeService = () =>'v2/changeService'
 export const unflow = () => '/v2/unflow'
 export const smartTv = (code: string) => `/smartTV/active/${code}`
 export const activateRegister = (code: string) => `/activate?actkey=${code}`
 export const recoveryPassword = (code: string) => `/get_pass/${code}`
-export const activatePromoCode = (code: string) => `/promocode/${code}`
+export const activatePromoCode = () => `/v2/promo`
 export const percentageViewed = (link_id: string, percent: number) => `/file/timeshift/${link_id}/${percent}`
 
