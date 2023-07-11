@@ -26,7 +26,7 @@ const Unsubscribe: FC<{ setIsShow: (isShow: boolean) => void }> = ({ setIsShow }
 			<div className={styles.head}>
 				<Heading title='Вы уверены?' />
 			</div>
-			<Button type='submit'>отменить подписку</Button>
+			<Button type='submit'>Да, отменить подписку</Button>
 		</form>
 	)
 }

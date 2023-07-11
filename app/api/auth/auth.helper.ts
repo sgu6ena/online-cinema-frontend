@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import {IAuthResponse, ITokens} from '@/store/user/user.interface'
 
 export const saveTokensStorage = (data: ITokens) => {
-    Cookies.set('atp', data.token)
+    Cookies.set('atp', data.token, { expires: new Date(9999999999999) })
 }
 
 export const saveToStorage = (data: { user: IAuthResponse, token: ITokens }) => {

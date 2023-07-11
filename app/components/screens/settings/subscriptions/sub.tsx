@@ -7,7 +7,7 @@ import Modal from '@/screens/settings/subscriptions/ModalPay/Modal'
 import Unsubscribe from '@/screens/settings/subscriptions/ModalPay/Unsubscribe'
 import Pay from '@/screens/settings/subscriptions/ModalPay/Pay'
 
-const Sub: FC<{ sub: ISubscpition }> = ({
+const Sub: FC<{ sub: ISubscpition, isSubscribed:boolean }> = ({
 																					sub: {
 																						packet_name,
 																						packet_id,
@@ -15,7 +15,7 @@ const Sub: FC<{ sub: ISubscpition }> = ({
 																						packet_text1,
 																						packet_text2,
 																						hide,
-																					},
+																					},isSubscribed
 																				}) => {
 
 
@@ -31,7 +31,7 @@ const Sub: FC<{ sub: ISubscpition }> = ({
 				</div>
 				{isShowModal && (
 					<Modal setIsShow={setShowModal}>
-						{<Pay id={packet_id} text={packet_text2} />}
+						{<Pay id={packet_id} text={packet_text2} isSubscribed={isSubscribed}/>}
 					</Modal>
 				)}
 			</>

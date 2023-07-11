@@ -19,7 +19,7 @@ export interface IAuthResponse {
 	id: string
 	login: string
 	name: string
-	phone:string
+	phone: string
 	email: string
 	subscription: 0 | 1 | 2
 	paid: 0 | 1 | 2
@@ -29,6 +29,15 @@ export interface IAuthResponse {
 	dtEnd: string
 	dtFlow: string | null
 	promo: boolean
+
+
+	packet_active_end?: string
+	packet_active_id?: number
+	packet_active_price?: number
+	packet_active_promo?: boolean
+	packet_active_text1?: string
+	packet_active_text2?: string
+
 }
 
 export interface IRegisterByEmail {

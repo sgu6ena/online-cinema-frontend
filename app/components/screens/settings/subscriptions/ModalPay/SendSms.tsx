@@ -17,14 +17,22 @@ interface ISendSms {
 	acceptTerms: boolean
 }
 
-const SendSms:FC<{ id: number, text: string }> = ({text, id}) => {
-	const { sendSMS } = useActions()
+const SendSms: FC<{ id: number | string, text: string, isPromo?: boolean, isSubscribed: boolean }> = ({
+																																																				text,
+																																																				id,
+																																																				isPromo,
+																																																				isSubscribed,
+																																																			}) => {
+	const { sendSMS, sendSMSPromo } = useActions()
 	const { register, handleSubmit, formState } = useForm<ISendSms>({
 		mode: 'onChange',
 	})
 	const onSubmit: SubmitHandler<ISendSms> = (data) => {
-
-		sendSMS({ mobile: data.phone, service:id })
+		if (isPromo) {
+			isSubscribed ? console.log('смена подписки'): sendSMSPromo({ mobile: data.phone, code: id as string })
+		} else {
+			isSubscribed ? console.log('смена подписки') : sendSMS({ mobile: data.phone, service: id })
+		}
 	}
 	const { user } = useAuth()
 	return (
