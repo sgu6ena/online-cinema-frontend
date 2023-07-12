@@ -3,6 +3,7 @@ import styles from '@/screens/settings/subscriptions/subscriptions.module.scss'
 import Heading from '@/ui/heading/Heading'
 import Modal from '@/screens/settings/subscriptions/ModalPay/Modal'
 import Unsubscribe from '@/screens/settings/subscriptions/ModalPay/Unsubscribe'
+import Button from '@/ui/form-elemets/Button'
 
 
 const ActiveSub: FC<{ packet_text_end: string, packet_text2: string, packet_text1: string, point: string }> = ({
@@ -14,7 +15,7 @@ const ActiveSub: FC<{ packet_text_end: string, packet_text2: string, packet_text
 	const [isShowModal, setShowModal] = useState(false)
 	return (
 		<>
-			<div className={styles.subActive} onClick={() => setShowModal(true)}>
+			<div className={styles.subActive} >
 				<div className={styles.cardActive}>
 					<Heading className={styles.period} title={packet_text1} />
 					<Heading className={'text-white text-lg '} title={packet_text2} />
@@ -24,6 +25,7 @@ const ActiveSub: FC<{ packet_text_end: string, packet_text2: string, packet_text
 					</div>
 				</div>
 			</div>
+			<Button className={'w-96'} onClick={() => setShowModal(true)}>Отменить подписку</Button>
 			{isShowModal && (
 				<Modal setIsShow={setShowModal}>
 

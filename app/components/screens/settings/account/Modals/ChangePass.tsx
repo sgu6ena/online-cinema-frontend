@@ -64,7 +64,7 @@ const ChangePass: FC<IChangePass> = ({ setIsShow }) => {
 						/></>}
 				<div className={styles.footer}>
 
-					<Button type='submit' disabled={!formState.isValid}>
+					<Button type='submit' >
 						Сменить пароль
 					</Button>
 

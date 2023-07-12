@@ -47,7 +47,7 @@ const PromoCode: FC = () => {
 							</div>
 							{isShowModal && (
 								<Modal setIsShow={setShowModal}>
-									{<Pay isSubscribed={isSubscribed} id={promocode} text={data.period + ' - ' + data.discount + '% / ' + data.price} />}
+									{<Pay isSubscribed={isSubscribed} id={promocode} isPromo={true} text={data.period + ' - ' + data.discount + '% / ' + data.price} />}
 								</Modal>
 							)}
 
