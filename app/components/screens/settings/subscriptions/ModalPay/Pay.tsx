@@ -13,8 +13,8 @@ const Pay: FC<{ id: number|string, text: string, isPromo?:boolean, isSubscribed:
 			{isLoading
 				? <p className={styles.modalText}>Загрузка...</p>
 				: !isSmsSend
-					? <SendSms isSubscribed={isSubscribed} id={id}  text={text} isPromo={true}/>
-					: <CodeFromSms isSubscribed={isSubscribed} id={id} text={text}  isPromo={true}/>}
+					? <SendSms isSubscribed={isSubscribed} id={id}  text={text} isPromo={isPromo}/>
+					: <CodeFromSms isSubscribed={isSubscribed} id={id} text={text}  isPromo={isPromo}/>}
 		</>
 	)
 }

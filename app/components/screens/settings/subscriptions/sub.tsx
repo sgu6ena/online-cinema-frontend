@@ -29,6 +29,7 @@ const Sub: FC<{ sub: ISubscpition, isSubscribed:boolean }> = ({
 						<Heading className={'text-white text-lg '} title={packet_text2} />
 					</div>
 				</div>
+
 				{isShowModal && (
 					<Modal setIsShow={setShowModal}>
 						{<Pay id={packet_id} text={packet_text2} isSubscribed={isSubscribed}/>}
