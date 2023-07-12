@@ -13,6 +13,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { changeSubscriptions } from '@/store/settings/settings.actions'
 
 
+
 interface ISendSms {
 	phone: string
 	acceptTerms: boolean
@@ -31,24 +32,25 @@ const SendSms: FC<{ id: number | string, text: string, isPromo?: boolean, isSubs
 	const onSubmit: SubmitHandler<ISendSms> = (data) => {
 		if (isPromo) {
 			isSubscribed ?
-				changeSubscriptionsPromo({
-					mobile: data.phone,
-					code: id as string,
-				}) :
+					changeSubscriptionsPromo({
+																		 mobile: data.phone,
+																		 code: id as string,
+																	 }) && console.log(1)
+				:
 				sendSMSPromo({
 					mobile: data.phone,
 					code: id as string,
-				})
+				}) && console.log(2)
 		} else {
 			isSubscribed ?
 				changeSubscriptions({
 					mobile: data.phone,
 					service: id as string,
-				}) :
+				})  && console.log(3):
 				sendSMS({
 					mobile: data.phone,
 					service: id,
-				})
+				}) && console.log(4)
 		}
 	}
 	const { user } = useAuth()

@@ -51,6 +51,7 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 			toast.success('Успешно активировано')
 			return response
 		} catch (error) {
+			toast.error(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
@@ -64,6 +65,7 @@ export const changeSubscriptions = createAsyncThunk<any, any>(
 			toast.success('Успешно')
 			return response
 		} catch (error) {
+			toast.error(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
@@ -77,6 +79,7 @@ export const changeSubscriptionsPromo = createAsyncThunk<any, any>(
 			toast.success('Успешно')
 			return response
 		} catch (error) {
+			toast.error(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}

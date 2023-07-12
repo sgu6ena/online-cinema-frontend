@@ -4,31 +4,39 @@ import Heading from '@/ui/heading/Heading'
 import Modal from '@/screens/settings/subscriptions/ModalPay/Modal'
 import Pay from '@/screens/settings/subscriptions/ModalPay/Pay'
 import Unsubscribe from '@/screens/settings/subscriptions/ModalPay/Unsubscribe'
+import Button from '@/ui/form-elemets/Button'
 
-const NextSub: FC<{ packet_text_start: string, packet_text2: string, packet_text1: string, point: string, price:any }> = ({		 point,
-																																														 packet_text_start,
-																																														 packet_text2,
-																																														 packet_text1,
-	price
-																																															}) => {
+const NextSub: FC<{
+	packet_text_start: string,
+	packet_text2: string,
+	packet_text1: string,
+	point: string,
+	price: any
+}> = ({
+				point,
+				packet_text_start,
+				packet_text2,
+				packet_text1,
+				price,
+			}) => {
 
 	const [isShowModal, setShowModal] = useState(false)
 
 	return (
 		<>
-			<div className={styles.subActive} onClick={() => setShowModal(true)}>
+			<div className={styles.subActive} >
 				<div className={styles.cardActive}>
 					<Heading className={styles.period} title={packet_text1} />
-					<Heading className={'text-white text-lg '} title={	price+' руб.'}  />
+					<Heading className={'text-white text-lg '} title={price + ' руб.'} />
 					<div className={'mt-2 flex-center-between'}>
 						<p className={'text-gray-300 text-end text-xs'}>◉ {point}</p>
 						<p className={'text-gray-300 text-end text-xs '}>Начнет действовать с: {packet_text_start}</p>
 					</div>
 				</div>
 			</div>
+			<Button className={'w-96'} onClick={() => setShowModal(true)}>Отменить подписку</Button>
 			{isShowModal && (
 				<Modal setIsShow={setShowModal}>
-
 					<Unsubscribe setIsShow={setShowModal} />
 				</Modal>
 			)}
