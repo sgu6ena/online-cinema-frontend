@@ -7,10 +7,12 @@ import { getGenreUrl } from '../../../config/url.config'
 const Genres = () => {
 	const { genres, collections, isLoading } = useGenres()
 	return (
-		<div className='flex gap-3 flex-wrap justify-center items-stretch p-layout'>
+		<div className='flex gap-4 flex-wrap justify-center items-stretch p-layout'>
 
-			{!isLoading && [...genres, ...collections].map((i: IGenrePortal) => <Link href={getGenreUrl(i.cid)}><a>
-				<button className={'w-44 p-3 h-28  text-xl btn-primary opacity-70 hover:opacity-100  text-white'}>{i.title}</button>
+			{!isLoading && [...genres, ...collections].filter(i=>(Number(i.cid)>=100)&&(i.type!=1)).map((i: IGenrePortal) => <Link key={i.cid} href={getGenreUrl(i.cid)}><a>
+				<div className={'w-80 rounded'}>
+					<img  src={`//portal.idc.md/img/mov-selec/${i.cid}.jpg`} className={'rounded-lg'}/>
+				</div>
 			</a></Link>)}
 
 

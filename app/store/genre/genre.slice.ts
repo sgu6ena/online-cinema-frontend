@@ -10,7 +10,7 @@ export const GenreSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(getGenreById.pending, (state) => {
-				state.isLoading = true
+				state = {...initialState, isLoading:true}
 			})
 			.addCase(getGenreById.fulfilled, (state, { payload }) => {
 				if (state.genreId === payload.genreId && payload.page != '1') {
@@ -23,6 +23,7 @@ export const GenreSlice = createSlice({
 					state.page = payload.page
 				}
 				state.pagination = payload.pagination
+				state.title = payload.title
 				state.totalPages = payload.pagination.totalPages
 				//		state.sortAvailable = payload.movies.sortAvailable
 				state.isLoading = false

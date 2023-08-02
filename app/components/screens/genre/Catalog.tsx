@@ -48,7 +48,7 @@ const Catalog: FC = () => {
 		totalPages,
 	} = useGenreById()
 	const [page, setPage] = useState(1)
-	const [titleGenre, setTitleGenre] = useState('')
+	const [titleGenre, setTitleGenre] = useState(title)
 	const isLoading = isLoadingGenre
 
 
@@ -59,9 +59,9 @@ const Catalog: FC = () => {
 	useEffect(() => {
 		setTitleGenre(
 			[...GENRES_ALT, ...genre].find((item) => item.id.toString() == genreId)
-				?.name || ''
+				?.name || title
 		)
-	}, [genreId, genre])
+	}, [genreId, genre, title])
 
 	useEffect(() => {
 		setPage(1)
@@ -74,9 +74,7 @@ const Catalog: FC = () => {
 				params: {
 					page: page.toString(),
 					id_sort: currentSort,
-					// year: yearSortId,
-					// country_list: countrySortId,
-					//	genre_list:genreId
+
 				},
 			})
 		}
@@ -92,10 +90,10 @@ const Catalog: FC = () => {
 		>
 			<div className={'px-5'}>
 				<div className={'flex justify-between lg:flex-row flex-col'}>
-					{titleGenre ? (
+					{!isLoading  ? (
 						<div className={'flex justify-between items-center lg:pr-5 pr-2'}>
 							<Heading
-								title={titleGenre}
+								title={titleGenre }
 								className="lg:px-5 text-3xl lg:mb-3 lg:pt-5 md:px-5 px-0 pt-2 mb-2"
 							/>
 						</div>
