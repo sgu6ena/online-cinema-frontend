@@ -27,7 +27,6 @@ const Settings: FC = ({ children }) => {
 			{user && (
 				<>
 					<div className={styles.left}>
-
 						<Heading title={'НАСТРОЙКИ'} className="mb-20" />
 						<ul>
 							{settingsMenu.map((item) => (

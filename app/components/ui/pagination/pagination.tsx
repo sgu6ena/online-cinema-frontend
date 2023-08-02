@@ -1,5 +1,5 @@
 
-import { router } from 'next/client'
+import router from 'next/router'
 import { FC } from 'react'
 import ReactPaginate from 'react-paginate'
 
