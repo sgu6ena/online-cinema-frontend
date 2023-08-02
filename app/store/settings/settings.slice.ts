@@ -6,7 +6,7 @@ import {
 	sendSMS,
 	smartActive,
 	unsubscribe,
-	changePhone, changeEmail, getSubscriptions, sendSMSPromo, changeSubscriptions, changeSubscriptionsPromo,
+	changePhone, changeEmail, getSubscriptions, sendSMSPromo, changeSubscriptions, changeSubscriptionsPromo, unflow,
 } from './settings.actions'
 import { initialState } from './settings.interface'
 
@@ -99,6 +99,15 @@ export const settingsSlice = createSlice({
 				state.isLoading = false
 			})
 			.addCase(unsubscribe.rejected, (state) => {
+				state.isLoading = false
+			})
+			.addCase(unflow.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(unflow.fulfilled, (state) => {
+				state.isLoading = false
+			})
+			.addCase(unflow.rejected, (state) => {
 				state.isLoading = false
 			})
 			.addCase(smartActive.pending, (state) => {

@@ -51,6 +51,7 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 			toast.success('Успешно активировано')
 			return response
 		} catch (error) {
+			//@ts-ignore
 			toast.error(error)
 			return thunkApi.rejectWithValue(error)
 		}
@@ -64,7 +65,7 @@ export const changeSubscriptions = createAsyncThunk<any, any>(
 			const response = await PortalService.changeSubscriptions({mobile, service})
 			toast.success('Успешно')
 			return response
-		} catch (error) {
+		} catch (error) {		//@ts-ignore
 			toast.error(error)
 			return thunkApi.rejectWithValue(error)
 		}
@@ -78,25 +79,13 @@ export const changeSubscriptionsPromo = createAsyncThunk<any, any>(
 			const response = await PortalService.changeSubscriptions({ mobile, code })
 			toast.success('Успешно')
 			return response
-		} catch (error) {
+		} catch (error) {		//@ts-ignore
 			toast.error(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	}
 );
-//
-// export const changeSubscriptionsPromo = createAsyncThunk<any, any>(
-// 	'changeSubscriptions',
-// 	async ({ sms, code }, thunkApi) => {
-// 		try {
-// 			const response = await PortalService.changeSubscriptions(sms, code )
-// 			toast.success('Успешно')
-// 			return response
-// 		} catch (error) {
-// 			return thunkApi.rejectWithValue(error)
-// 		}
-// 	}
-// )
+
 
 export const changePassword = createAsyncThunk<any, IChangePassword>(
 	'changePassword',
@@ -180,6 +169,18 @@ export const unsubscribe = createAsyncThunk<any, void>(
 	}
 )
 
+export const unflow = createAsyncThunk<any, void>(
+	'unflow',
+	async (_, thunkApi) => {
+		try {
+			const response = await PortalService.unflow()
+			toast.success('Смена пакета была отменена')
+			return response
+		} catch (error) {
+			toastError('Произошла ошибка')
+		}
+	}
+)
 export const smartActive = createAsyncThunk<any, { code: string }>(
 	'smartActive',
 	async ({ code }, thunkApi) => {

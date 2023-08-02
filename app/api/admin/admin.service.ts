@@ -1,6 +1,7 @@
 import axios from '../interceptors'
 import { IAdminFileList } from '@/shared/types/admin.types'
 import { IPromoTable } from '@/screens/admin/promo/promos'
+import { IPagination } from '@/shared/types/movie.types'
 
 
 export interface iAdminGenre {
@@ -100,9 +101,9 @@ export const AdminService = {
 	},
 
 
-	async getPromocodesList():Promise<IPromoTable[]> {
-		const data = await axios.get(`adm/promo/report`)
-		return data.data.data
+	async getPromocodesList(page:string):Promise<{data: IPromoTable[], pagination:IPagination }> {
+		const data = await axios.get(`adm/promo/report`, {params:{page:page, sort:'DESC', limit:50}})
+		return data.data
 	},
 
 
