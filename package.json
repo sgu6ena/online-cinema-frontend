@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "routes": "next-nginx-routes",
     "export": "npm run build && next export -o _static && next-nginx-routes",
     "prestaging": "rm -rf ./_static &&  npm run build && next export -o _static ",
     "staging": "scp -r ./_static/* nissar@217.19.214.33:/var/www/dev.portal.idc.md",

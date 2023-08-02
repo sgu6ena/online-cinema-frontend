@@ -1,11 +1,10 @@
 import Field from '@/ui/form-elemets/Field'
 import Button from '@/ui/form-elemets/Button'
-import {  useGenre } from '@/screens/admin/genres/useGenre'
-import { useRouter } from 'next/router'
+
 import { Controller, useForm } from 'react-hook-form'
 import Heading from '@/ui/heading/Heading'
 import { useNewPromos } from '@/screens/admin/promo/useNewPromos'
-import Select from '@/ui/form-elemets/select/Select'
+
 import dynamic from 'next/dynamic'
 const DynamicSelect = dynamic(
 	() => import('@/ui/form-elemets/select/Select'),
