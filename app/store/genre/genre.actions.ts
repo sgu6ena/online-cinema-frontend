@@ -9,16 +9,7 @@ export const getGenreById = createAsyncThunk<any, { genreId: string, params: IPa
 		try {
 			if (genreId) {
 				const response = await PortalService.getCategory(genreId, { page:params.page, id_sort:params.id_sort, year:params.year })
-					// '',
-					// + genreId < 100 ? genreId : '',
-					// params.country_list || '',
-					// '',
-					// params?.year || '',
-					// params.id_sort as string,
-					// genreId,
-					// params.page || 1)
-
-				return { movies: response.data.data.items, genreId, page: params.page, pagination: response.data.pagination }
+				return { movies: response.data.data.items, genreId, page: params.page, pagination: response.data.pagination, title:response.data.data.title }
 			} else {
 				return { movies: [], genreId: '', page: params.page }
 			}
