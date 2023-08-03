@@ -16,7 +16,7 @@ const VisibleToggleButton: FC<IVisibleToggle> = ({ isVisible, movieId }) => {
 
 	return (
 		<button onClick={onClick}
-						className={isLoadingVisible ? 'bg-gray-500 p-3 w-64' : isActive ? 'bg-primary font-bold bg-opacity-50 p-3 w-64' : 'bg-green-950 font-bold bg-opacity-30 p-3 w-64'}
+						className={isLoadingVisible ? 'bg-gray-500 p-3 w-24' : isActive ? 'bg-primary font-bold bg-opacity-50 p-3 w-24' : 'bg-green-950 font-bold bg-opacity-30 p-3 w-24'}
 						disabled={isLoadingVisible}>
 			{isLoadingVisible ? '. . .' : isActive ? 'Скрыто' : 'Доступно'}
 		</button>
