@@ -8,8 +8,6 @@ import Field from '../../../ui/form-elemets/Field'
 import Heading from '../../../ui/heading/Heading'
 import GenreList from '@/screens/admin/movies/genreList'
 import BannersAdd from '@/screens/admin/movies/bannersAdd'
-import PayToggleButton from '@/screens/admin/movies/payToggleButton'
-import VisibleToggleButton from '@/screens/admin/movies/visibleToggleButton'
 
 
 
