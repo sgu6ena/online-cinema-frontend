@@ -1,6 +1,10 @@
 import { IPagination } from './movie.types'
 
 export interface IAdminFileListData {
+	genre: {name:string, id:number}[]
+	country: string[]
+	age: string
+	links: number
 	access: 0 | 1
 	created_at: string
 	hidden: 0 | 1

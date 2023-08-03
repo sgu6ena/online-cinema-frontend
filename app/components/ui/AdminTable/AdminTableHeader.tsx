@@ -7,7 +7,7 @@ const AdminTableHeader: FC<{ headerItems: string[] }> = ({ headerItems }) => {
 				{headerItems.map((value, idx: number) => (
 					<th key={idx}>{value}</th>
 				))}
-				<th>Действия</th>
+				<th></th>
 			</tr>
 		</thead>
 	)
