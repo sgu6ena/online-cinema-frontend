@@ -51,7 +51,7 @@ const Movies: FC = () => {
 			</AdminHeader>
 			<AdminMovieTable
 				tableItems={movies}
-				headerItems={['Название', 'Год', 'Просмотров', 'Рейтинг КП', 'Голосов КП', 'Дата заливки', 'Дата редактирования', 'Скрытый?', 'Тип контента']}
+				headerItems={['Название',  'Возраст', 'Страны', 'Жанры','Год', 'Просмотров', 'Рейтинг КП', 'Голосов КП', 'Дата заливки', 'Дата редакт.', 'Скрытый?', 'Тип контента']}
 				removeHandler={deleteAsync}
 				isLoading={isLoading} />
 			{data?.pagination ? <Pagination pagination={data.pagination} /> : ''}

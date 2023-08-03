@@ -16,7 +16,7 @@ const PayToggleButton: FC<IPayToggle> = ({ isPayed, movieId }) => {
 
 	return (
 		<button onClick={onClick}
-						className={isLoading ? 'bg-gray-500 p-3 w-64' : isActive ? 'bg-primary p-3 w-64 font-bold bg-opacity-50' : 'bg-green-950 font-bold bg-opacity-30 p-3 w-64'}
+						className={isLoading ? 'bg-gray-500 p-3 w-24' : isActive ? 'bg-primary py-3 px-1 w-24 font-bold bg-opacity-50' : 'bg-green-950 font-bold bg-opacity-30 py-3 px-1 w-24'}
 						disabled={isLoading}>
 			{isLoading ? '. . .' : isActive ? 'Подписка' : 'Бесплатно'}
 		</button>
