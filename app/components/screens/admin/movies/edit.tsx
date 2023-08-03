@@ -64,7 +64,7 @@ const MovieEdit: FC = () => {
 							<Field placeholder={'доступ'} type={'text'} defaultValue={movie?.access ? 'платно' : 'бесплатно'} />
 						</div>
 					</div>
-					<GenreList id={movieId as string} activeGenres={movie?.genre|| []}/>
+					<GenreList id={movieId as string} activeGenres={[...movie?.genre|| [], ...movie?.genreExt|| []]}/>
 				</div>
 
 
