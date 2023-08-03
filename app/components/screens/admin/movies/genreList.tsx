@@ -31,13 +31,14 @@ const GenreList: FC<GenreList> = ({ id:movieId, activeGenres }) => {
 	}
 
 
+
 	return (
 		<>
 			<div className={'flex gap-2 my-3 flex-wrap'}>
-				{[banner].map((item) => (
-					<GenreItem key={item.cid} genre={item} isActive={currentGenres.includes(item.cid)} handleChange={handleChange}
-										 isLoading={currentId === item.cid && isLoading} />
-				))}
+				{/*@ts-ignore*/}
+					<GenreItem genre={banner} isActive={currentGenres.includes(Number(banner.cid))} handleChange={handleChange}
+										 isLoading={currentId === banner.cid && isLoading} />
+
 			</div>
 			<hr className={'text-gray-500 my-3'} />
 			<div className={'flex gap-2   flex-wrap'}>
