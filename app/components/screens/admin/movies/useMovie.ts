@@ -86,7 +86,7 @@ export const useMovies = () => {
 			searchTerm,
 			deleteAsync,
 			createAsync,
-			genre,
+			genre: [{ id: 103, name: 'Баннеры' }, ...genre],
 			years,
 			cid, year, hidden,
 		}),
