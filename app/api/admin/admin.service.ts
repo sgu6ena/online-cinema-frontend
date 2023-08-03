@@ -97,7 +97,7 @@ export const AdminService = {
 	},
 
 	async setVisibleForFilm(movieId: string, isVisible: boolean) {
-		return axios.get(`adm/fileChangeHidden/${movieId}/${isVisible ? '1' : '0'}`)
+		return axios.get(`adm/fileChangeHidden/${movieId}/${isVisible ? '0' : '1'}`)
 	},
 
 

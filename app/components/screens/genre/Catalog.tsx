@@ -69,6 +69,7 @@ const Catalog: FC = () => {
 
 	useEffect(() => {
 		if (typeof currentSort === 'string') {
+
 			getGenreById({
 				genreId,
 				params: {
