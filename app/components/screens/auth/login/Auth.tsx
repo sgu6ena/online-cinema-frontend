@@ -41,7 +41,7 @@ useAuthRedirect()
 						<>
 							<Heading title={'Вход в аккаунт'} className='mb-3' />
 							<Heading
-								title='Войдите для доступа к подписке и списку избранного'
+								title='Введите e-mail / номер телефона / логин'
 								className='text-gray-500 text-sm mb-8'
 							/>
 							<AuthFieldsMobile

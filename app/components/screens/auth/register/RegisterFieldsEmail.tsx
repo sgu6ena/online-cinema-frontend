@@ -16,21 +16,21 @@ const RegisterFieldsEmail: FC<IAuthFields> = ({
                                          }) => {
   return (
     <>
-      <Field
-        {...register('login', {
-          required: 'Логин обязательное поле',
-          minLength: {
-            value: 4,
-            message: 'Логин должен содержать не менее 4-х символов ',
-          },
-          maxLength: {
-            value: 50,
-            message: 'Логин должен содержать не более 50 символов ',
-          },
-        })}
-        placeholder="Логин"
-        error={errors?.login}
-      />
+      {/*<Field*/}
+      {/*  {...register('login', {*/}
+      {/*    required: 'Логин обязательное поле',*/}
+      {/*    minLength: {*/}
+      {/*      value: 4,*/}
+      {/*      message: 'Логин должен содержать не менее 4-х символов ',*/}
+      {/*    },*/}
+      {/*    maxLength: {*/}
+      {/*      value: 50,*/}
+      {/*      message: 'Логин должен содержать не более 50 символов ',*/}
+      {/*    },*/}
+      {/*  })}*/}
+      {/*  placeholder="Логин"*/}
+      {/*  error={errors?.login}*/}
+      {/*/>*/}
       <Field
         {...register('email', {
           required: 'E-mail обязательное поле',
