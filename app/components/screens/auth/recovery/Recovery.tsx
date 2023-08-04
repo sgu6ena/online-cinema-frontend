@@ -15,6 +15,7 @@ import { IRecoveryInput } from '../auth.interface'
 
 import RecoveryFields from './RecoveryFields'
 import { validEmail, validMobile } from '@/shared/regex'
+import { useRouter } from 'next/router'
 
 const Recovery: FC = () => {
 	const {
@@ -22,6 +23,7 @@ const Recovery: FC = () => {
 		handleSubmit,
 		formState,
 	} = useForm<any>({ mode: 'onBlur' })
+
 	const { isLoading } = useAuth()
 	const { recovery, recoveryByPhone } = useActions()
 	const onSubmit: SubmitHandler<IRecoveryInput> = (data) => {
@@ -40,7 +42,7 @@ const Recovery: FC = () => {
 						<>
 							<Heading title={'Забыли пароль?'} className="mb-3" />
 							<Heading
-								title="Для восстановления пароля введите e-mail или номер телефона вашего аккаунта, на который мы отправим новый пароль"
+								title="Введите email или номер телефона вашего аккаунта, на который мы отправим новый пароль"
 								className="text-gray-500  text-sm mb-8"
 							/>
 							<RecoveryFields register={registerInput} formState={formState} />

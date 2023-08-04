@@ -17,22 +17,7 @@ const RecoveryFields: FC<IRecoveryFields> = ({
 
 	return (
 		<>
-			{/*<Field*/}
-			{/*	{...register('email', {*/}
-			{/*		required: 'email обязательное поле',*/}
-			{/*		minLength: {*/}
-			{/*			value: 4,*/}
-			{/*			message: 'email должен содержать не менее 4-х символов ',*/}
-			{/*		},*/}
-			{/*		maxLength: {*/}
-			{/*			value: 50,*/}
-			{/*			message: 'email должен содержать не более 50 символов ',*/}
-			{/*		},*/}
-			{/*	})}*/}
-			{/*	placeholder="номер телефона / e-mail"*/}
-			{/*	//@ts-ignore*/}
-			{/*	error={errors && errors.email}*/}
-			{/*/>*/}
+
 			<Field
 				{...register('login', {
 					required: 'Логин обязательное поле',
@@ -40,7 +25,7 @@ const RecoveryFields: FC<IRecoveryFields> = ({
 						return (
 							[validMobile, validEmail].some((pattern) =>
 								pattern.test(value),
-							) || "введите телефон в формате 77ХХХХХХ или email"
+							) || "Неверный e-mail или телефон"
 						);
 					},
 				})}

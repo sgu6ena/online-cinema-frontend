@@ -42,7 +42,7 @@ const RegisterFieldsMobile: FC<IAuthFieldsMobile> = ({
 				<span className="mx-3  text-gray-600 text-sm text-left">
 					Я согласен с {' '}
 					<a href={LINKS.AGREEMENT} target="_blank" className="link" rel="noreferrer">
-						{' '} публичными условиями
+						публичными условиями
 					</a>
 				</span>
 			</label>

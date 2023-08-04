@@ -5,12 +5,12 @@ import Heading from '@/ui/heading/Heading'
 
 const Login = () => {
 	return (
-		<Meta title='Вход'>
+		<Meta title='Регистрация'>
 			<section className={styles.wrapper}>
 				<form>
-					<Heading title={'Вход'} className='mb-3' />
+					<Heading title={'Регистрация'} className='mb-3' />
 					<Heading
-						title='Проверьте ваш телефон'
+						title='Введите пароль, который мы отправили на 777123456'
 						className='text-gray-500 text-sm mb-8'
 					/>
 				</form>
