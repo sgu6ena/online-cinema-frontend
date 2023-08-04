@@ -16,9 +16,8 @@ import { IRegisterInputEmail, IRegisterInputMobile } from '../auth.interface'
 import RegisterFieldsEmail from './RegisterFieldsEmail'
 import RegisterFieldsMobile from './RegisterFieldsMobile'
 import { useRouter } from 'next/router'
-import Login from '@/screens/auth/register/Login'
 import Field from '@/ui/form-elemets/Field'
-import { useUsers } from '@/screens/admin/users/useUsers'
+
 
 
 const Register = () => {
@@ -81,11 +80,11 @@ const Register = () => {
 				{ isRegistered  ?(
 					<form onSubmit={handleSubmit(getLogin)}>
 						<Heading
-							title="Вход"
+							title="Регистрация"
 							className=' text-md mb-5'
 						/>
 					<Heading
-						title={isByMobile?"Проверьте ваш телефон":"Проверьте электронную почту"}
+						title={"Введите пароль, который мы отправили на  " + username}
 						className='text-gray-500 text-sm mb-8'
 					/>
 						<Field type={'password'}
@@ -104,7 +103,7 @@ const Register = () => {
 							//error={errors?.login}
 						/>
 						<div className={styles.buttons}>
-							<Button type='submit' disabled={!formState.isValid}>
+							<Button type='submit'>
 								Войти
 							</Button>
 						</div>
@@ -116,7 +115,7 @@ const Register = () => {
 						<>
 							<Heading title={'Регистрация'} className='mb-3' />
 							<Heading
-								title='Зарегистрируйтесь для просмотра фильмов и сериалов'
+								title='Введите e-mail или номер телефона '
 								className='text-gray-500 text-sm mb-8'
 							/>
 							<button
