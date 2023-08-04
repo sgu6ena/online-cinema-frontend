@@ -23,13 +23,9 @@ const MovieEdit: FC = () => {
 	const { query } = useRouter()
 	const movieId = query.id && String(query.id)
 
-
-
 	useEffect(() => {
 		movieId && getMovie(movieId)
 	}, [movieId])
-
-
 
 	return (
 		<div className={'p-layout'}>
@@ -46,9 +42,7 @@ const MovieEdit: FC = () => {
 
 					<div className='flex items-center gap-4'>
 						<img className={'h-60 w-44 rounded-image'} src={movie?.logo} alt={movie?.title} />
-
 						<BannersAdd/>
-
 					</div>
 
 					<div className={'w-full'}>
