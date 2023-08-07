@@ -2,7 +2,7 @@ import { IGenre } from '@/shared/types/movie.types'
 
 
 export interface ISlide{
-	_id:string
+	id:string
 	bigPoster:string
 	title:string
 	link: string
