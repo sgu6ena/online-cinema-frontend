@@ -114,7 +114,7 @@ export const PortalService = {
 	async getMain() {
 		const response = await axiosClassicPortal.get<IMain>('/main-web')
 		const slides: ISlide[] = response.data.data[0].items.map((m: any) => ({
-			_id: m.id,
+			id: m.id,
 			bigPoster: m.logo,
 			link: getMoviesUrl(m.id),
 			title: m.titles,
@@ -122,7 +122,7 @@ export const PortalService = {
 			year: m.year,
 			genres: m.genre,
 			rate_age: m.rate_age,
-			url: m.url ? m.url : null,
+			url: m.id ? null : m.url,
 		}))
 		const genres = response.data.data.filter(
 			(item) => item.viewport === 0.8 && item.title === 'Жанры'

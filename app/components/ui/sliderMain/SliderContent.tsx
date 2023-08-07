@@ -12,16 +12,32 @@ import { gradient } from '@/config/constants'
 
 const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 	return (
-		<div className={cn(styles.slide, i.url?'':styles.gradient)}>
-			<img
-				data-src={i.bigPoster + ''}
-				src={i.bigPoster + ''}
-				alt={i.title}
-				className={cn(styles.img, '')}
-				width={1300}
-				height={600}
-			/>
-			{i.url?<></>:
+		<div className={cn(styles.slide, !i.id ? '' : styles.gradient)}>
+			{!i.id ?
+				<Link href={i.url as string}>
+					<a>
+					<img
+						data-src={i.bigPoster + ''}
+						src={i.bigPoster + ''}
+						alt={i.title}
+						className={cn(styles.img, '')}
+						width={1300}
+						height={600}
+					/>
+				</a>
+				</Link> :
+				<img
+					data-src={i.bigPoster + ''}
+					src={i.bigPoster + ''}
+					alt={i.title}
+					className={cn(styles.img, '')}
+					width={1300}
+					height={600}
+				/>
+			}
+
+
+			{!i.id ? <></> :
 			<div className={styles.content}>
 				<Link href={i.link}>
 					<a><h3 className={cn(styles.title)}>
@@ -54,7 +70,7 @@ const SliderContent: FC<{ slideData: ISlide }> = ({ slideData: i }) => {
 							</div>
 						</a>
 					</Link>
-					<div className={styles.favorites}><FavoriteButton id={i._id} /></div>
+					<div className={styles.favorites}><FavoriteButton id={i.id} /></div>
 
 				</div>
 
