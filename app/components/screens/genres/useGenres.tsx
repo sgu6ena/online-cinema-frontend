@@ -16,7 +16,8 @@ export const useGenres = () => {
 
 	const genres = data?.data.filter(i => i.type === 1) || []
 	const collections = data?.data.filter(i => i.type === 3) || []
-	const banner:IGenrePortal = {title:'БАННЕР', cid:'103', type:3}
+	//@ts-ignore
+	const banner:IGenrePortal = {title:'БАННЕР', cid:103, type:3}
 	return { genres, collections, isLoading, banner }
 
 }
