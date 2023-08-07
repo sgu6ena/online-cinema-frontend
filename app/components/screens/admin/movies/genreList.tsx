@@ -35,8 +35,8 @@ const GenreList: FC<GenreList> = ({ id:movieId, activeGenres }) => {
 	return (
 		<>
 			<div className={'flex gap-2 my-3 flex-wrap'}>
-				{/*@ts-ignore*/}
-					<GenreItem genre={banner} isActive={currentGenres.includes(Number(banner.cid))} handleChange={handleChange}
+
+					<GenreItem genre={banner} isActive={currentGenres.includes(banner.cid)} handleChange={handleChange}
 										 isLoading={currentId === banner.cid && isLoading} />
 
 			</div>
