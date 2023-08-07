@@ -1,55 +1,63 @@
-.faq {
-  @apply px-7 py-5  block border border-primary my-1 border-opacity-40 rounded-xl cursor-pointer;
-  .question {
-    @apply flex items-center gap-2 justify-between;
-    h5 {
-      @apply text-gray-300 text-shadow shadow-2xl text-xl;
+
+.back{
+  @apply  my-2;
+  padding: 2px 2px;
+  border-radius: 26px;
+  background: linear-gradient(90deg, #7B4397 0%, #DC2430 100%) ;
+  .faq {
+    @apply  block  px-7 py-5 bg-black  rounded-3xl border-opacity-40 ;
+
+    .question {
+      @apply flex items-center  cursor-pointer gap-2 justify-between;
+      h5 {
+        @apply text-white font-bold text-shadow shadow-2xl text-2xl;
+      }
+
+      .button {
+        @apply relative  h-7 mt-0 w-7 p-4;
+
+        &:before,
+        &:after {
+          @apply absolute bg-primary;
+          content: "";
+          transition: transform 0.3s ease;
+        }
+
+        &:before {
+          @apply w-0.5 top-0 h-full left-1/2;
+          margin-left: -1px;
+        }
+
+        &:after {
+          @apply left-0 top-1/2 w-full h-0.5;
+          margin-top: -1px;
+        }
+      }
+
+      .button.active {
+        &:before {
+          transform: rotate(90deg);
+        }
+
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
     }
 
-    .button {
-      @apply relative  h-7 mt-0 w-7 p-4;
-
-      &:before,
-      &:after {
-        @apply absolute bg-primary;
-        content: "";
-        transition: transform 0.3s ease;
-      }
-
-      &:before {
-        @apply w-0.5 top-0 h-full left-1/2;
-        margin-left: -1px;
-      }
-
-      &:after {
-        @apply left-0 top-1/2 w-full h-0.5;
-        margin-top: -1px;
-      }
+    .answer {
+      @apply h-0;
+      transition: all 0.3s ease-out;
     }
 
-    .button.active {
-      &:before {
-        transform: rotate(90deg);
-      }
-
-      &:after {
-        transform: rotate(180deg);
-      }
+    .active {
+      @apply text-gray-500  text-xl mt-4 h-auto block overflow-visible opacity-100;
+      transition: all 0.3s ease-out;
     }
-  }
 
-  .answer {
-    @apply h-0 ;
-    transition: all 0.3s ease-out;
-  }
-
-  .active {
-    @apply text-gray-500 text-sm mt-4 h-auto block overflow-visible opacity-100;
-    transition: all 0.3s ease-out;
-  }
-
-  .inactive {
-    @apply text-gray-600 text-sm overflow-hidden opacity-20 ;
-    transition: all 0.3s ease-out;
+    .inactive {
+      @apply text-gray-600 text-xl overflow-hidden opacity-20 ;
+      transition: all 0.3s ease-out;
+    }
   }
 }
