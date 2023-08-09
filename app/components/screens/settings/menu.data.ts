@@ -6,7 +6,7 @@ export const settingsMenu: IMenuItem[] = [
 	{
 		icon: 'MdLocalMovies',
 		link: LINKS.SUBSCRIPTIONS,
-		title: 'Подписки',
+		title: 'Мои подписки',
 	},
 	{
 		icon: 'MdMovieCreation',
