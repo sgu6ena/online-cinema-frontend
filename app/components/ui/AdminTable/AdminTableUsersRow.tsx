@@ -8,6 +8,9 @@ const AdminTableUsersRow: FC<{ users: any[] }> = ({ users }) => {
 			<td>{user.id}</td>
 			<td>{user.login}</td>
 			<td>{user.email}</td>
+			<td>{user.phone}</td>
+			<td>{user.point}</td>
+			<td>{user.lastActive}</td>
 			<td className={user.subscribe ? 'bg-green-950  bg-opacity-20' : 'bg-primary  bg-opacity-50'}>
 				{user.subscribe ? 'оформлена' : 'не оформлена'}
 			</td>

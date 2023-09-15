@@ -10,12 +10,11 @@ export const FAQ: { question: string, answer: ReactElement<any, any> }[] = [
 	{
 		question: 'Как смотреть?',
 		answer: <div>
-			<p><strong>Шаг 1.</strong> Скачайте и установите PORTAL</p>
-			<p><strong>Шаг 2.</strong> Запустите сервис</p>
-			<p><strong>Шаг 3.</strong> Пройдите авторизацию</p>
-			<p><strong>Шаг 4.</strong> Выберете контент для просмотра</p>
+			<p><strong>Шаг 1. </strong> Скачайте и установите PORTAL</p>
+			<p><strong>Шаг 2. </strong> Запустите сервис</p>
+			<p><strong>Шаг 3. </strong> Пройдите авторизацию</p>
+			<p><strong>Шаг 4. </strong> Выберете контент для просмотра</p>
 			<p>После авторизации будет доступен к просмотру бесплатный контент.</p>
-
 		</div>,
 	},
 	{
@@ -61,8 +60,6 @@ export const FAQ: { question: string, answer: ReactElement<any, any> }[] = [
 
 		</div>,
 	}, {
-
-
 		question: 'На каких устройствах возможен просмотр?',
 		answer: <div>
 			<ol className={'list-decimal pl-4'}>
@@ -94,8 +91,6 @@ export const FAQ: { question: string, answer: ReactElement<any, any> }[] = [
 				<strong>Шаг 4. </strong>
 				Вот и всё – вы подключили PORTAL! Теперь вам доступны любимые фильмы, сериалы и ТВ-шоу в Smart TV.
 			</p>
-
-
 		</div>,
 	}, {
 		question: 'Как активировать промокод?',

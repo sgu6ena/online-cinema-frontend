@@ -42,6 +42,8 @@ const VideoPlayer: FC<IVideoPlayer> = ({
 
 	const onstart = () => {
 		const player = document.querySelector('video') || null
+		const hls = videoRef.current?.getInternalPlayer('hls')
+		console.log(hls)
 		if (screenfull.isEnabled && !!player && screenfull && fullScreen) {
 			screenfull.request(player, { navigationUI: 'show' })
 		}
@@ -67,6 +69,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({
 		const selectedTrack = parseInt(e.target.value, 10)
 		setSelectedAudioTrack(selectedTrack)
 		const hls = videoRef.current?.getInternalPlayer('hls')
+		console.log(hls)
 		if (hls) {
 			hls.audioTrack = selectedTrack
 		}
@@ -79,16 +82,16 @@ const VideoPlayer: FC<IVideoPlayer> = ({
 
 	return (
 		<div className={styles.container}>
-			<select className={'absolute z-40'}
-				value={selectedAudioTrack}
-				onChange={changeAudio}
-			>
-				{videoRef.current?.getInternalPlayer('hls')?.audioTracks.map((track: any, index: number) => (
-					<option key={track.id} value={index}>
-						{track.name}
-					</option>
-				))}
-			</select>
+			{/*<select className={'absolute mt-10 ml-5 bg-gray-900 z-40'}*/}
+			{/*	value={selectedAudioTrack}*/}
+			{/*	onChange={changeAudio}*/}
+			{/*>*/}
+			{/*	{videoRef.current?.getInternalPlayer('hls')?.audioTracks.map((track: any, index: number) => (*/}
+			{/*		<option key={track.id} value={index} defaultChecked={track.default}>*/}
+			{/*			{track.name}*/}
+			{/*		</option>*/}
+			{/*	))}*/}
+			{/*</select>*/}
 
 			<div className={styles.wrapper}>
 				<h5>{title}</h5>
@@ -105,9 +108,12 @@ const VideoPlayer: FC<IVideoPlayer> = ({
 							file: {
 								forceHLS: true,
 								hlsOptions: {
+									capLevelToPlayerSize:true,
 									maxBufferSize: 30 * 1000 * 1000,
 									maxBufferLength: 10,
 									highBufferWatchdogPeriod: 10,
+									enableCEA708Captions: true,
+									enableWebVTT: true,
 								},
 							},
 						}}
@@ -119,7 +125,6 @@ const VideoPlayer: FC<IVideoPlayer> = ({
 				)}
 				{user && user.paid < typeContent && play && <ProfilePlaceholder />}
 				{!user && play && <AuthPlaceholder slug={slug} />}
-
 				{poster && !play && (
 					<div className={styles.imageBox}>
 						<img src={poster} alt={title} />
