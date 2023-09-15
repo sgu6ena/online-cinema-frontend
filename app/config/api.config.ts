@@ -2,8 +2,8 @@ import * as process from 'process'
 
 export const API_URL = `${process.env.APP_URL}/api`
 //export const APP_URL_PORTAL = process.env.REACT_APP_URL_PORTAL
-//export const APP_URL_PORTAL = `https://api.portal.idc.md/api`
-export const APP_URL_PORTAL = `https://api-dev.portal.idc.md/api`
+export const APP_URL_PORTAL = `https://api.portal.idc.md/api`
+//export const APP_URL_PORTAL = `https://api-dev.portal.idc.md/api`
 export const getCategoryUrl = (string: string) => `/file/category/${string}`
 export const getMovieUrl = (string: string) => `/file/${string}`
 export const sendBookmarkUrl = (string: string) => `/bookmark/change/${string}`

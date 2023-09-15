@@ -12,12 +12,11 @@ const SearchList: FC<{ movies: IMoviePortal[] }> = ({ movies }) => {
 			{movies.length ? (
 				movies.map((movie) => (
 					<Link href={getMoviesUrl(movie.id)} key={movie.id}>
-						<a>
+						<a title={movie.title}>
 							<img
 								src={movie.logo}
 								width={50}
 								height={50}
-
 							/>
 							<span>{movie.title}</span>
 						</a>

@@ -10,7 +10,7 @@ const BannersAdd = () => {
 			{/*<img className={'h-60 w-auto rounded-image'} src={slide2} alt={'горизонтальный баннер'} />*/}
 			<ImageAdd title={'горизонтальный баннер'} type={'slide2'} movieId={query.id as string} link={slide2}/>
 			{/*<img className={'h-60 w-60 rounded-image'} src={slide1} alt={'вертикальный баннер'} />*/}
-			<ImageAdd title={'вертикальный баннер'} type={'slide1'} movieId={query.id as string}  link={slide1}/>
+			<ImageAdd title={'вертикальный баннер (мобильный)'} type={'slide1'} movieId={query.id as string}  link={slide1}/>
 
 
 		</div>
