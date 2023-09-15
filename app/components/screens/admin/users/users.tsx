@@ -39,7 +39,7 @@ const Users: FC = () => {
 
 	}, [isSortById])
 
-	const headerItems = ['N', 'id', 'логин', 'почта', 'подписка', 'оплата', 'ДАТА ОКОНЧАНИЯ ПОДПИСКИ', 'ДАТА ОТКАЗА']
+	const headerItems = ['N', 'id', 'логин', 'почта','телефон','точка',	'просмотр', 'подписка', 'оплата', 'ДАТА ОКОНЧАНИЯ ПОДПИСКИ', 'ДАТА ОТКАЗА']
 	return <div>
 		<div className={'pl-3 flex  gap-8'}>
 			<label className={'flex  gap-2 items-center'}>

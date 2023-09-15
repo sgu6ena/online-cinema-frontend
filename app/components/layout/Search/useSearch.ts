@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
-import { useDebounce } from '../../../hooks/useDubounce'
+import { useDebounce } from '@/hooks/useDubounce'
 import { PortalService } from '../../../api/portal.service'
 
 export const useSearch = () => {

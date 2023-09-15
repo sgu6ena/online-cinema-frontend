@@ -42,21 +42,25 @@ const Create = () => {
 					<Field className={"w-40"} type={'number'} {...register('count')} placeholder={'количество кодов '} />
 
 					<Field className={"w-96"} type={'date'} {...register('time_expired')}  placeholder={'время окончания промокода'} />
-					<Controller
-					name="tariff_id"
-					control={control}
-					defaultValue={'1'}
-					render={({ field, fieldState: { error } }) => (
-						<DynamicSelect
+					<div className={'w-96'}>
+						<Controller
+							name="tariff_id"
+							control={control}
+							defaultValue={'1'}
 
-							error={error}
-							field={field}
-							placeholder="Вид скидки"
-							options={packets||[]}
-							isLoading={packetsLoading}
+							render={({ field, fieldState: { error } }) => (
+								<DynamicSelect
+
+									error={error}
+									field={field}
+									placeholder="Вид скидки"
+									options={packets||[]}
+									isLoading={packetsLoading}
+								/>
+							)}
 						/>
-					)}
-				/>
+					</div>
+
 				</div>
 
 

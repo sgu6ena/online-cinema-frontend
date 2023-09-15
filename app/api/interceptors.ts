@@ -27,6 +27,21 @@ instance.interceptors.request.use((config) => {
 	return config
 })
 
+axiosClassicPortal.interceptors.request.use((config) => {
+	const accessToken = Cookies.get('atp')
+	if (config.headers && accessToken) {
+		config.headers['HTTP-X-TOKEN'] = `${accessToken}`
+	}
+	return config
+})
+
+axiosClassic.interceptors.request.use((config) => {
+	const accessToken = Cookies.get('atp')
+	if (config.headers && accessToken) {
+		config.headers['HTTP-X-TOKEN'] = `${accessToken}`
+	}
+	return config
+})
 instance.interceptors.response.use(
 	(config) => config,
 	async (error) => {

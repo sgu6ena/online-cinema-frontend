@@ -1,5 +1,5 @@
 .list {
-  @apply absolute border border-gray-700 rounded-layout bg-gray-800 md:w-80 w-52 animate-fade z-10;
+  @apply absolute border border-gray-700 rounded-layout  bg-gray-800 md:w-80 w-52 animate-fade z-10;
   top: calc(100% + 15px);
 
   > a {
