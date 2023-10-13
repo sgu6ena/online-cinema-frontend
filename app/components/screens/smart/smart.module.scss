@@ -44,12 +44,12 @@
     }
 
     .tabnames {
-      @apply flex justify-center ;
+      @apply flex justify-center flex-wrap gap-4;
       button {
-        @apply border-b border-b-2 text-transparent;
+        @apply font-bold border rounded p-4 text-xl border-gray-600;
 
         &.active {
-          @apply border-b border-b-2 text-primary;
+          @apply btn-primary   ;
         }
       }
 
