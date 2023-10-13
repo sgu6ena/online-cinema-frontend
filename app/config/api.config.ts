@@ -14,6 +14,7 @@ export const getAuthUrl = (string: string) => `/${string}`
 export const recoveryEmail = () => '/v2/recovery/email'
 export const recoveryPhone = () => '/v2/recovery/phone'
 export const logout = () => `/logout`
+export const deleteProfile = () => `/deleteProfile`
 export const getUserProfile = () => '/getUserProfile'
 export const getGenresUrl = (string: string | number) => `/genres/${string}`
 export const getMoviesUrl = (string: string) => `/movies/${string}`

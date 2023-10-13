@@ -82,11 +82,11 @@ export const headerMobileMenu: IMenuItem[] =
 		},
 	]
 export const headerNavMenu: IMenuItem[] = [
-	{
-		icon: 'MdLocalMovies',
-		link: LINKS.FAVORITES ,
-		title: 'Я смотрю',
-	},
+	// {
+	// 	icon: 'MdLocalMovies',
+	// 	link: LINKS.FAVORITES ,
+	// 	title: 'Я смотрю',
+	// },
 	{
 		icon: 'MdMovieCreation',
 		link: LINKS.FILMS,
