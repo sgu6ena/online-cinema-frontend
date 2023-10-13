@@ -11,10 +11,12 @@ import { LINKS } from '@/config/links'
 import AuthButton from '@/ui/videoPlayer/Placeholder/AuthButton'
 import Link from 'next/link'
 import { getMoviesUrl } from '@/config/api.config'
+import { useDelete } from '@/screens/auth/account/useDelete'
 
 const Delete: FC = () => {
 	const { user } = useAuth()
 	const isUser = Boolean(user)
+	const {isLoading,isSuccess,isError,data, deleteAcc} = useDelete()
 	const {push} = useRouter()
 
 	return (
@@ -32,14 +34,13 @@ const Delete: FC = () => {
 						или восстановить данные неозможно.
 					</div>
 					<Heading
-						title='Будет удален
-						аккаунт, избранное, история просмотра'
+						title='Будет удален 						аккаунт, избранное, история просмотра'
 						className='text-lg mb-8'
 					/>
 
 					{isUser ?
 						<div className={'flex gap-2 justify-center'}>
-							<Button>Удалить аккаунт</Button>
+							<Button onClick={()=>deleteAcc()}>Удалить аккаунт</Button>
 							<Button style={{background:'gray'}} onClick={()=>push('/')}>Отмена</Button>
 						</div>
 					 :

@@ -1,22 +1,40 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useLayoutEffect, useState } from 'react'
 
 import HisenseIns from './HisenseIns'
 import LgIns from './LgIns'
 import SamsungIns from './SamsungIns'
 import styles from './smart.module.scss'
+import DuneIns from '@/screens/smart/DuneIns'
+import { useRouter } from 'next/router'
 
+const TABS = ['hisense', 'lg', 'samsung', 'andriodtv', 'dune']
 const Smart: FC = () => {
-	const [active, setActive] = useState(1)
+	const { asPath, push } = useRouter()
+
+	const [active, setActive] = useState(0)
+
+	useLayoutEffect(() => {
+		const idpage = asPath.split('#')[1]
+		const index = TABS.indexOf(idpage)
+		if (index !== -1) {
+			setActive(index)
+		}
+	}, [])
+
+	const setActiveId = (id: number) => {
+		const pageUrl = asPath.split('#')[0]
+		setActive(id)
+		push(pageUrl + '#' + TABS[id])
+	}
+
+
 	return (
 		<div className={styles.smart}>
-			<h1>
-				<span>PORTAL IDC</span>
+			<h1 className={'mb-10 '}>
+				<span className={'gradient-text font-black'}>PORTAL</span>
 				НА ТЕЛЕВИЗОРАХ
 			</h1>
-			<h2>
-				Наше приложение доступно на всех популярных телевизорах с функцией Smart
-				TV, медиаплеерах и Android TV.
-			</h2>
+
 			<img src='/images/smart/main.png' alt='' className={styles.main} />
 
 			<div className={styles.details}>
@@ -44,39 +62,38 @@ const Smart: FC = () => {
 			</div>
 
 			<div className={styles.instructions}>
-				<h2>ИНСТРУКЦИЯ ПО УСТАНОВКЕ</h2>
-				<h3>Выберите модель вашего устройства</h3>
+
 				<div className={styles.tabnames}>
 					<button
-						id={'samsung'}
-						className={active == 0 ? styles.active : ''}
-						onClick={() => setActive(0)}
+									className={active == 0 ? styles.active : ''}
+						onClick={() => setActiveId(0)}
 					>
-						<img
-							src={'/svg/smart/hisense.svg'}
-							alt='Samsung'
-							width={250}
-							height={120}
-						/>
+						<span className={'p-8'}>Hisense</span>
 					</button>
 					<button
-						id={'lg'}
 						className={active == 1 ? styles.active : ''}
-						onClick={() => setActive(1)}
+						onClick={() => setActiveId(1)}
 					>
-						<img src={'/svg/smart/lg.svg'} alt='Lg' width={250} height={120} />
+						<span className={'p-8'}>LG</span>
 					</button>
 					<button
-						id={'hisense'}
 						className={active == 2 ? styles.active : ''}
-						onClick={() => setActive(2)}
+						onClick={() => setActiveId(2)}
 					>
-						<img
-							src={'/svg/smart/samsung.svg'}
-							alt='Samsung'
-							width={250}
-							height={120}
-						/>
+						<span className={'p-8'}>Samsung</span>
+					</button>
+					<button
+						className={active == 3 ? styles.active : ''}
+						onClick={() => setActiveId(3)}
+					>
+
+						<span className={'p-8'}>Android TV</span>
+					</button>
+					<button
+						className={active == 4 ? styles.active : ''}
+						onClick={() => setActiveId(4)}
+					>
+						<span className={'p-8'}>Dune</span>
 					</button>
 				</div>
 				<div>
@@ -88,6 +105,12 @@ const Smart: FC = () => {
 					</div>
 					<div className={active === 2 ? styles.tab : 'hidden'}>
 						<HisenseIns />
+					</div>
+					<div className={active === 3 ? styles.tab : 'hidden'}>
+						<HisenseIns />
+					</div>
+					<div className={active === 4 ? styles.tab : 'hidden'}>
+						<DuneIns />
 					</div>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ import {
 	changePhoneV2,
 	changePhoneV2Conf,
 	changeService,
-	checkSMSV2,
+	checkSMSV2, deleteProfile,
 	getCategoryUrl,
 	getMovieUrl,
 	getSubscription,
@@ -233,6 +233,10 @@ export const PortalService = {
 
 	async recoveryPassword(code: string) {
 		const response = await axios.get<any, any>(recoveryPassword(code))
+		return response
+	},
+	async getDeleteProfile() {
+		const response = await axios.get<any, any>(deleteProfile())
 		return response
 	},
 	async getSubscriptions() {
