@@ -44,6 +44,11 @@ export interface ISendSmsPromo {
 export interface ICheckSms {
 	sms: string
 	service: number | string
+
+}
+export interface ICheckSmsPromo {
+	sms: string
+	code: string
 }
 
 export interface IChangePassword {

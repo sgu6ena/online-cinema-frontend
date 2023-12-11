@@ -6,8 +6,9 @@ import SamsungIns from './SamsungIns'
 import styles from './smart.module.scss'
 import DuneIns from '@/screens/smart/DuneIns'
 import { useRouter } from 'next/router'
+import AndroidTVIns from '@/screens/smart/AndroidTVIns'
 
-const TABS = ['hisense', 'lg', 'samsung', 'andriodtv', 'dune']
+const TABS = ['hisense', 'lg', 'samsung', 'androidtv', 'dune']
 const Smart: FC = () => {
 	const { asPath, push } = useRouter()
 
@@ -19,7 +20,7 @@ const Smart: FC = () => {
 		if (index !== -1) {
 			setActive(index)
 		}
-	}, [])
+	}, [asPath])
 
 	const setActiveId = (id: number) => {
 		const pageUrl = asPath.split('#')[0]
@@ -27,15 +28,31 @@ const Smart: FC = () => {
 		push(pageUrl + '#' + TABS[id])
 	}
 
-
+	useEffect(() => {
+	}, [asPath])
 	return (
 		<div className={styles.smart}>
 			<h1 className={'mb-10 '}>
 				<span className={'gradient-text font-black'}>PORTAL</span>
 				НА ТЕЛЕВИЗОРАХ
 			</h1>
+			<div className='flex items-center'>
+				<p className={'lg:w-1/2 text-2xl w-full p-14'}>
+					PORTAL доступен на следующих моделях телевизоров:
+					<ul className={'list-disc ml-10'}>
+						<li>Smart TV Samsung (Tizen OS 5 и выше) — с 2020 года выпуска;</li>
+						<li>Smart TV LG (Web OS 5.0 и выше) — c 2020 года выпуска;</li>
+						<li>Smart TV Hisense (VIDAA OS 4 и выше) - c 2020 года выпуска;</li>
+						<li>Устройствах с Android OS 7 и выше;</li>
+						<li>Медиаплеерах DunеHD.</li>
+					</ul>
 
-			<img src='/images/smart/main.png' alt='' className={styles.main} />
+				</p>
+
+
+				<img src='/images/smart/main.png' alt='' className={'lg:w-1/2 w-full'} />
+			</div>
+
 
 			<div className={styles.details}>
 				<div className={styles.item}>
@@ -98,16 +115,16 @@ const Smart: FC = () => {
 				</div>
 				<div>
 					<div className={active === 0 ? styles.tab : 'hidden'}>
-						<SamsungIns />
+						<HisenseIns />
 					</div>
 					<div className={active === 1 ? styles.tab : 'hidden'}>
 						<LgIns />
 					</div>
 					<div className={active === 2 ? styles.tab : 'hidden'}>
-						<HisenseIns />
+						<SamsungIns />
 					</div>
 					<div className={active === 3 ? styles.tab : 'hidden'}>
-						<HisenseIns />
+						<AndroidTVIns />
 					</div>
 					<div className={active === 4 ? styles.tab : 'hidden'}>
 						<DuneIns />

@@ -73,7 +73,6 @@ const Register = () => {
 
 	return (
 		<>
-
 			<Meta title='Регистрация' />
 			<section className={styles.wrapper}>
 

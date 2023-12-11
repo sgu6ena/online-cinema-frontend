@@ -13,7 +13,7 @@ import { useSettings } from '@/hooks/useSettings'
 
 
 const CodeFromSms: FC<{ id: number|string, text: string,  isPromo?:boolean, isSubscribed:boolean}> = ({text, id, isPromo, isSubscribed}) => {
-	const { checkSMS } = useActions()
+	const { checkSMS, checkSMSPromo } = useActions()
 	const { register, handleSubmit, formState } = useForm<ICheckSms>({
 		mode: 'onChange',
 	})
@@ -22,6 +22,8 @@ const CodeFromSms: FC<{ id: number|string, text: string,  isPromo?:boolean, isSu
 	const { isPromoAvailable, error, isError, isPayed } = useSettings()
 
 	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
+		isPromo ? isSubscribed ? console.log('смена подписки') : checkSMSPromo({ sms: data.sms, code: id.toString() })
+			:
 		isSubscribed?console.log('смена подписки'):checkSMS({ sms: data.sms, service: id })
 	}
 
