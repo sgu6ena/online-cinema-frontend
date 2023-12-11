@@ -1,15 +1,17 @@
+
+import styles from './smart.module.scss'
 import { FC, ReactElement } from 'react'
 
 const STEPS: { number: string, text: string|ReactElement, img?: string }[] = [
 	{
 		number: '1',
-		text:'Для установки PORTAL откройте приложение LG Content Store.',
-		img:'/images/smart/lg1.jpg',
+		text:'Для установки PORTAL откройте приложение Google Play.',
+		img:'/images/smart/android1.jpg',
 	},
 	{
 		number: '2',
 		text: 'В разделе поиск введите "IDC Portal".',
-		img:'/images/smart/lg2.jpg',
+		img:'/images/smart/android2.jpg',
 	},
 	{
 		number: '3',
@@ -36,7 +38,7 @@ const STEPS: { number: string, text: string|ReactElement, img?: string }[] = [
 	},
 
 ]
-const LgIns: FC = () => {
+const AndroidTVIns: FC = () => {
 	return (
 		<div className={'flex flex-wrap'}>
 			{STEPS.map(step => (
@@ -49,7 +51,7 @@ const LgIns: FC = () => {
 				</div>
 			))}
 		</div>
-)
+	)
 }
 
-export default LgIns
+export default AndroidTVIns

@@ -9,7 +9,7 @@ import {
 	IChangeEmail,
 	IChangePassword,
 	IChangePhone,
-	ICheckSms,
+	ICheckSms, ICheckSmsPromo,
 	ISendSms, ISendSmsPromo,
 	ISubscpition,
 } from './settings.interface'
@@ -58,6 +58,20 @@ export const checkSMS = createAsyncThunk<any, ICheckSms>(
 	}
 )
 
+export const checkSMSPromo = createAsyncThunk<any, ICheckSmsPromo>(
+	'checkSMSPromo',
+	async ({ sms, code }, thunkApi) => {
+		try {
+			const response = await PortalService.checkSmsPromo(sms, code.toString())
+			toast.success('Успешно активировано')
+			return response
+		} catch (error) {
+			//@ts-ignore
+			toast.error(error)
+			return thunkApi.rejectWithValue(error)
+		}
+	}
+)
 export const changeSubscriptions = createAsyncThunk<any, any>(
 	'changeSubscriptions',
 	async ({ mobile, service }, thunkApi) => {

@@ -196,6 +196,13 @@ export const PortalService = {
 		})
 		return response
 	},
+	async checkSmsPromo(sms: string, code: string) {
+		const response = await axios.post<any, ICheckSms>(checkSMSV2(), {
+			sms,
+			code,
+		})
+		return response
+	},
 	async changePass(passwordOld: string, password: string) {
 		const response = await axios.post<any, IChangePassword>(changePass(), {
 			passwordOld,
