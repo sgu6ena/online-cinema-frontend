@@ -64,12 +64,11 @@ export const FAQ: { question: string, answer: ReactElement<any, any> }[] = [
 		answer: <div>
 			<ol className={'list-decimal pl-4'}>
 				<li> На сайте portal.idc.md</li>
-				<li> Смартфоны и планшеты на Android.</li>
-				<li> Смартфоны и планшеты на IOS.</li>
-				<li> ТВ-приставки и телевизоры на Android TV.</li>
-				<li> Smart TV Samsung ― телевизоры с Tizen 20XX года и выше.</li>
-				<li> Smart TV LG ― телевизоры с WebOS 3.0 и выше.</li>
-				<li> Smart TV Hisense ― телевизоры с Vidaa ХХ и выше.</li>
+				<li> Smart TV Samsung (Tizen OS 5 и выше) — с 2020 года выпуска</li>
+				<li> Smart TV LG (Web OS 5.0 и выше) — c 2020 года выпуска</li>
+				<li> Smart TV Hisense (VIDAA OS 4 и выше) - c 2020 года выпуска</li>
+				<li> Устройствах с Android OS 7 и выше</li>
+				<li> Медиаплеерах DunеHD</li>
 			</ol>
 		</div>,
 	}, {
