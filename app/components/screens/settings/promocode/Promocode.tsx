@@ -9,7 +9,10 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { usePromocode } from '@/screens/settings/promocode/usePromocode'
 import Modal from '@/screens/settings/subscriptions/ModalPay/Modal'
 import Pay from '@/screens/settings/subscriptions/ModalPay/Pay'
-import { useAuth } from '@/hooks/useAuth'
+import { useAuth, usePoint } from '@/hooks/useAuth'
+import InfoPromocode from '@/screens/settings/promocode/InfoPromocode'
+import Subheading from '@/ui/heading/Subheading'
+import ApplyPromo from '@/screens/settings/subscriptions/ModalPay/applyPromo'
 
 
 const PromoCode: FC = () => {
@@ -22,49 +25,51 @@ const PromoCode: FC = () => {
 	const isSubscribed = !!user?.paid
 	const [promocode, setPromocode] = useState('')
 	const [isShowModal, setShowModal] = useState(false)
+	const { data, updateAsync, isLoading, isError } = usePromocode()
 
-	const { data, updateAsync, isLoading } = usePromocode()
+	const point = usePoint()
+	const isPoint = Boolean(point)
+
 	const onSubmit: SubmitHandler<any> = (data) => {
 		updateAsync(data).then(() => {
 			setPromocode(data.code)
 		})
 	}
+
+	const paySubscription = () => {
+		setShowModal(true)
+	}
+
 	return (
 		<div>
-
-			<Heading title={'АКТИВАЦИЯ ПРОМОКОДА'} className='mb-5' />
-			{
-				isLoading ? <p className={styles.card}>...</p> :
-					data ? <>
-							<div className={styles.card}>
-								<p>Промокод: {promocode}</p>
-								<p>Скидка: {data.discount}%</p>
-								<p>Длительность подписки: {data.period}</p>
-								<p>Итоговая цена: {data.price}</p>
-								<Button className={'w-full'} onClick={() => {
-									setShowModal(true)
-								}}>Купить</Button>
-							</div>
-							{isShowModal && (
+			<div className={styles.card}>
+				<Subheading title={'АКТИВАЦИЯ ПРОМОКОДА'} />
+				{
+					isLoading ?
+						<p className={styles.card}>загрузка</p> :
+						data ? <>
+								<InfoPromocode point={point ? point : null} data={data} onClick={paySubscription} />
+								{isShowModal ? isPoint ? <Modal setIsShow={setShowModal}>
+										<ApplyPromo point={point as string} code={promocode} setIsShow={setShowModal} />
+									</Modal> :
 								<Modal setIsShow={setShowModal}>
-									{<Pay isSubscribed={isSubscribed} id={promocode} isPromo={true} text={data.period + ' - ' + data.discount + '% / ' + data.price} />}
-								</Modal>
-							)}
-
-
-						</> :
-						<form className={styles.card} onSubmit={handleSubmit(onSubmit)}>
-							<Field
-								{...register('code', {
-									required: 'Обязательное поле',
-								})}
-								placeholder='введите промокод '
-								size={30}
-							/>
-							<Button className={'w-full'}>Проверить</Button>
-						</form>
+									{<Pay setIsShow={setShowModal} isSubscribed={isSubscribed} id={promocode} isPromo={true}
+												text={data.period + ' - ' + data.discount + '% / ' + data.price + ' руб.'} />}
+								</Modal> : null
+								}
+							</> :
+							<form className={styles.card} onSubmit={handleSubmit(onSubmit)}>
+								<Field
+									{...register('code', {
+										required: 'Обязательное поле',
+									})}
+									placeholder='введите промокод '
+									size={30}
+								/>
+								<Button className={'w-full'}>Проверить</Button>
+							</form>
 			}
-
+			</div>
 		</div>
 	)
 }

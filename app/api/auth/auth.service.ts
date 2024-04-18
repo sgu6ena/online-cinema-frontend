@@ -44,6 +44,7 @@ export const AuthService = {
 			password,
 		}) // @ts-ignore
 		const token = response.data.data.token
+		sessionStorage.setItem('atp', token);
 		Cookies.set('atp', token)
 		const user = token ? await axios.get<IAuthResponse>(getUserProfile()) : null // @ts-ignore
 		const res = { user: user?.data?.data, token }

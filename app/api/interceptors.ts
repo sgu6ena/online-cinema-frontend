@@ -20,7 +20,8 @@ export const instance = axios.create({
 })
 
 instance.interceptors.request.use((config) => {
-	const accessToken = Cookies.get('atp')
+//	const accessToken = Cookies.get('atp')
+	const accessToken = sessionStorage.getItem('atp')
 	if (config.headers && accessToken) {
 		config.headers['HTTP-X-TOKEN'] = `${accessToken}`
 	}
@@ -28,7 +29,8 @@ instance.interceptors.request.use((config) => {
 })
 
 axiosClassicPortal.interceptors.request.use((config) => {
-	const accessToken = Cookies.get('atp')
+	//const accessToken = Cookies.get('atp')
+	const accessToken = sessionStorage.getItem('atp')
 	if (config.headers && accessToken) {
 		config.headers['HTTP-X-TOKEN'] = `${accessToken}`
 	}
@@ -36,7 +38,8 @@ axiosClassicPortal.interceptors.request.use((config) => {
 })
 
 axiosClassic.interceptors.request.use((config) => {
-	const accessToken = Cookies.get('atp')
+	//const accessToken = Cookies.get('atp')
+	const accessToken = sessionStorage.getItem('atp')
 	if (config.headers && accessToken) {
 		config.headers['HTTP-X-TOKEN'] = `${accessToken}`
 	}

@@ -11,7 +11,7 @@ interface IModal {
 }
 
 const Modal: FC<IModal> = ({ setIsShow, children }) => {
-	const { resetIsSendSms, getUserData } = useActions()
+	const { resetIsSendSms, getUserData, getSubscriptions } = useActions()
 	const { isPayed } = useSettings()
 
 	useEffect(() => {
@@ -21,12 +21,15 @@ const Modal: FC<IModal> = ({ setIsShow, children }) => {
 	const closeModal = () => {
 		setIsShow(false)
 		resetIsSendSms()
-		getUserData()
 	}
+
 	useEffect(() => {
 		if (isPayed) {
 			setIsShow(false)
+			getSubscriptions()
+			getUserData()
 		}
+
 	}, [isPayed])
 	return (
 		<div className={styles.wrapper}>

@@ -1,0 +1,13 @@
+.button {
+  @apply w-10 h-10 flex transition-all justify-center items-center p-2  rounded-full;
+  &:hover {
+    @apply bg-gray-700;
+    svg {
+      @apply w-8 h-8
+    }
+  }
+
+  svg {
+    @apply w-8 h-8
+  }
+}

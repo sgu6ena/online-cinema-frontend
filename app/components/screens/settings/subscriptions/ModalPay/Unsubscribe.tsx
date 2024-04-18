@@ -8,16 +8,20 @@ import styles from './modalPay.module.scss'
 import { useActions } from '@/hooks/useActions'
 import { useSettings } from '@/hooks/useSettings'
 
+
 const Unsubscribe: FC<{ setIsShow: (isShow: boolean) => void }> = ({ setIsShow }) => {
-	const { unsubscribe } = useActions()
+	const { unsubscribe, getSubscriptions, getUserData } = useActions()
 	const { isLoading } = useSettings()
 	const { handleSubmit } = useForm({
 		mode: 'onChange',
 	})
 
-	const onSubmit = () => {
-		unsubscribe()
+	const onSubmit = async () => {
+		const unf = await 		unsubscribe()
+		const subs = 	await getSubscriptions()
+		getUserData()
 	}
+
 
 	const onCancel = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
 		e.preventDefault()

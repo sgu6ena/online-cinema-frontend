@@ -24,6 +24,7 @@ import styles from './Movie.module.scss'
 import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 import screenfull from 'screenfull'
+import VideoPlayer2 from '@/ui/videoPlayer/videoPlayer2'
 
 const Movie: FC = () => {
 	const { user } = useAuth()
@@ -138,7 +139,7 @@ const Movie: FC = () => {
 						<Heading title={movie.title} className={styles.mobile} />
 						<div className={styles.main}>
 							<div className={styles.videoBox}>
-								<VideoPLayer
+								<VideoPlayer2
 									fullScreen={fullScreen}
 									idFile={idFile}
 									url={url || ''}

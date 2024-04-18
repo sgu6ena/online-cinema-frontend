@@ -98,7 +98,7 @@ export const getUserData = createAsyncThunk(
 			const response = await PortalService.getUser()
 			return response.data
 		} catch (error) {
-			toastError(error)
+			// toastError(error)
 			return thunkApi.rejectWithValue(error)
 		}
 	},

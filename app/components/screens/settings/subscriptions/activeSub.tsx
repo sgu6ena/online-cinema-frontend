@@ -28,7 +28,6 @@ const ActiveSub: FC<{ packet_text_end: string, packet_text2: string, packet_text
 			<Button className={'w-96'} onClick={() => setShowModal(true)}>Отменить подписку</Button>
 			{isShowModal && (
 				<Modal setIsShow={setShowModal}>
-
 					<Unsubscribe setIsShow={setShowModal} />
 				</Modal>
 			)}

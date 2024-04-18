@@ -30,7 +30,6 @@ export const getSubscription = () => '/v2/subscriptions'
 export const sendSMSV2 = () => '/v2/sendSMS'
 export const checkInternetV2 = () => '/v2/checkinternet'
 export const checkSMSV2 = () => '/v2/checkSMS'
-
 export const changeEmail = () => '/updateEmail'
 export const unsubscribe = () => '/unsubscription'
 export const unsubscription = () => '/v2/unsubscription'

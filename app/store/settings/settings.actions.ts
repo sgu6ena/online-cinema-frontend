@@ -64,6 +64,7 @@ export const checkSMSPromo = createAsyncThunk<any, ICheckSmsPromo>(
 		try {
 			const response = await PortalService.checkSmsPromo(sms, code.toString())
 			toast.success('Успешно активировано')
+
 			return response
 		} catch (error) {
 			//@ts-ignore

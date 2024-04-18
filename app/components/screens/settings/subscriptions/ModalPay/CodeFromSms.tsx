@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { useActions } from '@/hooks/useActions'
@@ -10,21 +10,31 @@ import Heading from '../../../../ui/heading/Heading'
 
 import styles from './modalPay.module.scss'
 import { useSettings } from '@/hooks/useSettings'
+import { LINKS } from '@/config/links'
+import { useRouter } from 'next/router'
 
 
-const CodeFromSms: FC<{ id: number|string, text: string,  isPromo?:boolean, isSubscribed:boolean}> = ({text, id, isPromo, isSubscribed}) => {
-	const { checkSMS, checkSMSPromo } = useActions()
+const CodeFromSms: FC<{
+	setIsShow: (isShow: boolean) => void,
+	id: number | string,
+	text: string,
+	isPromo?: boolean,
+	isSubscribed: boolean
+}> = ({ text, id, isPromo, isSubscribed, setIsShow }) => {
+	const { checkSMS, checkSMSPromo, 		 } = useActions()
 	const { register, handleSubmit, formState } = useForm<ICheckSms>({
 		mode: 'onChange',
 	})
 
-	const { user } = useAuth()
-	const { isPromoAvailable, error, isError, isPayed } = useSettings()
+	const { error, isError, isPayed } = useSettings()
 
-	const onSubmit: SubmitHandler<ICheckSms> = (data) => {
-		isPromo ? isSubscribed ? console.log('смена подписки') : checkSMSPromo({ sms: data.sms, code: id.toString() })
+	const onSubmit: SubmitHandler<ICheckSms> = async (data) => {
+		const get = isPromo ?
+			isSubscribed ? console.log('смена подписки') : checkSMSPromo({ sms: data.sms, code: id.toString() })
 			:
 		isSubscribed?console.log('смена подписки'):checkSMS({ sms: data.sms, service: id })
+		setIsShow(false)
+
 	}
 
 	return (!isPayed ?

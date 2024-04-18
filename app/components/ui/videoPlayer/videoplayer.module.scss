@@ -1,5 +1,5 @@
 .container {
-  @apply mt-4 xl:mt-12 flex  lg:w-[500px] xl:w-[600px] bg-black p-0 2xl:w-[700px] w-full ;
+  @apply mt-4 xl:mt-12 flex relative  lg:w-[500px] xl:w-[600px] bg-black p-0 2xl:w-[700px] w-full ;
   .wrapper {
     @apply rounded p-0 m-auto shadow-xl w-full  bg-opacity-100 relative animate-fade;
     aspect-ratio: 16/10;

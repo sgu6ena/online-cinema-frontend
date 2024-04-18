@@ -9,15 +9,19 @@ import { useActions } from '@/hooks/useActions'
 import { useSettings } from '@/hooks/useSettings'
 
 
+
 const Unflow: FC<{ setIsShow: (isShow: boolean) => void }> = ({ setIsShow }) => {
-	const { unflow } = useActions()
+	const { unflow, getSubscriptions, 	getUserData } = useActions()
 	const { isLoading } = useSettings()
 	const { handleSubmit } = useForm({
 		mode: 'onChange',
 	})
 
-	const onSubmit = () => {
-		unflow()
+	const onSubmit = async () => {
+	 const unf = await 	unflow()
+		getUserData()
+	 const subs = 	await getSubscriptions()
+
 	}
 	useEffect(() => {
 		isLoading ? setIsShow(true) : setIsShow(false)

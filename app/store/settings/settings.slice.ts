@@ -1,12 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import {
-	changePassword, checkSMS,
+	changePassword,
+	checkSMS,
 	promoCode,
 	sendSMS,
 	smartActive,
 	unsubscribe,
-	changePhone, changeEmail, getSubscriptions, sendSMSPromo, changeSubscriptions, changeSubscriptionsPromo, unflow,
+	changePhone,
+	changeEmail,
+	getSubscriptions,
+	sendSMSPromo,
+	changeSubscriptions,
+	changeSubscriptionsPromo,
+	unflow,
+	checkSMSPromo,
 } from './settings.actions'
 import { initialState } from './settings.interface'
 
@@ -131,6 +139,22 @@ export const settingsSlice = createSlice({
 				state.isPayed = true
 			})
 			.addCase(checkSMS.rejected, (state, payload) => {
+				state.error = payload.payload as string
+				state.isError = true
+				state.isLoading = false
+				if (payload.payload === 'промо недоступен')
+					state.isPromoAvailable = false
+			})
+
+			.addCase(checkSMSPromo.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(checkSMSPromo.fulfilled, (state) => {
+				state.isLoading = false
+				state.isError = false
+				state.isPayed = true
+			})
+			.addCase(checkSMSPromo.rejected, (state, payload) => {
 				state.error = payload.payload as string
 				state.isError = true
 				state.isLoading = false

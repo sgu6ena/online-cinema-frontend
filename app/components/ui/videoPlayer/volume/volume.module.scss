@@ -1,0 +1,30 @@
+.volume {
+  @apply relative;
+  button {
+    @apply w-10 h-10 flex transition-all justify-center items-center p-2  rounded-full;
+    &:hover{
+      @apply bg-gray-700;
+      svg {
+        @apply w-8 h-8
+      }
+    }
+    svg {
+      @apply w-8 h-8
+    }
+  }
+
+  .progress {
+    @apply absolute animate-fade transition-all flex justify-center items-center opacity-60 -top-28     h-full  ;
+
+    .border {
+      @apply m-2 bg-transparent border-2 overflow-hidden border-white h-40 w-2 rounded-2xl flex justify-end items-end text-black;
+
+      .value {
+        @apply bg-white w-1 block rounded-2xl;
+      }
+    }
+
+  }
+
+
+}

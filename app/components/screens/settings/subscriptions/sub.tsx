@@ -32,7 +32,7 @@ const Sub: FC<{ sub: ISubscpition, isSubscribed:boolean }> = ({
 
 				{isShowModal && (
 					<Modal setIsShow={setShowModal}>
-						{<Pay id={packet_id} text={packet_text2} isSubscribed={isSubscribed}/>}
+						{<Pay setIsShow={setShowModal} id={packet_id} text={packet_text2} isSubscribed={isSubscribed}/>}
 					</Modal>
 				)}
 			</>

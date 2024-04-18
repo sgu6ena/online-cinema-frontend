@@ -17,12 +17,9 @@ import NextSub from '@/screens/settings/subscriptions/nextSub'
 const Subscriptions: FC = () => {
 	const { user } = useAuth()
 	const isSubscribed = !!user?.paid
-	// const date = user?.dtEnd
-	// const flow = user?.dtFlow
 
 
 	const subs = useSubscriptions()
-	// const { unsubscription, unflow, sendSms } = PortalService
 
 	const { getSubscriptions } = useActions()
 	useEffect(() => {
@@ -45,7 +42,8 @@ const Subscriptions: FC = () => {
 				</div>
 				: <Subheading title={'У вас пока нет подписок'} />}
 
-			<div className={'flex flex-col  mt-5 flex-wrap gap-2'}>	<Heading title={'Все подписки'} className='my-5' />
+			<div className={'flex flex-col  mt-5 flex-wrap gap-2'}>
+				<Heading title={'Все подписки'} className='my-5' />
 				{subs.length > 0 ? subs.map(sub => <Sub sub={sub}
 																								key={sub.packet_id} isSubscribed={isSubscribed} />) : 'загрузка доступных подписок'}</div>
 
