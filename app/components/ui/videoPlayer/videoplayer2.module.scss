@@ -1,0 +1,41 @@
+.container {
+  @apply flex  bg-black p-0  ;
+  &.fullscreen {
+    @apply absolute top-0 left-0 z-50 bottom-0 right-0 h-full w-full;
+  }
+
+  &.window {
+    @apply  xl:mt-12 mt-4 lg:w-[500px] xl:w-[600px] bg-black p-0 2xl:w-[700px];
+    aspect-ratio: 16/10;
+  }
+
+  .wrapper {
+    @apply rounded p-0 m-auto shadow-xl w-full  bg-opacity-100 relative animate-fade;
+    //aspect-ratio: 16/10;
+    h5 {
+      @apply text-center pt-0.5;
+    }
+  }
+}
+
+.imageBox {
+  @apply relative flex  overflow-hidden lg:w-[500px] xl:w-[600px] 2xl:w-[700px] w-full   bg-gray-950 p-0;
+  //@include fade-bg-gradient-gor();
+  aspect-ratio: 16/10;
+
+  img {
+    @apply absolute  w-full h-full;
+    object-fit: cover;
+    object-position: center;
+    @apply rounded p-0 m-0;
+    filter: blur(8px);
+  }
+
+  .poster {
+    @apply absolute   w-full h-full;
+    object-fit: contain;
+    object-position: center;
+    @apply rounded p-0 m-0;
+    filter: blur(0px);
+  }
+}

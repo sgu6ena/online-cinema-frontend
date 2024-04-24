@@ -6,7 +6,9 @@
       @apply w-8 h-8
     }
   }
-
+  &:focus, &:focus-visible{
+    outline: none;
+  }
   svg {
     @apply w-8 h-8
   }

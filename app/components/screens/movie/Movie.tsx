@@ -25,6 +25,7 @@ import MovieDescription from './MovieDescription'
 import Tabs from './Tabs'
 import screenfull from 'screenfull'
 import VideoPlayer2 from '@/ui/videoPlayer/videoPlayer2'
+import VideoPlayer from '../../ui/videoPlayer/VideoPLayer'
 
 const Movie: FC = () => {
 	const { user } = useAuth()
@@ -60,6 +61,7 @@ const Movie: FC = () => {
 	const [activeId, setActiveId] = useState(0)
 	const [percent, setPercent] = useState(0)
 	const isFavorite = useFavoritesById(movieId || '')
+	const [isFull, setIsFull] = useState(false)
 	const handleMovie = (id: number, title: string, percent: number = 0) => {
 		setPlay(true)
 		if ( !!user ){
@@ -134,8 +136,8 @@ const Movie: FC = () => {
 			{isLoading && <MovieSkeleton />}
 			{movie && (
 				<>
-					<div className={styles.movie}>
-						<Breadcrumbs breadcrumbs={getMoviesBread(movie)} />
+					<div className={cn(styles.movie)}>
+						{!fullScreen&&<Breadcrumbs breadcrumbs={getMoviesBread(movie)} />}
 						<Heading title={movie.title} className={styles.mobile} />
 						<div className={styles.main}>
 							<div className={styles.videoBox}>
@@ -152,7 +154,7 @@ const Movie: FC = () => {
 									percent={percent}
 								/>
 
-								<div className={styles.actions}>
+								{!fullScreen&& 	<div className={styles.actions}>
 									<div className={styles.buttons}>
 										{movie.trailer && <button><MaterialIcon name={'MdOutlineHomeMax'} /> Трейлер</button>}
 										<button onClick={favoriteHandler} className={cn(isFavorite && styles.active)}>
@@ -177,17 +179,17 @@ const Movie: FC = () => {
 									{movieId && (
 										<Vote vote={vote} my_vote={myVote} onClick={(i) => voting(i)} movieId={movieId} />
 									)}
-								</div>
+								</div>}
 							</div>
-							<MovieDescription movie={movie} />
+							{!fullScreen&& <MovieDescription movie={movie} />}
 						</div>
-						{seasons.length > 0 && seasons[0]?.items.length > 1 && (
+						{!fullScreen&& seasons.length > 0 && seasons[0]?.items.length > 1 && (
 							<div className={styles.movieContainer}>
 								<Tabs media={seasons} fn={handleMovie} logo={movie.logo} activeId={activeId} />
 							</div>
 						)}
 					</div>
-					<Collection collection={collection} />
+					{!fullScreen&& <Collection collection={collection} />}
 				</>
 			)}
 		</Meta>

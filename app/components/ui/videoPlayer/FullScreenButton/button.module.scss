@@ -1,5 +1,8 @@
 .button {
-  @apply w-10 h-10 flex transition-all justify-center items-center p-2  rounded-full;
+  @apply w-10 h-10 flex transition-all justify-center items-center p-2  rounded-full ;
+  &:focus, &:focus-visible{
+    outline: none;
+  }
   &:hover {
     @apply bg-gray-700;
     svg {

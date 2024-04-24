@@ -15,7 +15,6 @@ const PlayPauseButton: FC<PlayPauseButtonProps> = ({ playing, togglePlaying }) =
 				togglePlaying()
 			}
 		}
-
 		document.addEventListener('keydown', handleKeyDown)
 
 		return () => {
