@@ -3,9 +3,9 @@
   min-height: 90svh;
 
   .layout {
-    @apply h-full;
+    @apply h-full animate-fade;
     flex-grow: 1;
-
+    min-height: 60svh;
     .center {
       @apply text-white   lg:mt-20  md:mt-16 mt-12 ;
     }

@@ -14,7 +14,8 @@ import {
 } from './user.interface'
 import { PortalService } from '../../api/portal.service'
 import { saveToStorage } from '../../api/auth/auth.helper'
-import { useRouter } from 'next/router'
+import router, { useRouter } from 'next/router'
+import { LINKS } from '@/config/links'
 
 export const registerByMail = createAsyncThunk<IAuthResponse, IRegisterByEmail>(
 	'register_by_email',
@@ -78,6 +79,7 @@ export const recoveryByPhone = createAsyncThunk<any, string>(
 		try {
 			const response = await AuthService.recoveryByPhone(phone)
 			toast.success('Введите пароль, который мы отправили на ' + phone)
+				router.push(LINKS.LOGIN)
 			return response
 		} catch (error) {
 			toastError(error)

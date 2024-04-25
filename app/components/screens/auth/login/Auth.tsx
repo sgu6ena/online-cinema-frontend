@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { LINKS } from '@/config/links'
@@ -15,7 +15,7 @@ import { useAuthRedirect } from './useAuthRedirect'
 import AuthFieldsMobile from '@/screens/auth/login/AuthFieldsMobile'
 
 const Auth: FC = () => {
-useAuthRedirect()
+	useAuthRedirect()
 
 	const { isLoading } = useAuth()
 
@@ -23,7 +23,7 @@ useAuthRedirect()
 		register: registerInput,
 		handleSubmit,
 		formState,
-	} = useForm<IAuthInput>({ mode: 'onBlur' })
+	} = useForm<IAuthInput>({ defaultValues: {  login: "", password: "" }})
 
 	const { login } = useActions()
 
@@ -31,11 +31,19 @@ useAuthRedirect()
 		login(data)
 	}
 
+	const handleKeyDown = (event: React.KeyboardEvent<HTMLFormElement>) => {
+		if (event.key === 'Enter') {
+			event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+			handleSubmit(onSubmit)(); // Вызываем handleSubmit при нажатии Enter
+		}
+	};
+
+
 	return (
 		<>
 			<Meta title='Авторизация' />
 			<section className={styles.wrapper}>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={handleSubmit(onSubmit)} onKeyDown={handleKeyDown}> {/* Добавляем обработчик события onKeyDown */}
 					{isLoading && <><SkeletonLoader />ВХОД<SkeletonLoader /></>}
 					{!isLoading && (
 						<>
@@ -45,6 +53,7 @@ useAuthRedirect()
 								className='text-gray-500 text-sm mb-8'
 							/>
 							<AuthFieldsMobile
+								// control={control}
 								register={registerInput}
 								formState={formState}
 							/>

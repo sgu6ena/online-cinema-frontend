@@ -19,7 +19,7 @@ const Field = forwardRef<HTMLInputElement, IField>(
 					{type === 'file' ? (
 						<input type={type} ref={ref} onChange={handleChange} {...rest} />
 					) : (
-						<input type={type} ref={ref} {...rest} />
+						<input type={type} ref={ref} onChange={handleChange}  autoComplete="off"   {...rest}  />
 					)}
 				</label>
 				{error && <div className={styles.error}>{error.message}</div>}
