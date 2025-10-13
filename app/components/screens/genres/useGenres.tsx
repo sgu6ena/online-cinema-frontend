@@ -10,12 +10,12 @@ export const useGenres = () => {
 		'popular genre menu',
 		() => PortalService.getGenres(),
 		{
-			onSuccess: (data) => data.data.sort((i, j) => (parseInt(i.cid) - parseInt(j.cid))),
+			onSuccess: (data) => data.data.sort((a, b) => a.title.localeCompare(b.title)),
 		},
 	)
 
-	const genres = data?.data.filter(i => i.type === 1) || []
-	const collections = data?.data.filter(i => i.type === 3) || []
+	const genres = data?.data.filter(i => i.type === 1).sort((a, b) => a.title.localeCompare(b.title))  || []
+	const collections = data?.data.filter(i => i.type === 3).sort((a, b) => a.title.localeCompare(b.title)) || [];
 	//@ts-ignore
 	const banner:IGenrePortal = {title:'БАННЕР', cid:103, type:3}
 	return { genres, collections, isLoading, banner }

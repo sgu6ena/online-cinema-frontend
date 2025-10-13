@@ -141,7 +141,7 @@ const Movie: FC = () => {
 						<Heading title={movie.title} className={styles.mobile} />
 						<div className={styles.main}>
 							<div className={styles.videoBox}>
-								<VideoPlayer2
+								<VideoPlayer
 									fullScreen={fullScreen}
 									idFile={idFile}
 									url={url || ''}

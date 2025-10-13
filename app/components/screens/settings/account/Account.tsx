@@ -68,10 +68,10 @@ const Account: FC = () => {
 								<td><span>{user.point ? user.point : '-'}</span></td>
 							</tr>
 						</> : ''}
-						<tr>
-							<td>Портал за рубль</td>
-							<td><span>{user.promo ? 'доступен' : 'недоступен'}</span></td>
-						</tr>
+						{/*<tr>*/}
+						{/*	<td>Портал за рубль</td>*/}
+						{/*	<td><span>{user.promo ? 'доступен' : 'недоступен'}</span></td>*/}
+						{/*</tr>*/}
 						</tbody>
 					</table>
 				</>

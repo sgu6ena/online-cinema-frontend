@@ -12,7 +12,7 @@ const Ruble: FC = () => {
 	const { user } = useAuth()
 	const { getUserData } = useActions()
 	const isRuble = useRuble()
-	const isVisible = isRuble || !user
+	const isVisible = isRuble
 	const [isShowModal, setShowModal] = useState(false)
 	useEffect(() => {
 	getUserData()

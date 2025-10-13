@@ -22,7 +22,7 @@ const Header: FC = () => {
 				<NavMenu />
 			</div>
 			<div className={styles.end}>
-				<Ruble />
+
 				<Search />
 				<Burgers />
 			</div>

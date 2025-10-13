@@ -11,7 +11,7 @@ const PayToggleButton: FC<IPayToggle> = ({ isPayed, movieId }) => {
 	const { setIsPayedAsync, isLoading } = useMovieToggles({ id: movieId })
 	const onClick = () => {
 		setIsActive(!isActive)
-		setIsPayedAsync(isActive)
+		setIsPayedAsync(!isActive)
 	}
 
 	return (
