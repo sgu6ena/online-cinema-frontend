@@ -20,7 +20,7 @@ module.exports = module.exports = withPWA({
 		dangerouslyAllowSVG: true,
 	},
 
-serviceWorker: {
+	serviceWorker: {
 		workbox: {
 			debug: false,
 		},

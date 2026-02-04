@@ -1,15 +1,12 @@
-import { FC, useEffect, useState } from 'react'
-import { RiListCheck2 } from 'react-icons/ri'
+import { FC } from 'react'
+
 
 import { useAuth } from '@/hooks/useAuth'
-import MaterialIcon from '../../../ui/MaterialIcon'
-import Button from '../../../ui/form-elemets/Button'
+
 import Heading from '../../../ui/heading/Heading'
 import Subheading from '../../../ui/heading/Subheading'
 import styles from './subscriptions.module.scss'
-import { useActions } from '@/hooks/useActions'
-import { useSubscriptions } from '@/hooks/useSubscriptions'
-import Sub from '@/screens/settings/subscriptions/sub'
+
 import ActiveSub from '@/screens/settings/subscriptions/activeSub'
 import NextSub from '@/screens/settings/subscriptions/nextSub'
 
@@ -19,15 +16,8 @@ const Subscriptions: FC = () => {
 	const isSubscribed = !!user?.paid
 
 
-	const subs = useSubscriptions()
-
-	const { getSubscriptions } = useActions()
-	useEffect(() => {
-		getSubscriptions()
-	}, [])
 	return (
 		<div className={styles.subscriptions}>
-			{/*<Breadcrumbs breadcrumbs={getSettingsBread('ПОДПИСКА', LINKS.SUBSCRIPTIONS)} />*/}
 
 			{isSubscribed ?
 				<div className={'flex flex-col  mt-5 flex-wrap gap-2'}>
@@ -40,14 +30,14 @@ const Subscriptions: FC = () => {
 										 packet_text2={user.packet_next_text2 || ''} packet_text1={user.packet_next_text1 || ''}
 										 point={user?.point} />}
 				</div>
-				: <Subheading title={'У вас пока нет подписок'} />}
+				: <Subheading title={'У вас нет подписок'} />}
 
 			<div className={'flex flex-col  mt-5 flex-wrap gap-2'}>
-				<Heading title={'Все подписки'} className='my-5' />
-				{subs.length > 0 ? subs.map(sub => <Sub sub={sub}
-																								key={sub.packet_id} isSubscribed={isSubscribed} />) : 'загрузка доступных подписок'}</div>
+				<p>Оформление новых подписок недоступно. Предлагаем воспользоваться новой услугой <a href='https://idc.md/tv/iptv/mediateka' className='underline' target='_blank'>«IPTV Медиатека»</a></p>
 
-		</div>
+			</div>
+
+		 </div>
 	)
 }
 

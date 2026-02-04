@@ -8,11 +8,11 @@ export const settingsMenu: IMenuItem[] = [
 		link: LINKS.SUBSCRIPTIONS,
 		title: 'Мои подписки',
 	},
-	{
-		icon: 'MdMovieCreation',
-		link: LINKS.PROMOCODE,
-		title: 'Промокод',
-	},
+	// {
+	// 	icon: 'MdMovieCreation',
+	// 	link: LINKS.PROMOCODE,
+	// 	title: 'Промокод',
+	// },
 	{
 		icon: 'MdMovieFilter',
 		link: LINKS.DEVICES,

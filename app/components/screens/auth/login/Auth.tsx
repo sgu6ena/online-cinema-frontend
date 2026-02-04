@@ -68,12 +68,12 @@ const Auth: FC = () => {
 									Войти
 								</Button>
 							</div>
-							<p>
-								Еще нет аккаунта?{' '}
-								<Link href={LINKS.REGISTER}>
-									<a className='link text-primary'> Зарегистрируйтесь</a>
-								</Link>
-							</p>
+							{/*<p>*/}
+							{/*	Еще нет аккаунта?{' '}*/}
+							{/*	<Link href={LINKS.REGISTER}>*/}
+							{/*		<a className='link text-primary'> Зарегистрируйтесь</a>*/}
+							{/*	</Link>*/}
+							{/*</p>*/}
 						</>
 					)}
 				</form>

@@ -8,11 +8,11 @@ export const notUserMenu: IMenuItem[] =
 			link: LINKS.LOGIN,
 			title: 'Войти',
 		},
-		{
-			icon: 'MdPersonAddAlt',
-			link: LINKS.REGISTER,
-			title: 'Регистрация',
-		},
+		// {
+		// 	icon: 'MdPersonAddAlt',
+		// 	link: LINKS.REGISTER,
+		// 	title: 'Регистрация',
+		// },
 		{
 			icon: 'MdSearch',
 			link: LINKS.SEARCH,
