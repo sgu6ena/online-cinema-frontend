@@ -8,7 +8,6 @@ import GenreList from '@/screens/admin/movies/genreList'
 import BannersAdd from '@/screens/admin/movies/bannersAdd'
 
 
-
 const MovieEdit: FC = () => {
 	const {
 		movie,
@@ -34,19 +33,18 @@ const MovieEdit: FC = () => {
 				</div>
 
 			</div>
-			{isLoading?<>...</>:
+			{isLoading ? <>...</> :
 				<div>
 
 
 					<div className='flex items-center gap-4'>
 						<img className={'h-60 w-44 rounded-image'} src={movie?.logo} alt={movie?.title} />
-						<BannersAdd/>
+						<BannersAdd />
 					</div>
 
 					<div className={'w-full'}>
 
 						<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />
-						{/*<Field placeholder={'название'} type={'text'} defaultValue={movie?.title} />*/}
 						<Field placeholder={'описание'} type={'textarea'} defaultValue={movie?.review} />
 						<div className={'flex w-full gap-4'}>
 							<Field placeholder={'год'} type={'text'} defaultValue={movie?.year} />
@@ -56,13 +54,11 @@ const MovieEdit: FC = () => {
 							<Field placeholder={'доступ'} type={'text'} defaultValue={movie?.access ? 'платно' : 'бесплатно'} />
 						</div>
 					</div>
-					<GenreList id={movieId as string} activeGenres={[...movie?.genre|| [], ...movie?.genreExt|| []]}/>
+					<GenreList id={movieId as string} activeGenres={[...movie?.genre || [], ...movie?.genreExt || []]} />
 				</div>
 
 
-}
-			{/*<div className={'flex gap-2 mt-8 flex-wrap'}>{collections.map((item) => (*/}
-			{/*	))}</div>*/}
+			}
 		</div>
 	)
 }

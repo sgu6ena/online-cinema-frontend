@@ -7,7 +7,7 @@ import MaterialIcon from '@/ui/MaterialIcon'
 
 interface IImageAdd {
 	title: string
-	type: 'slide1' | 'slide2'
+	type: 'slide1' | 'slide2' | 'back'
 	movieId: string
 	link?:string
 }
