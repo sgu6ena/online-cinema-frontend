@@ -20,11 +20,11 @@ export const aboutUs: IMenuItem[] =
 			title: 'Публичные условия',
 		},
 
-		{
-			icon: 'MdPersonAddAlt',
-			link: LINKS.FAQ,
-			title: 'Вопросы ответы',
-		},
+		// {
+		// 	icon: 'MdPersonAddAlt',
+		// 	link: LINKS.FAQ,
+		// 	title: 'Вопросы ответы',
+		// },
 		// {
 		// 	icon: 'MdPersonAddAlt',
 		// 	link: LINKS.FEEDBACK,

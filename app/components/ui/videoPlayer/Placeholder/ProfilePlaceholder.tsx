@@ -8,10 +8,8 @@ const ProfilePlaceholder: FC = () => {
 	return (
 		<div className={styles.placeholder}>
 			<div>
-				<div>Для просмотра фильма вы должны приобрести подписку</div>
-				<Link href={LINKS.SUBSCRIPTIONS}>
-					<a className={styles.btn}>Личный кабинет</a>
-				</Link>
+				<div>Оформление новых подписок недоступно. Предлагаем воспользоваться новой услугой <a className={'underline underline-offset-4'} href='https://idc.md/tv/iptv/mediateka'>«IPTV Медиатека»</a></div>
+
 			</div>
 		</div>
 	)
