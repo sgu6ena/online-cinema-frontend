@@ -5,7 +5,7 @@ const BannersAdd = () => {
 	const { query } = useRouter()
 	const slide1 = 'https://portal.idc.md/img/slide/'+query.id+'.1.jpg'
 	const slide2 ='https://portal.idc.md/img/slide/'+query.id+'.2.jpg'
-	const back = 'https://portal.idc.md/img/back/'+query.id+'.2.jpg'
+	const back = 'https://portal.idc.md/img/slide/'+query.id+'.3.jpg'
 	return (
 		<div className={'ml-8 flex gap-4 items-center'}>
 
