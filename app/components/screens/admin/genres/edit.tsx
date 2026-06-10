@@ -59,7 +59,7 @@ const GenreEdit: FC = () => {
 				</form>
 			}
 
-			<GenreMovies movies={movies} />
+			<GenreMovies   />
 
 		</div>
 	)
