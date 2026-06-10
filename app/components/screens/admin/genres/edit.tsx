@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useForm, Controller } from 'react-hook-form'
 
@@ -8,6 +8,7 @@ import Subheading from '../../../ui/heading/Subheading'
 import { GenreFormData, useGenre } from '@/screens/admin/genres/useGenre'
 import Button from '@/ui/form-elemets/Button'
 import Image from 'next/image'
+import GenreMovies from '@/screens/admin/genres/movies'
 
 const GenreEdit: FC = () => {
 	const { query } = useRouter()
@@ -17,7 +18,7 @@ const GenreEdit: FC = () => {
 	const { handleSubmit, formState, register } = useForm({
 		mode: 'onChange',
 	})
-
+	const [movies, setMovies] = useState([])
 	const isNew = genreId === 'new'
 	const onSave = async (data: any) => {
 			await updateAsync(data as GenreFormData)
@@ -58,6 +59,7 @@ const GenreEdit: FC = () => {
 				</form>
 			}
 
+			<GenreMovies movies={movies} />
 
 		</div>
 	)

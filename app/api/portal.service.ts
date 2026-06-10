@@ -57,6 +57,8 @@ interface IMain {
 
 export interface IParams {
 	page?: string
+	per_page?: string
+	perPage?: string
 	id_sort?: '1' | '2' | '3' | '4' | '5'
 	year?: string
 	category?: '20' | '39' | '100'
@@ -67,14 +69,14 @@ export interface IParams {
 export const PortalService = {
 	async getAll() {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
-			getCategoryUrl('102/60')
+			getCategoryUrl('102/60'),
 		)
 		return data.data.data.items
 	},
 
 	async getCategory(
 		slug: string | undefined = '0',
-		{ page, id_sort, year }: IParams
+		{ page, id_sort, year }: IParams,
 	) {
 		const data = await axiosClassicPortal.get<IMoviePortalPerPage>(
 			getCategoryUrl(slug) + '/' + MOVIES_ON_PAGE,
@@ -84,7 +86,7 @@ export const PortalService = {
 					id_sort: id_sort || '1',
 					year: year,
 				},
-			}
+			},
 		)
 		return data
 	},
@@ -125,10 +127,10 @@ export const PortalService = {
 			url: m.id ? null : m.url,
 		}))
 		const genres = response.data.data.filter(
-			(item) => item.viewport === 0.8 && item.title === 'Жанры'
+			(item) => item.viewport === 0.8 && item.title === 'Жанры',
 		)
 		const collections = response.data.data.filter(
-			(item) => item.viewport === 0.3
+			(item) => item.viewport === 0.3,
 		)
 		return {
 			slider: slides,
@@ -154,7 +156,7 @@ export const PortalService = {
 		year: string,
 		sort: string,
 		category: string,
-		page: string | number
+		page: string | number,
 	) {
 		const data = await axiosClassicPortal.get(`searchExt/` + MOVIES_ON_PAGE, {
 			params: {
@@ -171,7 +173,7 @@ export const PortalService = {
 		return data.data
 	},
 
-	async changeSubscriptions({		mobile, service, code}: { mobile: string, service?: number, code?: string }) {
+	async changeSubscriptions({ mobile, service, code }: { mobile: string, service?: number, code?: string }) {
 		const response = await axios.post<any, ISendSms>(changeService(), {
 			mobile, service, code,
 		})
@@ -213,11 +215,11 @@ export const PortalService = {
 
 	async changePhone(phone: string) {
 		const response = await axios.post<any, IChangePhone>(changePhoneV2(), {
-			phone
+			phone,
 		})
 		return response
 	},
-	async changeEmail(email:string) {
+	async changeEmail(email: string) {
 		const response = await axios.post<any, IChangeEmail>(changeEmailV2(), {
 			email,
 		})
@@ -226,11 +228,11 @@ export const PortalService = {
 
 	async changePhoneConf(code: string) {
 		const response = await axios.post<any, IChangePhone>(changePhoneV2Conf(), {
-			code
+			code,
 		})
 		return response
 	},
-	async changeEmailConf(code:string) {
+	async changeEmailConf(code: string) {
 		const response = await axios.post<any, IChangeEmail>(changeEmailV2Conf(), {
 			code,
 		})
@@ -274,7 +276,7 @@ export const PortalService = {
 		return response
 	},
 	async infoPromocode(code: string) {
-		const response = await axios.post<any, any>(activatePromoCode(),{ code })
+		const response = await axios.post<any, any>(activatePromoCode(), { code })
 		return response.data.data
 	},
 	async getById(id: string) {
@@ -293,7 +295,7 @@ export const PortalService = {
 
 	async getSearch(str: string) {
 		const data = await axiosClassicPortal.get(
-			getMovieUrl(`find/12?id_sort=8&pid=all&query=${str}`)
+			getMovieUrl(`find/12?id_sort=8&pid=all&query=${str}`),
 		)
 		return data.data
 	},
@@ -303,7 +305,7 @@ export const PortalService = {
 		return data.data
 	},
 
-	async sendShootingPercent(idFile: string, percent:number) {
+	async sendShootingPercent(idFile: string, percent: number) {
 		const data = await axios.get<any>(percentageViewed(idFile, percent))
 		return data.data
 	},
